@@ -5,7 +5,7 @@ export const documentSlice=createSlice({
     name:"document",
     initialState: {value:{
         uuid:0,
-        doc_name : "",
+        doc_name: "",
         type:"",
         date:"2022-01-01", 
     }},

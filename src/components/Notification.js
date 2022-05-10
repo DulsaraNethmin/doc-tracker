@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../subcomponents/Button'
+import Button from './Button'
 
 
 function Notification() {

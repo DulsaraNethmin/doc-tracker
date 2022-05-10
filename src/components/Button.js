@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './button.css'
+
 function Button() {
     const [stat,setStat]=useState('Click this if you have already read');
     const handleChange=()=>{
