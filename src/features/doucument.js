@@ -2,18 +2,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const documentSlice=createSlice({
-    name:"document",
-    initialState: {value:{
-        uuid:0,
-        doc_name: "",
-        type:"",
-        date:"2022-01-01", 
-    }},
+    name:"documents",
+    initialState: {value: []},
     reducers : {
-        document : (state,action)=>{
-              state.value=action.payload;
-        }
-
+        addDocument:(state,action)=>{
+             //state is accessing current value of the state
+             //data pass through action object
+             //this code for adding a document
+             
+        }  
     }
 })
 
