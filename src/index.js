@@ -7,7 +7,7 @@ import documentReducer from './features/doucument';
 //setup redux store
 const store=configureStore({
   reducer:{
-    document:documentReducer,
+    documents:documentReducer,
   }
 })
 
