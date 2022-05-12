@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import doucument from '../features/doucument'
+import {addDocument} from '../features/doucument'
 
 function Document() {
-   const documentList=useSelector((state)=>state.documents.value)
+  const dispatch=useDispatch();
+  const documentList=useSelector((state)=>state.documents.value);
+  const [id,setId]=useState();
+  const [doc_name,setDoc_name]=useState("");
+  const [type,setType]=useState("");
+  const [Added_date,setAdded_date]=useState("");
  
   return (
     <div>
@@ -11,25 +17,33 @@ function Document() {
       <div className='addDocument'>
               <div>
               <p>Enter Id of the document</p>
-              <input type="number" placeholder="Id"/>
+              <input type="number" placeholder="Id" onChange={(event)=>{
+                setId(event.target.value);
+              }}/>
               </div>
               <div>
               <p>Enter name of the document</p>
-              <input type="text" placeholder="Name"/>
+              <input type="text" placeholder="Name" onChange={(event)=>{
+                setDoc_name(event.target.value);
+              }}/>
               </div>
               <div>
               <p>Enter type of the document</p>
-              <input type="text" placeholder="Type"/>
+              <input type="text" placeholder="Type" onChange={(event)=>{
+                setType(event.target.value);
+              }}/>
               </div>
               <div>
               <p>Enter Added Date of the document</p>
-              <input type="text" placeholder="Added Date"/>
+              <input type="text" placeholder="Added Date" onChange={(event)=>{
+                setAdded_date(event.target.value);
+              }}/>
               </div>
               <div  >
-              <button>Add Document</button>
+              <button onClick={()=>{dispatch(addDocument({id:id ,doc_name:doc_name ,type:type , Added_date: Added_date}))}}>Add Document</button>
               </div>
 
-      </div>
+      </div> 
       <div className='displayDocument'>
         {documentList.map((document)=>{
           return(
