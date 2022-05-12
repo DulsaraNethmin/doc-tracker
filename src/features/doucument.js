@@ -10,6 +10,7 @@ export const documentSlice=createSlice({
              //data pass through action object
              //this code for adding a document
              
+
         }  
     }
 })
