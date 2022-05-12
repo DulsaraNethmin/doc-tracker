@@ -10,10 +10,10 @@ export const documentSlice=createSlice({
              //state is accessing current value of the state
              //data pass through action object
              //this code for adding a document
+             state.value.push(action.payload);
 
-
-        }  
-    }
+        }, 
+    },
 })
-
+export const {addDocument} = documentSlice.actions;
 export default documentSlice.reducer;
