@@ -1,5 +1,6 @@
 //to create slice
 import {createSlice} from '@reduxjs/toolkit';
+import {} from '../'
 
 export const documentSlice=createSlice({
     name:"documents",
@@ -9,7 +10,7 @@ export const documentSlice=createSlice({
              //state is accessing current value of the state
              //data pass through action object
              //this code for adding a document
-             
+
 
         }  
     }
