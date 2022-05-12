@@ -24,10 +24,9 @@ function Document() {
               <p>Enter Added Date of the document</p>
               <input type="text" placeholder="Added Date"/>
               </div>
-             
-              
-
-
+              <div>
+              <button>Add Document</button>
+              </div>
 
       </div>
       <div className='displayDocument'></div>
