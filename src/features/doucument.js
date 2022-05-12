@@ -1,10 +1,10 @@
 //to create slice
 import {createSlice} from '@reduxjs/toolkit';
-import {} from '../'
+import {documentData} from '../FakeData/documentFakedata'
 
 export const documentSlice=createSlice({
     name:"documents",
-    initialState: {value: []},
+    initialState: {value: documentData},
     reducers : {
         addDocument:(state,action)=>{
              //state is accessing current value of the state
