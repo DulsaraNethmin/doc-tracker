@@ -6,7 +6,7 @@ import {addDocument} from '../features/doucument'
 function Document() {
   const dispatch=useDispatch();
   const documentList=useSelector((state)=>state.documents.value);
-  const [id,setId]=useState();
+  const [department_id,setDepartmentid]=useState();
   const [doc_name,setDoc_name]=useState("");
   const [type,setType]=useState("");
   const [Added_date,setAdded_date]=useState("");
@@ -15,12 +15,6 @@ function Document() {
     <div>
       <center>
       <div className='addDocument'>
-              <div>
-              <p>Enter Id of the document</p>
-              <input type="number" placeholder="Id" onChange={(event)=>{
-                setId(event.target.value);
-              }}/>
-              </div>
               <div>
               <p>Enter name of the document</p>
               <input type="text" placeholder="Name" onChange={(event)=>{
@@ -39,6 +33,14 @@ function Document() {
                 setAdded_date(event.target.value);
               }}/>
               </div>
+              <div>
+              <p>Enter Added Department of the document</p>
+              <input type="text" placeholder="Added Date" onChange={(event)=>{
+                setDepartmentid(event.target.value);
+              }}/>
+              </div>
+
+
               <div  >
               <button onClick={()=>{dispatch(addDocument({id:id ,doc_name:doc_name ,type:type , Added_date: Added_date}))}}>Add Document</button>
               </div>
@@ -56,7 +58,7 @@ function Document() {
     <th>Date Added</th>
   </tr>
   <td>
-    <tr>{document.id}</tr>
+    <tr>{document.department_id}</tr>
   </td>
   <td>
     <tr>{document.doc_name}</tr>

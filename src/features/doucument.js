@@ -1,10 +1,18 @@
 //to create slice
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice , createAsyncThunk} from '@reduxjs/toolkit';
 import {documentData} from '../FakeData/documentFakedata'
+import axios from 'axios';
+//to get data from db by using redux-thunk
+const postURL="http://localhost:8080/Documents/Addposts";
+const initialState={
+    documents:[],
+    status:"idle",
+    error:null
+}
 
 export const documentSlice=createSlice({
     name:"documents",
-    initialState: {value: documentData},
+    initialState: [],
     reducers : {
         addDocument:(state,action)=>{
              //state is accessing current value of the state
