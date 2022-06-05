@@ -98,12 +98,13 @@ const Login = () => {
                     type="primary"
                     htmlType="submit"
                     className="login-form-button"
-                    onClick={(e) => {
+                    onClick={async (e) => {
                       e.preventDefault();
                       //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
                       console.log(username, password);
-                      let data = { username: username, password: password };
-                      axios.post("http://localhost:8080/user/get/admin", data);
+                      let data = { "username": username, "password": password };
+                      let response = await axios.post("http://localhost:8080/user/get/one", data);
+                      console.log(response.status);
                     }}
                   >
                     Log in
