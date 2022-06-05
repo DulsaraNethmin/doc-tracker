@@ -1,0 +1,18 @@
+img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-container{
+  
+    width: 20%;
+    height: 20%;
+  
+  }
+  
+  .main-container {
+    text-align: center;
+    padding: 5%;
+    background-image: url("../images/background.png");
+    height: 760px;
+  }
