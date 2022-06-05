@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
           <Route exact path="/login" element={<AdminLoginPage />} />
@@ -32,8 +31,6 @@ function App() {
           <Route path="/chat" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
         </Routes>
-        <Chat />
-        <Footer />
       </BrowserRouter>
     </div>
   );
