@@ -1,0 +1,71 @@
+.Sidebar {
+    flex: 1;
+    /* height: calc(100vh - 50px); */
+    height: 50px;
+    background-color: #459bf1b2;
+    position: sticky;
+    top: 50px;
+}
+
+
+/* Topbar */
+@import '~antd/dist/antd.css';
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.topbarWrapper {
+    height: 90%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 30px;
+    color: #109CF1;
+}
+
+.topRight {
+    display: flex;
+    align-items: center;
+}
+
+.topbarIconsContainer {
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #109CF1;
+    size: 0mm;
+}
+
+.topIconBadge {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.topAvatar {
+    width: 37px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+

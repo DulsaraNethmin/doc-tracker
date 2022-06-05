@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Document from './components/Document';
 import Notification from './components/Notification';
+import Sidebar from './components/Sidebar';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
 
         </Routes>
       <Chat/>
+      <Sidebar/>
       <Footer/>
       </BrowserRouter>
     </div>
