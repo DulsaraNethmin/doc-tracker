@@ -7,11 +7,13 @@ import Footer from './components/Footer';
 import Document from './components/Document';
 import Notification from './components/Notification';
 import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar/>
+      {/* <Navbar/> */}
+      <Topbar/>
        <Routes>
         <Route path="/documents" exact element={<Document/>} />
         <Route path="/chat" exact element={<Chat />} />
