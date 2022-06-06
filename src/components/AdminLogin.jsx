@@ -105,6 +105,12 @@ const Login = () => {
                       let data = { "username": username, "password": password };
                       let response = await axios.post("http://localhost:8080/user/get/one", data);
                       console.log(response.status);
+                      if(response.status==200){
+                        window.alert("Login Successfull");
+                        navigate("/test-dashboard");
+                      }  if(response.status != 200){
+                        window.alert("Login UNSuccessfull");
+                      }
                     }}
                   >
                     Log in
@@ -114,7 +120,8 @@ const Login = () => {
             </Form>
           </Card>
         </Col>
-        <Col span={8}></Col>
+        <Col span={8}>
+        </Col>
       </Row>
     </div>
   );
