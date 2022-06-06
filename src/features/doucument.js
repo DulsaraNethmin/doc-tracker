@@ -6,11 +6,14 @@ import {documentData} from '../FakeData/documentFakedata'
 
 const initialState={ 
     Documents:documentData,
+    addStatuse:"",
     status:"idle",
     error:null,
 }
 const GET_URL='http://localhost:8080/api/document/getallDocuments';
 const POST_URL='http://localhost:8080/api/document/addDocuments';
+
+//to get all post
 export const fetchDocuments=createAsyncThunk('documents/getdocuments',async()=>{
     try{
         const response=await axios.get(GET_URL);
@@ -19,6 +22,17 @@ export const fetchDocuments=createAsyncThunk('documents/getdocuments',async()=>{
     catch(err){
         console.log(err);
     }
+})
+
+
+//to add post 
+export const documentAdd=createAsyncThunk("documents/adddocuments",async(documentdata,{rejectWithValue})=>{
+      try{
+        const response=await axios.post(POST_URL,documentdata)
+        return response.data
+      }catch(err){
+         return rejectWithValue(err.response.data);
+      }
 })
 
 
@@ -50,7 +64,9 @@ export const documentSlice=createSlice({
             state.status="failed"
             
         })
-    }
+        
+    },
+  
 })
  
 

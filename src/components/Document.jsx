@@ -53,7 +53,7 @@ function Document() {
             }} />
           </div>
           <div>
-            <p>Enter Added Department of the document</p>
+            <p>Enter Added Department_ID of the document</p>
             <input type="text" placeholder="Added Date" onChange={(event) => {
               setDepartmentid(event.target.value);
             }} />
