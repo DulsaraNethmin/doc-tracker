@@ -42,8 +42,8 @@ const OrgCreate = () => {
               alignment="left"
             >
               <Form.Item
-                name={["user", "orgName"]}
-                label="Organization Name"
+                name="name"
+                label="Organization"
                 rules={[
                   {
                     required: true,
@@ -54,10 +54,15 @@ const OrgCreate = () => {
               </Form.Item>
 
               <Form.Item
-                name={["user", "details"]}
-                label="Organization Details"
+                name="owner"
+                label="Owner"
+                // rules={[
+                //   {
+                //     required: true,
+                //   },
+                // ]}
               >
-                <Input.TextArea />
+                <Input />
               </Form.Item>
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
