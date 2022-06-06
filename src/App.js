@@ -8,12 +8,14 @@ import Document from './components/Document';
 import Notification from './components/Notification';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
+import Dashboard from './screens/Dashboard';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {/* <Navbar/> */}
-      <Topbar/>
+      <Navbar/>
+      <Dashboard/>
+      {/* <Topbar/> */}
        <Routes>
         <Route path="/documents" exact element={<Document/>} />
         <Route path="/chat" exact element={<Chat />} />
@@ -21,7 +23,7 @@ function App() {
 
         </Routes>
       <Chat/>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <Footer/>
       </BrowserRouter>
     </div>

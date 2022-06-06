@@ -69,3 +69,39 @@
     cursor: pointer;
 }
 
+/* header */
+.HeaderBlock{
+    background: url('https://media.istockphoto.com/photos/ballpoint-pen-resting-on-top-of-stack-of-documents-picture-id1012160724?k=20&m=1012160724&s=612x612&w=0&h=k9oh7gKaJl9PPGJMytz9crhewrTB0A-BWb3bHoWRIIg=') no-repeat;
+  background-position: 50% 100%;
+  background-size: cover;
+  background-position-y: center ;
+  backface-visibility: unset;
+  height: 30vh;
+  opacity: 70%;
+}
+
+
+.HeaderBlock h1 {
+    font-size: 50px;
+    line-height: 1.2;
+    margin: 0 0 30px;
+    padding-left: 10%;
+    padding-top: 5%;
+    opacity: 100%;
+    text-decoration-line: overline;
+    color: #000000;
+  }
+
+  
+.HeaderBlock h4 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 30px;
+    padding-right: 10%;
+    padding-top: 5%;
+    opacity: 100%;
+    color: #000000;
+  }
+.container{
+    align-content: center;
+}
