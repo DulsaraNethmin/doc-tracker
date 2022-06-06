@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import document from '../features/doucument'
+
 
 import { addDocument } from '../features/doucument'
 import { useEffect } from "react"
@@ -15,12 +15,13 @@ function Document() {
   const [doc_name, setDoc_name] = useState("");
   const [type, setType] = useState("");
   const [Added_date, setAdded_date] = useState("");
-  const document=useSelector((state)=>state.documents)
+  const getdocument=useSelector(state=>state.documents);
   useEffect(() => {
   
       dispatch(fetchDocuments())
-  }, [])
-  
+  }, [dispatch]);
+
+
 
   //to get document from reducers
 
@@ -66,24 +67,41 @@ function Document() {
         </div>
       </center>
         <div>
-          <p>
-            {document.status==="pending"&&<div>Loading</div>}
-            {document.status==="Success"&&<div>
-              {
-                document.status
-              }
-
+          {getdocument.status==="pending"&&<div>ERROR</div>}
+          {getdocument.status==="Success"&&<div>
+            {getdocument.Documents.map(doc=>
+              <div>
+                <table>
+  <tr>
+    <th>Document_name</th>
+    <th>Type</th>
+    <th>Date</th>
+    <th>Department</th>
+    <th>Iscompleted</th>
+  </tr>
+  <td>
+    <tr>{doc.doc_name}</tr>
+  </td>
+  <td>
+    <tr>{doc.type}</tr>
+  </td>
+  <td>
+    <tr>{doc.date}</tr>
+  </td>
+  <td>
+    <tr>{doc.department_id}</tr>
+  </td>
+  <td>
+    <tr>
+      <button>Completed</button>
+    </tr>
+  </td>
+</table>
+              </div>)}     
             </div>}
-          </p>
-        </div>
-      
 
+          </div>
     </div>
-     
-
-     
-
-
   )
 }
 
