@@ -1,23 +1,19 @@
 import React from 'react';
 import { Card, Col, Row } from 'antd';
+import "../Common.css"; 
 
 const Cards = () => (
   <div className="site-card-wrapper">
     <Row gutter={16}>
       <Col span={8}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
+        <Card title="Jobs to be completed" bordered={false}/>
+        
       </Col>
       <Col span={8}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
+        <Card title="Employees available" bordered={false}/>
       </Col>
       <Col span={8}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
+        <Card title="Job requests" bordered={false}/>
       </Col>
     </Row>
   </div>
