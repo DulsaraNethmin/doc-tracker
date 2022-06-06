@@ -1,6 +1,9 @@
 import React from "react";
-import { Form, Input, InputNumber, Button, Row, Col, Card } from "antd";
+import { Form, Input, Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
+import { UserOutlined, HomeOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import axios from "axios";
 
 const layout = {
   labelCol: {
@@ -24,6 +27,16 @@ const validateMessages = {
 };
 
 const OrgCreate = () => {
+  const [name, setOrgName] = useState("");
+  const [owner, setOwner] = useState("");
+
+  const handleOrgName = (e) => {
+    setOrgName(e.target.value);
+  };
+  const handleOwner = (e) => {
+    setOwner(e.target.value);
+  };
+
   const onFinish = (values) => {
     console.log(values);
   };
@@ -50,7 +63,13 @@ const OrgCreate = () => {
                   },
                 ]}
               >
-                <Input />
+                <Input
+                  onChange={(e) => {
+                    handleOrgName(e);
+                  }}
+                  prefix={<HomeOutlined className="site-form-item-icon" />}
+                  placeholder="Organization Name"
+                />
               </Form.Item>
 
               <Form.Item
@@ -62,7 +81,13 @@ const OrgCreate = () => {
                 //   },
                 // ]}
               >
-                <Input />
+                <Input
+                  onChange={(e) => {
+                    handleOwner(e);
+                  }}
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Owner Name"
+                />
               </Form.Item>
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
@@ -79,8 +104,31 @@ const OrgCreate = () => {
                   <Button
                     type="primary"
                     htmlType="submit"
-                    onClick={(e) => {
-                      navigate("/register-admin");
+                    // onClick={(e) => {
+                    //   navigate("/register-admin");
+                    // }}
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      if (name == "") {
+                        window.alert(
+                          "Incomplete. Please fill organization Name."
+                        );
+                      } else {
+                        console.log(name, owner);
+                        let data = { name: name, owner: owner };
+                        let response = await axios.post(
+                          "http://localhost:8080/organization/add",
+                          data
+                        );
+                        console.log(response.status);
+                        if (response.status == 200) {
+                          window.alert("Organization Created");
+                          navigate("/register-admin");
+                        }
+                        if (response.status != 200) {
+                          window.alert("Login UNSuccessfull");
+                        }
+                      }
                     }}
                   >
                     Next
