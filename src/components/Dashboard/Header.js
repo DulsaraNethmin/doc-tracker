@@ -8,7 +8,7 @@ function Header(){
         <div className="heroBlock">
             <div className="container-fluid">
                 <div className="content">
-                    <h1>Welcome to DocTracker...</h1>
+                    <p>Welcome to DocTracker...</p>
                 </div>
             </div>
         </div>

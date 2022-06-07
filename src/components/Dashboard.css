@@ -224,14 +224,14 @@ hero
 }
 
 .heroBlock .content {
+  
   max-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 0 70px;
-  padding-left: 900px;
+  padding-left: 800px;
   padding-top: 150px;
-  font-size: large;
 }
 
 .heroBlock h3 {
@@ -242,6 +242,14 @@ hero
 
 .heroBlock p {
   margin: 0 0 30px;
+  font-size: 80px;
+  font-family: 'Encode Sans', sans-serif;
+  font-family: 'Gentium Plus', serif;
+  font-family: 'Noto Serif', serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #109CF1;
 }
 
 .heroBlock .btnHolder {
