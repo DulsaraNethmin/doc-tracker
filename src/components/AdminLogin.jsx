@@ -9,7 +9,6 @@ import Password from "antd/lib/input/Password";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
   const navigate = useNavigate();
 
   const [username, setUserName] = useState("");
@@ -101,15 +100,24 @@ const Login = () => {
                     onClick={async (e) => {
                       e.preventDefault();
                       //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
-                      console.log(username, password);
-                      let data = { "username": username, "password": password };
-                      let response = await axios.post("http://localhost:8080/user/get/one", data);
-                      console.log(response.status);
-                      if(response.status==200){
-                        window.alert("Login Successfull");
-                        navigate("/test-dashboard");
-                      }  if(response.status != 200){
-                        window.alert("Login UNSuccessfull");
+                      try {
+                        console.log(username, password);
+                        let data = { username: username, password: password };
+                        let response = await axios.post(
+                          "http://localhost:8080/user/get/one",
+                          data
+                        );
+                        console.log(response.status);
+                        if (response.status == 200) {
+                          window.alert("Login Successfull");
+                          navigate("/test-dashboard");
+                        }
+                        if (response.status == 201) {
+                          //window.alert("Login UNSuccessfull");
+                          console.log("Login Unsuccess 201");
+                        }
+                      } catch (e) {
+                        window.alert("Login Unsucces");
                       }
                     }}
                   >
@@ -120,8 +128,7 @@ const Login = () => {
             </Form>
           </Card>
         </Col>
-        <Col span={8}>
-        </Col>
+        <Col span={8}></Col>
       </Row>
     </div>
   );
