@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
 
+import React from 'react';
+import "../Dashboard.css";
+// const {Content} = Layout;
 
-function Header() {
-    var [date, setDate] = useState(new Date());
-    useEffect(() => {
-        var timer = setInterval(() => setDate(new Date()), 1000)
-        return function cleanup() {
-            clearInterval(timer)
-        }
-    });
-
-    return (
-        <div className="HeaderBlock">
+function Header(){
+    return(
+        <div className="heroBlock">
+            <div className="container-fluid">
+                <div className="content">
+                    <h1>Welcome to DocTracker...</h1>
+                </div>
+            </div>
         </div>
     );
 }
