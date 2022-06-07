@@ -203,7 +203,7 @@ hero
   background: url('background.jpg') no-repeat;
   background-position: 50% 100%;
   background-size: cover;
-  height: 100vh;
+  height: 90vh;
 }
 
 .heroBlock .container-fluid {
@@ -225,13 +225,13 @@ hero
 
 .heroBlock .content {
   
-  max-width: 200px;
+  max-width: 100px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction:row;
+  justify-content:left;
   padding: 0 0 70px;
   padding-left: 800px;
-  padding-top: 150px;
+  padding-top: 70px;
 }
 
 .heroBlock h3 {
@@ -243,13 +243,14 @@ hero
 .heroBlock p {
   margin: 0 0 30px;
   font-size: 80px;
+  font-weight:bold;
   font-family: 'Encode Sans', sans-serif;
   font-family: 'Gentium Plus', serif;
   font-family: 'Noto Serif', serif;
   font-family: 'Open Sans', sans-serif;
   font-family: 'Poppins', sans-serif;
   font-family: 'Source Sans Pro', sans-serif;
-  color: #109CF1;
+  color: #000000;
 }
 
 .heroBlock .btnHolder {

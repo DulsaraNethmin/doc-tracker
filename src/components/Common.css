@@ -70,15 +70,15 @@
 }
 
 /* header */
-.HeaderBlock{
-    background: url('background.jpg') no-repeat;
+/* .HeaderBlock{
+    background: url('Document.jpg') no-repeat;
   background-position: 50% 100%;
   background-size: cover;
   background-position-y: center ;
   backface-visibility: unset;
   height: 30vh;
   opacity: 70%;
-}
+} */
 
 
 .HeaderBlock h1 {
