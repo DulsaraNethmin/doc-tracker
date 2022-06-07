@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const { Header, Footer, Sider, Content } = Layout;
 const background = new URL("../images/background.png", import.meta.url);
-const logo = new URL("../images/logo.png", import.meta.url);
+const logo = new URL("../images/logo.jpeg", import.meta.url);
 
 const SplashScreenPage = () => {
   const navigate = useNavigate();
