@@ -1,5 +1,4 @@
 import React from 'react'
-import "./Common.css"
 import {BellOutlined,UserOutlined} from '@ant-design/icons';
 
 function Topbar() {

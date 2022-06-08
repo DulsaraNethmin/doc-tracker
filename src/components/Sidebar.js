@@ -1,5 +1,4 @@
 import React from 'react';
-import './Common.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   FileTextOutlined,
