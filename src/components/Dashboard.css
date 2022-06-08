@@ -231,7 +231,7 @@ hero
   justify-content:left;
   padding: 0 0 70px;
   padding-left: 800px;
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
 .heroBlock h3 {
@@ -401,7 +401,7 @@ footer
 ------
 */
 .ant-layout-footer {
-  background: #55B9F5 !important;
+  background: #111 !important;
   color: #fff !important;
   padding: 60px 0 !important;
   text-align: center;
