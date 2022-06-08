@@ -12,7 +12,16 @@ function feactures() {
                 <Row gutter={[16, 16]}>
 
                     <Col span={8}>
+
                         <Card
+                            hoverable
+                            style={{ width: 240 }}
+                            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        >
+                            <Meta title="Europe Street beat" description="www.instagram.com" />
+                        </Card>
+
+                        {/* <Card
                             hoverable
                             style={{ width: 240 }}
                             // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -20,15 +29,15 @@ function feactures() {
                             <Meta title="Jobs to be completed"  />
                             <br />
                             <p>10</p>
-                        </Card>
+                        </Card> */}
                     </Col>
                     <Col span={8}>
                         <Card
                             hoverable
                             style={{ width: 240 }}
-                            // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                         >
-                            <Meta title="Employees available"  /><br />
+                            <Meta title="Employees available" /><br />
                             <p>10</p>
                         </Card>
                     </Col>
@@ -36,9 +45,9 @@ function feactures() {
                         <Card
                             hoverable
                             style={{ width: 240 }}
-                            // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                         >
-                            <Meta title="Jobs reques"  />
+                            <Meta title="Jobs reques" />
                             <br />
                             <p>10</p>
                         </Card>
@@ -50,3 +59,5 @@ function feactures() {
 }
 
 export default feactures;
+
+
