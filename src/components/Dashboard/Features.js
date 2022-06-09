@@ -11,21 +11,21 @@ function Features() {
     <div id="feature" className="block featureBlock bgGray">
       <div className="container-fluid">
         <Row>
-          <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
-            <Card
+          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+            <Card className="card"
               hoverable>
               <Meta title="Jobs to be completed" />
               <p> <UnorderedListOutlined />   10</p>
             </Card>
           </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
+          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
             <Card
               hoverable>
               <Meta title="Employees available" />
               <p><TeamOutlined />   05</p>
             </Card>
           </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
+          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
             <Card
               hoverable>
               <Meta title="Job requests" />
