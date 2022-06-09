@@ -18,6 +18,7 @@ import OrgCreatePage from "./screens/OrgCreatePage";
 import SplashScreenPage from "./screens/SplashScreenPage";
 import UserRegPage from "./screens/UserRegPage";
 import TestDashboard from "./screens/TestDashboard";
+import OrganizationDashboard from "./screens/OrganizationDashboard";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/chat" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/test-dashboard" exact element={<TestDashboard />} />
+          <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
         </Routes>
       </BrowserRouter>
     </div>
