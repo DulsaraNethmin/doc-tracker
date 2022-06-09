@@ -8,11 +8,7 @@ function Features() {
   return (
     <div id="feature" className="block featureBlock bgGray">
       <div className="container-fluid">
-        <div className="titleHolder">
-          <h2>Key Features and Benefits</h2>
-          <p>Obcaecati consequatur libero repudiandae, aperiam itaque laborum!</p>
-        </div>
-        <Row>
+        {/* <Row>
           <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
             <Card
               hoverable
@@ -38,7 +34,39 @@ function Features() {
             </Card>
           </Col>
           
-        </Row>
+        </Row> */}
+        <Row gutter={[32, 16]}>
+  <Col span={6}>
+  <Card
+    hoverable
+    style={{ width: 240 }}>
+      
+    <Meta title="Jobs to be completed" />
+    <br />
+    <p>10</p>
+  </Card>
+  </Col>
+  
+  <Col span={6}>
+  <Card
+    hoverable
+    style={{ width: 240 }}>
+    <Meta title="Employees available" />
+    <br />
+    <p>10</p>
+  </Card>
+  </Col>
+  
+  <Col span={6}>
+  <Card
+    hoverable
+    style={{ width: 240 }}>
+    <Meta title="Job requests" /><br />
+    <p>10</p>
+  </Card>
+  </Col>
+
+</Row>
       </div>
     </div>
   );
