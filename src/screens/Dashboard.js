@@ -4,6 +4,8 @@ import Feactures from "../components/Dashboard/Features";
 import Tbl from "../components/Dashboard/Table";
 import Widget from "../components/Dashboard/Widget";
 import Sidebar from "../components/Sidebar";
+import "../components/Dashboard.css"
+import { Col, Divider, Row } from 'antd';
 
 function Dashboard(){
   return(
@@ -11,8 +13,15 @@ function Dashboard(){
       <Sidebar/>
       <Header/>
       <Feactures/>
-      <Tbl/>
-      <Widget/>
+      <div className="WidgetTable">
+     
+     
+      <Divider orientation="left">Percentage columns</Divider>
+    <Row>
+      <Col flex={2}> <Widget/></Col>
+      <Col flex={3}> <Tbl/></Col>
+    </Row>
+      </div>
     </div>
   );
 }
