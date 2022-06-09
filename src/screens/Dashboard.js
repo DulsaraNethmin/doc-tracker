@@ -14,9 +14,7 @@ function Dashboard(){
       <Header/>
       <Feactures/>
       <div className="WidgetTable">
-     
-     
-      <Divider orientation="left">Percentage columns</Divider>
+      <Divider orientation="left"></Divider>
     <Row>
       <Col flex={2}> <Widget/></Col>
       <Col flex={3}> <Tbl/></Col>
