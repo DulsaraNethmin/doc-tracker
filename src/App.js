@@ -19,10 +19,12 @@ import SplashScreenPage from "./screens/SplashScreenPage";
 import UserRegPage from "./screens/UserRegPage";
 import TestDashboard from "./screens/TestDashboard";
 import OrganizationDashboard from "./screens/OrganizationDashboard";
+import BranchesTable from "./screens/BranchesTable";
 
 function App() {
   return (
     <div className="App">
+      <BranchesTable />
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
