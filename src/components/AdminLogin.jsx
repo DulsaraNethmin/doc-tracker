@@ -85,15 +85,6 @@ const Login = () => {
               <Row>
                 <Form.Item>
                   <Button
-                    onClick={(e) => {
-                      navigate("/");
-                    }}
-                  >
-                    Back
-                  </Button>
-                </Form.Item>
-                <Form.Item>
-                  <Button
                     type="primary"
                     htmlType="submit"
                     className="login-form-button"
@@ -104,10 +95,12 @@ const Login = () => {
                         console.log(username, password);
                         let data = { username: username, password: password };
                         let response = await axios.post(
-                          "http://localhost:8080/user/get/one",
+                          "http://localhost:8080/user/get/oneOrgOwner",
                           data
                         );
-                        console.log(response.status);
+                        console.log(response.data[0]["branch"]);
+                        var branch_id = response.data[0]["branchId"];
+                        localStorage.setItem("branch_id", branch_id);
                         if (response.status == 200) {
                           window.alert("Login Successfull");
                           navigate("/test-dashboard");
@@ -121,7 +114,52 @@ const Login = () => {
                       }
                     }}
                   >
-                    Log in
+                    Organization Log in
+                  </Button>
+                </Form.Item>
+                <br />
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="login-form-button"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
+                      try {
+                        console.log(username, password);
+                        let data = { username: username, password: password };
+                        let response = await axios.post(
+                          "http://localhost:8080/user/get/oneBrOwner",
+                          data
+                        );
+                        console.log(response.data[0]["branch"]);
+                        var branch_id = response.data[0]["branchId"];
+                        localStorage.setItem("branch_id", branch_id);
+                        if (response.status == 200) {
+                          window.alert("Login Successfull");
+                          navigate("/test-dashboard");
+                        }
+                        if (response.status == 201) {
+                          //window.alert("Login UNSuccessfull");
+                          console.log("Login Unsuccess 201");
+                        }
+                      } catch (e) {
+                        window.alert("Login Unsucces");
+                      }
+                    }}
+                  >
+                    Branch Login
+                  </Button>
+                </Form.Item>
+                <br />
+                <Form.Item>
+                  <Button
+                    onClick={(e) => {
+                      navigate("/");
+                    }}
+                  >
+                    Back
                   </Button>
                 </Form.Item>
               </Row>
