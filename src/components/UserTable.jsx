@@ -6,7 +6,7 @@ for (let i = 0; i < 100; i++) {
   originData.push({
     key: i.toString(),
     name: `Edrward ${i}`,
-    age: 32,
+    Usrname: 32,
     address: `London Park no. ${i}`,
   });
 }
@@ -33,7 +33,7 @@ const EditableCell = ({
           rules={[
             {
               required: true,
-              message: `Please Input ${title}!`,
+              messUsrname: `Please Input ${title}!`,
             },
           ]}
         >
@@ -56,7 +56,7 @@ const UserTable = () => {
   const edit = (record) => {
     form.setFieldsValue({
       name: '',
-      age: '',
+      Usrname: '',
       address: '',
       ...record,
     });
@@ -96,8 +96,8 @@ const UserTable = () => {
       editable: true,
     },
     {
-      title: 'age',
-      dataIndex: 'age',
+      title: 'Usrname',
+      dataIndex: 'Usrname',
       width: '15%',
       editable: true,
     },
@@ -143,7 +143,7 @@ const UserTable = () => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex === 'age' ? 'number' : 'text',
+        inputType: col.dataIndex === 'Usrname' ? 'number' : 'text',
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),
