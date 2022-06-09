@@ -20,10 +20,12 @@ import UserRegPage from "./screens/UserRegPage";
 import TestDashboard from "./screens/TestDashboard";
 import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
+import BranchRegPage from "./screens/BranchRegPage";
 
 function App() {
   return (
     <div className="App">
+      <BranchRegPage />
       <BranchesTable />
       <BrowserRouter>
         <Routes>
