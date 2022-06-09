@@ -17,10 +17,12 @@ import AdminRegPage from "./screens/AdminRegPage";
 import OrgCreatePage from "./screens/OrgCreatePage";
 import SplashScreenPage from "./screens/SplashScreenPage";
 import UserRegPage from "./screens/UserRegPage";
+import UserTable from "./components/UserTable";
 
 function App() {
   return (
     <div className="App">
+      <UserTable/>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
