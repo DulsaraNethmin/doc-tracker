@@ -89,6 +89,36 @@ const OrgCreate = () => {
                   placeholder="Owner Name"
                 />
               </Form.Item>
+
+              <Form.Item
+                name="organization_user_name"
+                label="Org User Name"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input username",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+
+              <Form.Item
+                name="password"
+                label="Org Password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input.Password />
+              </Form.Item>
+
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button

@@ -25,8 +25,8 @@ import BranchRegPage from "./screens/BranchRegPage";
 function App() {
   return (
     <div className="App">
-      <BranchRegPage />
-      <BranchesTable />
+      
+      
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
@@ -38,6 +38,9 @@ function App() {
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/test-dashboard" exact element={<TestDashboard />} />
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
+          <Route path="/Branch-reg" exact element={<BranchRegPage />} />
+          <Route path="/Branch-table" exact element={<BranchesTable />} />
+
         </Routes>
       </BrowserRouter>
     </div>
