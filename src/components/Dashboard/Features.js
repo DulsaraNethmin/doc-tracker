@@ -15,21 +15,21 @@ function Features() {
             <Card
               hoverable>
               <Meta title="Jobs to be completed" />
-              <UnorderedListOutlined /> <p>10</p>
+              <p> <UnorderedListOutlined />   10</p>
             </Card>
           </Col>
           <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
             <Card
               hoverable>
               <Meta title="Employees available" />
-              <TeamOutlined /><p>05</p>
+              <p><TeamOutlined />   05</p>
             </Card>
           </Col>
           <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
             <Card
               hoverable>
               <Meta title="Job requests" />
-              <SyncOutlined spin /><p>03</p>
+             <p> <SyncOutlined spin />    03</p>
             </Card>
           </Col>
 
