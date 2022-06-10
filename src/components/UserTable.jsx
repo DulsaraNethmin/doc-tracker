@@ -57,7 +57,7 @@ const UserTable = () => {
     form.setFieldsValue({
       name: '',
       Usrname: '',
-      address: '',
+      email_address: '',
       ...record,
     });
     setEditingKey(record.key);
@@ -102,11 +102,17 @@ const UserTable = () => {
       editable: true,
     },
     {
-      title: 'address',
-      dataIndex: 'address',
-      width: '40%',
+      title: 'email address',
+      dataIndex: 'email',
+      width: '20%',
       editable: true,
     },
+    {
+        title: 'Job role',
+        dataIndex: 'Job role',
+        width: '25%',
+        editable: true,
+      },
     {
       title: 'operation',
       dataIndex: 'operation',
@@ -152,7 +158,7 @@ const UserTable = () => {
   });
 
   return (
-    <div>
+    <div className='Table'>
         <Form form={form} component={false}>
       <Table
         components={{
