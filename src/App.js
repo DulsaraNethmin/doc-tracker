@@ -21,6 +21,7 @@ import TestDashboard from "./screens/TestDashboard";
 import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
+import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 
 function App() {
   return (
@@ -31,7 +32,12 @@ function App() {
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
           <Route exact path="/login" element={<AdminLoginPage />} />
+
+          
           <Route exact path="/create-organization" element={<OrgCreatePage />} />
+          <Route exact path="/create-org-owner" element={<OrgOwnerCreatePage />} />
+
+          
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
           <Route path="/chat" exact element={<Chat />} />

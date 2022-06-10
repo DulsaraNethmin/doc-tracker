@@ -26,7 +26,7 @@ const validateMessages = {
   },
 };
 
-const OrgCreate = () => {
+const OrgOwnerCreatePage = () => {
   const [name, setOrgName] = useState("");
   const [owner, setOwner] = useState("");
 
@@ -50,44 +50,37 @@ const OrgCreate = () => {
             <Form
               {...layout}
               name="nest-messages"
-              onFinish={onFinish}
+              //onFinish={onFinish}
               validateMessages={validateMessages}
               alignment="left"
             >
               <Form.Item
-                name="name"
-                label="Organization"
+                name="organization_owneruser_name"
+                label="Org OwnerUser Name"
+                //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
+                    message: "Please input username",
+                    whitespace: true,
                   },
                 ]}
               >
-                <Input
-                  onChange={(e) => {
-                    handleOrgName(e);
-                  }}
-                  prefix={<HomeOutlined className="site-form-item-icon" />}
-                  placeholder="Organization Name"
-                />
+                <Input />
               </Form.Item>
 
               <Form.Item
-                name="owner"
-                label="Owner"
-                // rules={[
-                //   {
-                //     required: true,
-                //   },
-                // ]}
+                name="password"
+                label="Org Password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                ]}
+                hasFeedback
               >
-                <Input
-                  onChange={(e) => {
-                    handleOwner(e);
-                  }}
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Owner Name"
-                />
+                <Input.Password />
               </Form.Item>
 
               <Row>
@@ -124,7 +117,7 @@ const OrgCreate = () => {
                         console.log(response.status);
                         if (response.status == 200) {
                           window.alert("Organization Created");
-                          navigate("/create-org-owner");
+                          navigate("/register-admin");
                         }
                         if (response.status != 200) {
                           window.alert("Login UNSuccessfull");
@@ -145,4 +138,4 @@ const OrgCreate = () => {
   );
 };
 
-export default OrgCreate;
+export default OrgOwnerCreatePage;

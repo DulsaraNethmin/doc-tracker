@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
@@ -6,6 +6,28 @@ import { useState } from "react";
 import axios from "axios";
 
 const layout = {
+    labelCol: {
+      span: 8,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  };
+  /* eslint-disable no-template-curly-in-string */
+  
+  const validateMessages = {
+    required: "${label} is required!",
+    types: {
+      email: "${label} is not a valid email!",
+      number: "${label} is not a valid number!",
+    },
+    number: {
+      range: "${label} must be between ${min} and ${max}",
+    },
+  };
+
+const OrgOwnerCreate = () => {
+    const layout = {
   labelCol: {
     span: 8,
   },
@@ -25,22 +47,6 @@ const validateMessages = {
     range: "${label} must be between ${min} and ${max}",
   },
 };
-
-const OrgCreate = () => {
-  const [name, setOrgName] = useState("");
-  const [owner, setOwner] = useState("");
-
-  const handleOrgName = (e) => {
-    setOrgName(e.target.value);
-  };
-  const handleOwner = (e) => {
-    setOwner(e.target.value);
-  };
-
-  const onFinish = (values) => {
-    console.log(values);
-  };
-  const navigate = useNavigate();
   return (
     <div>
       <Row style={{ padding: "4% 0" }}>
@@ -54,40 +60,34 @@ const OrgCreate = () => {
               validateMessages={validateMessages}
               alignment="left"
             >
+
               <Form.Item
-                name="name"
-                label="Organization"
+                name="organization_owneruser_name"
+                label="Org OwnerUser Name"
+                //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
+                    message: "Please input username",
+                    whitespace: true,
                   },
                 ]}
               >
-                <Input
-                  onChange={(e) => {
-                    handleOrgName(e);
-                  }}
-                  prefix={<HomeOutlined className="site-form-item-icon" />}
-                  placeholder="Organization Name"
-                />
+                <Input />
               </Form.Item>
 
               <Form.Item
-                name="owner"
-                label="Owner"
-                // rules={[
-                //   {
-                //     required: true,
-                //   },
-                // ]}
+                name="password"
+                label="Org Password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                ]}
+                hasFeedback
               >
-                <Input
-                  onChange={(e) => {
-                    handleOwner(e);
-                  }}
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Owner Name"
-                />
+                <Input.Password />
               </Form.Item>
 
               <Row>
@@ -124,7 +124,7 @@ const OrgCreate = () => {
                         console.log(response.status);
                         if (response.status == 200) {
                           window.alert("Organization Created");
-                          navigate("/create-org-owner");
+                          navigate("/register-admin");
                         }
                         if (response.status != 200) {
                           window.alert("Login UNSuccessfull");
@@ -142,7 +142,7 @@ const OrgCreate = () => {
         <Col span={8}></Col>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default OrgCreate;
+export default OrgOwnerCreate
