@@ -27,14 +27,24 @@ const validateMessages = {
 };
 
 const OrgOwnerCreatePage = () => {
-  const [name, setOrgName] = useState("");
+  //const [name, setOrgName] = useState("");
   const [owner, setOwner] = useState("");
+  const [organization_owneruser_name, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleOrgName = (e) => {
-    setOrgName(e.target.value);
-  };
+  // const handleOrgName = (e) => {
+  //   setOrgName(e.target.value);
+  // };
   const handleOwner = (e) => {
     setOwner(e.target.value);
+  };
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -55,6 +65,24 @@ const OrgOwnerCreatePage = () => {
               alignment="left"
             >
               <Form.Item
+                name="owner"
+                label="Owner"
+                // rules={[
+                //   {
+                //     required: true,
+                //   },
+                // ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handleOwner(e);
+                  }}
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Owner Name"
+                />
+              </Form.Item>
+
+              <Form.Item
                 name="organization_owneruser_name"
                 label="Org OwnerUser Name"
                 //tooltip="What do you want others to call you?"
@@ -66,7 +94,11 @@ const OrgOwnerCreatePage = () => {
                   },
                 ]}
               >
-                <Input />
+                <Input
+                  onChange={(e) => {
+                    handleUsername(e);
+                  }}
+                />
               </Form.Item>
 
               <Form.Item
@@ -80,7 +112,11 @@ const OrgOwnerCreatePage = () => {
                 ]}
                 hasFeedback
               >
-                <Input.Password />
+                <Input.Password
+                  onChange={(e) => {
+                    handlePassword(e);
+                  }}
+                />
               </Form.Item>
 
               <Row>
@@ -103,27 +139,29 @@ const OrgOwnerCreatePage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      if (name == "") {
-                        window.alert(
-                          "Incomplete. Please fill organization Name."
-                        );
-                      } else {
-                        console.log(name, owner);
-                        let data = { name: name, owner: owner };
+                      
+                        console.log(owner, organization_owneruser_name, password);
+                        let data = {
+                          name: owner,
+                          username: organization_owneruser_name,
+                          password: password,
+                        };
                         let response = await axios.post(
-                          "http://localhost:8080/organization/add",
+                          "http://localhost:8080/user/add",
                           data
                         );
                         console.log(response.status);
                         if (response.status == 200) {
-                          window.alert("Organization Created");
+                          window.alert("Organization Owner Created");
                           navigate("/register-admin");
                         }
                         if (response.status != 200) {
-                          window.alert("Login UNSuccessfull");
+                          window.alert(
+                            "Organization Owner Creation UNSuccessfull"
+                          );
                         }
                       }
-                    }}
+                    }
                   >
                     Next
                   </Button>

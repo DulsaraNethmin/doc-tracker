@@ -72,23 +72,7 @@ const OrgCreate = () => {
                 />
               </Form.Item>
 
-              <Form.Item
-                name="owner"
-                label="Owner"
-                // rules={[
-                //   {
-                //     required: true,
-                //   },
-                // ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handleOwner(e);
-                  }}
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Owner Name"
-                />
-              </Form.Item>
+              
 
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
@@ -115,8 +99,8 @@ const OrgCreate = () => {
                           "Incomplete. Please fill organization Name."
                         );
                       } else {
-                        console.log(name, owner);
-                        let data = { name: name, owner: owner };
+                        console.log(name);
+                        let data = { name: name};
                         let response = await axios.post(
                           "http://localhost:8080/organization/add",
                           data
