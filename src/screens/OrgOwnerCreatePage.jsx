@@ -145,12 +145,15 @@ const OrgOwnerCreatePage = () => {
                           name: owner,
                           username: organization_owneruser_name,
                           password: password,
+                          role: "Organization Owner",
+                          org_id:localStorage.getItem("org_id"),
                         };
+                        console.log(data);
                         let response = await axios.post(
                           "http://localhost:8080/user/add",
                           data
                         );
-                        console.log(response.status);
+                        console.log(response.data);
                         if (response.status == 200) {
                           window.alert("Organization Owner Created");
                           navigate("/register-admin");

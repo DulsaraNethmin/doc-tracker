@@ -105,7 +105,8 @@ const OrgCreate = () => {
                           "http://localhost:8080/organization/add",
                           data
                         );
-                        console.log(response.status);
+                        console.log(response.data);
+                        localStorage.setItem("org_id",response.data.uuid);
                         if (response.status == 200) {
                           window.alert("Organization Created");
                           navigate("/create-org-owner");
