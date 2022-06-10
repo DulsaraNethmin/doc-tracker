@@ -5,17 +5,9 @@ import "../components/User.css"
 import {useNavigate} from "react-router-dom"
 const originData = [];
 
-// for (let i = 0; i < 100; i++) {
-//   originData.push({
-//     key: i.toString(),
-//     name: `Edrward ${i}`,
-//     Usrname: 32,
-//     address: `London Park no. ${i}`,
-//   });
-// }
 
 const UserTable = () => {
-    const [form] = Form.useForm();
+  const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
   const navigate = useNavigate();
@@ -82,7 +74,7 @@ const UserTable = () => {
       render: (_, record) => {
         const editable = isEditing(record);
         return (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile')}>
+          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
             View
           </Typography.Link>
         );
@@ -94,7 +86,6 @@ const UserTable = () => {
       ...col,
     };
   });
-
 
   return (
     <div className='Table'>
