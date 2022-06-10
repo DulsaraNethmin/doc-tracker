@@ -26,15 +26,25 @@ const validateMessages = {
   },
 };
 
-const OrgCreate = () => {
-  const [name, setOrgName] = useState("");
+const OrgOwnerCreatePage = () => {
+  //const [name, setOrgName] = useState("");
   const [owner, setOwner] = useState("");
+  const [organization_owneruser_name, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleOrgName = (e) => {
-    setOrgName(e.target.value);
-  };
+  // const handleOrgName = (e) => {
+  //   setOrgName(e.target.value);
+  // };
   const handleOwner = (e) => {
     setOwner(e.target.value);
+  };
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -50,29 +60,64 @@ const OrgCreate = () => {
             <Form
               {...layout}
               name="nest-messages"
-              onFinish={onFinish}
+              //onFinish={onFinish}
               validateMessages={validateMessages}
               alignment="left"
             >
               <Form.Item
-                name="name"
-                label="Organization"
+                name="owner"
+                label="Owner"
+                // rules={[
+                //   {
+                //     required: true,
+                //   },
+                // ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handleOwner(e);
+                  }}
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Owner Name"
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="organization_owneruser_name"
+                label="Org OwnerUser Name"
+                //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
+                    message: "Please input username",
+                    whitespace: true,
                   },
                 ]}
               >
                 <Input
                   onChange={(e) => {
-                    handleOrgName(e);
+                    handleUsername(e);
                   }}
-                  prefix={<HomeOutlined className="site-form-item-icon" />}
-                  placeholder="Organization Name"
                 />
               </Form.Item>
 
-              
+              <Form.Item
+                name="password"
+                label="Org Password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input.Password
+                  onChange={(e) => {
+                    handlePassword(e);
+                  }}
+                />
+              </Form.Item>
 
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
@@ -94,28 +139,32 @@ const OrgCreate = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      if (name == "") {
-                        window.alert(
-                          "Incomplete. Please fill organization Name."
-                        );
-                      } else {
-                        console.log(name);
-                        let data = { name: name};
+                      
+                        console.log(owner, organization_owneruser_name, password);
+                        let data = {
+                          name: owner,
+                          username: organization_owneruser_name,
+                          password: password,
+                          role: "Organization Owner",
+                          org_id:localStorage.getItem("org_id"),
+                        };
+                        console.log(data);
                         let response = await axios.post(
-                          "http://localhost:8080/organization/add",
+                          "http://localhost:8080/user/add",
                           data
                         );
                         console.log(response.data);
-                        localStorage.setItem("org_id",response.data.uuid);
                         if (response.status == 200) {
-                          window.alert("Organization Created");
-                          navigate("/create-org-owner");
+                          window.alert("Organization Owner Created");
+                          navigate("/register-admin");
                         }
                         if (response.status != 200) {
-                          window.alert("Login UNSuccessfull");
+                          window.alert(
+                            "Organization Owner Creation UNSuccessfull"
+                          );
                         }
                       }
-                    }}
+                    }
                   >
                     Next
                   </Button>
@@ -130,4 +179,4 @@ const OrgCreate = () => {
   );
 };
 
-export default OrgCreate;
+export default OrgOwnerCreatePage;

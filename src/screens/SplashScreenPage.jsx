@@ -4,10 +4,9 @@ import "./pages.css";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
-
 const { Header, Footer, Sider, Content } = Layout;
 const background = new URL("../images/background.png", import.meta.url);
-const logo = new URL("../images/logo.png", import.meta.url);
+const logo = new URL("../images/logo.jpeg", import.meta.url);
 
 const SplashScreenPage = () => {
   const navigate = useNavigate();
@@ -15,10 +14,13 @@ const SplashScreenPage = () => {
     <div className="main-container">
       <div>
         <h1>DOC-TRACKER</h1>
-
+        <br />
         <img src={logo} className="image-container" />
-
+        <br />
+        <br />
+        <br />
         <h2>Welcome to Doc-Tracker</h2>
+        <br />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit
           distinctio ut doloribus, tenetur dignissimos amet ipsa tempora rerum
@@ -31,9 +33,23 @@ const SplashScreenPage = () => {
       </div>
       <div>
         <br />
-        <Button type="primary" onClick={(e)=>{navigate('login')}}>Login</Button>
+        <Button
+          type="primary"
+          onClick={(e) => {
+            navigate("login");
+          }}
+        >
+          Login
+        </Button>
 
-        <Button type="text" onClick={(e)=>{navigate('create-organization')}}>Create Organization</Button>
+        <Button
+          type="text"
+          onClick={(e) => {
+            navigate("create-organization");
+          }}
+        >
+          Create Organization
+        </Button>
       </div>
     </div>
   );
