@@ -22,6 +22,8 @@ import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
+import DocumentList from './components/DocumentList';
+import Mail from './components/Mail';
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
           <Route path="/Branch-reg" exact element={<BranchRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
+          <Route path="/documents/viewdoc" exact element={<DocumentList />} />
 
         </Routes>
       </BrowserRouter>
