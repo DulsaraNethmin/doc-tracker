@@ -19,6 +19,7 @@ import SplashScreenPage from "./screens/SplashScreenPage";
 import UserRegPage from "./screens/UserRegPage";
 import UserTable from "./components/UserTable";
 import UserDetails from "./screens/UserDetails";
+import Userprofile from "./screens/Userprofile";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/chat" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
+          <Route path="/user/profile" exact element={<Userprofile/>} />
         </Routes>
       </BrowserRouter>
     </div>
