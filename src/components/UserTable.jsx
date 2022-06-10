@@ -1,5 +1,6 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import React, { useState } from 'react';
+import "../components/User.css"
 const originData = [];
 
 for (let i = 0; i < 100; i++) {
@@ -159,6 +160,7 @@ const UserTable = () => {
 
   return (
     <div className='Table'>
+        <h2>User details</h2>
         <Form form={form} component={false}>
       <Table
         components={{
