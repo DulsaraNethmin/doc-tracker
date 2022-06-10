@@ -6,7 +6,7 @@ import RegistrationCommon from "../components/RegistrationCommon";
 import RegAdminSpecified from "../components/RegAdminSpecified";
 import RegNoSpecified from "../components/RegNoSpecified";
 
-const logo = new URL("../images/logo.png", import.meta.url);
+const logo = new URL("../images/logo.jpeg", import.meta.url);
 
 const AdminRegPage = () => {
   return (

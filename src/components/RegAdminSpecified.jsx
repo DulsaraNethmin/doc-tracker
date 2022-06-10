@@ -147,7 +147,7 @@ const RegAdminSpecified = () => {
 
           <Row>
             <Form.Item {...tailFormItemLayout}>
-              <Button onClick={(e)=>{navigate('/create-organization')}}>
+              <Button disabled /*onClick={(e)=>{navigate('/create-organization')}}*/>
                 Back
               </Button>
             </Form.Item>

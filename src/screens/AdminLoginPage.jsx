@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "antd";
 import Login from "../components/AdminLogin";
 
-const logo = new URL("../images/logo.png", import.meta.url);
+const logo = new URL("../images/logo.jpeg", import.meta.url);
 
 const AdminLoginPage = () => {
   return (

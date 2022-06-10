@@ -9,7 +9,6 @@ import Password from "antd/lib/input/Password";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
   const navigate = useNavigate();
 
   const [username, setUserName] = useState("");
@@ -75,15 +74,85 @@ const Login = () => {
                   placeholder="Password"
                 />
               </Form.Item>
-              <Form.Item>
+              {/* <Form.Item>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
                   <Checkbox>Remember me</Checkbox>
                 </Form.Item>
                 <a className="login-form-forgot" href="">
                   Forgot password
                 </a>
-              </Form.Item>
+              </Form.Item> */}
               <Row>
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="login-form-button"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
+                      try {
+                        console.log(username, password);
+                        let data = { username: username, password: password };
+                        let response = await axios.post(
+                          "http://localhost:8080/user/get/oneOrgOwner",
+                          data
+                        );
+                        console.log(response.data[0]["branch"]);
+                        var branch_id = response.data[0]["branchId"];
+                        localStorage.setItem("branch_id", branch_id);
+                        if (response.status == 200) {
+                          window.alert("Login Successfull");
+                          navigate("/test-dashboard");
+                        }
+                        if (response.status == 201) {
+                          //window.alert("Login UNSuccessfull");
+                          console.log("Login Unsuccess 201");
+                        }
+                      } catch (e) {
+                        window.alert("Login Unsucces");
+                      }
+                    }}
+                  >
+                    Organization Log in
+                  </Button>
+                </Form.Item>
+                <br />
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="login-form-button"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
+                      try {
+                        console.log(username, password);
+                        let data = { username: username, password: password };
+                        let response = await axios.post(
+                          "http://localhost:8080/user/get/oneBrOwner",
+                          data
+                        );
+                        console.log(response.data[0]["branch"]);
+                        var branch_id = response.data[0]["branchId"];
+                        localStorage.setItem("branch_id", branch_id);
+                        if (response.status == 200) {
+                          window.alert("Login Successfull");
+                          navigate("/test-dashboard");
+                        }
+                        if (response.status == 201) {
+                          //window.alert("Login UNSuccessfull");
+                          console.log("Login Unsuccess 201");
+                        }
+                      } catch (e) {
+                        window.alert("Login Unsucces");
+                      }
+                    }}
+                  >
+                    Branch Login
+                  </Button>
+                </Form.Item>
+                <br />
                 <Form.Item>
                   <Button
                     onClick={(e) => {
@@ -91,22 +160,6 @@ const Login = () => {
                     }}
                   >
                     Back
-                  </Button>
-                </Form.Item>
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    className="login-form-button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
-                      console.log(username, password);
-                      let data = { username: username, password: password };
-                      axios.post("http://localhost:8080/user/get/admin", data);
-                    }}
-                  >
-                    Log in
                   </Button>
                 </Form.Item>
               </Row>
