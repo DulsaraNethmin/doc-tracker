@@ -1,4 +1,5 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
+import axios from 'axios';
 import React, { useState } from 'react';
 import "../components/User.css"
 const originData = [];
@@ -89,6 +90,15 @@ const UserTable = () => {
     }
   };
 
+
+  const user_data=async()=>{
+    try{
+      var response=await axios.get('http://localhost:8080/user/get/all?');
+      console.log(response);
+    }catch(e){
+      console.log(e);
+    }
+  }
   const columns = [
     {
       title: 'name',
