@@ -18,11 +18,11 @@ import OrgCreatePage from "./screens/OrgCreatePage";
 import SplashScreenPage from "./screens/SplashScreenPage";
 import UserRegPage from "./screens/UserRegPage";
 import UserTable from "./components/UserTable";
+import UserDetails from "./screens/UserDetails";
 
 function App() {
   return (
     <div className="App">
-      <UserTable/>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
@@ -32,6 +32,7 @@ function App() {
           <Route path="/documents" exact element={<Document />} />
           <Route path="/chat" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
+          <Route path="/user/details" exact element={<UserDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>
