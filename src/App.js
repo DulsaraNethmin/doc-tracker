@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-import Chat from "./components/Chat";
+//import Chat from "./components/Chat";
 import {
   BrowserRouter as Router,
   Routes,
@@ -45,7 +45,7 @@ function App() {
           
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
-          <Route path="/mail" exact element={<Chat />} />
+         {/* { <Route path="/mail" exact element={<Chat />} />} */}
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile" exact element={<Userprofile/>} />
