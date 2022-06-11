@@ -42,7 +42,7 @@ function App() {
           
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
-          <Route path="/chat" exact element={<Chat />} />
+          <Route path="/mail" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/test-dashboard" exact element={<TestDashboard />} />
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
