@@ -23,17 +23,19 @@ const JobsInProgress_Table = () => {
   const user_data=async()=>{
     try{
       console.log('aaaaaa');
-      var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+      // var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+      var response=await axios.get('http://localhost:8080/jobs/get/all?job_id=1356d36d-05ca-4a50-98bf-5a941355f418');
       console.log(response.data);
       const obj=response.data.map((e)=>{
         return(
           {
             "key":1,
-            "name":e.name,
-            "Usrname":e.username, 
-            "email":e.email,
-            "Job role":e.role,
-            "address":'London Park no'
+            "id":e.ID,
+            "Admin ID":e.admin_id, 
+            "Deliverer ID":e.deliverer_id,
+            "Customer ID":e.customer_id,
+            "Document ID":e.customer_id,
+            "Created date":e.createdAt
           }
         );
       })
@@ -47,20 +49,20 @@ const JobsInProgress_Table = () => {
     {
       title: 'ID',
       dataIndex: 'id',
-      width: '10%',
-      editable: true,
+      width: '15%',
+      editable: false,
     },
     {
       title: 'Admin ID',
       dataIndex: 'admin_id',
-      width: '10%',
-      editable: true,
+      width: '15%',
+      editable: false,
     },
     {
       title: 'Deliverer ID',
       dataIndex: 'deliverer_id',
-      width: '10%',
-      editable: true,
+      width: '15%',
+      editable: false,
     },
     // {
     //     title: 'Job role',
@@ -71,21 +73,21 @@ const JobsInProgress_Table = () => {
       {
         title: 'Customer ID',
         dataIndex: 'customer_id',
-        width: '10%',
-        editable: true,
+        width: '15%',
+        editable: false,
       },
 
       {
         title: 'Document ID',
-        dataIndex: 'customer_id',
-        width: '10%',
-        editable: true,
+        dataIndex: 'doc_id',
+        width: '15%',
+        editable: false,
       },
       {
         title: 'Created date',
-        dataIndex: 'customer_id',
-        width: '10%',
-        editable: true,
+        dataIndex: 'createdAt',
+        width: '15%',
+        editable: false,
       },
     {
       title: 'Tracking',
@@ -93,7 +95,7 @@ const JobsInProgress_Table = () => {
       render: (_, record) => {
         const editable = isEditing(record);
         return (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
+          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking',{state:{}})}>
             Show
           </Typography.Link>
         );
@@ -109,7 +111,7 @@ const JobsInProgress_Table = () => {
   return (
     <div className='Table'>
       
-        <h2>User details</h2>
+        <h2>Jobs in Progress</h2>
         <Form form={form} component={false}>
       <Table
         bordered

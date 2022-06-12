@@ -25,6 +25,7 @@ import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import Jobs from "./screens/Jobs/Jobs";
 import JobsInProgress from "./screens/Jobs/JobsInProgress";
 import JobsInProgress_Table from "./components/JobsInProgress_Table";
+import JobTracking from "./components/JobTracking";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
 
           <Route exact path="/Jobs" element={<Jobs />} />
           <Route exact path="/JobsInProgress" element={<JobsInProgress_Table />} />
+          <Route exact path="/JobTracking" element={<JobTracking />} />
         </Routes>
       </BrowserRouter>
     </div>
