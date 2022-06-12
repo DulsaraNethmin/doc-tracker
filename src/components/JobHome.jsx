@@ -9,7 +9,7 @@ function JobHome() {
       <Button className='btn1' type="primary">Jobs in progress</Button>
       <Button className='btn2' type="primary">New job requests</Button>
       <Button className='btn3' type="primary">Completed jobs</Button>
-      <Button className='btn4' type="primary">Job tracking</Button>
+      {/* <Button className='btn4' type="primary">Job tracking</Button> */}
       </div>
     </div>
   );

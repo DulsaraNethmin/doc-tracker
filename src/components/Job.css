@@ -8,8 +8,8 @@
 .btn1 {
   margin: 0;
   position: absolute;
-  top: 30%;
-  left: 35%;
+  top: 40%;
+  left: 25%;
   -ms-transform: translate(-60%, -50%);
   transform: translate(-50%, -50%);
   background-color: #55B9F5;
@@ -25,8 +25,8 @@
 .btn2 {
   margin: 0;
   position: absolute;
-  top: 30%;
-  left: 70%;
+  top: 40%;
+  left: 50%;
   -ms-transform: translate(-60%, -50%);
   transform: translate(-50%, -50%);
   background-color: #55B9F5;
@@ -42,25 +42,8 @@
 .btn3 {
   margin: 0;
   position: absolute;
-  top: 60%;
-  left: 35%;
-  -ms-transform: translate(-60%, -50%);
-  transform: translate(-50%, -50%);
-  background-color: #55B9F5;
-  border: none;
-  color: white;
-  width: 300px;
-  height: 100px;
-  font-size: 26px;
-  margin: 14px 2px;
-  cursor: pointer;
-}
-
-.btn4 {
-  margin: 0;
-  position: absolute;
-  top: 60%;
-  left: 70%;
+  top: 40%;
+  left: 75%;
   -ms-transform: translate(-60%, -50%);
   transform: translate(-50%, -50%);
   background-color: #55B9F5;
