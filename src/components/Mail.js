@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import io from "socket.io-client"
+
 import AdminMail from './AdminMail';
 import CustomerMail from './CustomerMail';
 
-const socket=io.connect('http://localhost:8000/');
+
 
 function Mail() {
    const [role,setRole]=useState();

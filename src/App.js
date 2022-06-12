@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-import Chat from "./components/Chat";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,13 +25,16 @@ import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import DocumentList from './components/DocumentList';
 import Mail from './components/Mail';
 
+
+
 function App() {
   return (
     <div className="App">
-      
+      <Navbar/>
       
       <BrowserRouter>
         <Routes>
+          
           <Route exact path="/" element={<SplashScreenPage />} />
           <Route exact path="/login" element={<AdminLoginPage />} />
 
@@ -42,7 +45,7 @@ function App() {
           
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
-          <Route path="/chat" exact element={<Chat />} />
+          <Route path="/chat" exact element={<Mail />} />
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/test-dashboard" exact element={<TestDashboard />} />
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
