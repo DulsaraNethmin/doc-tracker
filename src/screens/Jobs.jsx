@@ -1,12 +1,13 @@
 import React from 'react';
-import JobButtons from '../components/JobButtons';
+import Background from '../components/Background';
 
 function Jobs() {
-  return (
-    <div>
-        <JobButtons/>
-    </div>
-  )
+    return (
+        <div>
+            <Background />
+           
+        </div>
+    )
 }
 
 export default Jobs;
