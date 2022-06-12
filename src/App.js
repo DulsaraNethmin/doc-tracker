@@ -22,7 +22,9 @@ import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
-import Jobs from "./screens/Jobs/Jobs"
+import Jobs from "./screens/Jobs/Jobs";
+import JobsInProgress from "./screens/Jobs/JobsInProgress";
+import JobsInProgress_Table from "./components/JobsInProgress_Table";
 
 function App() {
   return (
@@ -51,6 +53,7 @@ function App() {
           <Route path="/Branch-table" exact element={<BranchesTable />} />
 
           <Route exact path="/Jobs" element={<Jobs />} />
+          <Route exact path="/JobsInProgress" element={<JobsInProgress_Table />} />
         </Routes>
       </BrowserRouter>
     </div>
