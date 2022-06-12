@@ -1,46 +1,77 @@
 .Background {
-    background: url('background.jpg') no-repeat;
-    background-position: 50% 100%;
-    background-size: cover;
-    height: 100vh;
-  }
-.button{
+  background: url('background.jpg') no-repeat;
+  background-position: 50% 100%;
+  background-size: cover;
+  height: 100vh;
+}
 
+.btn1 {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  -ms-transform: translate(-60%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #55B9F5;
+  border: none;
+  color: white;
+  width: 300px;
+  height: 100px;
+  font-size: 26px;
+  margin: 14px 2px;
+  cursor: pointer;
+}
+
+.btn2 {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  -ms-transform: translate(-60%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #55B9F5;
+  border: none;
+  color: white;
+  width: 300px;
+  height: 100px;
+  font-size: 26px;
+  margin: 14px 2px;
+  cursor: pointer;
+}
+
+.btn3 {
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  -ms-transform: translate(-60%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #55B9F5;
+  border: none;
+  color: white;
+  width: 300px;
+  height: 100px;
+  font-size: 26px;
+  margin: 14px 2px;
+  cursor: pointer;
+}
+
+.btn4 {
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  -ms-transform: translate(-60%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #55B9F5;
+  border: none;
+  color: white;
+  width: 300px;
+  height: 100px;
+  font-size: 26px;
+  margin: 14px 2px;
+  cursor: pointer;
 }
 
 
-  .btn1{
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    -ms-transform: translate(-60%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: #55B9F5;
-    border: none;
-    color: white;
-    /* padding: 40px 60px;
-    text-align:initial;
-    text-decoration: none; */
-    /* display: inline-block; */
-    width: 300px;
-    height: ;
-    font-size: 26px;
-    margin: 14px 2px;
-    cursor: pointer;
-  }
 
-
-  .container { 
-    height: 200px;
-    position: relative;
-    border: 3px solid green; 
-  }
-  
-  .vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }

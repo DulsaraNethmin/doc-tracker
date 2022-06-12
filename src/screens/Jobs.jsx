@@ -1,11 +1,11 @@
 import React from 'react';
-import Background from '../components/Background';
+import JobHome from '../components/JobHome';
 
 function Jobs() {
     return (
         <div>
-            <Background />
-           
+            <JobHome />
+            {/* <Route exact path="/" element={<SplashScreenPage />} /> */}
         </div>
     )
 }
