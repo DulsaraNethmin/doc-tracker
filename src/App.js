@@ -22,7 +22,7 @@ import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
-import Jobs from "./screens/Jobs"
+import Jobs from "./screens/Jobs/Jobs"
 
 function App() {
   return (

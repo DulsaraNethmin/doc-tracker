@@ -1,5 +1,5 @@
 import React from 'react';
-import JobHome from '../components/JobHome';
+import JobHome from '../../components/JobHome';
 
 function Jobs() {
     return (
