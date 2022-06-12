@@ -36,7 +36,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
-          <Route exact path="/login" element={<AdminLoginPage />} />
+          <Route path="/login" element={<AdminLoginPage />} />
 
           
           <Route exact path="/create-organization" element={<OrgCreatePage />} />
