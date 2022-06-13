@@ -22,6 +22,7 @@ import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
+import BranchOwnerRegPage from "./screens/BranchOwnerRegPage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
 
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
           <Route path="/Branch-reg" exact element={<BranchRegPage />} />
+          <Route path="/Branch-owner-reg" exact element={<BranchOwnerRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
 
           <Route exact path="/register-admin" element={<AdminRegPage />} />
