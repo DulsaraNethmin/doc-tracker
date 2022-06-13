@@ -37,15 +37,16 @@ function App() {
           <Route exact path="/create-organization" element={<OrgCreatePage />} />
           <Route exact path="/create-org-owner" element={<OrgOwnerCreatePage />} />
 
-          
+          <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
+          <Route path="/Branch-reg" exact element={<BranchRegPage />} />
+          <Route path="/Branch-table" exact element={<BranchesTable />} />
+
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
           <Route path="/chat" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/test-dashboard" exact element={<TestDashboard />} />
-          <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
-          <Route path="/Branch-reg" exact element={<BranchRegPage />} />
-          <Route path="/Branch-table" exact element={<BranchesTable />} />
+          
 
         </Routes>
       </BrowserRouter>
