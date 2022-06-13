@@ -23,8 +23,8 @@ const JobsInProgress_Table = () => {
   const user_data=async()=>{
     try{
       console.log('aaaaaa');
-      // var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
-      var response=await axios.get('http://localhost:8080/jobs/get/all?job_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+      var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+      
       console.log(response.data);
       const obj=response.data.map((e)=>{
         return(
