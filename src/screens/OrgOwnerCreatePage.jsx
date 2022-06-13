@@ -156,7 +156,7 @@ const OrgOwnerCreatePage = () => {
                         console.log(response.data);
                         if (response.status == 200) {
                           window.alert("Organization Owner Created");
-                          navigate("/register-admin");
+                          navigate("/org-dashboard");
                         }
                         if (response.status != 200) {
                           window.alert(

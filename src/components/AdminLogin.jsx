@@ -103,7 +103,7 @@ const Login = () => {
                         localStorage.setItem("branch_id", branch_id);
                         if (response.status == 200) {
                           window.alert("Login Successfull");
-                          navigate("/test-dashboard");
+                          navigate("/org-dashboard");
                         }
                         if (response.status == 201) {
                           //window.alert("Login UNSuccessfull");
@@ -138,7 +138,7 @@ const Login = () => {
                         localStorage.setItem("branch_id", branch_id);
                         if (response.status == 200) {
                           window.alert("Login Successfull");
-                          navigate("/test-dashboard");
+                          navigate("/org-dashboard");
                         }
                         if (response.status == 201) {
                           //window.alert("Login UNSuccessfull");
