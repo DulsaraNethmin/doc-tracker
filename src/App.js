@@ -26,6 +26,8 @@ import Jobs from "./screens/Jobs/Jobs";
 import JobsInProgress from "./screens/Jobs/JobsInProgress";
 import JobsInProgress_Table from "./components/JobsInProgress_Table";
 import JobTracking from "./components/JobTracking";
+import NewJobRequests from "./screens/Jobs/NewJobRequests";
+import CompletedJobs from "./screens/Jobs/CompletedJobs";
 
 function App() {
   return (
@@ -54,8 +56,11 @@ function App() {
           <Route path="/Branch-table" exact element={<BranchesTable />} />
 
           <Route exact path="/Jobs" element={<Jobs />} />
-          <Route exact path="/JobsInProgress" element={<JobsInProgress_Table />} />
+          <Route exact path="/Jobs/JobsInProgress" element={<JobsInProgress_Table />} />
           <Route exact path="/JobTracking" element={<JobTracking />} />
+          <Route exact path="/Jobs/NewJobRequests" element={<NewJobRequests />} />
+          <Route exact path="/Jobs/CompletedJobs" element={<CompletedJobs />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

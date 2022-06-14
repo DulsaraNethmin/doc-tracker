@@ -1,12 +1,12 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react';
-import "../components/Job.css"
+// import "../components/Job.css"
 import {useNavigate} from "react-router-dom"
 const originData = [];
 
 
-const JobsInProgress_Table = () => {
+const CompletedJobs = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -35,7 +35,8 @@ const JobsInProgress_Table = () => {
             "Deliverer ID":e.deliverer_id,
             "Customer ID":e.customer_id,
             "Document ID":e.customer_id,
-            "Created date":e.createdAt
+            "Created date":e.createdAt,
+            "Completed date":e.updatedAt,
           }
         );
       })
@@ -119,4 +120,5 @@ const JobsInProgress_Table = () => {
   )
 }
 
-export default JobsInProgress_Table;
+export default CompletedJobs;
+

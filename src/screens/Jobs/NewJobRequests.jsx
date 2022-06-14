@@ -1,12 +1,12 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react';
-import "../components/Job.css"
+// import "../components/Job.css"
 import {useNavigate} from "react-router-dom"
 const originData = [];
 
 
-const JobsInProgress_Table = () => {
+const NewJobRequests = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -90,8 +90,8 @@ const JobsInProgress_Table = () => {
       render: (_, record) => {
         const editable = isEditing(record);
         return (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking',{state:{}})}>
-            Show
+          <Typography.Link disabled={editingKey !== ''} >
+            Accept
           </Typography.Link>
         );
       },
@@ -106,7 +106,7 @@ const JobsInProgress_Table = () => {
   return (
     <div className='Table'>
       
-        <h2>Jobs in Progress</h2>
+        <h2>New Job Requests</h2>
         <Form form={form} component={false}>
       <Table
         bordered
@@ -119,4 +119,4 @@ const JobsInProgress_Table = () => {
   )
 }
 
-export default JobsInProgress_Table;
+export default NewJobRequests;
