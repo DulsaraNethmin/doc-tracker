@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import Login from "../components/AdminLogin";
+import Login from "../components/Login";
 
 const logo = new URL("../images/logo.jpeg", import.meta.url);
 

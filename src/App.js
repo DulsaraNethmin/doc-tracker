@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-import Chat from "./components/Chat";
+//import Chat from "./components/Chat";
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,6 +25,8 @@ import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
+import DocumentList from './components/DocumentList';
+import Mail from './components/Mail';
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
-          <Route exact path="/login" element={<AdminLoginPage />} />
+          <Route path="/login" element={<AdminLoginPage />} />
 
           
           <Route exact path="/create-organization" element={<OrgCreatePage />} />
@@ -43,7 +45,7 @@ function App() {
           
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
-          <Route path="/chat" exact element={<Chat />} />
+         {/* { <Route path="/mail" exact element={<Chat />} />} */}
           <Route path="/notification" exact element={<Notification />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile" exact element={<Userprofile/>} />
@@ -51,6 +53,7 @@ function App() {
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
           <Route path="/Branch-reg" exact element={<BranchRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
+          <Route path="/documents/viewdoc" exact element={<DocumentList />} />
 
         </Routes>
       </BrowserRouter>
