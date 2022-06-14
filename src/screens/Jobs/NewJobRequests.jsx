@@ -85,7 +85,7 @@ const NewJobRequests = () => {
         editable: false,
       },
     {
-      title: 'Tracking',
+      
       // dataIndex: 'Profile',
       render: (_, record) => {
         const editable = isEditing(record);

@@ -85,18 +85,13 @@ const CompletedJobs = () => {
         width: '15%',
         editable: false,
       },
-    {
-      title: 'Tracking',
-      // dataIndex: 'Profile',
-      render: (_, record) => {
-        const editable = isEditing(record);
-        return (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking',{state:{}})}>
-            Show
-          </Typography.Link>
-        );
+      {
+        title: 'Completed date',
+        dataIndex: 'updatedAt',
+        width: '15%',
+        editable: false,
       },
-    },
+
   ];
   const mergedColumns = columns.map((col) => {
     return {
@@ -107,7 +102,7 @@ const CompletedJobs = () => {
   return (
     <div className='Table'>
       
-        <h2>Jobs in Progress</h2>
+        <h2>Completed Jobs</h2>
         <Form form={form} component={false}>
       <Table
         bordered
