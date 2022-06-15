@@ -224,8 +224,10 @@ const BranchRegPage = () => {
                         "http://localhost:8080/branch/add",
                         data
                       );
+
                       console.log(response.data);
-                      localStorage.setItem("org_id", response.data.uuid);
+                      localStorage.setItem("branch_id", response.data.uuid);
+
                       if (response.status == 200) {
                         window.alert("Branch Created");
                         navigate("/Branch-owner-reg");
