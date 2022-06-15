@@ -19,6 +19,8 @@ function Document() {
     date: "",
     department_id: ""
   });
+  const [validat, setvalidat] = useState({})
+  const [isSubmit, setisSubmit] = useState(false);  
 
   const getdocument = useSelector(state => state.documents);
   useEffect(() => {
@@ -33,8 +35,11 @@ function Document() {
     event.preventDefault();
     console.log(adddoc)
     //to dispatch
+    setvalidat(validationOfDocumentName(adddoc));
+    setisSubmit(true);
     dispatch(documentAdd(adddoc))
 
+    
     setAdddoc({
       doc_name: "",
       type: "",
@@ -46,7 +51,14 @@ function Document() {
     );
     
   }
-
+  
+  const validationOfDocumentName=(values)=>{
+      const error={}
+      if(!values.doc_name){
+        error.doc_name="doc_name is required";
+      }
+      return error;
+  }
 
 
 
@@ -60,7 +72,7 @@ function Document() {
               <p>Enter name of the document</p>
               <input type="text" placeholder="Name" onChange={(event) => {
                 setAdddoc({ ...adddoc, doc_name: event.target.value });
-              }} />
+              }}  />
             </div>
             <div>
               <p>Enter type of the document</p>
