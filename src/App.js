@@ -28,12 +28,13 @@ import JobsInProgress_Table from "./components/JobsInProgress_Table";
 import JobTracking from "./components/JobTracking";
 import NewJobRequests from "./screens/Jobs/NewJobRequests";
 import CompletedJobs from "./screens/Jobs/CompletedJobs";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className="App">
       
-      <Navbar/>
+      <Sidebar/>
       <BrowserRouter>
         <Routes>
        
