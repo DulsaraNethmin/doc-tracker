@@ -7,6 +7,19 @@ const TestDashboard = () => {
   return (
     <div>
       <h1>This is (Test) Branch Dash Board</h1>
+      <br /><br /><br />
+      <Button
+        type="primary"
+        htmlType="submit"
+        className="login-form-button"
+        onClick={async (e) => {
+          e.preventDefault();
+          navigate("/User-reg");
+        }}
+      >
+        Create New User
+      </Button>
+      <br /><br /><br /><br />
       <Button
         type="primary"
         htmlType="submit"

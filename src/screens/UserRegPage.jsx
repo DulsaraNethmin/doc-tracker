@@ -28,15 +28,15 @@ const validateMessages = {
 
 const UserRegPage = () => {
   //const [name, setBrName] = useState("");
-  const [owner, setOwner] = useState("");
-  const [Br_owneruser_name, setUsername] = useState("");
+  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   // const handleOrgName = (e) => {
   //   setOrgName(e.target.value);
   // };
-  const handleOwner = (e) => {
-    setOwner(e.target.value);
+  const handleUser = (e) => {
+    setUser(e.target.value);
   };
 
   const handleUsername = (e) => {
@@ -56,7 +56,7 @@ const UserRegPage = () => {
       <Row style={{ padding: "4% 0" }}>
         <Col span={3}></Col>
         <Col span={18}>
-          <Card title="Create Branch Owner" alignment="center">
+          <Card title="Create User" alignment="center">
             <Form
               {...layout}
               name="nest-messages"
@@ -65,8 +65,8 @@ const UserRegPage = () => {
               alignment="left"
             >
               <Form.Item
-                name="owner"
-                label="Owner"
+                name="user"
+                label="name"
                 // rules={[
                 //   {
                 //     required: true,
@@ -75,16 +75,16 @@ const UserRegPage = () => {
               >
                 <Input
                   onChange={(e) => {
-                    handleOwner(e);
+                    handleUser(e);
                   }}
                   prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Branch Owner Name"
+                  placeholder="User's Name"
                 />
               </Form.Item>
 
               <Form.Item
-                name="Br_owneruser_name"
-                label="Branch Owner User Name"
+                name="username"
+                label="User Name"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
@@ -103,7 +103,7 @@ const UserRegPage = () => {
 
               <Form.Item
                 name="password"
-                label="Branch Password"
+                label="Password"
                 rules={[
                   {
                     required: true,
@@ -123,7 +123,7 @@ const UserRegPage = () => {
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
                     onClick={(e) => {
-                      navigate("/");
+                      navigate("/test-dashboard");
                     }}
                   >
                     Back
@@ -140,14 +140,12 @@ const UserRegPage = () => {
                     onClick={async (e) => {
                       e.preventDefault();
                       
-                        console.log(owner, Br_owneruser_name, password);
+                        console.log(user, username, password);
                         let data = {
-                          name: owner,
-                          username: Br_owneruser_name,
+                          name: user,
+                          username: username,
                           password: password,
-                          role: "Branch Owner",
-                          // org_id:localStorage.getItem("org_id"),
-                          // role: "Organization Owner",
+                          //role: "Branch Owner",
                           branch_id:localStorage.getItem("branch_id"),
                         };
                         console.log(data);
@@ -157,8 +155,8 @@ const UserRegPage = () => {
                         );
                         console.log(response.data);
                         if (response.status == 200) {
-                          window.alert("Branch Owner Created");
-                          navigate("/org-dashboard");
+                          window.alert("New User Created");
+                          navigate("/test-dashboard");
                         }
                         if (response.status != 200) {
                           window.alert(
@@ -168,7 +166,7 @@ const UserRegPage = () => {
                       }
                     }
                   >
-                    Next
+                    Register
                   </Button>
                 </Form.Item>
               </Row>
