@@ -79,8 +79,20 @@ const BranchesTable = () => {
       //   },
       // ];
 
+
+      // let data = {
+      //   branch_id:localStorage.getItem("branch_id"),
+      // };
+      // console.log(data);
+      // let response = await axios.post(
+      //   "http://localhost:8080/user/add",
+      //   data
+      // );
+
+      var data = localStorage.getItem("branch_id");
+
       var response = await axios.get(
-        "http://localhost:8080/branch/get/all?branch_id=782da681-3ee8-4ba6-acb9-607eee52e0f6"
+        `http://localhost:8080/user/get/all?branch_id=${data}`
       );
       //console.log(response.data);
       const obj = response.data.map((e) => {
