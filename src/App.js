@@ -42,13 +42,14 @@ function App() {
           <Route path="/Branch-owner-reg" exact element={<BranchOwnerRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
           
+          <Route path="/test-dashboard" exact element={<TestDashboard />} />
           <Route path="/User-reg" exact element={<UserRegPage />} />
 
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
           <Route path="/chat" exact element={<Chat />} />
           <Route path="/notification" exact element={<Notification />} />
-          <Route path="/test-dashboard" exact element={<TestDashboard />} />
+          
           
 
         </Routes>
