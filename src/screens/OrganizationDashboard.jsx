@@ -15,7 +15,11 @@ const OrganizationDashboard = () => {
         Create Branch
       </Button>
       <br />
-      <Button type="primary">Branches</Button>
+      <Button 
+      onClick={(e) => {
+        navigate("/Branch-table");
+      }}
+      type="primary">Branches</Button>
       <br />
       <br />
       <br />
