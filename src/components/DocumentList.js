@@ -2,6 +2,7 @@ import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import { fetchDocuments } from '../features/doucument';
+import { Link } from 'react-router-dom';
 
 
 function DocumentList() {
@@ -16,6 +17,10 @@ function DocumentList() {
   return (
     <div>
          <div>
+           
+         <Link to='/documents'>
+              <button>adddocument</button>
+              </Link>
           {getdocument.status==="pending"&&<div>ERROR</div>}
           {(getdocument.status==="Success" || adddocument.documentAdd==="Succses")&&
           <div>
