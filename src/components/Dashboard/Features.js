@@ -29,7 +29,7 @@ function Features() {
             <Card
               hoverable>
               <Meta title="Job requests" />
-             <p> <SyncOutlined spin />    03</p>
+             <p>     03</p>
             </Card>
           </Col>
 
