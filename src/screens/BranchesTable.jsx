@@ -89,10 +89,10 @@ const BranchesTable = () => {
       //   data
       // );
 
-      var data = localStorage.getItem("branch_id");
+      var data = localStorage.getItem("organization_id");
 
       var response = await axios.get(
-        `http://localhost:8080/user/get/all?branch_id=${data}`
+        `http://localhost:8080/organization/get/all?organization_id=${data}`
       );
       //console.log(response.data);
       const obj = response.data.map((e) => {
