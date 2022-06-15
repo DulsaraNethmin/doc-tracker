@@ -103,7 +103,7 @@ const Login = () => {
                         localStorage.setItem("organization_id", organization_id);
                         if (response.status == 200) {
                           window.alert("Login Successfull");
-                          navigate("/org-dashboard");
+                          navigate("/test-dashboard");
                         }
                         if (response.status == 201) {
                           //window.alert("Login UNSuccessfull");
