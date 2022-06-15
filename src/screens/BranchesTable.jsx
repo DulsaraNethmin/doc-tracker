@@ -97,10 +97,14 @@ const BranchesTable = () => {
       //console.log(response.data);
       const obj = response.data.map((e) => {
         return {
-          name: e.name,
-          Usrname: e.username,
-          email: e.email,
-          "Job role": e.role,
+          Branch_Name: e.b_name,
+          Address1: e.b_number,
+          Address2: e.b_street,
+          Address3: e.b_town,
+          Br_Owner: e.name,
+          Br_Owner_Username: e.username,
+          Br_Owner_Password: e.password,
+          
         };
       });
       setData(obj);
@@ -109,47 +113,93 @@ const BranchesTable = () => {
       console.log(e);
     }
   };
+
   const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      //width: '25%',
-      editable: true,
-    },
-    {
-      title: "Usrname",
-      dataIndex: "Usrname",
-      //width: '15%',
-      editable: true,
-    },
-    {
-      title: "email address",
-      dataIndex: "email",
-      //width: '20%',
-      editable: true,
-    },
-    {
-      title: "Job role",
-      dataIndex: "Job role",
-      //width: '25%',
-      editable: true,
-    },
-    {
-      title: "Profile",
-      dataIndex: "Profile",
-      render: (_, record) => {
-        const editable = isEditing(record);
-        return (
-          <Typography.Link
-            disabled={editingKey !== ""}
-            onClick={() => navigate("/user/profile", { state: {} })}
-          >
-            View
-          </Typography.Link>
-        );
+      {
+        title: "Branch Name",
+        dataIndex: "Branch_Name",
+        //width: '25%',
+        editable: true,
       },
-    },
-  ];
+      {
+        title: "Address1",
+        dataIndex: "Address1",
+        //width: '15%',
+        editable: true,
+      },
+      {
+        title: "Address2",
+        dataIndex: "Address2",
+        //width: '20%',
+        editable: true,
+      },
+      {
+        title: "Address3",
+        dataIndex: "Address4",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Br. Owner",
+        dataIndex: "Br_Owner",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Br. Owner Username",
+        dataIndex: "Br_Owner_Username",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Br. Owner Password",
+        dataIndex: "Br_Owner_Password",
+        //width: '25%',
+        editable: true,
+      },
+      
+    ];
+  // const columns = [
+  //   {
+  //     title: "Name",
+  //     dataIndex: "name",
+  //     //width: '25%',
+  //     editable: true,
+  //   },
+  //   {
+  //     title: "Usrname",
+  //     dataIndex: "Usrname",
+  //     //width: '15%',
+  //     editable: true,
+  //   },
+  //   {
+  //     title: "email address",
+  //     dataIndex: "email",
+  //     //width: '20%',
+  //     editable: true,
+  //   },
+  //   {
+  //     title: "Job role",
+  //     dataIndex: "Job role",
+  //     //width: '25%',
+  //     editable: true,
+  //   },
+  //   {
+  //     title: "Profile",
+  //     dataIndex: "Profile",
+  //     render: (_, record) => {
+  //       const editable = isEditing(record);
+  //       return (
+  //         <Typography.Link
+  //           disabled={editingKey !== ""}
+  //           onClick={() => navigate("/user/profile", { state: {} })}
+  //         >
+  //           View
+  //         </Typography.Link>
+  //       );
+  //     },
+  //   },
+  // ];
 
   const mergedColumns = columns.map((col) => {
     return {
