@@ -1,0 +1,5 @@
+table,tr,th,td{
+    border: 1px snow;
+    border-collapse: collapse;
+    padding: 0.5rem;
+}

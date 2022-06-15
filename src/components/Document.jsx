@@ -9,7 +9,7 @@ import { useEffect } from "react"
 import { getDocumentStatus, fetchDocuments } from '../features/doucument'
 import DocumentList from './DocumentList'
 import { Link } from 'react-router-dom'
-import './'
+
 
 function Document() {
   const dispatch = useDispatch();
