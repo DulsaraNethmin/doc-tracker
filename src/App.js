@@ -8,15 +8,13 @@ import {
   Route,
   BrowserRouter,
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Document from "./components/Document";
 import Notification from "./components/Notification";
 import AdminLoginPage from "./screens/AdminLoginPage";
 import AdminRegPage from "./screens/AdminRegPage";
 import OrgCreatePage from "./screens/OrgCreatePage";
 import SplashScreenPage from "./screens/SplashScreenPage";
-import UserRegPage from "./screens/UserRegPage";
 import TestDashboard from "./screens/TestDashboard";
 import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";

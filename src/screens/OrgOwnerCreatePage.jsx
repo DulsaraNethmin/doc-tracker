@@ -56,7 +56,7 @@ const OrgOwnerCreatePage = () => {
       <Row style={{ padding: "4% 0" }}>
         <Col span={8}></Col>
         <Col span={8}>
-          <Card title="Create Organization" alignment="center">
+          <Card title="Create Organization Owner" alignment="center">
             <Form
               {...layout}
               name="nest-messages"
@@ -146,7 +146,7 @@ const OrgOwnerCreatePage = () => {
                           username: organization_owneruser_name,
                           password: password,
                           role: "Organization Owner",
-                          org_id:localStorage.getItem("org_id"),
+                          organization_id:localStorage.getItem("organization_id"),
                         };
                         console.log(data);
                         let response = await axios.post(
@@ -166,10 +166,12 @@ const OrgOwnerCreatePage = () => {
                       }
                     }
                   >
-                    Next
+                    Next*
                   </Button>
                 </Form.Item>
               </Row>
+              <h6>*After Creating an Organization and the Organization Owner, it is essential to create a Branch. If not the crreated organization will not be validated.</h6>
+              <h6>*So proceed with creating a branch, after going to organization dashboard.</h6>
             </Form>
           </Card>
         </Col>

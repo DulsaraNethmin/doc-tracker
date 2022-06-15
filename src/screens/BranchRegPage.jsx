@@ -218,7 +218,7 @@ const BranchRegPage = () => {
                         number:address_1,
                         town:address_3,
                         street:address_2,
-                        organization_id:localStorage.getItem("org_id"),
+                        organization_id:localStorage.getItem("organization_id"),
                       };
                       let response = await axios.post(
                         "http://localhost:8080/branch/add",
