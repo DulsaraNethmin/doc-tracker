@@ -21,6 +21,7 @@ import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/BranchOwnerRegPage";
+import UserRegPage from "./screens/UserRegPage";
 
 function App() {
   return (
@@ -40,6 +41,8 @@ function App() {
           <Route path="/Branch-reg" exact element={<BranchRegPage />} />
           <Route path="/Branch-owner-reg" exact element={<BranchOwnerRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
+          
+          <Route path="/User-reg" exact element={<UserRegPage />} />
 
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
