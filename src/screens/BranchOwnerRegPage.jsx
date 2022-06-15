@@ -146,7 +146,9 @@ const BranchOwnerRegPage = () => {
                           username: Br_owneruser_name,
                           password: password,
                           role: "Branch Owner",
-                          org_id:localStorage.getItem("org_id"),
+                          // org_id:localStorage.getItem("org_id"),
+                          // role: "Organization Owner",
+                          branch_id:localStorage.getItem("branch_id"),
                         };
                         console.log(data);
                         let response = await axios.post(
