@@ -21,7 +21,7 @@ function Dashboard(){
       {/* <Col flex={2}> <Widget/></Col>
       <Col flex={3}> <Tbl/></Col> */}
 
-      <h1>Hello</h1>
+  
     </Row>
       </div> 
     

@@ -55,7 +55,7 @@ import { Table, Tag } from 'antd';
 
 function Widget (){
     return(
-<div><h1>hiii</h1></div>
+<div></div>
     );
 }
 
