@@ -135,7 +135,7 @@ const BranchesTable = () => {
       },
       {
         title: "Address3",
-        dataIndex: "Address4",
+        dataIndex: "Address3",
         //width: '25%',
         editable: true,
       },
