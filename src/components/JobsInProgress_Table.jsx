@@ -1,8 +1,9 @@
-import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
+import { Form, Input, InputNumber, Popconfirm, Table, Typography, Row, Col } from 'antd';
 import axios from 'axios';
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "../components/Job.css"
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import Sidebar from './Sidebar';
 const originData = [];
 
 
@@ -14,34 +15,34 @@ const JobsInProgress_Table = () => {
 
   const isEditing = (record) => record.key === editingKey;
 
-  useEffect(()=>{
-    var data=user_data();
+  useEffect(() => {
+    var data = user_data();
     console.log(data);
     setData()
-  },[])
+  }, [])
 
-  const user_data=async()=>{
-    try{
+  const user_data = async () => {
+    try {
       console.log('aaaaaa');
-      var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
-      
+      var response = await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+
       console.log(response.data);
-      const obj=response.data.map((e)=>{
-        return(
+      const obj = response.data.map((e) => {
+        return (
           {
-            "key":1,
-            "id":e.ID,
-            "Admin ID":e.admin_id, 
-            "Deliverer ID":e.deliverer_id,
-            "Customer ID":e.customer_id,
-            "Document ID":e.customer_id,
-            "Created date":e.createdAt
+            "key": 1,
+            "id": e.ID,
+            "Admin ID": e.admin_id,
+            "Deliverer ID": e.deliverer_id,
+            "Customer ID": e.customer_id,
+            "Document ID": e.customer_id,
+            "Created date": e.createdAt
           }
         );
       })
       setData(obj);
       return response.data;
-    }catch(e){
+    } catch (e) {
       console.log(e);
     }
   }
@@ -65,34 +66,36 @@ const JobsInProgress_Table = () => {
       editable: false,
     },
 
-      {
-        title: 'Customer ID',
-        dataIndex: 'customer_id',
-        width: '15%',
-        editable: false,
-      },
+    {
+      title: 'Customer ID',
+      dataIndex: 'customer_id',
+      width: '15%',
+      editable: false,
+    },
 
-      {
-        title: 'Document ID',
-        dataIndex: 'doc_id',
-        width: '15%',
-        editable: false,
-      },
-      {
-        title: 'Created date',
-        dataIndex: 'createdAt',
-        width: '15%',
-        editable: false,
-      },
+    {
+      title: 'Document ID',
+      dataIndex: 'doc_id',
+      width: '15%',
+      editable: false,
+    },
+    {
+      title: 'Created date',
+      dataIndex: 'createdAt',
+      width: '15%',
+      editable: false,
+    },
     {
       title: 'Tracking',
       // dataIndex: 'Profile',
       render: (_, record) => {
         const editable = isEditing(record);
         return (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking',{state:{}})}>
+         <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking', { state: {} })}>
             Show
           </Typography.Link>
+          
+
         );
       },
     },
@@ -104,17 +107,20 @@ const JobsInProgress_Table = () => {
   });
 
   return (
-    <div className='Table'>
-      
-        <h2>Jobs in Progress</h2>
-        <Form form={form} component={false}>
-      <Table
-        bordered
-        dataSource={data}
-        columns={mergedColumns}
-        rowClassName="editable-row"
-      />
-    </Form>
+    <div >
+
+      <h2>Jobs in Progress</h2>
+      <Row>  <Col flex={0.5}>  <Sidebar /></Col>
+      <Col flex={10}> <Form form={form} component={false}>
+        <Table
+          bordered
+          dataSource={data}
+          columns={mergedColumns}
+          rowClassName="editable-row"
+        />
+      </Form></Col>
+          </Row>
+     
     </div>
   )
 }
