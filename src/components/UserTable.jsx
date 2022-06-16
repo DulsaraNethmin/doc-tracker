@@ -97,6 +97,7 @@ const UserTable = () => {
         dataSource={data}
         columns={mergedColumns}
         rowClassName="editable-row"
+        pagination={false}
       />
     </Form>
     </div>
