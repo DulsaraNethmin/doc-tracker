@@ -53,9 +53,9 @@ function Document() {
 
     setvalidat(validationOfDocumentName(adddoc));
     setisSubmit(true);
-     if(!isError){
+     
     dispatch(documentAdd(adddoc))
-     }
+     
     
     setAdddoc({
       doc_name: "",
@@ -105,28 +105,28 @@ function Document() {
                 setAdddoc({ ...adddoc, doc_name: event.target.value });
               }}  />
             </div>
-            <p>{validat.doc_name}</p>
+            <p style={{color: "red"}}>{validat.doc_name}</p>
             <div>
               <p>Enter type of the document</p>
               <input type="text" placeholder="Type" value={adddoc.type} onChange={(event) => {
                 setAdddoc({ ...adddoc, type: event.target.value });
               }} />
             </div>
-            <p>{validat.type}</p>
+            <p style={{color: "red"}}>{validat.type}</p>
             <div>
               <p>Enter Added Date of the document</p>
               <input type="date" placeholder="Added Date" value={adddoc.date} onChange={(event) => {
                 setAdddoc({ ...adddoc, date: event.target.value });
               }} />
             </div>
-            <p>{validat.date}</p>
+            <p style={{color: "red"}}>{validat.date}</p>
             <div>
               <p>Enter Added Department_ID of the document</p>
               <input type="text" placeholder="Added Date" value={adddoc.department_id} onChange={(event) => {
                 setAdddoc({ ...adddoc, department_id: event.target.value });
               }} />
             </div>
-            <p>{validat.department_id}</p>
+            <p style={{color: "red"}}>{validat.department_id}</p>
             <div  >
             
               <button type='submit' >Add Document</button>
