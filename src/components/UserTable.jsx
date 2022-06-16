@@ -28,12 +28,12 @@ const UserTable = () => {
       const obj=response.data.map((e)=>{
         return(
           {
-            "key":1,
+           
             "name":e.name,
             "Usrname":e.username, 
             "email":e.email,
             "Job role":e.role,
-            "address":'London Park no'
+            
           }
         );
       })
