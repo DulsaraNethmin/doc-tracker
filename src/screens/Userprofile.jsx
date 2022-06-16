@@ -34,7 +34,7 @@ const UserProfile = ({props}) => {
     <div className='Cards'>
         <Row gutter={16}>
             <Col span={8}>
-                <Card title="Domain" bordered={false}>
+                <Card title="User_Name" bordered={false}>
                     <Form>
                     <Form.Item label="Id" name="customer_id">
                             <label htmlFor=""></label>
@@ -61,19 +61,11 @@ const UserProfile = ({props}) => {
             </Col>
 
             <Col span={8}>
-                <Card title="Datails" bordered={false}>
-                    {/* <Steps direction="vertical" current={1}>
-                        <Step title="Finished" description="Order recieved" />
-                        <Step title="In Progress" description="Order confirmed" />
-                        <Step title="Waiting" description="Desitination 1" />
-                        <Step title="Waiting" description="Destination 2" />
-                        <Step title="Waiting" description="Received" />
-                    </Steps> */}
-                </Card>
+               
             </Col>
         </Row>
         <div className='saveButton'>
-<Button type="primary">Save Changes</Button>
+{/* <Button type="primary">Save Changes</Button> */}
 </div>
     </div>
 </div>
