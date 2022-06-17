@@ -20,14 +20,20 @@ function getItem(label, key, icon, children) {
 
 const items = [
   // getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Document', '2', <FileTextOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('History', '3'),
-    getItem('Jobs', '4'),
-    getItem('Profile', '5'),
-  ]),
-  getItem('Job', 'sub2', <CarryOutOutlined />, [getItem('In Progress', '6'), getItem('Completed', '8'), getItem('New Requests', '8'), getItem('Tracking', '8')]),
-  getItem('Payments', '9', <CreditCardOutlined />),
+  getItem('Document',  <FileTextOutlined />),
+
+  getItem('User', '1', <UserOutlined />),
+
+  getItem('Job', 'sub1',  <CarryOutOutlined />,
+    // [getItem('Requests', '6'), getItem('In Progress', '8'), getItem('Completed', '8'), getItem('Tracking', '8')],
+    
+    [getItem('Internal Jobs', '6'[
+      getItem('Requests', '6'), getItem('In Progress', '8'), getItem('Completed', '8'), getItem('Tracking', '8')
+    ]), 
+    
+    getItem('External Jobs', '8')],
+  ),
+
 ];
 
 class Sidebar extends React.Component {
@@ -44,7 +50,7 @@ class Sidebar extends React.Component {
   render() {
     const { collapsed } = this.state;
     return (
-        
+
       <Layout
         style={{
           minHeight: '100vh',
@@ -55,72 +61,7 @@ class Sidebar extends React.Component {
           <Menu className="Sidebar" theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
         </Sider>
         <Layout className="site-layout">
-          {/* <Header
-            className="site-layout-background"
-            style={{
-              padding: 0,
-            }}
-          /> */}
-
-          {/* <Header>
-            <div className="logo" />
-            <Menu
-              theme="Dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={new Array(5).fill(null).map((_, index) => {
-                const key = index + 1;
-                return {
-                  key,
-                  label: `nav ${key}`,
-                };
-              })}
-            />
-          </Header> */}
-
-          {/* <Content
-            style={{
-              margin: '0 16px',
-            }}
-
-          >
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={new Array(15).fill(null).map((_, index) => {
-                const key = index + 1;
-                return {
-                  key,
-                  label: `nav ${key}`,
-                };
-              })}
-            />
-            <Breadcrumb
-              style={{
-                margin: '16px 0',
-              }}
-            >
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                minHeight: 360,
-              }}
-            >
-              Bill is a cat.
-            </div>
-          </Content> */}
-          {/* <Footer
-            style={{
-              textAlign: 'center',
-            }}
-          >
-            Ant Design ©2018 Created by Ant UED
-          </Footer> */}
+         
         </Layout>
       </Layout>
     );

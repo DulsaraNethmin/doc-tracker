@@ -14,7 +14,7 @@ function Dashboard(){
       <Row>  <Col flex={0.5}>  <Sidebar/></Col><Col flex={10}><Header/></Col>
      </Row>
      
-      <Feactures/>
+      {/* <Feactures/> */}
       <div className="WidgetTable">
       {/* <Divider orientation="left"></Divider> */}
     <Row>
