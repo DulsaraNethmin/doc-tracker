@@ -6,7 +6,9 @@ import {
   CreditCardOutlined,
   CarryOutOutlined,
   UserOutlined,
-  AppstoreOutlined
+  AppstoreOutlined,
+  BellOutlined,
+  WechatOutlined
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -21,17 +23,17 @@ function getItem(label, key, icon, children) {
 
 const items = [
  
-  getItem('Document','1',  <FileTextOutlined />),
+  getItem(<a class="nav-link" href="/documents">Documents</a>,'0',  <FileTextOutlined />),
 
   getItem('User', '2', <UserOutlined />),
 
-
   getItem('Jobs', 'sub2', <AppstoreOutlined />, [
-    getItem('Internal Jobs', 'sub3', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '8')]),
-    getItem('External Jobs', 'sub4', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '8')]),
+    getItem('Internal Jobs', 'sub3', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '9')]),
+    getItem('External Jobs', 'sub4', null, [getItem('New Requests', '10'), getItem('In progress', '11'),getItem('Completed', '12')]),
   ]),
 
-
+  getItem( <a class="nav-link" href="/notification">Notifications</a>, '3',<BellOutlined />),
+  getItem( <a class="nav-link" href="/chat">Chat</a>, '4',<WechatOutlined />),
 ];
 
 class Sidebar extends React.Component {
