@@ -20,16 +20,16 @@ function App() {
         <Route path="/Dashboard" exact element={<Dashboard />} />
         <Route path="/notification" exact element={<Notification/>} />
          </Routes>
-      {/* <Dashboard/> */}
+      
       {/* <Topbar/> */}
-       {/* <Routes>
+       <Routes>
         <Route path="/documents" exact element={<Document/>} />
         <Route path="/chat" exact element={<Chat />} />
         <Route path="/notification" exact element={<Notification />} />
 
         </Routes>
-      <Chat/> */}
-      {/* <Sidebar/> */}
+      <Chat/>
+     
       {/* <Footer/> */}
       </BrowserRouter>
     </div>
