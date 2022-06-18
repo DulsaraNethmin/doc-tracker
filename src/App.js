@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {/* <Navbar/> */}
+      {/* <Sidebar/> */}
       <Routes>
         <Route path="/documents" exact element={<Document/>} />
         <Route path="/chat" exact element={<Chat />} />
@@ -30,7 +30,7 @@ function App() {
         </Routes>
       <Chat/> */}
       {/* <Sidebar/> */}
-      <Footer/>
+      {/* <Footer/> */}
       </BrowserRouter>
     </div>
   );

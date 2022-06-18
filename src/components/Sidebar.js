@@ -6,6 +6,7 @@ import {
   CreditCardOutlined,
   CarryOutOutlined,
   UserOutlined,
+  AppstoreOutlined
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -19,20 +20,17 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  // getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Document',  <FileTextOutlined />),
+ 
+  getItem('Document','1',  <FileTextOutlined />),
 
-  getItem('User', '1', <UserOutlined />),
+  getItem('User', '2', <UserOutlined />),
 
-  getItem('Job', 'sub1',  <CarryOutOutlined />,
-    // [getItem('Requests', '6'), getItem('In Progress', '8'), getItem('Completed', '8'), getItem('Tracking', '8')],
-    
-    [getItem('Internal Jobs', '6'[
-      getItem('Requests', '6'), getItem('In Progress', '8'), getItem('Completed', '8'), getItem('Tracking', '8')
-    ]), 
-    
-    getItem('External Jobs', '8')],
-  ),
+
+  getItem('Jobs', 'sub2', <AppstoreOutlined />, [
+    getItem('Internal Jobs', 'sub3', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '8')]),
+    getItem('External Jobs', 'sub4', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '8')]),
+  ]),
+
 
 ];
 
@@ -54,10 +52,11 @@ class Sidebar extends React.Component {
       <Layout
         style={{
           minHeight: '100vh',
+          position: 'fixed',
         }}
       >
-        <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" />
+        <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse} >
+          {/* <div className="logo" /> */}
           <Menu className="Sidebar" theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
         </Sider>
         <Layout className="site-layout">
