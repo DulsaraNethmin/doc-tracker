@@ -42,12 +42,16 @@ function Dashboard(){
         <Content
           // className="site-layout-background"
           style={{
-            padding: 24,
+            paddingLeft: 100,
+            paddingTop: 50,
             margin: 0,
             minHeight: 280,
           }}
         >
-          Content
+          1Content Content Content Content Content
+          Content Content Content Content Content
+          Content Content Content Content Content
+          Content Content Content Content Content
         </Content>
       </Layout>
       {/* <Footer>Footer</Footer> */}

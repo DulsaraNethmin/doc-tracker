@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   FileTextOutlined,
@@ -10,6 +10,7 @@ import {
   BellOutlined,
   WechatOutlined
 } from '@ant-design/icons';
+// import { useState } from 'react';
 const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
@@ -38,7 +39,7 @@ const items = [
 
 class Sidebar extends React.Component {
   state = {
-    collapsed: false,
+    collapsed: true,
   };
   onCollapse = (collapsed) => {
     console.log(collapsed);
@@ -49,6 +50,7 @@ class Sidebar extends React.Component {
 
   render() {
     const { collapsed } = this.state;
+    // const [collapsed] = useState(false);
     return (
 
       <Layout
