@@ -23,6 +23,7 @@ function Mail() {
   <input type="submit" value="Submit"  ></input>
     
   </select>
+       
        {role==='admin'&&<div>
          <AdminMail/>
          </div>}

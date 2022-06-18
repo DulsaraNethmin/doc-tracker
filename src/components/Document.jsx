@@ -38,13 +38,9 @@ function Document() {
     else
     {
       setisError(true);
-    }
   
- 
-  }, [validat]);
+  }}, [validat]);
   
-
-
   //to get document from reducers
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -141,7 +137,7 @@ function Document() {
       <DocumentList />
     </div>
   )
-}
+} 
 
 export default Document
 
