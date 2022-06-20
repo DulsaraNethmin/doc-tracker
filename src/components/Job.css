@@ -4,42 +4,16 @@
     background-size: cover;
     height: 100vh;
   }
-
-
-  .btn1{
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    -ms-transform: translate(-60%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: #55B9F5;
-    border: none;
-    color: white;
-    width: 300px;
-    height: 10px;
-    font-size: 26px;
-    margin: 14px 2px;
+  .Button{
     cursor: pointer;
-  }
-
-
-  .container { 
-    height: 200px;
-    position: relative;
-    border: 3px solid green; 
-  }
-  
-  .vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    width: 300px;
+    height: 60px;
+    font-size: large;
   }
 
   .Cards{
     padding-left: 360px;
     padding-right: 60px;
-    padding-top: 100px;
+    padding-top: 150px;
+    
   }
