@@ -6,9 +6,11 @@ import {
   CreditCardOutlined,
   CarryOutOutlined,
   UserOutlined,
+  BellOutlined,
+  AppstoreOutlined,
+  WechatOutlined
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
-
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -19,15 +21,18 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  // getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Document', '2', <FileTextOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('History', '3'),
-    getItem('Jobs', '4'),
-    getItem('Profile', '5'),
+ 
+  getItem(<a class="nav-link" href="/documents">Documents</a>,'0',<FileTextOutlined />),
+
+  getItem(<a class="nav-link" href="">User</a>, '2', <UserOutlined />),
+
+  getItem('Jobs', 'sub2', <AppstoreOutlined />, [
+    getItem(<a class="nav-link" href="">Internal Jobs</a>, 'sub3', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '9')]),
+    getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem('New Requests', '10'), getItem('In progress', '11'),getItem('Completed', '12')]),
   ]),
-  getItem('Job', 'sub2', <CarryOutOutlined />, [getItem('In Progress', '6'), getItem('Completed', '8'), getItem('New Requests', '8'), getItem('Tracking', '8')]),
-  getItem('Payments', '9', <CreditCardOutlined />),
+
+  getItem( <a class="nav-link" href="/notification">Notifications</a>, '3',<BellOutlined />),
+  getItem( <a class="nav-link" href="/chat">Chat</a>, '4',<WechatOutlined />),
 ];
 
 class Sidebar extends React.Component {
@@ -55,72 +60,7 @@ class Sidebar extends React.Component {
           <Menu className="Sidebar" theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
         </Sider>
         <Layout className="site-layout">
-          {/* <Header
-            className="site-layout-background"
-            style={{
-              padding: 0,
-            }}
-          /> */}
-
-          {/* <Header>
-            <div className="logo" />
-            <Menu
-              theme="Dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={new Array(5).fill(null).map((_, index) => {
-                const key = index + 1;
-                return {
-                  key,
-                  label: `nav ${key}`,
-                };
-              })}
-            />
-          </Header> */}
-
-          {/* <Content
-            style={{
-              margin: '0 16px',
-            }}
-
-          >
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              items={new Array(15).fill(null).map((_, index) => {
-                const key = index + 1;
-                return {
-                  key,
-                  label: `nav ${key}`,
-                };
-              })}
-            />
-            <Breadcrumb
-              style={{
-                margin: '16px 0',
-              }}
-            >
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                minHeight: 360,
-              }}
-            >
-              Bill is a cat.
-            </div>
-          </Content> */}
-          {/* <Footer
-            style={{
-              textAlign: 'center',
-            }}
-          >
-            Ant Design ©2018 Created by Ant UED
-          </Footer> */}
+          
         </Layout>
       </Layout>
     );
