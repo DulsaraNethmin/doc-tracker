@@ -24,12 +24,18 @@ import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import Jobs from "./screens/Jobs/Jobs";
 import JobsInProgress from "./screens/Jobs/Ext_JobsInProgress";
+
 import JobsInProgress_Table from "./components/JobsInProgress_Table";
 import JobTracking from "./components/JobTracking";
-import NewJobRequests from "./screens/Jobs/Ext_NewJobRequests";
-import CompletedJobs from "./screens/Jobs/Ext_CompletedJobs";
-import Sidebar from "./components/Sidebar";
+import ExtNewJobRequests from "./screens/Jobs/Ext_NewJobRequests";
+import ExtCompletedJobs from "./screens/Jobs/Ext_CompletedJobs";
 
+import IntNewJobRequests from "./screens/Jobs/Int_NewJobRequests";
+import IntCompletedJobs from "./screens/Jobs/Int_CompletedJobs";
+
+import IntJobsInProgress from "./components/JobsInProgress_Table";
+import Sidebar from "./components/Sidebar";
+//IntNewJobRequests
 function App() {
   return (
     <div className="App">
@@ -57,10 +63,14 @@ function App() {
           <Route path="/Branch-table" exact element={<BranchesTable />} />
 
           <Route exact path="/Jobs" element={<Jobs />} />
-          <Route exact path="/Jobs/JobsInProgress" element={<JobsInProgress_Table />} />
+          <Route exact path="/Jobs/ExtJobsInProgress" element={<JobsInProgress_Table />} />
           <Route exact path="/JobTracking" element={<JobTracking />} />
-          <Route exact path="/Jobs/NewJobRequests" element={<NewJobRequests />} />
-          <Route exact path="/Jobs/CompletedJobs" element={<CompletedJobs />} />
+          <Route exact path="/Jobs/ExtNewJobRequests" element={<ExtNewJobRequests />} />
+          <Route exact path="/Jobs/ExtCompletedJobs" element={<ExtCompletedJobs />} />
+
+          <Route exact path="/Jobs/IntJobsInProgress" element={<IntJobsInProgress />} />
+          <Route exact path="/Jobs/IntNewJobRequests" element={<IntNewJobRequests />} />
+          <Route exact path="/Jobs/IntCompletedJobs" element={<IntCompletedJobs />} />
           
         </Routes>
       </BrowserRouter>

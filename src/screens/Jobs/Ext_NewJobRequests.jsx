@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom"
 const originData = [];
 
 
-const NewJobRequests = () => {
+const ExtNewJobRequests = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -107,7 +107,7 @@ const NewJobRequests = () => {
   return (
     <div className='Table'>
       
-        <h2>New Job Requests</h2>
+        <h2>External New Job Requests</h2>
         <Form form={form} component={false}>
       < JobsInProgress_Table
         bordered
@@ -120,4 +120,4 @@ const NewJobRequests = () => {
   )
 }
 
-export default NewJobRequests;
+export default ExtNewJobRequests;

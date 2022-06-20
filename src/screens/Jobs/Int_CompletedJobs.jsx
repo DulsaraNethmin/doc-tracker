@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom"
 const originData = [];
 
 
-const ExtCompletedJobs = () => {
+const IntCompletedJobs = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -103,7 +103,7 @@ const ExtCompletedJobs = () => {
   return (
     <div className='Table'>
       
-        <h2>External Completed Jobs</h2>
+        <h2>Internal Completed Jobs</h2>
         <Form form={form} component={false}>
       <JobsInProgress_Table
         bordered
@@ -116,5 +116,5 @@ const ExtCompletedJobs = () => {
   )
 }
 
-export default ExtCompletedJobs;
+export default IntCompletedJobs;
 

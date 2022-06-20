@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom"
 const originData = [];
 
 
-const ExtCompletedJobs = () => {
+const IntNewJobRequests = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -36,8 +36,7 @@ const ExtCompletedJobs = () => {
             "Deliverer ID":e.deliverer_id,
             "Customer ID":e.customer_id,
             "Document ID":e.customer_id,
-            "Created date":e.createdAt,
-            "Completed date":e.updatedAt,
+            "Created date":e.createdAt
           }
         );
       })
@@ -86,13 +85,18 @@ const ExtCompletedJobs = () => {
         width: '15%',
         editable: false,
       },
-      {
-        title: 'Completed date',
-        dataIndex: 'updatedAt',
-        width: '15%',
-        editable: false,
+    {
+      
+      // dataIndex: 'Profile',
+      render: (_, record) => {
+        const editable = isEditing(record);
+        return (
+          <Typography.Link disabled={editingKey !== ''} >
+            Accept
+          </Typography.Link>
+        );
       },
-
+    },
   ];
   const mergedColumns = columns.map((col) => {
     return {
@@ -103,9 +107,9 @@ const ExtCompletedJobs = () => {
   return (
     <div className='Table'>
       
-        <h2>External Completed Jobs</h2>
+        <h2>Internal New Job Requests</h2>
         <Form form={form} component={false}>
-      <JobsInProgress_Table
+      < JobsInProgress_Table
         bordered
         dataSource={data}
         columns={mergedColumns}
@@ -116,5 +120,4 @@ const ExtCompletedJobs = () => {
   )
 }
 
-export default ExtCompletedJobs;
-
+export default IntNewJobRequests;

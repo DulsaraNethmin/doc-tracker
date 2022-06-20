@@ -7,7 +7,7 @@ import Sidebar from './Sidebar';
 const originData = [];
 
 
-const JobsInProgress_Table = () => {
+const IntNewJobRequests = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -109,7 +109,7 @@ const JobsInProgress_Table = () => {
   return (
     <div >
 
-      {/* <h2>Common External Jobs in Progress</h2> */}
+      <h2>Internal Jobs in progress</h2>
       <Row>  <Col flex={0.5}>  <Sidebar /></Col>
       <Col flex={10}> <Form form={form} component={false}>
         <Table
@@ -125,4 +125,4 @@ const JobsInProgress_Table = () => {
   )
 }
 
-export default JobsInProgress_Table;
+export default IntNewJobRequests;
