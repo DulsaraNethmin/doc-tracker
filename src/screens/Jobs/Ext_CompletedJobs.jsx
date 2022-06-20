@@ -1,12 +1,13 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react';
+import JobsInProgress_Table from '../../components/JobsInProgress_Table'; 
 // import "../components/Job.css"
 import {useNavigate} from "react-router-dom"
 const originData = [];
 
 
-const NewJobRequests = () => {
+const CompletedJobs = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -35,7 +36,8 @@ const NewJobRequests = () => {
             "Deliverer ID":e.deliverer_id,
             "Customer ID":e.customer_id,
             "Document ID":e.customer_id,
-            "Created date":e.createdAt
+            "Created date":e.createdAt,
+            "Completed date":e.updatedAt,
           }
         );
       })
@@ -84,18 +86,13 @@ const NewJobRequests = () => {
         width: '15%',
         editable: false,
       },
-    {
-      
-      // dataIndex: 'Profile',
-      render: (_, record) => {
-        const editable = isEditing(record);
-        return (
-          <Typography.Link disabled={editingKey !== ''} >
-            Accept
-          </Typography.Link>
-        );
+      {
+        title: 'Completed date',
+        dataIndex: 'updatedAt',
+        width: '15%',
+        editable: false,
       },
-    },
+
   ];
   const mergedColumns = columns.map((col) => {
     return {
@@ -106,9 +103,9 @@ const NewJobRequests = () => {
   return (
     <div className='Table'>
       
-        <h2>New Job Requests</h2>
+        <h2>Completed Jobs</h2>
         <Form form={form} component={false}>
-      <Table
+      <JobsInProgress_Table
         bordered
         dataSource={data}
         columns={mergedColumns}
@@ -119,4 +116,5 @@ const NewJobRequests = () => {
   )
 }
 
-export default NewJobRequests;
+export default CompletedJobs;
+

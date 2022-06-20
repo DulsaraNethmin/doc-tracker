@@ -23,11 +23,11 @@ import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import Jobs from "./screens/Jobs/Jobs";
-import JobsInProgress from "./screens/Jobs/JobsInProgress";
+import JobsInProgress from "./screens/Jobs/Ext_JobsInProgress";
 import JobsInProgress_Table from "./components/JobsInProgress_Table";
 import JobTracking from "./components/JobTracking";
-import NewJobRequests from "./screens/Jobs/NewJobRequests";
-import CompletedJobs from "./screens/Jobs/CompletedJobs";
+import NewJobRequests from "./screens/Jobs/Ext_NewJobRequests";
+import CompletedJobs from "./screens/Jobs/Ext_CompletedJobs";
 import Sidebar from "./components/Sidebar";
 
 function App() {
