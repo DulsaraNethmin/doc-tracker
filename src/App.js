@@ -8,8 +8,7 @@ import {
   Route,
   BrowserRouter,
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Document from "./components/Document";
 import Notification from "./components/Notification";
 import AdminLoginPage from "./screens/AdminLoginPage";
@@ -17,13 +16,18 @@ import AdminRegPage from "./screens/AdminRegPage";
 import OrgCreatePage from "./screens/OrgCreatePage";
 import SplashScreenPage from "./screens/SplashScreenPage";
 import UserRegPage from "./screens/UserRegPage";
+import UserTable from "./components/UserTable";
+import UserDetails from "./screens/UserDetails";
+import Userprofile from "./screens/Userprofile";
 import TestDashboard from "./screens/TestDashboard";
 import OrganizationDashboard from "./screens/OrganizationDashboard";
 import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
-import DocumentList from './components/DocumentList';
+import BranchOwnerRegPage from "./screens/BranchOwnerRegPage";
 import Mail from './components/Mail';
+import Navbar from './components/Navbar'
+
 
 
 
@@ -42,16 +46,26 @@ function App() {
           <Route exact path="/create-organization" element={<OrgCreatePage />} />
           <Route exact path="/create-org-owner" element={<OrgOwnerCreatePage />} />
 
+          <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
+          <Route path="/Branch-reg" exact element={<BranchRegPage />} />
+          <Route path="/Branch-owner-reg" exact element={<BranchOwnerRegPage />} />
+          <Route path="/Branch-table" exact element={<BranchesTable />} />
           
+          <Route path="/test-dashboard" exact element={<TestDashboard />} />
+          <Route path="/User-reg" exact element={<UserRegPage />} />
+
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
           <Route path="/chat" exact element={<Mail />} />
-          <Route path="/notification" exact element={<Notification />} />
+          <Route path="/notification" exact element={<Notification/>}/>
+         <Route path="/user/details" exact element={<UserDetails/>} />
+          <Route path="/user/profile" exact element={<Userprofile/>} />
+
           <Route path="/test-dashboard" exact element={<TestDashboard />} />
           <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
           <Route path="/Branch-reg" exact element={<BranchRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
-          <Route path="/documents/viewdoc" exact element={<DocumentList />} />
+
 
         </Routes>
       </BrowserRouter>
