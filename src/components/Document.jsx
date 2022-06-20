@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 import { addDocument, documentAdd } from '../features/doucument'
 import { useEffect } from "react"
@@ -9,6 +9,8 @@ import { useEffect } from "react"
 import { getDocumentStatus, fetchDocuments } from '../features/doucument'
 import DocumentList from './DocumentList'
 import { Link } from 'react-router-dom'
+import {Input,Button} from 'antd'
+
 
 
 function Document() {
@@ -97,37 +99,37 @@ function Document() {
           <div className='addDocument'>
             <div>
               <p>Enter name of the document</p>
-              <input type="text" placeholder="Name" value={adddoc.doc_name} onChange={(event) => {
+              <Input type="text" placeholder="Name" value={adddoc.doc_name} onChange={(event) => {
                 setAdddoc({ ...adddoc, doc_name: event.target.value });
               }}  />
             </div>
             <p style={{color: "red"}}>{validat.doc_name}</p>
             <div>
               <p>Enter type of the document</p>
-              <input type="text" placeholder="Type" value={adddoc.type} onChange={(event) => {
+              <Input type="text" placeholder="Type" value={adddoc.type} onChange={(event) => {
                 setAdddoc({ ...adddoc, type: event.target.value });
               }} />
             </div>
             <p style={{color: "red"}}>{validat.type}</p>
             <div>
               <p>Enter Added Date of the document</p>
-              <input type="date" placeholder="Added Date" value={adddoc.date} onChange={(event) => {
+              <Input type="date" placeholder="Added Date" value={adddoc.date} onChange={(event) => {
                 setAdddoc({ ...adddoc, date: event.target.value });
               }} />
             </div>
             <p style={{color: "red"}}>{validat.date}</p>
             <div>
               <p>Enter Added Department_ID of the document</p>
-              <input type="text" placeholder="Added Date" value={adddoc.department_id} onChange={(event) => {
+              <Input type="text" placeholder="Added Date" value={adddoc.department_id} onChange={(event) => {
                 setAdddoc({ ...adddoc, department_id: event.target.value });
               }} />
             </div>
             <p style={{color: "red"}}>{validat.department_id}</p>
             <div  >
             
-              <button type='submit' >Add Document</button>
+              <Button type='submit' >Add Document</Button>
               <Link to='/documents/viewdoc'>
-              <button>Show new addedd ones</button>
+              <Button>Show new addedd ones</Button>
               </Link>
             </div>
 

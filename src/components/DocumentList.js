@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect ,useState} from 'react'
 import { fetchDocuments } from '../features/doucument';
 import { Link } from 'react-router-dom';
-
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import {Input,Button,Table} from 'antd'
 import Completedbutton from './Completedbutton';
+import {SearchOutlined} from '@ant-design/icons'
 
 function DocumentList() {
   const dispatch = useDispatch();
@@ -20,7 +22,28 @@ function DocumentList() {
   const columns=[
          {
            title:"doc_name",
-           dataIndex:"doc_name"
+           dataIndex:"doc_name",
+           filterDropdown:({setSelectedKeys,selectedKeys,confirm})=>{
+             return(<input autoFocus placeholder='Type a doc_name to search'
+             value={selectedKeys[0 ]}
+             onChange={(e)=>{
+               setSelectedKeys(e.target.value?[e.target.value]:[])
+             }}
+             onPressEnter={()=>{
+               confirm()
+             }}
+             onBlur={()=>{
+               confirm()
+             }}
+             
+             ></input>
+           )},
+           filterIcon:()=>{
+             return<SearchOutlined/>;
+           },
+           onFilter:(value,record)=>{
+             return record.doc_name.toLowerCase().includes(value.toLowerCase())
+           }
          },
          {
           title:"type",
@@ -31,12 +54,12 @@ function DocumentList() {
           dataIndex:"date"
         },
         {
-          title:"department_id",
-          dataIndex:"document_id"
+          title:"Branch_id",
+          dataIndex:"branch_id"
         },
         {
           title:"issubmit",
-          dataIndex:"issubmit"
+          dataIndex:<Completedbutton/>
         }
 
   ]
@@ -47,54 +70,12 @@ function DocumentList() {
       <div>
         <input type="text" placeholder='search' onChange={event=>{setsearchterm(event.target.value)}}/>  
         <Link to='/documents'>
-          <button>adddocument</button>
+          <Button>adddocument</Button>
         </Link>
         {getdocument.status === "pending" && <div>ERROR</div>}
         {(getdocument.status === "Success" || adddocument.documentAdd === "Succses") &&
           <div>
-            <table columns={columns}
-            bordered
-            >
-              <thead>
-                <tr>
-                  <th>Document_Name</th>
-                  <th>Type</th>
-                  <th>Date</th>
-                  <th>Department_id</th>
-                  <th>Is comepleted</th>
-                </tr>
-              </thead>
-              <tbody>
-                {getdocument.Documents.filter(val=>{
-                       if(searchterm==""){
-                         return val;
-                       }
-                       else if(val.doc_name.toLowerCase().includes(searchterm.toLowerCase())){
-                         return val;
-                       }
-                }).map(doc => {
-                  return <div>
-                    <td>
-                      <tr>{doc.doc_name}</tr>
-                    </td>
-                    <td>
-                      <tr>{doc.type}</tr>
-                    </td>
-                    <td>
-                      <tr>{doc.date}</tr>
-                    </td>
-                    <td>
-                      <tr>{doc.department_id}</tr>
-                    </td>
-                    <td>
-                      <tr>
-                        <Completedbutton/>
-                      </tr>
-                    </td>
-                  </div>;
-                })}
-              </tbody>
-            </table>
+          <Table dataSource={getdocument.Documents} columns={columns}></Table>
           </div>}
       </div>
     </div>
