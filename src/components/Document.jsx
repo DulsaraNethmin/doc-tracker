@@ -134,7 +134,7 @@ function Document() {
           </div>
         </form>
       </center>
-      <DocumentList />
+      
     </div>
   )
 } 

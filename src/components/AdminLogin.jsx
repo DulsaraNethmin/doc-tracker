@@ -98,12 +98,12 @@ const Login = () => {
                           "http://localhost:8080/user/get/oneOrgOwner",
                           data
                         );
-                        console.log(response.data[0]["branch"]);
-                        var branch_id = response.data[0]["branchId"];
-                        localStorage.setItem("branch_id", branch_id);
+                        console.log(response.data[0]["organization"]);
+                        var organization_id = response.data[0]["organizationId"];
+                        localStorage.setItem("organization_id", organization_id);
                         if (response.status == 200) {
                           window.alert("Login Successfull");
-                          navigate("/test-dashboard");
+                          navigate("/org-dashboard");
                         }
                         if (response.status == 201) {
                           //window.alert("Login UNSuccessfull");
