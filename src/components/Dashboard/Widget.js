@@ -69,7 +69,7 @@ import "../Dashboard.css"
 export default function WidgetSm() {
     return (
         <div className="WidgetSm">
-            <span className="widgetSmTitle">Available Employees</span>
+            <span className="widgetSmTitle">Available Deliverers</span>
             <ul className="widgetSmList">
                 <li className="widgetSmListItem">
                     <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />

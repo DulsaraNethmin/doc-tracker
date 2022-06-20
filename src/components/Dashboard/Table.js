@@ -82,7 +82,7 @@ export default function Tbl() {
             <h3 className="widgetLgTitle">Job Status</h3>
             <table className="widgetLgTable">
                 <tr className="widgetLgTr">
-                    <th className="widgetLgTh">Employee</th>
+                    <th className="widgetLgTh">Deliverer</th>
                     <th className="widgetLgTh">Customer</th>
                     <th className="widgetLgTh">Document ID</th>
                     <th className="widgetLgTh">Status</th>

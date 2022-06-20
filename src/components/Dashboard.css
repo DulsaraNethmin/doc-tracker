@@ -99,10 +99,23 @@ header
   padding-left: 100px;
   width:200vh;
   height: 30vh;
+  
 }
 /* .headerH1{
  padding-left: 300px;
 } */
+/* .HeaderMain{
+  flex-wrap: initial;
+} */
+.dashboard{
+  
+}
+
+.homeWidgets{
+  display: flex;
+  margin: 20px;
+  flex: 10;
+}
 
 .header .logo {
   font-size: 22px;

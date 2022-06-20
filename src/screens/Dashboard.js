@@ -52,20 +52,36 @@ function Dashboard(){
   return(
       <div>
        
-       <Layout >
+       <Layout style={{ minHeight: '100vh' }}>
        
         <Sider className="Sidebar" collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         {/* <div className="logo" /> */}
         <Menu theme="light" defaultSelectedKeys={['1']} mode="inline"  items={items} />
-      </Sider> <Head>
-       
-      </Head>
-      <Layout className="site-layout">
-
+      </Sider> 
       
+      <Layout  className="site-layout"><header className="site-layout-background"
+          style={{
+            padding: 0,
+          }}><Head /></header>
+     
+       <Content style={{ margin: '0 16px' }}>
+         
+         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+           
+         <div className="homeWidgets">
+         <Widget/>
+         <Tbl/>
+        </div>
+         </div>
+       </Content>
+     
+        {/* <Tbl/>
+        <Widget/> */}
+
+{/*       
       <Content className="content">
 
-         </Content>
+         </Content> */}
 
       </Layout>
       
