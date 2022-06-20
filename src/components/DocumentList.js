@@ -54,8 +54,7 @@ function DocumentList() {
           <div>
            
             
-            <table 
-            >
+            <table >
               <thead>
                 <tr>
                   <th>Document_Name</th>
