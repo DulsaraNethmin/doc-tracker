@@ -1,5 +1,5 @@
-import React from 'react';
-import { Table, Tag } from 'antd';
+// import React from 'react';
+// import { Table, Tag } from 'antd';
 // const columns = [
 //     {
 //         title: 'Name',
@@ -53,11 +53,87 @@ import { Table, Tag } from 'antd';
 
 // const Widget = () => <Table columns={columns} dataSource={data} />;
 
-function Widget (){
-    return(
-<div></div>
-    );
+// // function Widget (){
+// //     return(
+// // <div></div>
+// //     );
+// // }
+
+
+// export default Widget;
+
+
+import "../Dashboard.css"
+// import VisibilityIcon from '@mui/icons-material/Visibility';
+
+export default function WidgetSm() {
+    return (
+        <div className="WidgetSm">
+            <span className="widgetSmTitle">Available Employees</span>
+            <ul className="widgetSmList">
+                <li className="widgetSmListItem">
+                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
+                    <div className="widgetSmName">
+                        <div className="span widgetSmname">John </div>
+                    </div>
+                    <button className="widgetSmButton">
+                        {/* <VisibilityIcon/> */}
+                        Display
+                    </button>
+                </li>
+
+
+                <li className="widgetSmListItem">
+                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
+                    <div className="widgetSmName">
+                        <div className="span widgetSmname">John </div>
+                    </div>
+                    <button className="widgetSmButton">
+                        {/* <VisibilityIcon className="widgetSmIcon"/> */}
+                        Display
+                    </button>
+                </li>
+
+
+
+                <li className="widgetSmListItem">
+                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
+                    <div className="widgetSmName">
+                        <div className="span widgetSmname">John </div>
+                    </div>
+                    <button className="widgetSmButton">
+                        {/* <VisibilityIcon/> */}
+                        Display
+                    </button>
+                </li>
+
+
+
+                <li className="widgetSmListItem">
+                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
+                    <div className="widgetSmName">
+                        <div className="span widgetSmname">John </div>
+                    </div>
+                    <button className="widgetSmButton">
+                        {/* <VisibilityIcon/> */}
+                        Display
+                    </button>
+                </li>
+
+ 
+
+                <li className="widgetSmListItem">
+                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
+                    <div className="widgetSmName">
+                        <div className="span widgetSmname">John </div>
+                    </div>
+                    <button className="widgetSmButton">
+                        {/* <VisibilityIcon/> */}
+                        Display
+                    </button>
+                </li>
+            </ul>
+        </div>
+    )
 }
 
-
-export default Widget;
