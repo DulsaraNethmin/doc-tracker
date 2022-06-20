@@ -52,49 +52,8 @@ function DocumentList() {
         {getdocument.status === "pending" && <div>ERROR</div>}
         {(getdocument.status === "Success" || adddocument.documentAdd === "Succses") &&
           <div>
-            <table columns={columns}
-            bordered
-            >
-              <thead>
-                <tr>
-                  <th>Document_Name</th>
-                  <th>Type</th>
-                  <th>Date</th>
-                  <th>Department_id</th>
-                  <th>Is comepleted</th>
-                </tr>
-              </thead>
-              <tbody>
-                {getdocument.Documents.filter(val=>{
-                       if(searchterm==""){
-                         return val;
-                       }
-                       else if(val.doc_name.toLowerCase().includes(searchterm.toLowerCase())){
-                         return val;
-                       }
-                }).map(doc => {
-                  return <div>
-                    <td>
-                      <tr>{doc.doc_name}</tr>
-                    </td>
-                    <td>
-                      <tr>{doc.type}</tr>
-                    </td>
-                    <td>
-                      <tr>{doc.date}</tr>
-                    </td>
-                    <td>
-                      <tr>{doc.department_id}</tr>
-                    </td>
-                    <td>
-                      <tr>
-                        <Completedbutton/>
-                      </tr>
-                    </td>
-                  </div>;
-                })}
-              </tbody>
-            </table>
+           
+            
           </div>}
       </div>
     </div>
