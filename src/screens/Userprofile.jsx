@@ -19,7 +19,7 @@ import {
     Checkbox,
     Image
 } from 'antd';
-import "../components/User.css"
+// import "../components/User.css"
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
