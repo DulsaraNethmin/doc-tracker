@@ -75,15 +75,6 @@ function Dashboard(){
         </div>
          </div>
        </Content>
-     
-        {/* <Tbl/>
-        <Widget/> */}
-
-{/*       
-      <Content className="content">
-
-         </Content> */}
-
       </Layout>
       
     </Layout>
