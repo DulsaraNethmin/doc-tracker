@@ -25,8 +25,8 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 
-const UserProfile = () => {
-
+const UserProfile = ({name,username,email,role}) => {
+useEffect(()=>{console.log(name)},[])
 
     const onFinish = (values) => {
         console.log(values);
@@ -47,11 +47,7 @@ const UserProfile = () => {
     const isEditing = (record) => record.key === editingKey;
 
 
-    useEffect(() => {
-        var data = user_data();
-        console.log(data);
-        setData()
-    }, [])
+
 
 
     const validateMessages = {
@@ -65,36 +61,8 @@ const UserProfile = () => {
         },
     };
 
-    const user_data = async () => {
-        try {
-            console.log('aaaaaa');
-            var response = await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-8000-98bf-5a941355f418');
-            console.log(response.data);
-            const obj = response.data.map((e) => {
-                return (
-                    {
-
-                        "id": e.id,
-                        "name": e.name,
-                        "Usrname": e.username,
-                        "email": e.email,
-                        "telephone": e.telephone,
-                        "Job role": e.role,
-
-                    }
-                );
-            })
-            setData(obj);
-            return response.data;
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-      };
     return (
+   
         <div className='Background'>
             <div className='Cards'>
                 <Row gutter={16}>

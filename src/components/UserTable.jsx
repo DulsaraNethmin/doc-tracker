@@ -11,6 +11,7 @@ const UserTable = () => {
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
   const navigate = useNavigate();
+  const [table_body,settable_body]=useState([]);
 
   const isEditing = (record) => record.key === editingKey;
 
@@ -23,21 +24,22 @@ const UserTable = () => {
   const user_data=async()=>{
     try{
       console.log('aaaaaa');
-      var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-8000-98bf-5a941355f418');
+      var response=await axios.get(`http://localhost:8080/user/get/all?branch_id=${localStorage.getItem("branch_id")}`);
       console.log(response.data);
       const obj=response.data.map((e)=>{
         return(
-          {
-           
-            "name":e.name,
-            "Usrname":e.username, 
-            "email":e.email,
-            "Job role":e.role,
-            
-          }
+          <tr>
+            <td>{e.name}</td>
+            <td>{e.username}</td>
+            <td>{e.email}</td>
+            <td>{e.role}</td>
+            <td><span onClick={()=>{ navigate('/user/profile',{replace:true,state:{name:e.name,username:e.username,email:e.email,role:e.role}})}}
+            >Edit</span></td>
+          </tr>
         );
       })
       setData(obj);
+      settable_body(obj);
       return response.data;
     }catch(e){
       console.log(e);
@@ -95,19 +97,31 @@ const UserTable = () => {
       
         <h2>User details</h2>
         <Form form={form} component={false}>
-      <Table
+
+      {/* <Table
         bordered
         dataSource={data}
         columns={mergedColumns}
         rowClassName="editable-row"
          pagination={true}
-      />
+      >
+
+
+      </Table> */}
+      <table>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Operation</th>
+        {table_body}
+      </table>
     </Form>
     </div>
   )
 }
 
-export default UserTable
+export default UserTable;
 
 
 
