@@ -17,3 +17,12 @@ img{
     background-image: url("../images/background.png");
     height: 760px;
   }
+
+  .Cards{
+    padding-left: 500px;
+    padding-top: 100px;
+  }
+
+.Background{
+  background-image: url('../images/background.png') no-repeat;
+}

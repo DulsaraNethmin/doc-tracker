@@ -36,7 +36,7 @@ const SplashScreenPage = () => {
         <Button
           type="primary"
           onClick={(e) => {
-            navigate("login");
+            navigate("/login");
           }}
         >
           Login

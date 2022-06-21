@@ -11,7 +11,7 @@ import {
 
 import Document from "./components/Document";
 import Notification from "./components/Notification";
-import AdminLoginPage from "./screens/AdminLoginPage";
+// import AdminLoginPage from "./screens/AdminLoginPage";
 import AdminRegPage from "./screens/AdminRegPage";
 import OrgCreatePage from "./screens/OrgCreatePage";
 import SplashScreenPage from "./screens/SplashScreenPage";
@@ -35,7 +35,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
-          <Route exact path="/login" element={<AdminLoginPage />} />
+          {/* <Route path="/login" element={<AdminLoginPage />} /> */}
 
           
           <Route exact path="/create-organization" element={<OrgCreatePage />} />

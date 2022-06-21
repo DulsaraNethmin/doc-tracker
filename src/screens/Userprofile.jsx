@@ -1,73 +1,103 @@
 import React, { useState } from 'react';
+import "./pages.css";
 import {
-  Form,
-  Input,
-  Button,
-  Radio,
-  Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
-  Checkbox,
+    Form,
+    Input,
+    Button,
+    DatePicker,
+    Row,
+    Col,
+    Card,
+    Image
 } from 'antd';
-import "../components/User.css"
+// import "../components/User.css"
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-const UserProfile = ({props}) => {
-  const [componentDisabled, setComponentDisabled] = useState(true);
+// const UserProfile = ({ props }) => {
+//     const [componentDisabled, setComponentDisabled] = useState(true);
 
-  const onFormLayoutChange = ({ disabled }) => {
-    setComponentDisabled(disabled);
-  };
+//     const onFormLayoutChange = ({ disabled }) => {
+//         setComponentDisabled(disabled);
+//     };
 
-  return (
-    <div className='UserProf'>
-        <Form
-      labelCol={{
-        span: 4,
-      }}
-      wrapperCol={{
-        span: 14,
-      }}
-      layout="horizontal"
-      initialValues={{
-        disabled: componentDisabled,
-      }}
-      onValuesChange={onFormLayoutChange}
-      disabled={componentDisabled}
-    >
-      <Form.Item label="ID">
-        <Input value={props.id}/>
-      </Form.Item>
-      <Form.Item label="Name">
-        <Input value={props.name}/>
-      </Form.Item>
-      <Form.Item label="User name">
-        <Input value={props.username}/>
-      </Form.Item>
-      <Form.Item label="Email">
-        <Input value={props.email}/>
-      </Form.Item>
-      <Form.Item label="Password">
-        <Input value={props.password}/>
-      </Form.Item>
-      <Form.Item label="Role">
-        <Input value={props.role}/>
-      </Form.Item>
-      <Form.Item label="Telephone">
-        <Input value={props.telephone}/>
-      </Form.Item>     
-    </Form>
-<div className='saveButton'>
-<Button type="primary">Save Changes</Button>
-</div>
-    
-    </div>
-  );
+
+const UserProfile = () => {
+    const [componentSize, setComponentSize] = useState('default');
+
+    const onFormLayoutChange = ({ size }) => {
+        setComponentSize(size);
+    };
+    return (
+        <div className='Background'>
+            <div className='Cards'>
+                <Row gutter={16}>
+
+                    <Col span={5}>
+                        <label htmlFor=""></label><br/><br/>
+                        <Image
+                            width={200}
+                            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                        /><br />
+                        <label htmlFor=""><h2>User Name</h2></label>
+                    </Col>
+
+                    <Col span={11}>
+                        {/* <Card bordered={false}> */}
+                            <Form
+                                labelCol={{
+                                    span: 4,
+                                }}
+                                wrapperCol={{
+                                    span: 14,
+                                }}
+                                layout="horizontal"
+                                initialValues={{
+                                    size: componentSize,
+                                }}
+                                onValuesChange={onFormLayoutChange}
+                                size={componentSize}
+                            >
+                                <Form.Item name="customer_id">
+
+                                </Form.Item>
+                                <Form.Item label="Id" name="customer_id">
+                                    <label htmlFor=""><Input /></label>
+                                </Form.Item>
+
+                                <Form.Item label="Name" name="id">
+                                    <label htmlFor=""><Input /></label>
+                                </Form.Item>
+
+                                <Form.Item label="User Name" name="admin_id">
+                                    <label htmlFor=""><Input /></label>
+                                </Form.Item>
+
+                                <Form.Item label="Email" name="customer_id">
+                                    <label htmlFor=""><Input /></label>
+                                </Form.Item>
+
+                                <Form.Item label="Telephone" name="customer_id">
+                                    <label htmlFor=""><Input /></label>
+                                </Form.Item>
+                                <Form.Item label="Job role" name="customer_id">
+                                    <label htmlFor=""><Input /></label>
+                                </Form.Item>
+
+                            </Form>
+                            <Button>Save changes</Button>
+                        {/* </Card> */}
+                    </Col>
+
+
+                </Row>
+                <div className='saveButton'>
+                    {/* <Button type="primary">Save Changes</Button> */}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default () => <UserProfile />;
