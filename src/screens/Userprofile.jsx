@@ -4,19 +4,10 @@ import {
     Form,
     Input,
     Button,
-    Radio,
-    Select,
-    Cascader,
     DatePicker,
-    InputNumber,
-    TreeSelect,
-    Switch,
-    Steps,
-    Step,
     Row,
     Col,
     Card,
-    Checkbox,
     Image
 } from 'antd';
 // import "../components/User.css"
