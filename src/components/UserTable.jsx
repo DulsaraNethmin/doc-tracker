@@ -23,12 +23,12 @@ const UserTable = () => {
   const user_data=async()=>{
     try{
       console.log('aaaaaa');
-      var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+      var response=await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-8000-98bf-5a941355f418');
       console.log(response.data);
       const obj=response.data.map((e)=>{
         return(
           {
-           "id":e.id,
+           
             "name":e.name,
             "Usrname":e.username, 
             "email":e.email,
@@ -44,12 +44,6 @@ const UserTable = () => {
     }
   }
   const columns = [
-    {
-      title: 'id',
-      dataIndex: 'id',
-      width: '25%',
-      editable: true,
-    },
     {
       title: 'Name',
       dataIndex: 'name',
@@ -77,9 +71,8 @@ const UserTable = () => {
     {
       title: 'Profile',
       dataIndex: 'Profile',
-      render: (_, record,obj) => {
-        const id=obj.id;
-        const editable = isEditing(obj.id);
+      render: (_, record) => {
+        const editable = isEditing(record);
         return (
           // <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           //   View
@@ -87,7 +80,8 @@ const UserTable = () => {
           <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           View
         </Typography.Link>
-        );}
+        );
+      },
     },
   ];
   const mergedColumns = columns.map((col) => {
