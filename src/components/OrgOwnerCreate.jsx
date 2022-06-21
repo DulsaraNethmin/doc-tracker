@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
@@ -6,6 +6,28 @@ import { useState } from "react";
 import axios from "axios";
 
 const layout = {
+    labelCol: {
+      span: 8,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  };
+  /* eslint-disable no-template-curly-in-string */
+  
+  const validateMessages = {
+    required: "${label} is required!",
+    types: {
+      email: "${label} is not a valid email!",
+      number: "${label} is not a valid number!",
+    },
+    number: {
+      range: "${label} must be between ${min} and ${max}",
+    },
+  };
+
+const OrgOwnerCreate = () => {
+    const layout = {
   labelCol: {
     span: 8,
   },
@@ -25,32 +47,6 @@ const validateMessages = {
     range: "${label} must be between ${min} and ${max}",
   },
 };
-
-const OrgOwnerCreatePage = () => {
-  //const [name, setOrgName] = useState("");
-  const [owner, setOwner] = useState("");
-  const [organization_owneruser_name, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  // const handleOrgName = (e) => {
-  //   setOrgName(e.target.value);
-  // };
-  const handleOwner = (e) => {
-    setOwner(e.target.value);
-  };
-
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const onFinish = (values) => {
-    console.log(values);
-  };
-  const navigate = useNavigate();
   return (
     <div>
       <Row style={{ padding: "4% 0" }}>
@@ -60,27 +56,10 @@ const OrgOwnerCreatePage = () => {
             <Form
               {...layout}
               name="nest-messages"
-              //onFinish={onFinish}
+              onFinish={onFinish}
               validateMessages={validateMessages}
               alignment="left"
             >
-              <Form.Item
-                name="owner"
-                label="Owner"
-                // rules={[
-                //   {
-                //     required: true,
-                //   },
-                // ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handleOwner(e);
-                  }}
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Owner Name"
-                />
-              </Form.Item>
 
               <Form.Item
                 name="organization_owneruser_name"
@@ -94,11 +73,7 @@ const OrgOwnerCreatePage = () => {
                   },
                 ]}
               >
-                <Input
-                  onChange={(e) => {
-                    handleUsername(e);
-                  }}
-                />
+                <Input />
               </Form.Item>
 
               <Form.Item
@@ -112,11 +87,7 @@ const OrgOwnerCreatePage = () => {
                 ]}
                 hasFeedback
               >
-                <Input.Password
-                  onChange={(e) => {
-                    handlePassword(e);
-                  }}
-                />
+                <Input.Password />
               </Form.Item>
 
               <Row>
@@ -139,32 +110,27 @@ const OrgOwnerCreatePage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      
-                        console.log(owner, organization_owneruser_name, password);
-                        let data = {
-                          name: owner,
-                          username: organization_owneruser_name,
-                          password: password,
-                          role: "Organization Owner",
-                          org_id:localStorage.getItem("org_id"),
-                        };
-                        console.log(data);
+                      if (name == "") {
+                        window.alert(
+                          "Incomplete. Please fill organization Name."
+                        );
+                      } else {
+                        console.log(name, owner);
+                        let data = { name: name, owner: owner };
                         let response = await axios.post(
-                          "http://localhost:8080/user/add",
+                          "http://localhost:8080/organization/add",
                           data
                         );
-                        console.log(response.data);
+                        console.log(response.status);
                         if (response.status == 200) {
-                          window.alert("Organization Owner Created");
+                          window.alert("Organization Created");
                           navigate("/register-admin");
                         }
                         if (response.status != 200) {
-                          window.alert(
-                            "Organization Owner Creation UNSuccessfull"
-                          );
+                          window.alert("Login UNSuccessfull");
                         }
                       }
-                    }
+                    }}
                   >
                     Next
                   </Button>
@@ -176,7 +142,7 @@ const OrgOwnerCreatePage = () => {
         <Col span={8}></Col>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default OrgOwnerCreatePage;
+export default OrgOwnerCreate

@@ -1,43 +1,14 @@
-import React from "react";
-import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Button } from 'antd';
 
 const OrganizationDashboard = () => {
-  const navigate = useNavigate();
   return (
     <div>
-      <Button
-        onClick={(e) => {
-          navigate("/Branch-reg");
-        }}
-        type="primary"
-      >
-        Create Branch
-      </Button>
+      <Button type="primary">Create Branch</Button>
       <br />
-      <Button 
-      onClick={(e) => {
-        navigate("/Branch-table");
-      }}
-      type="primary">Branches</Button>
-      <br />
-      <br />
-      <br />
-      <br />
-      <Button
-        type="primary"
-        htmlType="submit"
-        className="login-form-button"
-        onClick={async (e) => {
-          e.preventDefault();
-          localStorage.clear();
-          navigate("/");
-        }}
-      >
-        Organization Logout
-      </Button>
+      <Button type="primary">Branches</Button>
     </div>
-  );
-};
+  )
+}
 
-export default OrganizationDashboard;
+export default OrganizationDashboard

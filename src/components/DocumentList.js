@@ -52,9 +52,9 @@ function DocumentList() {
         {getdocument.status === "pending" && <div>ERROR</div>}
         {(getdocument.status === "Success" || adddocument.documentAdd === "Succses") &&
           <div>
-           
-            
-            <table >
+            <table columns={columns}
+            bordered
+            >
               <thead>
                 <tr>
                   <th>Document_Name</th>
