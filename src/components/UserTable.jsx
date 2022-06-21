@@ -28,7 +28,7 @@ const UserTable = () => {
       const obj=response.data.map((e)=>{
         return(
           {
-           
+           "id":e.id,
             "name":e.name,
             "Usrname":e.username, 
             "email":e.email,
@@ -44,6 +44,12 @@ const UserTable = () => {
     }
   }
   const columns = [
+    {
+      title: 'id',
+      dataIndex: 'id',
+      width: '25%',
+      editable: true,
+    },
     {
       title: 'Name',
       dataIndex: 'name',
@@ -71,8 +77,9 @@ const UserTable = () => {
     {
       title: 'Profile',
       dataIndex: 'Profile',
-      render: (_, record) => {
-        const editable = isEditing(record);
+      render: (_, record,obj) => {
+        const id=obj.id;
+        const editable = isEditing(obj.id);
         return (
           // <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           //   View
@@ -80,8 +87,7 @@ const UserTable = () => {
           <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           View
         </Typography.Link>
-        );
-      },
+        );}
     },
   ];
   const mergedColumns = columns.map((col) => {
