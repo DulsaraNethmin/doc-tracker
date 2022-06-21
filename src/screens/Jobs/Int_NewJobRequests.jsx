@@ -30,10 +30,9 @@ const IntNewJobRequests = () => {
       const obj=response.data.map((e)=>{
         return(
           {
-            "key":1,
-            "id":e.ID,
-            "Admin ID":e.admin_id, 
-            "Deliverer ID":e.deliverer_id,
+           
+            "id":e.id,
+            "Deliverer ID":e.deliverer_id, 
             "Customer ID":e.customer_id,
             "Document ID":e.customer_id,
             "Created date":e.createdAt
@@ -54,33 +53,20 @@ const IntNewJobRequests = () => {
       editable: false,
     },
     {
-      title: 'Admin ID',
-      dataIndex: 'admin_id',
-      width: '15%',
-      editable: false,
-    },
-    {
       title: 'Deliverer ID',
       dataIndex: 'deliverer_id',
       width: '15%',
       editable: false,
     },
+    {
+      title: 'Customer ID',
+      dataIndex: 'customer_id',
+      width: '15%',
+      editable: false,
+    },
 
       {
-        title: 'Customer ID',
-        dataIndex: 'customer_id',
-        width: '15%',
-        editable: false,
-      },
-
-      {
-        title: 'Document ID',
-        dataIndex: 'doc_id',
-        width: '15%',
-        editable: false,
-      },
-      {
-        title: 'Created date',
+        title: 'Created at',
         dataIndex: 'createdAt',
         width: '15%',
         editable: false,
@@ -109,12 +95,20 @@ const IntNewJobRequests = () => {
       
         <h2>Internal New Job Requests</h2>
         <Form form={form} component={false}>
-      < JobsInProgress_Table
+      {/* < JobsInProgress_Table
+        bordered
+        dataSource={data}
+        columns={mergedColumns}
+        rowClassName="editable-row"
+      /> */}
+
+       < JobsInProgress_Table
         bordered
         dataSource={data}
         columns={mergedColumns}
         rowClassName="editable-row"
       />
+
     </Form>
     </div>
   )
