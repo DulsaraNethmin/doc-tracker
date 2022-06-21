@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {io} from 'socket.io-client'
 
-const socket=io.connect('http://localhost:4000');
+const socket=io.connect('http://localhost:8000');
 const userName='User'+parseInt(Math.random()*10);
 
 function AdminMail() {

@@ -26,10 +26,10 @@ const validateMessages = {
   },
 };
 
-const OrgOwnerCreatePage = () => {
-  //const [name, setOrgName] = useState("");
+const BranchOwnerRegPage = () => {
+  //const [name, setBrName] = useState("");
   const [owner, setOwner] = useState("");
-  const [organization_owneruser_name, setUsername] = useState("");
+  const [Br_owneruser_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   // const handleOrgName = (e) => {
@@ -54,9 +54,9 @@ const OrgOwnerCreatePage = () => {
   return (
     <div>
       <Row style={{ padding: "4% 0" }}>
-        <Col span={8}></Col>
-        <Col span={8}>
-          <Card title="Create Organization Owner" alignment="center">
+        <Col span={3}></Col>
+        <Col span={18}>
+          <Card title="Create Branch Owner" alignment="center">
             <Form
               {...layout}
               name="nest-messages"
@@ -78,13 +78,13 @@ const OrgOwnerCreatePage = () => {
                     handleOwner(e);
                   }}
                   prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Owner Name"
+                  placeholder="Branch Owner Name"
                 />
               </Form.Item>
 
               <Form.Item
-                name="organization_owneruser_name"
-                label="Org OwnerUser Name"
+                name="Br_owneruser_name"
+                label="Branch Owner User Name"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
@@ -103,7 +103,7 @@ const OrgOwnerCreatePage = () => {
 
               <Form.Item
                 name="password"
-                label="Org Password"
+                label="Branch Password"
                 rules={[
                   {
                     required: true,
@@ -140,13 +140,15 @@ const OrgOwnerCreatePage = () => {
                     onClick={async (e) => {
                       e.preventDefault();
                       
-                        console.log(owner, organization_owneruser_name, password);
+                        console.log(owner, Br_owneruser_name, password);
                         let data = {
                           name: owner,
-                          username: organization_owneruser_name,
+                          username: Br_owneruser_name,
                           password: password,
-                          role: "Organization Owner",
-                          organization_id:localStorage.getItem("organization_id"),
+                          role: "Branch Owner",
+                          // org_id:localStorage.getItem("org_id"),
+                          // role: "Organization Owner",
+                          branch_id:localStorage.getItem("branch_id"),
                         };
                         console.log(data);
                         let response = await axios.post(
@@ -155,7 +157,7 @@ const OrgOwnerCreatePage = () => {
                         );
                         console.log(response.data);
                         if (response.status == 200) {
-                          window.alert("Organization Owner Created");
+                          window.alert("Branch Owner Created");
                           navigate("/org-dashboard");
                         }
                         if (response.status != 200) {
@@ -166,12 +168,10 @@ const OrgOwnerCreatePage = () => {
                       }
                     }
                   >
-                    Next*
+                    Next
                   </Button>
                 </Form.Item>
               </Row>
-              <h6>*After Creating an Organization and the Organization Owner, it is essential to create a Branch. If not the crreated organization will not be validated.</h6>
-              <h6>*So proceed with creating a branch, after going to organization dashboard.</h6>
             </Form>
           </Card>
         </Col>
@@ -181,4 +181,4 @@ const OrgOwnerCreatePage = () => {
   );
 };
 
-export default OrgOwnerCreatePage;
+export default BranchOwnerRegPage;

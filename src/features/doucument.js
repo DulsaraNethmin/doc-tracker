@@ -10,7 +10,8 @@ const initialState={
     error:null,
     
 }
-const GET_URL='http://localhost:8080/document/getall';
+var branch_id=localStorage.getItem('branch_id');
+const GET_URL=`http://localhost:8080/document/get/by/branch?branch_id=${branch_id}`;
 const POST_URL='http://localhost:8080/document/add';
 
 //to get all post
