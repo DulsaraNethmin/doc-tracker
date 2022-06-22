@@ -130,7 +130,9 @@ useEffect(()=>{console.log(name)},[])
                         {/* </Card> */}
                     </Col>
 
+                    <Col span={8}>
 
+                    </Col>
                 </Row>
                 <div className='saveButton'>
                     {/* <Button type="primary">Save Changes</Button> */}

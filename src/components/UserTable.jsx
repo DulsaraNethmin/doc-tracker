@@ -47,6 +47,12 @@ const UserTable = () => {
   }
   const columns = [
     {
+      title: 'id',
+      dataIndex: 'id',
+      width: '25%',
+      editable: true,
+    },
+    {
       title: 'Name',
       dataIndex: 'name',
       width: '25%',
@@ -73,8 +79,9 @@ const UserTable = () => {
     {
       title: 'Profile',
       dataIndex: 'Profile',
-      render: (_, record) => {
-        const editable = isEditing(record);
+      render: (_, record,obj) => {
+        const id=obj.id;
+        const editable = isEditing(obj.id);
         return (
           // <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           //   View
@@ -82,8 +89,7 @@ const UserTable = () => {
           <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           View
         </Typography.Link>
-        );
-      },
+        );}
     },
   ];
   const mergedColumns = columns.map((col) => {
