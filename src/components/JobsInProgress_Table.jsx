@@ -53,12 +53,12 @@ const JobsInProgress_Table = () => {
       width: '15%',
       editable: false,
     },
-    {
-      title: 'Admin ID',
-      dataIndex: 'admin_id',
-      width: '15%',
-      editable: false,
-    },
+    // {
+    //   title: 'Admin ID',
+    //   dataIndex: 'admin_id',
+    //   width: '15%',
+    //   editable: false,
+    // },
     {
       title: 'Deliverer ID',
       dataIndex: 'deliverer_id',
@@ -85,20 +85,20 @@ const JobsInProgress_Table = () => {
       width: '15%',
       editable: false,
     },
-    {
-      title: 'Tracking',
-      // dataIndex: 'Profile',
-      render: (_, record) => {
-        const editable = isEditing(record);
-        return (
-         <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking', { state: {} })}>
-            Show
-          </Typography.Link>
+    // {
+    //   title: 'Tracking',
+    //   // dataIndex: 'Profile',
+    //   render: (_, record) => {
+    //     const editable = isEditing(record);
+    //     return (
+    //      <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking', { state: {} })}>
+    //         Show
+    //       </Typography.Link>
           
 
-        );
-      },
-    },
+    //     );
+    //   },
+    // },
   ];
   const mergedColumns = columns.map((col) => {
     return {

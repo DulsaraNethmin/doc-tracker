@@ -24,18 +24,18 @@ const IntNewJobRequests = () => {
   const user_data = async () => {
     try {
       console.log('aaaaaa');
-      var response = await axios.get('http://localhost:8080/user/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418');
+      var response = await axios.get(`http://localhost:8080/job/get/all?branch_id=1356d36d-05ca-4a50-98bf-5a941355f418`);
 
       console.log(response.data);
       const obj = response.data.map((e) => {
         return (
           {
-            "key": 1,
+           
             "id": e.ID,
-            "Admin ID": e.admin_id,
+            
             "Deliverer ID": e.deliverer_id,
             "Customer ID": e.customer_id,
-            "Document ID": e.customer_id,
+
             "Created date": e.createdAt
           }
         );
@@ -54,12 +54,6 @@ const IntNewJobRequests = () => {
       editable: false,
     },
     {
-      title: 'Admin ID',
-      dataIndex: 'admin_id',
-      width: '15%',
-      editable: false,
-    },
-    {
       title: 'Deliverer ID',
       dataIndex: 'deliverer_id',
       width: '15%',
@@ -74,30 +68,10 @@ const IntNewJobRequests = () => {
     },
 
     {
-      title: 'Document ID',
-      dataIndex: 'doc_id',
-      width: '15%',
-      editable: false,
-    },
-    {
       title: 'Created date',
       dataIndex: 'createdAt',
       width: '15%',
       editable: false,
-    },
-    {
-      title: 'Tracking',
-      // dataIndex: 'Profile',
-      render: (_, record) => {
-        const editable = isEditing(record);
-        return (
-         <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/JobTracking', { state: {} })}>
-            Show
-          </Typography.Link>
-          
-
-        );
-      },
     },
   ];
   const mergedColumns = columns.map((col) => {

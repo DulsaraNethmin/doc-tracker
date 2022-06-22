@@ -27,8 +27,8 @@ const items = [
   getItem(<a class="nav-link" href="">User</a>, '2', <UserOutlined />),
 
   getItem('Jobs', 'sub2', <AppstoreOutlined />, [
-    getItem(<a class="nav-link" href="">Internal Jobs</a>, 'sub3', null, [getItem(<a class="nav-link" href="/Jobs/IntJobsInProgress">In progress</a>, '8'),getItem(<a class="nav-link" href="/Jobs/IntCompletedJobs">Completed</a>, '9')]),
-    getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem(<a class="nav-link" href="/Jobs/ExtNewJobRequests">New Requests</a>, '10'), getItem(<a class="nav-link" href="/Jobs/ExtJobsInProgress">In progress</a>, '11'),getItem(<a class="nav-link" href="/Jobs/ExtCompletedJobs">Completed</a>, '12')]),
+    getItem(<a class="nav-link" href="">Internal Jobs</a>, 'sub3', null, [getItem(<a class="nav-link" href="/jobs/int-jobsinprogress">In progress</a>, '8'),getItem(<a class="nav-link" href="/jobs/int-completedjobs">Completed</a>, '9')]),
+    getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem(<a class="nav-link" href="/jobs/ext-newjobrequests">New Requests</a>, '10'), getItem(<a class="nav-link" href="/jobs/ext-jobsinprogress">In progress</a>, '11'),getItem(<a class="nav-link" href="/jobs/ext-completedjobs">Completed</a>, '12')]),
   ]),
 
   getItem( <a class="nav-link" href="/notification">Notifications</a>, '3',<BellOutlined />),
