@@ -34,7 +34,7 @@ function getItem(label, key, icon, children) {
 
 const items = [
  
-  getItem(<a class="nav-link" href="/documents">Documents</a>,'0',<FileTextOutlined />),
+  getItem(<a class="nav-link" href="#">Documents</a>,'0',<FileTextOutlined />),
 
   getItem(<a class="nav-link" href="">User</a>, '2', <UserOutlined />),
 
@@ -43,8 +43,8 @@ const items = [
     getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem('New Requests', '10'), getItem('In progress', '11'),getItem('Completed', '12')]),
   ]),
 
-  getItem( <a class="nav-link" href="/notification">Notifications</a>, '3',<BellOutlined />),
-  getItem( <a class="nav-link" href="/chat">Chat</a>, '4',<WechatOutlined />),
+  getItem( <a class="nav-link" href="#">Notifications</a>, '3',<BellOutlined />),
+  getItem( <a class="nav-link" href="#">Chat</a>, '4',<WechatOutlined />),
 ];
 
 function Dashboard(){
