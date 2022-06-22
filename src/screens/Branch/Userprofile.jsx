@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./pages.css";
+import "../Auth/pages.css";
 
 import {
     Form,

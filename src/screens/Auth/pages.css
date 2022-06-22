@@ -14,7 +14,7 @@ img{
   .main-container {
     text-align: center;
     padding: 5%;
-    background-image: url("../images/background.png");
+    background-image: url("../../images/background.png");
     height: 760px;
   }
 
@@ -24,5 +24,5 @@ img{
   }
 
 .Background{
-  background-image: url('../images/background.png') no-repeat;
+  background-image: url('../../images/background.png') no-repeat;
 }

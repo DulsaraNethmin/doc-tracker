@@ -138,7 +138,7 @@ const Login = () => {
                         localStorage.setItem("branch_id", branch_id);
                         if (response.status == 200) {
                           window.alert("Login Successfull");
-                          navigate("/test-dashboard");
+                          navigate("/branch/dashboard");
                         }
                         if (response.status == 201) {
                           //window.alert("Login UNSuccessfull");
