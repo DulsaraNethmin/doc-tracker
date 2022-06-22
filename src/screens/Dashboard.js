@@ -1,11 +1,8 @@
 import React,{ useState }  from "react";
-// import Tbl from "../components/Dashboard/Table";
-// import Widget from "../components/Dashboard/Widget";
-// import "../components/Dashboard.css";
-// import Head from "../components/Dashboard/Head";
-// import { Col, Divider, Row } from 'antd';
-// import { Layout } from 'antd';
-// const { Header, Footer, Sider, Content } = Layout;
+import Tbl from "../components/Dashboard/Table";
+import Widget from "../components/Dashboard/Widget";
+import "../components/Dashboard.css";
+import Head from "../components/Dashboard/Head";
 import {
   FileTextOutlined,
   UserOutlined,
