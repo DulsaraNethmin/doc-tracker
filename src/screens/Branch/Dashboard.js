@@ -24,16 +24,16 @@ function getItem(label, key, icon, children) {
 
 const items = [
  
-  getItem(<a class="nav-link" href="#">Documents</a>,'0',<FileTextOutlined />),
+  getItem(<a class="nav-link" href="/documents">Documents</a>,'0',<FileTextOutlined />),
 
-  getItem(<a class="nav-link" href="">User</a>, '2', <UserOutlined />),
+  getItem(<a class="nav-link" href="/user/details">User</a>, '2', <UserOutlined />),
 
   getItem('Jobs', 'sub2', <AppstoreOutlined />, [
     getItem(<a class="nav-link" href="">Internal Jobs</a>, 'sub3', null, [getItem('New Requests', '7'), getItem('In progress', '8'),getItem('Completed', '9')]),
     getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem('New Requests', '10'), getItem('In progress', '11'),getItem('Completed', '12')]),
   ]),
 
-  getItem( <a class="nav-link" href="#">Notifications</a>, '3',<BellOutlined />),
+  getItem( <a class="nav-link" href="">Notifications</a>, '3',<BellOutlined />),
   getItem( <a class="nav-link" href="#">Chat</a>, '4',<WechatOutlined />),
 ];
 
