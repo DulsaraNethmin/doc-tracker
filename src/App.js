@@ -25,6 +25,7 @@ import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/BranchOwnerRegPage";
+import Dashboard from "./screens/Dashboard";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
           <Route path="/branch/owner/create" exact element={<BranchOwnerRegPage />} />
           <Route path="/branch/table" exact element={<BranchesTable />} />
           
-          <Route path="/test/dashboard" exact element={<TestDashboard />} />
+          <Route path="/branch/dashboard" exact element={<Dashboard/>} />
           <Route path="/user/reg" exact element={<UserRegPage />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile" exact element={<Userprofile/>} />
