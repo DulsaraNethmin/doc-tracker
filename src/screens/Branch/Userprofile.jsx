@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import "../Auth/pages.css";
 
@@ -25,9 +26,13 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 
-const UserProfile = ({name,username,email,role}) => {
-useEffect(()=>{console.log(name)},[])
+const UserProfile = async() => {
 
+    const {user_id}=useParams();
+    var id=user_id.split('=')[1];
+    var response = await axios.get(`http://localhost:8080/user/get/single?user_id=${id}`);
+    console.log(response.data[0]);
+    var user_data=response.data[0];
     const onFinish = (values) => {
         console.log(values);
     };

@@ -33,7 +33,7 @@ const UserTable = () => {
             <td>{e.username}</td>
             <td>{e.email}</td>
             <td>{e.role}</td>
-            <td><span onClick={()=>{ navigate('/user/profile',{replace:true,state:{name:e.name,username:e.username,email:e.email,role:e.role}})}}
+            <td><span onClick={()=>{ navigate(`/user/profile/user_id=${e.uuid}`,{replace:true,state:{name:e.name,username:e.username,email:e.email,role:e.role}})}}
             >Edit</span></td>
           </tr>
         );

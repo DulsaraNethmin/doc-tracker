@@ -47,7 +47,7 @@ function App() {
           <Route path="/branch/dashboard" exact element={<Dashboard/>} />
           <Route path="/user/reg" exact element={<UserRegPage/>} />
           <Route path="/user/details" exact element={<UserDetails/>} />
-          <Route path="/user/profile" exact element={<Userprofile/>} />
+          <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
           <Route path="/documents" exact element={<Document/>} />        
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
         </Routes>
