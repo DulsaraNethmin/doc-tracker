@@ -25,14 +25,15 @@ import BranchesTable from "./screens/BranchesTable";
 import BranchRegPage from "./screens/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/BranchOwnerRegPage";
-
+import Mail from './components/Mail'
+import Navbar from './components/Navbar'
 
 
 
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
+       <Navbar/> 
       
       <BrowserRouter>
         <Routes>
@@ -54,7 +55,7 @@ function App() {
 
           <Route exact path="/register-admin" element={<AdminRegPage />} />
           <Route path="/documents" exact element={<Document />} />
-          {/* <Route path="/chat" exact element={<Mail />} /> */}
+          <Route path="/chat" exact element={<Mail />} /> 
           <Route path="/notification" exact element={<Notification />} />
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
 
