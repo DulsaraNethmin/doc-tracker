@@ -16,7 +16,7 @@ import {Input,Button} from 'antd'
 function Document() {
   const dispatch = useDispatch();
   const branch_id=window.localStorage.getItem('branch_id');
-
+ console.log(branch_id);
   const [adddoc, setAdddoc] = useState({
     doc_name: "",
     type: "",
@@ -61,7 +61,7 @@ function Document() {
       doc_name: "",
       type: "",
       date: "",
-      department_id: ""
+      
       
     }
     
@@ -82,9 +82,7 @@ function Document() {
       if(!values.date){
         error.date="date is required";
       }
-      if(!values.department_id){
-        error.department_id="department_id is required";
-      }
+      
       
       console.log(error);
       
@@ -121,8 +119,7 @@ function Document() {
             </div>
             <p style={{color: "red"}}>{validat.date}</p>
             <div  >
-            
-              <Button type='submit' >Add Document</Button>
+              <button type='submit'>Add Document</button>
               <Link to='/documents/viewdoc'>
               <Button>Show new addedd ones</Button>
               </Link>
