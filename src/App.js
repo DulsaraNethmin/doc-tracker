@@ -30,7 +30,6 @@ import JobTracking from "./components/JobTracking";
 import ExtNewJobRequests from "./screens/Jobs/Ext_NewJobRequests";
 import ExtCompletedJobs from "./screens/Jobs/Ext_CompletedJobs";
 
-import IntNewJobRequests from "./screens/Jobs/Int_NewJobRequests";
 import IntCompletedJobs from "./screens/Jobs/Int_CompletedJobs";
 
 import IntJobsInProgress from "./components/JobsInProgress_Table";
@@ -69,7 +68,6 @@ function App() {
           <Route exact path="/Jobs/ExtCompletedJobs" element={<ExtCompletedJobs />} />
 
           <Route exact path="/Jobs/IntJobsInProgress" element={<IntJobsInProgress />} />
-          <Route exact path="/Jobs/IntNewJobRequests" element={<IntNewJobRequests />} />
           <Route exact path="/Jobs/IntCompletedJobs" element={<IntCompletedJobs />} />
           
         </Routes>
