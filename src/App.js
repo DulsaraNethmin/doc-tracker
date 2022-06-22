@@ -37,30 +37,19 @@ function App() {
           <Route exact path="/" element={<SplashScreenPage />} />
           <Route path="/login" element={<AdminLoginPage />} />
 
+          <Route exact path="/organization/create" element={<OrgCreatePage />} />
+          <Route exact path="/organization/owner/create" element={<OrgOwnerCreatePage />} />
+          <Route path="/organization/dashboard" exact element={<OrganizationDashboard />} />
+          <Route path="/branch/create" exact element={<BranchRegPage />} />
+          <Route path="/branch/owner/create" exact element={<BranchOwnerRegPage />} />
+          <Route path="/branch/table" exact element={<BranchesTable />} />
           
-          <Route exact path="/create-organization" element={<OrgCreatePage />} />
-          <Route exact path="/create-org-owner" element={<OrgOwnerCreatePage />} />
-
-          <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
-          <Route path="/Branch-reg" exact element={<BranchRegPage />} />
-          <Route path="/Branch-owner-reg" exact element={<BranchOwnerRegPage />} />
-          <Route path="/Branch-table" exact element={<BranchesTable />} />
-          
-          <Route path="/test-dashboard" exact element={<TestDashboard />} />
-          <Route path="/User-reg" exact element={<UserRegPage />} />
-
-          <Route exact path="/register-admin" element={<AdminRegPage />} />
-          <Route path="/documents" exact element={<Document />} />
-         {/* { <Route path="/mail" exact element={<Chat />} />} */}
-
+          <Route path="/test/dashboard" exact element={<TestDashboard />} />
+          <Route path="/user/reg" exact element={<UserRegPage />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile" exact element={<Userprofile/>} />
-          <Route path="/test-dashboard" exact element={<TestDashboard />} />
-          <Route path="/org-dashboard" exact element={<OrganizationDashboard />} />
-          <Route path="/Branch-reg" exact element={<BranchRegPage />} />
-          <Route path="/Branch-table" exact element={<BranchesTable />} />
-
-
+          <Route path="/documents" exact element={<Document />} />        
+         {/* { <Route path="/mail" exact element={<Chat />} />} */}
         </Routes>
       </BrowserRouter>
     </div>
