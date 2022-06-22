@@ -45,7 +45,7 @@ function App() {
        
 
           <Route exact path="/" element={<SplashScreenPage />} />
-          <Route exact path="/login" element={<AdminLoginPage />} />
+          {/* <Route exact path="/login" element={<AdminLoginPage />} /> */}
 
           
           <Route exact path="/create-organization" element={<OrgCreatePage />} />
