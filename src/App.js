@@ -61,14 +61,14 @@ function App() {
           <Route path="/Branch-reg" exact element={<BranchRegPage />} />
           <Route path="/Branch-table" exact element={<BranchesTable />} />
 
-          <Route exact path="/Jobs" element={<Jobs />} />
-          <Route exact path="/Jobs/ExtJobsInProgress" element={<JobsInProgress_Table />} />
-          <Route exact path="/JobTracking" element={<JobTracking />} />
-          <Route exact path="/Jobs/ExtNewJobRequests" element={<ExtNewJobRequests />} />
-          <Route exact path="/Jobs/ExtCompletedJobs" element={<ExtCompletedJobs />} />
+          <Route exact path="/jobs" element={<Jobs />} />
+          <Route exact path="/jobs/ext-jobsinprogress" element={<JobsInProgress_Table />} />
+          <Route exact path="/job-tracking" element={<JobTracking />} />
+          <Route exact path="/jobs/ext-newjobrequests" element={<ExtNewJobRequests />} />
+          <Route exact path="/jobs/ext-completedjobs" element={<ExtCompletedJobs />} />
 
-          <Route exact path="/Jobs/IntJobsInProgress" element={<IntJobsInProgress />} />
-          <Route exact path="/Jobs/IntCompletedJobs" element={<IntCompletedJobs />} />
+          <Route exact path="/jobs/int-jobsinprogress" element={<IntJobsInProgress />} />
+          <Route exact path="/jobs/int-completedjobs" element={<IntCompletedJobs />} />
           
         </Routes>
       </BrowserRouter>
