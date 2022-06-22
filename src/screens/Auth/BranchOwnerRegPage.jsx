@@ -158,7 +158,7 @@ const BranchOwnerRegPage = () => {
                         console.log(response.data);
                         if (response.status == 200) {
                           window.alert("Branch Owner Created");
-                          navigate("/org-dashboard");
+                          navigate("/organization/dashboard");
                         }
                         if (response.status != 200) {
                           window.alert(

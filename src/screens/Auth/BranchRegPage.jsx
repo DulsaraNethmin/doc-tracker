@@ -230,7 +230,7 @@ const BranchRegPage = () => {
 
                       if (response.status == 200) {
                         window.alert("Branch Created");
-                        navigate("/Branch-owner-reg");
+                        navigate("/branch/owner/create");
                       }
                       if (response.status != 200) {
                         window.alert("UnSuccessfull. Try again.");

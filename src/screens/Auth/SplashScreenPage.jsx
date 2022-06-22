@@ -45,7 +45,7 @@ const SplashScreenPage = () => {
         <Button
           type="text"
           onClick={(e) => {
-            navigate("create-organization");
+            navigate("organization/create");
           }}
         >
           Create Organization

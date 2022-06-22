@@ -8,7 +8,7 @@ const OrganizationDashboard = () => {
     <div>
       <Button
         onClick={(e) => {
-          navigate("/Branch-reg");
+          navigate("/branch/create");
         }}
         type="primary"
       >
@@ -17,7 +17,7 @@ const OrganizationDashboard = () => {
       <br />
       <Button 
       onClick={(e) => {
-        navigate("/Branch-table");
+        navigate("/branch/table");
       }}
       type="primary">Branches</Button>
       <br />

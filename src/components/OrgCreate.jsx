@@ -109,7 +109,7 @@ const OrgCreate = () => {
                         localStorage.setItem("organization_id",response.data.uuid);
                         if (response.status == 200) {
                           window.alert("Organization Created");
-                          navigate("/create-org-owner");
+                          navigate("/organization/owner/create");
                         }
                         if (response.status != 200) {
                           window.alert("Login UNSuccessfull");
