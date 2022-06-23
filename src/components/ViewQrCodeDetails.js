@@ -6,7 +6,7 @@ import QRCode from 'qrcode';
 import { useState } from 'react';
 
 function ViewQrCodeDetails() {
-    const [src,setSrc]=useState('');
+    const [src,setSrc]=useState();
     const doc_id=localStorage.getItem('doc_id');
     const id={doc_id}.doc_id;
  useEffect(() => {
@@ -14,7 +14,10 @@ function ViewQrCodeDetails() {
    
  }, [])
  useEffect(()=>{
-    
+    console.log(id);
+    QRCode.toDataURL(id).then((data)=>{
+         setSrc(data);
+    });
  },[])
  
     const UserProfile = async() => {
@@ -31,7 +34,8 @@ function ViewQrCodeDetails() {
 
          <p>Document id is {id}</p>  
          <h3>QR Code is</h3>
-         <img src={src} />
+         <img src={src} width="100px" 
+     height="100px" />
     </div>
   )
 }
