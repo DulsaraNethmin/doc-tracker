@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import io from "socket.io-client"
 
 
-const socket=io.connect('http://localhost:8000/');
+
 
 function Mail() {
   const branch_id=localStorage.getItem('branch_id');
@@ -85,7 +85,7 @@ catch(e){
     <div>   
       <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
             onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
-            localStorage.setItem('user_id',record.uuid);
+            localStorage.setItem('reciever_id',record.uuid);
           }
           })}
       ></Table>
