@@ -86,9 +86,10 @@ const UserTable = () => {
           // <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
           //   View
           // </Typography.Link>
-          <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
-          View
-        </Typography.Link>
+        //   <Typography.Link disabled={editingKey !== ''} onClick={() => navigate('/user/profile',{state:{}})}>
+        //   View
+        // </Typography.Link>
+      <></>
         );}
     },
   ];
