@@ -22,7 +22,7 @@ function ViewQrCodeDetails() {
  
     const Doc_det = async() => {
 
-    var response = await axios.get(`http://localhost:8080/document/verify?doc_id=${id}`);
+    var response = await axios.post(`http://localhost:8080/document/verify?doc_id=${id}`);
     console.log(response.data);
     return response.data;
         };
