@@ -32,6 +32,9 @@ const BranchOwnerRegPage = () => {
   const [Br_owneruser_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
   // const handleOrgName = (e) => {
   //   setOrgName(e.target.value);
   // };
@@ -100,7 +103,7 @@ const BranchOwnerRegPage = () => {
                   }}
                 />
               </Form.Item>
-
+              <p>{usernameError}</p>
               <Form.Item
                 name="password"
                 label="Branch Password"
@@ -118,7 +121,7 @@ const BranchOwnerRegPage = () => {
                   }}
                 />
               </Form.Item>
-
+              <p>{passwordError}</p>
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
@@ -139,34 +142,45 @@ const BranchOwnerRegPage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      
-                        console.log(owner, Br_owneruser_name, password);
-                        let data = {
-                          name: owner,
-                          username: Br_owneruser_name,
-                          password: password,
-                          role: "Branch Owner",
-                          // org_id:localStorage.getItem("org_id"),
-                          // role: "Organization Owner",
-                          branch_id:localStorage.getItem("branch_id"),
-                        };
-                        console.log(data);
-                        let response = await axios.post(
-                          "http://localhost:8080/user/add",
-                          data
-                        );
-                        console.log(response.data);
-                        if (response.status == 200) {
-                          window.alert("Branch Owner Created");
-                          navigate("/organization/dashboard");
-                        }
-                        if (response.status != 200) {
-                          window.alert(
-                            "Organization Owner Creation UNSuccessfull"
-                          );
-                        }
+                      setUsernameError();
+                      setPasswordError();
+
+                      console.log(owner, Br_owneruser_name, password);
+                      let data = {
+                        name: owner,
+                        username: Br_owneruser_name,
+                        password: password,
+                        role: "Branch Owner",
+                        // org_id:localStorage.getItem("org_id"),
+                        // role: "Organization Owner",
+                        branch_id: localStorage.getItem("branch_id"),
+                      };
+                      console.log(data);
+                      let response = await axios.post(
+                        "http://localhost:8080/user/add",
+                        data
+                      );
+                      console.log(response.data);
+                      if (response.status == 200) {
+                        window.alert("Branch Owner Created");
+                        navigate("/organization/dashboard");
                       }
-                    }
+                      if (response.status == 201) {
+                        if (response.data.username) {
+                          setUsernameError(response.data.username);
+                          //response.data.username = "";
+                        }
+                        if (response.data.password) {
+                          setPasswordError(response.data.password);
+                          //response.data.password = "";
+                        }
+
+                        console.log(response.data.username);
+                        console.log(response.data.password);
+
+                        //window.alert(response.data.password);
+                      }
+                    }}
                   >
                     Next
                   </Button>
