@@ -10,6 +10,7 @@ import { getDocumentStatus, fetchDocuments } from '../features/doucument'
 import DocumentList from './DocumentList'
 import { Link } from 'react-router-dom'
 import {Input,Button} from 'antd'
+import Dashboard from '../screens/Branch/Dashboard';
 
 
 
@@ -92,8 +93,9 @@ function Document() {
 
 
   return (
-
+      
     <div>
+     
       <center>
         <form onSubmit={handleSubmit}>
           <div className='addDocument'>

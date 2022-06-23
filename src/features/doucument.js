@@ -17,6 +17,7 @@ export const fetchDocuments=createAsyncThunk('documents/getdocuments',async()=>{
     try{
         const response=await axios.get(GET_URL);
         console.log(response.data);
+        
     return response;
     }
     catch(err){
@@ -50,6 +51,7 @@ export const documentSlice=createSlice({
              //this code for adding a document
              state.value.push(action.payload);
         }, 
+        
     },
     extraReducers(builder){
         builder

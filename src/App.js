@@ -25,6 +25,7 @@ import BranchRegPage from "./screens/Auth/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
+import ViewQrCodeDetails from "./components/ViewQrCodeDetails";
 
 
 function App() {
@@ -48,7 +49,8 @@ function App() {
           <Route path="/user/reg" exact element={<UserRegPage/>} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
-          <Route path="/documents" exact element={<Document/>} />        
+          <Route path="/documents" exact element={<Document/>} /> 
+          <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />     
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
         </Routes>
       </BrowserRouter>
