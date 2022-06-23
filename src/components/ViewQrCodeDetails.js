@@ -34,8 +34,8 @@ function ViewQrCodeDetails() {
 
          <p>Document id is {id}</p>  
          <h3>QR Code is</h3>
-         <img src={src} width="100px" 
-     height="100px" />
+         <p><img src={src} width="100px" 
+     height="100px" /></p>
     </div>
   )
 }

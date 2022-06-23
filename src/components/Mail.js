@@ -11,17 +11,27 @@ function Mail() {
   const branch_id=localStorage.getItem('branch_id');
   const id={branch_id}.branch_id;
   console.log(id);
-  const [user,setUsers]=useState([]);
+  const [User,setUsers]=useState([]);
   useEffect(() => {
-    setUsers(UserProfile())
-    console.log(user);
-  }, [])
-
+    try{
+      setUsers(UserProfile())
+    }catch(e){
+      console.log(e);
+    }
+   
+    console.log(User);
+  }, []);
+  
   const UserProfile = async() => {
-
-    var response = await axios.get(`http://localhost:8080/user/get/all?branch_id=${id}`);
-    console.log(response.data);
-    return response.data;
+try{
+  var response = await axios.get(`http://localhost:8080/user/get/all?branch_id=${id}`);
+  console.log(response.data);
+  return response;
+}
+catch(e){
+  console.log(e);
+}
+ 
         };
 
    const columns=[
@@ -33,7 +43,7 @@ function Mail() {
      
   return (
     <div>   
-      <Table dataSource={user} columns={columns}></Table>
+      <Table dataSource={User} columns={columns}></Table>
     </div>
   )
 }
