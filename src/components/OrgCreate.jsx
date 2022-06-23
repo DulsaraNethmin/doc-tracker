@@ -107,6 +107,10 @@ const OrgCreate = () => {
                         );
                         console.log(response.data);
                         localStorage.setItem("organization_id",response.data.uuid);
+
+                        var organization_name =name;
+                        localStorage.setItem("organization_name", organization_name);
+
                         if (response.status == 200) {
                           window.alert("Organization Created");
                           navigate("/organization/owner/create");

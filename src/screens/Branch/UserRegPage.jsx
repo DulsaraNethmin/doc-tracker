@@ -32,6 +32,10 @@ const UserRegPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+
   // const handleOrgName = (e) => {
   //   setOrgName(e.target.value);
   // };
@@ -139,7 +143,9 @@ const UserRegPage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      
+                      setUsernameError();
+                      setPasswordError();
+
                         console.log(user, username, password);
                         let data = {
                           name: user,
@@ -158,10 +164,15 @@ const UserRegPage = () => {
                           window.alert("New User Created");
                           navigate("/test-dashboard");
                         }
-                        if (response.status != 200) {
-                          window.alert(
-                            "Organization Owner Creation UNSuccessfull"
-                          );
+                        if (response.status == 201) {
+                          if (response.data.username) {
+                            setUsernameError(response.data.username);
+                            //response.data.username = "";
+                          }
+                          if (response.data.password) {
+                            setPasswordError(response.data.password);
+                            //response.data.password = "";
+                          }
                         }
                       }
                     }

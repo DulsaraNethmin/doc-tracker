@@ -104,9 +104,13 @@ const Login = () => {
                           "http://localhost:8080/user/get/oneOrgOwner",
                           data
                         );
-                        console.log(response.data[0]["organization"]);
+
+                        var organization_name =response.data[0]["organization"];
+                        localStorage.setItem("organization_name", organization_name);
+                        
                         var organization_id = response.data[0]["organizationId"];
                         localStorage.setItem("organization_id", organization_id);
+                        
                         if (response.status == 200) {
                           setLoginError("You will be directed to Organization Dashboard");
                           navigate("/organization/dashboard");
