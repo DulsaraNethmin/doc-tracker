@@ -57,10 +57,10 @@ function DocumentList() {
           title:"Branch_id",
           dataIndex:"branch_id"
         },
-        // {
-        //   title:"issubmit",
-        //   dataIndex:<Completedbutton/>
-        // }
+        {
+           title:"Show Qr Code",
+           dataIndex:<ShowQr/>
+        }
 
   ]
   
