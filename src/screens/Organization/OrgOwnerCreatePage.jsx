@@ -27,14 +27,12 @@ const validateMessages = {
 };
 
 const OrgOwnerCreatePage = () => {
-  //const [name, setOrgName] = useState("");
   const [owner, setOwner] = useState("");
   const [organization_owneruser_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  // const handleOrgName = (e) => {
-  //   setOrgName(e.target.value);
-  // };
   const handleOwner = (e) => {
     setOwner(e.target.value);
   };
@@ -100,6 +98,7 @@ const OrgOwnerCreatePage = () => {
                   }}
                 />
               </Form.Item>
+              <p>{usernameError}</p>
 
               <Form.Item
                 name="password"
@@ -118,7 +117,7 @@ const OrgOwnerCreatePage = () => {
                   }}
                 />
               </Form.Item>
-
+              <p>{passwordError}</p>
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
@@ -139,39 +138,59 @@ const OrgOwnerCreatePage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      
-                        console.log(owner, organization_owneruser_name, password);
-                        let data = {
-                          name: owner,
-                          username: organization_owneruser_name,
-                          password: password,
-                          role: "Organization Owner",
-                          organization_id:localStorage.getItem("organization_id"),
-                        };
-                        console.log(data);
-                        let response = await axios.post(
-                          "http://localhost:8080/user/add",
-                          data
-                        );
-                        console.log(response.data);
-                        if (response.status == 200) {
-                          window.alert("Organization Owner Created");
-                          navigate("/organization/dashboard");
-                        }
-                        if (response.status != 200) {
-                          window.alert(
-                            "Organization Owner Creation UNSuccessfull"
-                          );
-                        }
+                      setUsernameError();
+                      setPasswordError();
+                      //console.log(owner, organization_owneruser_name, password);
+                      let data = {
+                        name: owner,
+                        username: organization_owneruser_name,
+                        password: password,
+                        role: "Organization Owner",
+                        organization_id:
+                          localStorage.getItem("organization_id"),
+                      };
+
+                      //console.log(data);
+                      let response = await axios.post(
+                        "http://localhost:8080/user/add",
+                        data
+                      );
+                      //console.log(response.data);
+                      if (response.status == 200) {
+                        window.alert("Organization Owner Created");
+                        navigate("/organization/dashboard");
                       }
-                    }
+                      if (response.status == 201) {
+                        if (response.data.username) {
+                          setUsernameError(response.data.username);
+                          //response.data.username = "";
+                        }
+                        if (response.data.password) {
+                          setPasswordError(response.data.password);
+                          //response.data.password = "";
+                        }
+                        
+
+                        console.log(response.data.username);
+                        console.log(response.data.password);
+
+                        //window.alert(response.data.password);
+                      }
+                    }}
                   >
                     Next*
                   </Button>
                 </Form.Item>
               </Row>
-              <h6>*After Creating an Organization and the Organization Owner, it is essential to create a Branch. If not the crreated organization will not be validated.</h6>
-              <h6>*So proceed with creating a branch, after going to organization dashboard.</h6>
+              <h6>
+                *After Creating an Organization and the Organization Owner, it
+                is essential to create a Branch. If not the crreated
+                organization will not be validated.
+              </h6>
+              <h6>
+                *So proceed with creating a branch, after going to organization
+                dashboard.
+              </h6>
             </Form>
           </Card>
         </Col>
