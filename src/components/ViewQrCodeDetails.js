@@ -10,7 +10,7 @@ function ViewQrCodeDetails() {
     const doc_id=localStorage.getItem('doc_id');
     const id={doc_id}.doc_id;
  useEffect(() => {
-   UserProfile()
+   Doc_det()
    
  }, [])
  useEffect(()=>{
@@ -20,7 +20,7 @@ function ViewQrCodeDetails() {
     });
  },[])
  
-    const UserProfile = async() => {
+    const Doc_det = async() => {
 
     var response = await axios.get(`http://localhost:8080/document/verify?doc_id=${id}`);
     console.log(response.data);
