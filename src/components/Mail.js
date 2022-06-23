@@ -1,7 +1,8 @@
-import { Table } from 'antd';
+import { Button, Table } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import io from "socket.io-client"
 
 
@@ -14,11 +15,11 @@ function Mail() {
   const [User,setUsers]=useState([]);
   useEffect(() => {
     try{
-      setUsers(UserProfile())
+      UserProfile();
+      console.log(User);
     }catch(e){
       console.log(e);
     }
-   
     console.log(User);
   }, []);
   
@@ -26,6 +27,7 @@ function Mail() {
 try{
   var response = await axios.get(`http://localhost:8080/user/get/all?branch_id=${id}`);
   console.log(response.data);
+  setUsers(response.data);
   return response;
 }
 catch(e){
@@ -39,11 +41,54 @@ catch(e){
       title:"Name",
       dataIndex:"name"
     },
+    {
+      title:"Branch_Name",
+      dataIndex:"branch"
+    },
+    {
+      title:"Send Mails",
+      render:(record)=>{
+        return(
+          <Link to='/Mail/Send'>
+       <Button>Send Mail</Button>
+       </Link>
+      )
+      
+
+    
+      
+    }
+    
+      
+    },
+    {
+      title:"Recieved Mails",
+      render:(record)=>{
+        return(
+          <Link to='/Mail/Received'>
+       <Button>Recieved Mail</Button>
+       </Link>
+      )
+      
+
+    
+      
+    }
+    
+      
+    },
+   
+
    ]
      
   return (
     <div>   
-      <Table dataSource={User} columns={columns}></Table>
+      <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
+            onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
+            localStorage.setItem('user_id',record.uuid);
+          }
+          })}
+      ></Table>
     </div>
   )
 }

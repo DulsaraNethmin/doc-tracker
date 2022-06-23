@@ -27,6 +27,8 @@ import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
 import ViewQrCodeDetails from "./components/ViewQrCodeDetails";
 import Mail from "./components/Mail";
+import ReceivedMail from "./components/ReceivedMail";
+import SendMail from "./components/SendMail";
 
 
 function App() {
@@ -53,6 +55,9 @@ function App() {
           <Route path="/documents" exact element={<Document/>} /> 
           <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />     
           <Route path="/mail" exact element={<Mail/>} />
+          <Route path="/Mail/Received" exact element={<ReceivedMail/>} />
+          <Route path="/Mail/Send" exact element={<SendMail/>} />
+
         </Routes>
       </BrowserRouter>
     </div>
