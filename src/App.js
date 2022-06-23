@@ -26,6 +26,7 @@ import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
 import ViewQrCodeDetails from "./components/ViewQrCodeDetails";
+import Mail from "./components/Mail";
 
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
           <Route path="/documents" exact element={<Document/>} /> 
           <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />     
-         {/* { <Route path="/mail" exact element={<Chat />} />} */}
+          <Route path="/mail" exact element={<Mail/>} />
         </Routes>
       </BrowserRouter>
     </div>
