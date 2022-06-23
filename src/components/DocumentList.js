@@ -7,6 +7,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import {Input,Button,Table} from 'antd'
 // import Completedbutton from './Completedbutton';
 import {SearchOutlined} from '@ant-design/icons'
+import ShowQrCodeButton from './ShowQrCodeButton';
 
 function DocumentList() {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ function DocumentList() {
         },
         {
            title:"Show Qr Code",
-           dataIndex:<ShowQr/>
+           dataIndex:<ShowQrCodeButton/>
         }
 
   ]
