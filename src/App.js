@@ -25,12 +25,13 @@ import BranchRegPage from "./screens/Auth/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
+import EmailScreen from "./screens/Auth/EmailScreen";
 
 
 function App() {
   return (
     <div className="App">
-      
+      <EmailScreen />
       
       <BrowserRouter>
         <Routes>
