@@ -17,7 +17,7 @@ import SplashScreenPage from "./screens/Auth/SplashScreenPage";
 import UserRegPage from "./screens/Branch/UserRegPage";
 
 import UserDetails from "./screens/Branch/UserDetails";
-import Userprofile from "./screens/Branch/Userprofile";
+import UserData from "./screens/Branch/Userprofile";
 
 import OrganizationDashboard from "./screens/Organization/OrganizationDashboard";
 import BranchesTable from "./screens/Organization/BranchesTable";
@@ -47,7 +47,7 @@ function App() {
           <Route path="/branch/dashboard" exact element={<Dashboard/>} />
           <Route path="/user/reg" exact element={<UserRegPage/>} />
           <Route path="/user/details" exact element={<UserDetails/>} />
-          <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
+          <Route path="/user/profile/:user_id" exact element={<UserData/>} />
           <Route path="/documents" exact element={<Document/>} />        
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
         </Routes>
