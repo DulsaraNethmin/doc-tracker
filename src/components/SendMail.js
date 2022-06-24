@@ -1,4 +1,5 @@
-import { Input } from 'antd'
+import { Button, Input } from 'antd'
+import TextArea from 'antd/lib/input/TextArea';
 import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
@@ -8,6 +9,7 @@ function SendMail() {
     const [Receiver, setReceiver] = useState([]);
     const [image,setImage]=useState('');
     const [name,setName]=useState('');
+    const [mail,setMail]=useState('');
     const receiver_id=localStorage.getItem('reciever_id');
     const id={receiver_id}.receiver_id;
     console.log(id);
@@ -38,14 +40,21 @@ function SendMail() {
       console.log(e);
     }
             };
+     const handleMassage=()=>{
+        console.log(mail);
+     }    
+        
+
   return (
     <div>
          <h2>{name}</h2>  
-         <img src={image} height="100px" width='100px'/>
+         <img src={image} width="160" height="145"/>
          <div>
             <h4 >Enter Mail</h4>
-         <Input/> 
-         
+         <TextArea rows={4}  size="small" placeholder="Mail" onChange={(event) => {
+                setMail(event.target.value);
+              }}/>
+              <Button onClick={handleMassage} >Send</Button> 
           </div> 
          
     </div>
