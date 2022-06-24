@@ -11,6 +11,7 @@ import DocumentList from './DocumentList'
 import { Link } from 'react-router-dom'
 import {Input,Button} from 'antd'
 import Dashboard from '../screens/Branch/Dashboard';
+import Title from 'antd/lib/skeleton/Title';
 
 
 
@@ -95,7 +96,7 @@ function Document() {
   return (
       
     <div>
-     
+      <title>Enter Documents</title>
       <center>
         <form onSubmit={handleSubmit}>
           <div className='addDocument'>

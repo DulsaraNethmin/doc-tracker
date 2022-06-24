@@ -81,12 +81,12 @@ function SendMail() {
          <img src={image} width="160" height="145"/>
          <div>
          <h4 >Enter Head</h4>
-         <TextArea rows={2}  size="small" placeholder="Head" onChange={(event) => {
+         <TextArea rows={2}  size="small" placeholder="Head"  value={addmail.head} onChange={(event) => {
                 setAddmail({ ...addmail, head: event.target.value });
               }} />
 
             <h4 >Enter Mail</h4>
-         <TextArea rows={4}  size="small" placeholder="Mail" onChange={(event) => {
+         <TextArea rows={4}  size="small" placeholder="Mail" value={addmail.body} onChange={(event) => {
                 setAddmail({ ...addmail, body: event.target.value });
               }} />
               <Button onClick={handleMassage} >Send</Button> 
