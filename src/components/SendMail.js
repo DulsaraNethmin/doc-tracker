@@ -10,6 +10,7 @@ function SendMail() {
     const [image,setImage]=useState('');
     const [name,setName]=useState('');
     const [mail,setMail]=useState('');
+    const [head,setHead]=useState('');
     const receiver_id=localStorage.getItem('reciever_id');
     const id={receiver_id}.receiver_id;
     console.log(id);
@@ -43,13 +44,18 @@ function SendMail() {
      const handleMassage=()=>{
         console.log(mail);
      }    
-        
+
 
   return (
     <div>
          <h2>{name}</h2>  
          <img src={image} width="160" height="145"/>
          <div>
+         <h4 >Enter Head</h4>
+         <TextArea rows={2}  size="small" placeholder="Head" onChange={(event) => {
+                setHead(event.target.value);
+              }}/>
+
             <h4 >Enter Mail</h4>
          <TextArea rows={4}  size="small" placeholder="Mail" onChange={(event) => {
                 setMail(event.target.value);

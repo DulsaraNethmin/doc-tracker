@@ -133,7 +133,11 @@ const Login = () => {
                           "http://localhost:8080/user/get/oneBrOwner",
                           data
                         );
+                        console.log(response.data);
                         console.log(response.data[0]["branch"]);
+                        console.log(response.data[0]['uuid']);
+                        var uuid=response.data[0]['uuid'];
+                        localStorage.setItem('uuid',uuid);
                         var branch_id = response.data[0]["branchId"];
                         localStorage.setItem("branch_id", branch_id);
                         if (response.status == 200) {
