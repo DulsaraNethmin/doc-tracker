@@ -41,6 +41,11 @@ function GetsentMail() {
                     title:"Head",
                     dataIndex:"head"
                   },
+                  {
+                    title:"Mail",
+                    dataIndex:"body"
+                  },
+
             ]  
   return (
     

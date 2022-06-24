@@ -4,6 +4,7 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function SendMail() {
     const [Receiver, setReceiver] = useState([]);
@@ -90,8 +91,11 @@ function SendMail() {
                 setAddmail({ ...addmail, body: event.target.value });
               }} />
               <Button onClick={handleMassage} >Send</Button> 
+             
           </div> 
-          
+          <Link to='/Mail/GetsentMail'>
+              <Button> Sent Mails</Button>
+              </Link>
          
     </div>
   )

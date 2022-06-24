@@ -84,7 +84,7 @@ catch(e){
   return (
     <div> 
          <Link to='/Mail/GetsentMail'>
-      <Button >Sent Mails</Button> 
+      <Button  >Sent Mails</Button> 
       </Link> 
       <h2>To send a Mails</h2>
       <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
