@@ -11,8 +11,7 @@ function SendMail() {
   
     const [image,setImage]=useState('');
     const [to,setTo]=useState('');
-    const [mail,setMail]=useState('');
-    const [head,setHead]=useState('');
+  
     const [from,setFrom]=useState('');
     const [sender,setSender]=useState('');
     const [seen,setSeen]=useState(false);
@@ -82,7 +81,7 @@ function SendMail() {
          <img src={image} width="160" height="145"/>
          <div>
          <h4 >Enter Head</h4>
-         <TextArea rows={2}  size="small" placeholder="Head" vonChange={(event) => {
+         <TextArea rows={2}  size="small" placeholder="Head" onChange={(event) => {
                 setAddmail({ ...addmail, head: event.target.value });
               }} />
 

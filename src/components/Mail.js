@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import io from "socket.io-client"
-
+import 'antd/dist/antd.css'
 
 
 
@@ -83,9 +83,15 @@ catch(e){
      
   return (
     <div> 
+      <div
+      style={{
+        alignItems:"center"
+      }}
+      >
          <Link to='/Mail/GetsentMail'>
-      <Button  >Sent Mails</Button> 
+      <Button  >Sent Mails</Button>  
       </Link> 
+      </div>
       <h2>To send a Mails</h2>
       <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
             onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
