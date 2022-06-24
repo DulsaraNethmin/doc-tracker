@@ -29,6 +29,7 @@ import ViewQrCodeDetails from "./components/ViewQrCodeDetails";
 import Mail from "./components/Mail";
 import ReceivedMail from "./components/ReceivedMail";
 import SendMail from "./components/SendMail";
+import GetsentMail from "./components/GetsentMail";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path="/mail" exact element={<Mail/>} />
           <Route path="/Mail/Received" exact element={<ReceivedMail/>} />
           <Route path="/Mail/Send" exact element={<SendMail/>} />
+          <Route path="/Mail/GetsentMail" exact element={<GetsentMail/>} />
 
         </Routes>
       </BrowserRouter>

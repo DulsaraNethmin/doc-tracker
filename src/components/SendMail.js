@@ -7,61 +7,91 @@ import { useState } from 'react'
 
 function SendMail() {
     const [Receiver, setReceiver] = useState([]);
+  
     const [image,setImage]=useState('');
-    const [name,setName]=useState('');
+    const [to,setTo]=useState('');
     const [mail,setMail]=useState('');
     const [head,setHead]=useState('');
+    const [from,setFrom]=useState('');
+    const [sender,setSender]=useState('');
+    const [seen,setSeen]=useState(false);
+    const sender_id=localStorage.getItem('uuid');
+    const sid={sender_id}.sender_id;;
     const receiver_id=localStorage.getItem('reciever_id');
     const id={receiver_id}.receiver_id;
-    console.log(id);
+    const [addmail, setAddmail] = useState({
+        head: "",
+        body: "",
+        seen:false,
+        to: {receiver_id}.receiver_id,
+        from:{sender_id}.sender_id,
+    
+      });
+    
     useEffect(() => {
         try{
-          UserProfile();
-          console.log(Receiver);
+          receiverProfile();
+         
         }catch(e){
           console.log(e);
         }
-        console.log(Receiver);
+        console.log(to);
       }, []);
      
-      const UserProfile = async() => {
+      const receiverProfile = async() => {
     try{
-       
       var response = await axios.get(`http://localhost:8080/user/get/single?user_id=${id}`);
       console.log(response.data);
       setReceiver(response.data);
       response.data.map((e)=>{
-        setName(e.name);
+        setTo(e.uuid);
+        setSender(e.name);
         setImage(e.image_url);
       })
-      console.log(name);
       return response;
     }
     catch(e){
       console.log(e);
     }
             };
-     const handleMassage=()=>{
-        console.log(mail);
-     }    
+            
 
+     const handleMassage=()=>{
+        console.log(addmail);
+        setSeen(true);
+        sendAddMail();
+
+
+     }    
+     const sendAddMail=async()=>{
+        try{
+            const response=await axios.post('http://localhost:8080/mail/add',addmail)
+            console.log(response.data);
+             return response.data
+           }catch(err){
+               console.log(err);
+              
+           }
+     }
+     
 
   return (
     <div>
-         <h2>{name}</h2>  
+         <h2>{sender}</h2>  
          <img src={image} width="160" height="145"/>
          <div>
          <h4 >Enter Head</h4>
-         <TextArea rows={2}  size="small" placeholder="Head" onChange={(event) => {
-                setHead(event.target.value);
-              }}/>
+         <TextArea rows={2}  size="small" placeholder="Head" vonChange={(event) => {
+                setAddmail({ ...addmail, head: event.target.value });
+              }} />
 
             <h4 >Enter Mail</h4>
          <TextArea rows={4}  size="small" placeholder="Mail" onChange={(event) => {
-                setMail(event.target.value);
-              }}/>
+                setAddmail({ ...addmail, body: event.target.value });
+              }} />
               <Button onClick={handleMassage} >Send</Button> 
           </div> 
+          
          
     </div>
   )

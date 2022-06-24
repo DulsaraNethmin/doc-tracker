@@ -82,7 +82,11 @@ catch(e){
    ]
      
   return (
-    <div>   
+    <div> 
+         <Link to='/Mail/GetsentMail'>
+      <Button >Sent Mails</Button> 
+      </Link> 
+      <h2>To send a Mails</h2>
       <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
             onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
             localStorage.setItem('reciever_id',record.uuid);
