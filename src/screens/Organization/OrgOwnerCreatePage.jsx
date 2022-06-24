@@ -26,10 +26,6 @@ const validateMessages = {
   },
 };
 
-const onChange = (e) => {
-  console.log(`checked = ${e.target.checked}`);
-};
-
 const OrgOwnerCreatePage = () => {
   const [owner, setOwner] = useState("");
   const [organization_owneruser_name, setUsername] = useState("");
@@ -39,6 +35,13 @@ const OrgOwnerCreatePage = () => {
 
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  const [sendEmail, setSendEmail] = useState("");
+
+  const onChange = (e) => {
+    console.log(`checked = ${e.target.checked}`);
+    setSendEmail(e.target.value);
+  };
 
   const handleOwner = (e) => {
     setOwner(e.target.value);
@@ -201,6 +204,27 @@ const OrgOwnerCreatePage = () => {
                       setUsernameError();
                       setPasswordError();
                       //console.log(owner, organization_owneruser_name, password);
+                      if (1) {
+                              try {
+                                let data2 = {
+                                  name: owner,
+                                  username: organization_owneruser_name,
+                                  password: password,
+                                  role: "Organization Owner",
+                                  telephone: organization_owner_telephone,
+                                  email: organization_owner_email,
+                                  organization_name:
+                                    localStorage.getItem("organization_name"),
+                                };
+                                await axios.post("http://localhost:8080/send/mail",
+                                data2);
+                                console.log("Email Sent");
+                            } catch (e) {
+                                console.log("Email Sending Unsuccessful")
+                            }
+                              
+                            }
+                      
                       let data = {
                         name: owner,
                         username: organization_owneruser_name,
@@ -217,9 +241,10 @@ const OrgOwnerCreatePage = () => {
                         "http://localhost:8080/user/add",
                         data
                       );
+
                       //console.log(response.data);
                       if (response.status == 200) {
-                        window.alert("Organization Owner Created");
+                        //window.alert("Organization Owner Created");
                         navigate("/organization/dashboard");
                       }
                       if (response.status == 201) {
@@ -236,8 +261,29 @@ const OrgOwnerCreatePage = () => {
                         console.log(response.data.password);
 
                         //window.alert(response.data.password);
-                      }
-                    }}
+                    //     console.log(sendEmail);
+                    //     if (1) {
+                    //       try {
+                    //         let data2 = {
+                    //           name: owner,
+                    //           username: organization_owneruser_name,
+                    //           password: password,
+                    //           role: "Organization Owner",
+                    //           telephone: organization_owner_telephone,
+                    //           email: organization_owner_email,
+                    //           organization_name:
+                    //             localStorage.getItem("organization_name"),
+                    //         };
+                    //         await axios.post("http://localhost:8080/send/mail",
+                    //         data2);
+                    //         console.log("Email Sent");
+                    //     } catch (e) {
+                    //         console.log("Email Sending Unsuccessful")
+                    //     }
+                          
+                    //     }
+                       }
+                     }}
                   >
                     Next*
                   </Button>
