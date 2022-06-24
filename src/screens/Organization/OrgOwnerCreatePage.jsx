@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Row, Col, Card } from "antd";
+import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -26,10 +26,17 @@ const validateMessages = {
   },
 };
 
+const onChange = (e) => {
+  console.log(`checked = ${e.target.checked}`);
+};
+
 const OrgOwnerCreatePage = () => {
   const [owner, setOwner] = useState("");
   const [organization_owneruser_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [organization_owner_email, setEmail] = useState("");
+  const [organization_owner_telephone, setTelephone] = useState("");
+
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -43,6 +50,14 @@ const OrgOwnerCreatePage = () => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleTelephone = (e) => {
+    setTelephone(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -118,6 +133,51 @@ const OrgOwnerCreatePage = () => {
                 />
               </Form.Item>
               <p>{passwordError}</p>
+
+              <Form.Item
+                name="organization_owner_telephone"
+                label="Contact Number"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please Input Contact Number",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handleTelephone(e);
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="organization_owner_email"
+                label="Email"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please Input Email Address",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handleEmail(e);
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Checkbox onChange={onChange}>
+                  Send Username and Password via email
+                </Checkbox>
+              </Form.Item>
+
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
@@ -146,6 +206,8 @@ const OrgOwnerCreatePage = () => {
                         username: organization_owneruser_name,
                         password: password,
                         role: "Organization Owner",
+                        telephone: organization_owner_telephone,
+                        email: organization_owner_email,
                         organization_id:
                           localStorage.getItem("organization_id"),
                       };
@@ -169,7 +231,6 @@ const OrgOwnerCreatePage = () => {
                           setPasswordError(response.data.password);
                           //response.data.password = "";
                         }
-                        
 
                         console.log(response.data.username);
                         console.log(response.data.password);
