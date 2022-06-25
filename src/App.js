@@ -30,6 +30,7 @@ import CustomerRegistration from "./screens/Branch/CustomerRegistration";
 import DelivererRegistration from "./screens/Branch/DelivererRegistration";
 import BranchEdit from "./screens/Organization/BranchEdit";
 import SingleBranchTable from "./screens/Organization/SingleBranchTable";
+import OrganizationEdit from "./screens/Organization/OrganizationEdit";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/organization/create" element={<OrgCreatePage/>} />
           <Route exact path="/organization/owner/create" element={<OrgOwnerCreatePage/>} />
           <Route path="/organization/dashboard" exact element={<OrganizationDashboard/>} />
+          <Route path="/organization/edit" exact element={<OrganizationEdit/>} />
           <Route path="/branch/create" exact element={<BranchRegPage/>} />
           <Route path="/branch/owner/create" exact element={<BranchOwnerRegPage/>} />
           <Route path="/branch/table" exact element={<BranchesTable/>} />
