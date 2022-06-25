@@ -11,6 +11,8 @@ const onFinish = (values) => {
 };
 
 
+
+
 const layout = {
   labelCol: {
     span: 8,
@@ -37,9 +39,21 @@ const UserProfile = () => {
   const [editingKey, setEditingKey] = useState('');
   const navigate = useNavigate();
   const [Form_body, setForm_body] = useState([]);
-
+  
+  const [update, setUpdate] = useState({
+    Name: "",
+    Username: "",
+    Email: "",
+    Role:"",
+    Telephone:""
+  });
   //not
   const isEditing = (record) => record.key === editingKey;
+ const Updateinfo=()=>
+{
+     console.log(update);
+}
+ 
 
   useEffect(() => {
     var data = user_data();
@@ -80,9 +94,11 @@ const UserProfile = () => {
 
                   <Form.Item
                     name={['user', 'name']}
-                    label="Name"
-                    rules={[{ required: true, message: 'Name is required' }]}>
-                    <Input placeholder={e.name} />
+                    label={e.name}
+    //                 rules={[{ required: true, message: 'Name is required' }]}>
+    //                 <Input placeholder={e.name}  onChange={(event) => {
+    // setUpdate({ ...update, Name: event.target.value });}}
+    >
 
                   </Form.Item>
                   <Form.Item
@@ -90,7 +106,8 @@ const UserProfile = () => {
                     label="Username"
                     rules={[{ required: true, message: 'Username is required' }]}>
                     
-                    <Input placeholder={e.username} />
+                    <Input value={e.username} onChange={(event) => {
+    setUpdate({ ...update,Username: event.target.value });}}/>
                   </Form.Item>
                   <Form.Item
                     name={['user', 'email']}
@@ -103,27 +120,31 @@ const UserProfile = () => {
                     ]}
                   
                   >
-                    <Input placeholder={e.email} />
+                    <Input placeholder={e.email} onChange={(event) => {
+    setUpdate({ ...update, Email: event.target.value });}}/>
                   </Form.Item>
                   <Form.Item
                     name={['user', 'telephone']}
                     label="Telephone"
 
                   >
-                    <Input placeholder={e.telephone} />
+                    <Input placeholder={e.telephone} onChange={(event) => {
+    setUpdate({ ...update, Telephone: event.target.value });}}/>
                   </Form.Item>
 
                   <Form.Item label="Role">
                     <Select placeholder={e.role}>
-                      <Select.Option value="Customer">Customer</Select.Option>
-                      <Select.Option value="Deliverer">Deliverer</Select.Option>
+                      <Select.Option value="Customer" onChange={(event) => {
+    setUpdate({ ...update,Role: event.target.value });}}>Customer</Select.Option>
+                      <Select.Option value="Deliverer" onChange={(event) => {
+    setUpdate({ ...update, Role: event.target.value });}}>Deliverer</Select.Option>
                     </Select>
                   </Form.Item>
 
                   <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                    <Button type="primary" htmlType="submit">
+                    {/* <Button type="primary" htmlType="submit" onClick={Updateinfo}>
                       Submit
-                    </Button>
+                    </Button> */}
                   </Form.Item>
                 </Form>
               </Col>

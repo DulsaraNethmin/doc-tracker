@@ -26,6 +26,8 @@ import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
 
+import JobsIntPendTable from "./screens/Branch/JobsInterPending";
+
 
 function App() {
   return (
@@ -48,7 +50,9 @@ function App() {
           <Route path="/user/reg" exact element={<UserRegPage/>} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<UserData/>} />
-          <Route path="/documents" exact element={<Document/>} />        
+          <Route path="/documents" exact element={<Document/>} />    
+
+          <Route path="/branch/jobs/int/pending" exact element={<JobsIntPendTable/>} />    
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
         </Routes>
       </BrowserRouter>

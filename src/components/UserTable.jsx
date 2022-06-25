@@ -27,7 +27,10 @@ const UserTable = () => {
       console.log('aaaaaa');
       var response=await axios.get(`http://localhost:8080/user/get/all?branch_id=${localStorage.getItem("branch_id")}`);
       console.log(response.data);
+      
       const obj=response.data.map((e)=>{
+         
+       
         return(
           <tr>
             <td>{e.uuid}</td>
@@ -36,8 +39,10 @@ const UserTable = () => {
             <td>{e.email}</td>
             <td>{e.role}</td>
             
-            <td><span onClick={()=>{ navigate(`/user/profile/user_id=${e.uuid}`,{replace:true,state:{uuid:e.uuid,name:e.name,username:e.username,email:e.email,role:e.role,telephone:e.telephone}})}}
-            >View</span></td>
+            <td><span onClick={()=>{
+               localStorage.setItem('uuid',e.uuid);
+               navigate(`/user/profile/user_id=${e.uuid}`,{replace:true,state:{uuid:e.uuid,name:e.name,username:e.username,email:e.email,role:e.role,telephone:e.telephone}})}}
+            >Edit</span></td>
           </tr>
         );
       })
