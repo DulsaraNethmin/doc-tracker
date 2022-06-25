@@ -190,7 +190,7 @@ const OrgOwnerCreatePage = () => {
                   handleSendEmail(e);
                 }}
               >
-                <Checkbox>Remember me</Checkbox>
+                <Checkbox>Send User Details via Email</Checkbox>
               </Form.Item>
 
               {/* <Form.Item>
