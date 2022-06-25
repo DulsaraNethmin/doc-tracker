@@ -37,6 +37,8 @@ const BranchesTable = () => {
           Br_Owner: e.name,
           Br_Owner_Username: e.username,
           Br_Owner_Password: e.password,
+          email:e.email,
+          telephone:e.telephone,
           
         };
       });
@@ -69,6 +71,18 @@ const BranchesTable = () => {
       {
         title: "Address3",
         dataIndex: "Address3",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Br. Telephone",
+        dataIndex: "telephone",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Br. Email",
+        dataIndex: "email",
         //width: '25%',
         editable: true,
       },
