@@ -229,7 +229,7 @@ const BranchRegPage = () => {
                       localStorage.setItem("branch_id", response.data.uuid);
 
                       if (response.status == 200) {
-                        window.alert("Branch Created");
+                        //window.alert("Branch Created");
                         navigate("/branch/owner/create");
                       }
                       if (response.status != 200) {
