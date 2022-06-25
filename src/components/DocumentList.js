@@ -20,7 +20,7 @@ function DocumentList() {
  
   useEffect(() => {
     dispatch(fetchDocuments())
-     
+    console.log(getdocument.Documents);
   }, [dispatch]);
   const getUniqId=(e)=>{
     

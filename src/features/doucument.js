@@ -9,7 +9,7 @@ const initialState={
     status:"idle",
     error:null,
 }
-const GET_URL=`http://localhost:8080/document/get/by/branch?branch_id=${localStorage.getItem("branch_id")}`;
+const GET_URL=`http://localhost:8080/document/getweb/by/branch?branch_id=${localStorage.getItem("branch_id")}`;
 const POST_URL='http://localhost:8080/document/add';
 
 //to get all post

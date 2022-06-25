@@ -4,7 +4,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import QRCode from 'qrcode';
 import { useState } from 'react';
-
+import img from '../images/R.jpg';
 function ViewQrCodeDetails() {
     const [doc,setDoc]=useState([]);
     const [doc_name,setDoc_name]=useState('');
@@ -46,6 +46,8 @@ function ViewQrCodeDetails() {
             position:'relative',
             left:'100px',
             border: '1px solid green',
+            'background-color': 'Lightblue',
+  opacity: '0.3'
             
          }}
          >

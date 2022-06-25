@@ -95,10 +95,18 @@ function Document() {
 
   return (
       
-    <div>
+    <div style={{
+     
+      
+   }}>
       <title>Enter Documents</title>
       <center>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}
+        style={{
+            padding:'20px'
+            
+        }}
+        >
           <div className='addDocument'>
             <div>
               <p>Enter name of the document</p>
