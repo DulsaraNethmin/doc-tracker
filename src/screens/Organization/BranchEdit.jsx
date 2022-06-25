@@ -54,6 +54,7 @@ const tailFormItemLayout = {
 
 
 const BranchEdit = () => {
+  
   const [branch_name, set_br_name] = useState("");
   const [address_1, set_addr1] = useState("");
   const [address_2, set_addr2] = useState("");
@@ -104,6 +105,12 @@ const BranchEdit = () => {
 
   const navigate = useNavigate();
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+
+  var data = localStorage.getItem("branch_id");
+  var response = await axios.get(
+    `http://localhost:8080/organization/get/single/branchowners?branch_id=${data}`
+  );
+  const obj = response.data.map((e1) => {
 
   return (
     <div>
@@ -182,6 +189,7 @@ const BranchEdit = () => {
                 ]}
               >
                 <Input
+                defaultValue={e1.b_name}
                   onChange={(e) => {
                     handle_br_name(e);
                   }}
@@ -394,6 +402,7 @@ const BranchEdit = () => {
         </Row> */}
       </div>
     </div>
+  )}
   );
 };
 
