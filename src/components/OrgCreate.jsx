@@ -112,7 +112,7 @@ const OrgCreate = () => {
                         localStorage.setItem("organization_name", organization_name);
 
                         if (response.status == 200) {
-                          window.alert("Organization Created");
+                          //window.alert("Organization Created");
                           navigate("/organization/owner/create");
                         }
                         if (response.status != 200) {

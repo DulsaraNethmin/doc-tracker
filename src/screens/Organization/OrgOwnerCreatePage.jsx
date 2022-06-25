@@ -36,11 +36,15 @@ const OrgOwnerCreatePage = () => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const [sendEmail, setSendEmail] = useState("");
+  const [sendEmail, setSendEmail] = useState(false);
 
-  const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-    setSendEmail(e.target.value);
+  // const onChange = (e) => {
+  //   console.log(`checked = ${e.target.checked}`);
+  //   setSendEmail(e.target.value);
+  // };
+
+  const handleSendEmail = (e) => {
+    setSendEmail(e.target.checked);
   };
 
   const handleOwner = (e) => {
@@ -175,11 +179,25 @@ const OrgOwnerCreatePage = () => {
                 />
               </Form.Item>
 
-              <Form.Item>
+              <Form.Item
+                name="sendEmail"
+                valuePropName="checked"
+                wrapperCol={{
+                  offset: 8,
+                  span: 16,
+                }}
+                onChange={(e) => {
+                  handleSendEmail(e);
+                }}
+              >
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
+
+              {/* <Form.Item>
                 <Checkbox onChange={onChange}>
                   Send Username and Password via email
                 </Checkbox>
-              </Form.Item>
+              </Form.Item> */}
 
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
@@ -204,28 +222,32 @@ const OrgOwnerCreatePage = () => {
                       setUsernameError();
                       setPasswordError();
                       //console.log(owner, organization_owneruser_name, password);
-                      if (1) {
-                              try {
-                                let data2 = {
-                                  name: owner,
-                                  username: organization_owneruser_name,
-                                  password: password,
-                                  role: "Organization Owner",
-                                  telephone: organization_owner_telephone,
-                                  email: organization_owner_email,
-                                  organization_name:
-                                    localStorage.getItem("organization_name"),
-                                };
-                                await axios.post("http://localhost:8080/send/mail",
-                                data2);
-                                console.log("Email Sent");
-                            } catch (e) {
-                                console.log("Email Sending Unsuccessful")
-                            }
-                              
-                            }
-                      
+                      console.log(sendEmail);
+                      // if (sendEmail) {
+                      //   try {
+                      //     let data2 = {
+                      //       sendEmailStatus: sendEmail,
+                      //       name: owner,
+                      //       username: organization_owneruser_name,
+                      //       password: password,
+                      //       role: "Organization Owner",
+                      //       telephone: organization_owner_telephone,
+                      //       email: organization_owner_email,
+                      //       organization_name:
+                      //         localStorage.getItem("organization_name"),
+                      //     };
+                      //     await axios.post(
+                      //       "http://localhost:8080/send/mail",
+                      //       data2
+                      //     );
+                      //     console.log("Email Sent");
+                      //   } catch (e) {
+                      //     console.log("Email Sending Unsuccessful");
+                      //   }
+                      // }
+
                       let data = {
+                        sendEmailStatus: sendEmail,
                         name: owner,
                         username: organization_owneruser_name,
                         password: password,
@@ -242,12 +264,35 @@ const OrgOwnerCreatePage = () => {
                         data
                       );
 
+                      if (response.status == 200 && sendEmail) {
+                        try {
+                          let data2 = {
+                            sendEmailStatus: sendEmail,
+                            name: owner,
+                            username: organization_owneruser_name,
+                            password: password,
+                            role: "Organization Owner",
+                            telephone: organization_owner_telephone,
+                            email: organization_owner_email,
+                            organization_name:
+                              localStorage.getItem("organization_name"),
+                          };
+                          console.log("Email Sent");
+                          navigate("/organization/dashboard");
+                          await axios.post(
+                            "http://localhost:8080/send/mail",
+                            data2
+                          );
+                        } catch (e) {
+                          console.log("Email Sending Unsuccessful");
+                        }
+                      }
+
                       //console.log(response.data);
-                      if (response.status == 200) {
+                      else if (response.status == 200) {
                         //window.alert("Organization Owner Created");
                         navigate("/organization/dashboard");
-                      }
-                      if (response.status == 201) {
+                      } else if (response.status == 201) {
                         if (response.data.username) {
                           setUsernameError(response.data.username);
                           //response.data.username = "";
@@ -261,29 +306,29 @@ const OrgOwnerCreatePage = () => {
                         console.log(response.data.password);
 
                         //window.alert(response.data.password);
-                    //     console.log(sendEmail);
-                    //     if (1) {
-                    //       try {
-                    //         let data2 = {
-                    //           name: owner,
-                    //           username: organization_owneruser_name,
-                    //           password: password,
-                    //           role: "Organization Owner",
-                    //           telephone: organization_owner_telephone,
-                    //           email: organization_owner_email,
-                    //           organization_name:
-                    //             localStorage.getItem("organization_name"),
-                    //         };
-                    //         await axios.post("http://localhost:8080/send/mail",
-                    //         data2);
-                    //         console.log("Email Sent");
-                    //     } catch (e) {
-                    //         console.log("Email Sending Unsuccessful")
-                    //     }
-                          
-                    //     }
-                       }
-                     }}
+                        //     console.log(sendEmail);
+                        //     if (sendEmail) {
+                        //       try {
+                        //         let data2 = {
+                        //           name: owner,
+                        //           username: organization_owneruser_name,
+                        //           password: password,
+                        //           role: "Organization Owner",
+                        //           telephone: organization_owner_telephone,
+                        //           email: organization_owner_email,
+                        //           organization_name:
+                        //             localStorage.getItem("organization_name"),
+                        //         };
+                        //         await axios.post("http://localhost:8080/send/mail",
+                        //         data2);
+                        //         console.log("Email Sent");
+                        //     } catch (e) {
+                        //         console.log("Email Sending Unsuccessful")
+                        //     }
+
+                        //     }
+                      }
+                    }}
                   >
                     Next*
                   </Button>
