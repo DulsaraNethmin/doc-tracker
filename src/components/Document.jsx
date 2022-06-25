@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import {Input,Button} from 'antd'
 import Dashboard from '../screens/Branch/Dashboard';
 import Title from 'antd/lib/skeleton/Title';
+import Background from '../images/R.jpg'
 
 
 
@@ -96,47 +97,86 @@ function Document() {
   return (
       
     <div style={{
-     
+      backgroundImage: `url(${Background})`
+
       
    }}>
       
       <center>
         <form onSubmit={handleSubmit}
         style={{
-            padding:'20px'
-            
+            padding:'20px',  
+      
         }}
         >
           <h2  style={{
-            padding:'20px'
-            
+            padding:'20px',
+            color:'White',
+            'font-family': 'Lucida Handwriting'
+
         }} >Enter Documents</h2>
           <div className='addDocument'>
-            <div>
-              <p>Enter name of the document</p>
+            <div
+             >
+              <p  style={{
+                color:"white",
+                'font-family': 'Lucida Handwriting'
+            }}>Enter name of the document</p>
               <Input type="text" placeholder="Name" value={adddoc.doc_name} onChange={(event) => {
                 setAdddoc({ ...adddoc, doc_name: event.target.value });
-              }}  />
+              }}  style={{
+                padding:'20px',  
+                opacity:'0.3',
+                
+            }} />
             </div>
-            <p style={{color: "red"}}>{validat.doc_name}</p>
+            <p style={{color: "red",
+             'font-family': 'Lucida Handwriting'
+          }}>{validat.doc_name}</p>
             <div>
-              <p>Enter type of the document</p>
+              <p style={{
+                color:"white",
+                'font-family': 'Lucida Handwriting'
+            }}>Enter type of the document</p>
               <Input type="text" placeholder="Type" value={adddoc.type} onChange={(event) => {
                 setAdddoc({ ...adddoc, type: event.target.value });
-              }} />
+              }}  style={{
+                padding:'20px',  
+                opacity:'0.3'
+            }} />
             </div>
-            <p style={{color: "red"}}>{validat.type}</p>
+            <p style={{color: "red",
+             'font-family': 'Lucida Handwriting'
+          }}>{validat.type}</p>
             <div>
-              <p>Enter Added Date of the document</p>
+              <p style={{
+                color:"white",
+                'font-family': 'Lucida Handwriting'
+            }}>Enter Added Date of the document</p>
               <Input type="date" placeholder="Added Date" value={adddoc.date} onChange={(event) => {
                 setAdddoc({ ...adddoc, date: event.target.value });
-              }} />
+              }}  style={{
+                padding:'20px',  
+                opacity:'0.3'
+            }} />
             </div>
-            <p style={{color: "red"}}>{validat.date}</p>
+            <p style={{
+              color: "red",
+              'font-family': 'Lucida Handwriting'
+              }}>{validat.date}</p>
             <div  >
-              <button type='submit' onClick="reload">Add Document</button>
+              <button style={{
+                padding:'20px',
+                margin:'20px',
+                opacity:'0.5'
+                 
+            }}  type='submit' onClick="reload">Add Document</button>
               <Link to='/documents/viewdoc'>
-              <Button>Show new addedd ones</Button>
+              <button style={{
+                padding:'20px',
+                margin:'20px',
+                opacity:'0.5'
+            }} >Show new addedd ones</button>
               </Link>
             </div>
 

@@ -61,22 +61,7 @@ catch(e){
     
       
     },
-    {
-      title:"Recieved Mails",
-      render:(record)=>{
-        return(
-          <Link to='/Mail/Received'>
-       <Button>Recieved Mail</Button>
-       </Link>
-      )
-      
-
-    
-      
-    }
-    
-      
-    },
+   
    
 
    ]
@@ -88,17 +73,47 @@ catch(e){
         alignItems:"center"
       }}
       >
+
+         <div>
+          <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+      }} >
          <Link to='/Mail/GetsentMail'>
       <Button  >Sent Mails</Button>  
       </Link> 
       </div>
-      <h2>To send a Mails</h2>
+      <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+
+      }} >
+      <Link to='/Mail/Received'>
+       <Button>Recieved Mail</Button>
+       </Link>
+       </div>
+       </div>
+      </div>
+      <h2 style={{
+            padding : "50px",
+             position:'relative',
+        left:"50px",
+          }}
+      >To send a Mails</h2>
       <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
             onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
             localStorage.setItem('reciever_id',record.uuid);
           }
           })}
-      ></Table>
+          style={{
+            padding:'20px'
+          }} ></Table>
     </div>
   )
 }

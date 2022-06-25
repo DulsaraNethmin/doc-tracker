@@ -102,7 +102,11 @@ function DocumentList() {
         {getdocument.status === "pending" && <div>ERROR</div>}
         {(getdocument.status === "Success" || adddocument.documentAdd === "Succses") &&
           <div>
-          <Table dataSource={getdocument.Documents} columns={columns}  onRow={(record, recordIndex) => ({
+          <Table  style={{
+      opacity:'0.7'
+
+      
+   }}dataSource={getdocument.Documents} columns={columns}  onRow={(record, recordIndex) => ({
             onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
             localStorage.setItem('doc_id',record.doc_id);
           }

@@ -4,7 +4,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import QRCode from 'qrcode';
 import { useState } from 'react';
-import img from '../images/R.jpg';
+import Background from '../images/R.jpg'
 function ViewQrCodeDetails() {
     const [doc,setDoc]=useState([]);
     const [doc_name,setDoc_name]=useState('');
@@ -46,14 +46,30 @@ function ViewQrCodeDetails() {
             position:'relative',
             left:'100px',
             border: '1px solid green',
-            'background-color': 'Lightblue',
-  opacity: '0.3'
+            backgroundImage: `url(${Background})`,
+            color:'White',
+           'font-family': 'Lucida Handwriting'
             
          }}
          >
-         <h1>Document name is {doc_name} </h1>  
-         <h3>Type is {type}</h3>
-         <h3>QR Code is</h3>
+         <h1 style={{
+            padding:'20px',
+            color:'White',
+            'font-family': 'Lucida Handwriting'
+
+        }}>Document name is {doc_name} </h1>  
+         <h3 style={{
+            padding:'20px',
+            color:'White',
+            'font-family': 'Lucida Handwriting'
+
+        }}>Type is {type}</h3>
+         <h3 style={{
+            padding:'20px',
+            color:'White',
+            'font-family': 'Lucida Handwriting'
+
+        }}>QR Code is</h3>
          </div>
          <p style={{
             width:'300px',
