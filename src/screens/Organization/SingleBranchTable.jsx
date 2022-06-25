@@ -39,6 +39,8 @@ const SingleBranchTable = () => {
           Br_Owner_Password: e.password,
           email:e.email,
           telephone:e.telephone,
+          longitude:e.longitude,
+          latitude:e.latitude
         };
       });
       setData(obj);
@@ -70,6 +72,18 @@ const SingleBranchTable = () => {
       {
         title: "Address3",
         dataIndex: "Address3",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Latitude",
+        dataIndex: "latitude",
+        //width: '25%',
+        editable: true,
+      },
+      {
+        title: "Longitude",
+        dataIndex: "longitude",
         //width: '25%',
         editable: true,
       },

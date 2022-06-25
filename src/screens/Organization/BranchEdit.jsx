@@ -13,13 +13,17 @@ import {
   Dropdown,
   Menu,
   PageHeader,
-  Row, Col, Card, Form, Input, Select,
+  Row,
+  Col,
+  Card,
+  Form,
+  Input,
+  Select,
   Tag,
   Typography,
 } from "antd";
 const { Paragraph } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
-
 
 const formItemLayout = {
   labelCol: {
@@ -52,9 +56,7 @@ const tailFormItemLayout = {
   },
 };
 
-
-const BranchEdit = async () => {
-  
+const BranchEdit = () => {
   const [branch_name, set_br_name] = useState("");
   const [address_1, set_addr1] = useState("");
   const [address_2, set_addr2] = useState("");
@@ -64,6 +66,16 @@ const BranchEdit = async () => {
   const [owner_name, set_owner_name] = useState("");
   const [username, set_username] = useState("");
   const [password, set_password] = useState("");
+  const [latitude, set_latitude] = useState("");
+  const [longitude, set_longitude] = useState("");
+
+
+  const handle_latitude = (e) => {
+    set_latitude(e.target.value);
+  };
+  const handle_longitude = (e) => {
+    set_longitude(e.target.value);
+  };
 
   const handle_owner_name = (e) => {
     set_owner_name(e.target.value);
@@ -154,25 +166,100 @@ const BranchEdit = async () => {
         <Row style={{ padding: "4% 0" }}>
           <Col span={3}></Col>
           <Col span={18}>
-            <Card title="Details of the Branch" alignment="center">
-              <SingleBranchTable />
-            </Card>
-            
-            <br /><br />
+            <SingleBranchTable />
+
+            <br />
+            <br />
 
             <Card title="Add New Details*" alignment="center">
               <p>*Should fill all the fiels before pressing Update button.</p>
               <br />
-            <Form
-              {...formItemLayout}
-              form={form}
-              name="register"
-              onFinish={onFinish}
-              scrollToFirstError
-            >
-              <Form.Item
-                name="branch_name"
-                label="Branch Name"
+              <Form
+                {...formItemLayout}
+                form={form}
+                name="register"
+                onFinish={onFinish}
+                scrollToFirstError
+              >
+                <Form.Item
+                  name="branch_name"
+                  label="Branch Name"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_br_name(e);
+                    }}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="address_1"
+                  label="Address 1 (Number)"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_addr1(e);
+                    }}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="address_2"
+                  label="Address 2 (Street)"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_addr2(e);
+                    }}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="address_3"
+                  label="Address 3 (Town)"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_addr3(e);
+                    }}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                name="latitude"
+                label="Latitude"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
@@ -183,16 +270,15 @@ const BranchEdit = async () => {
                 ]}
               >
                 <Input
-                defaultValue={e1.b_name}
                   onChange={(e) => {
-                    handle_br_name(e);
+                    handle_latitude(e);
                   }}
                 />
               </Form.Item>
 
               <Form.Item
-                name="address_1"
-                label="Address 1 (Number)"
+                name="longitude"
+                label="Longitude"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
@@ -204,187 +290,170 @@ const BranchEdit = async () => {
               >
                 <Input
                   onChange={(e) => {
-                    handle_addr1(e);
+                    handle_longitude(e);
                   }}
                 />
               </Form.Item>
 
-              <Form.Item
-                name="address_2"
-                label="Address 2 (Street)"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your name!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_addr2(e);
-                  }}
-                />
-              </Form.Item>
+                <Form.Item
+                  name="telehone"
+                  label="Branch Telephone Number"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input Branch Telephone Number!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_telephone(e);
+                    }}
+                  />
+                </Form.Item>
 
-              <Form.Item
-                name="address_3"
-                label="Address 3 (Town)"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your name!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_addr3(e);
-                  }}
-                />
-              </Form.Item>
+                <Form.Item
+                  name="email"
+                  label="Branch Email"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input Branch Email Address!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_email(e);
+                    }}
+                  />
+                </Form.Item>
 
-              <Form.Item
-                name="telehone"
-                label="Branch Telephone Number"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input Branch Telephone Number!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_telephone(e);
-                  }}
-                />
-              </Form.Item>
+                <Form.Item
+                  name="owner_name"
+                  label="Branch Owner Name"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input Branch Owner Name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_owner_name(e);
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="username"
+                  label="Branch Owner Username"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input Branch Owner Username!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_username(e);
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="password"
+                  label="Branch Owner Password"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input Branch Owner Password!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_password(e);
+                    }}
+                  />
+                </Form.Item>
 
-              <Form.Item
-                name="email"
-                label="Branch Email"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input Branch Email Address!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_email(e);
-                  }}
-                />
-              </Form.Item>
+                <Form.Item {...tailFormItemLayout}>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      if (branch_name == "") {
+                        window.alert("Incomplete. Please fill Branch Name.");
+                      } else {
+                        console.log(branch_name);
+                        let data = {
+                          name: branch_name,
+                          number: address_1,
+                          town: address_3,
+                          street: address_2,
+                          email: email,
+                          telephone: telephone,
+                          owner_name: owner_name,
+                          username: username,
+                          password: password,
+                          branch_id: localStorage.getItem("branch_id"),
+                        };
+                        let response = await axios.post(
+                          "http://localhost:8080/branch/update",
+                          data
+                        );
 
-              <Form.Item
-                name="owner_name"
-                label="Branch Owner Name"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input Branch Owner Name!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_owner_name(e);
-                  }}
-                />
-              </Form.Item>
-              <Form.Item
-                name="username"
-                label="Branch Owner Username"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input Branch Owner Username!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_username(e);
-                  }}
-                />
-              </Form.Item>
-              <Form.Item
-                name="password"
-                label="Branch Owner Password"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input Branch Owner Password!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_password(e);
-                  }}
-                />
-              </Form.Item>
+                        console.log(response.data);
+                        localStorage.setItem("branch_id", response.data.uuid);
 
-              <Form.Item {...tailFormItemLayout}>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  onClick={async (e) => {
-                    e.preventDefault();
-                    if (branch_name == "") {
-                      window.alert("Incomplete. Please fill Branch Name.");
-                    } else {
-                      console.log(branch_name);
-                      let data = {
-                        name: branch_name,
-                        number:address_1,
-                        town:address_3,
-                        street:address_2,
-                        email:email,
-                        telephone:telephone,
-                        owner_name:owner_name,
-                        username:username,
-                        password:password,
-                        branch_id:localStorage.getItem("branch_id"),
-                      };
-                      let response = await axios.post(
-                        "http://localhost:8080/branch/update",
-                        data
+                        if (response.status == 200) {
+                          //window.alert("Branch Created");
+                          navigate("/organization/dashboard");
+                        }
+                        if (response.status != 200) {
+                          window.alert("UnSuccessfull. Try again.");
+                        }
+                      }
+                    }}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      var data = localStorage.getItem("branch_id");
+
+                      var response = await axios.delete(
+                        `http://localhost:8080/branch/delete?uuid=${data}`
                       );
-
-                      console.log(response.data);
-                      localStorage.setItem("branch_id", response.data.uuid);
-                        
                       if (response.status == 200) {
-                        //window.alert("Branch Created");
+                        window.alert("Branch Deleted");
                         navigate("/organization/dashboard");
                       }
                       if (response.status != 200) {
-                        window.alert("UnSuccessfull. Try again.");
+                        window.alert("Deletion UnSuccessfull. Try again.");
                       }
-                    }
-                  }}
-                >
-                  Update
-                </Button>
-              </Form.Item>
-            </Form>
-          </Card>
+                    }}
+                  >
+                    Delete Branch
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Card>
           </Col>
           <Col span={3}></Col>
         </Row>
@@ -396,7 +465,6 @@ const BranchEdit = async () => {
         </Row> */}
       </div>
     </div>
- 
   );
 };
 

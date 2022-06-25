@@ -52,6 +52,16 @@ const BranchRegPage = () => {
   const [address_1, set_addr1] = useState("");
   const [address_2, set_addr2] = useState("");
   const [address_3, set_addr3] = useState("");
+  const [latitude, set_latitude] = useState("");
+  const [longitude, set_longitude] = useState("");
+
+
+  const handle_latitude = (e) => {
+    set_latitude(e.target.value);
+  };
+  const handle_longitude = (e) => {
+    set_longitude(e.target.value);
+  };
 
   const handle_br_name = (e) => {
     set_br_name(e.target.value);
@@ -167,6 +177,44 @@ const BranchRegPage = () => {
                 />
               </Form.Item>
 
+              <Form.Item
+                name="latitude"
+                label="Latitude"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your name!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handle_latitude(e);
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="longitude"
+                label="Longitude"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your name!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handle_longitude(e);
+                  }}
+                />
+              </Form.Item>
+
               <Form.Item {...tailFormItemLayout}>
                 <Button
                   type="primary"
@@ -182,10 +230,13 @@ const BranchRegPage = () => {
                       console.log(branch_name);
                       let data = {
                         name: branch_name,
-                        number:address_1,
-                        town:address_3,
-                        street:address_2,
-                        organization_id:localStorage.getItem("organization_id"),
+                        number: address_1,
+                        town: address_3,
+                        street: address_2,
+                        latitude: latitude,
+                        longitude: longitude,
+                        organization_id:
+                          localStorage.getItem("organization_id"),
                       };
                       let response = await axios.post(
                         "http://localhost:8080/branch/add",

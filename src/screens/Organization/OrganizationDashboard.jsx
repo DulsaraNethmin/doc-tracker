@@ -62,14 +62,14 @@ const OrganizationDashboard = () => {
           title="DocTracker"
           subTitle="Organization Mode"
           extra={[
-            // <Button
-            //   key="3"
-            //   onClick={(e) => {
-            //     navigate("/branch/edit");
-            //   }}
-            // >
-            //   Edit a Branch
-            // </Button>,
+            <Button
+              key="3"
+              onClick={(e) => {
+                navigate("/organization/edit");
+              }}
+            >
+              Edit Organization
+            </Button>,
             <Button
               key="2"
               onClick={(e) => {
