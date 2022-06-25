@@ -258,35 +258,12 @@ const OrgOwnerCreatePage = () => {
                         data
                       );
 
-                      if (response.status == 200 && sendEmail) {
-                        try {
-                          let data2 = {
-                            sendEmailStatus: sendEmail,
-                            name: owner,
-                            username: organization_owneruser_name,
-                            password: password,
-                            role: "Organization Owner",
-                            telephone: organization_owner_telephone,
-                            email: organization_owner_email,
-                            organization_name:
-                              localStorage.getItem("organization_name"),
-                          };
-                          console.log("Email Sent");
-                          navigate("/organization/dashboard");
-                          await axios.post(
-                            "http://localhost:8080/send/mail",
-                            data2
-                          );
-                        } catch (e) {
-                          console.log("Email Sending Unsuccessful");
-                        }
-                      }
-
                       //console.log(response.data);
-                      else if (response.status == 200) {
+                      if (response.status == 200) {
                         //window.alert("Organization Owner Created");
                         navigate("/organization/dashboard");
-                      } else if (response.status == 201) {
+                      }
+                      if (response.status == 201) {
                         if (response.data.username) {
                           setUsernameError(response.data.username);
                           //response.data.username = "";

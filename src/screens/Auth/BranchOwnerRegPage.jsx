@@ -38,13 +38,15 @@ const BranchOwnerRegPage = () => {
   const [br_owner_email, setEmail] = useState("");
   const [br_owner_telephone, setTelephone] = useState("");
 
-
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  // const handleOrgName = (e) => {
-  //   setOrgName(e.target.value);
-  // };
+  const [sendEmail, setSendEmail] = useState(false);
+
+  const handleSendEmail = (e) => {
+    setSendEmail(e.target.checked);
+  };
+
   const handleOwner = (e) => {
     setOwner(e.target.value);
   };
@@ -176,10 +178,18 @@ const BranchOwnerRegPage = () => {
                 />
               </Form.Item>
 
-              <Form.Item>
-                <Checkbox onChange={onChange}>
-                  Send Username and Password via email
-                </Checkbox>
+              <Form.Item
+                name="sendEmail"
+                valuePropName="checked"
+                wrapperCol={{
+                  offset: 8,
+                  span: 16,
+                }}
+                onChange={(e) => {
+                  handleSendEmail(e);
+                }}
+              >
+                <Checkbox>Send User Details via Email</Checkbox>
               </Form.Item>
 
               <Row>
@@ -207,23 +217,22 @@ const BranchOwnerRegPage = () => {
 
                       console.log(owner, Br_owneruser_name, password);
                       let data = {
+                        sendEmailStatus: sendEmail,
                         name: owner,
                         username: Br_owneruser_name,
                         password: password,
                         role: "Branch Owner",
                         telephone: br_owner_telephone,
                         email: br_owner_email,
-
-                        // org_id:localStorage.getItem("org_id"),
-                        // role: "Organization Owner",
                         branch_id: localStorage.getItem("branch_id"),
                       };
-                      console.log(data);
+                      //console.log(data);
                       let response = await axios.post(
                         "http://localhost:8080/user/add",
                         data
                       );
-                      console.log(response.data);
+
+                      //console.log(response.data);
                       if (response.status == 200) {
                         window.alert("Branch Owner Created");
                         navigate("/organization/dashboard");
