@@ -43,7 +43,14 @@ const OrganizationDashboard = () => {
           title="DocTracker"
           subTitle="Organization Mode"
           extra={[
-            // <Button key="3">Operation</Button>,
+            <Button
+              key="3"
+              onClick={(e) => {
+                navigate("##");
+              }}
+            >
+              Edit a Branch
+            </Button>,
             <Button
               key="2"
               onClick={(e) => {
@@ -76,7 +83,6 @@ const OrganizationDashboard = () => {
           //   padding: 0,
           // }}
         >
-          
           <div className="head">
             <h1>Welcome {data}</h1>
             <br />
