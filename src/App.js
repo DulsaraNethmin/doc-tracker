@@ -26,6 +26,8 @@ import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
 import EmailScreen from "./screens/Auth/EmailScreen";
+import CustomerRegistration from "./screens/Branch/CustomerRegistration";
+import DelivererRegistration from "./screens/Branch/DelivererRegistration";
 
 
 function App() {
@@ -44,7 +46,8 @@ function App() {
           <Route path="/branch/table" exact element={<BranchesTable/>} />
           
           <Route path="/branch/dashboard" exact element={<Dashboard/>} />
-          <Route path="/user/reg" exact element={<UserRegPage/>} />
+          <Route path="/branch/customer/create" exact element={<CustomerRegistration />} />
+          <Route path="/branch/deliverer/create" exact element={<DelivererRegistration />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
           <Route path="/documents" exact element={<Document/>} />        
