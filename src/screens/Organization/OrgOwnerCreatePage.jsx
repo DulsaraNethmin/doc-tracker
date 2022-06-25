@@ -193,12 +193,6 @@ const OrgOwnerCreatePage = () => {
                 <Checkbox>Send User Details via Email</Checkbox>
               </Form.Item>
 
-              {/* <Form.Item>
-                <Checkbox onChange={onChange}>
-                  Send Username and Password via email
-                </Checkbox>
-              </Form.Item> */}
-
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
