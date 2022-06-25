@@ -41,9 +41,12 @@ const CustomerRegistration = () => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  // const handleOrgName = (e) => {
-  //   setOrgName(e.target.value);
-  // };
+  const [sendEmail, setSendEmail] = useState(false);
+
+  const handleSendEmail = (e) => {
+    setSendEmail(e.target.checked);
+  };
+
   const handleUser = (e) => {
     setUser(e.target.value);
   };
@@ -176,17 +179,25 @@ const CustomerRegistration = () => {
                 />
               </Form.Item>
 
-              <Form.Item>
-                <Checkbox onChange={onChange}>
-                  Send Username and Password via email
-                </Checkbox>
+              <Form.Item
+                name="sendEmail"
+                valuePropName="checked"
+                wrapperCol={{
+                  offset: 8,
+                  span: 16,
+                }}
+                onChange={(e) => {
+                  handleSendEmail(e);
+                }}
+              >
+                <Checkbox>Send User Details via Email</Checkbox>
               </Form.Item>
 
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
                     onClick={(e) => {
-                      navigate("/test-dashboard");
+                      navigate("/branch/dashboard");
                     }}
                   >
                     Back
@@ -207,6 +218,7 @@ const CustomerRegistration = () => {
 
                       console.log(user, username, password);
                       let data = {
+                        sendEmailStatus: sendEmail,
                         name: user,
                         username: username,
                         password: password,
