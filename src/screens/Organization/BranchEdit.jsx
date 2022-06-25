@@ -53,7 +53,7 @@ const tailFormItemLayout = {
 };
 
 
-const BranchEdit = () => {
+const BranchEdit = async () => {
   
   const [branch_name, set_br_name] = useState("");
   const [address_1, set_addr1] = useState("");
@@ -105,12 +105,6 @@ const BranchEdit = () => {
 
   const navigate = useNavigate();
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-
-  var data = localStorage.getItem("branch_id");
-  var response = await axios.get(
-    `http://localhost:8080/organization/get/single/branchowners?branch_id=${data}`
-  );
-  const obj = response.data.map((e1) => {
 
   return (
     <div>
@@ -375,7 +369,7 @@ const BranchEdit = () => {
 
                       console.log(response.data);
                       localStorage.setItem("branch_id", response.data.uuid);
-
+                        
                       if (response.status == 200) {
                         //window.alert("Branch Created");
                         navigate("/organization/dashboard");
@@ -402,7 +396,7 @@ const BranchEdit = () => {
         </Row> */}
       </div>
     </div>
-  )}
+ 
   );
 };
 
