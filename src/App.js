@@ -28,6 +28,8 @@ import Dashboard from "./screens/Branch/Dashboard";
 import EmailScreen from "./screens/Auth/EmailScreen";
 import CustomerRegistration from "./screens/Branch/CustomerRegistration";
 import DelivererRegistration from "./screens/Branch/DelivererRegistration";
+import BranchEdit from "./screens/Organization/BranchEdit";
+import SingleBranchTable from "./screens/Organization/SingleBranchTable";
 
 
 function App() {
@@ -44,6 +46,8 @@ function App() {
           <Route path="/branch/create" exact element={<BranchRegPage/>} />
           <Route path="/branch/owner/create" exact element={<BranchOwnerRegPage/>} />
           <Route path="/branch/table" exact element={<BranchesTable/>} />
+          <Route path="/branch/edit" exact element={<BranchEdit/>} />
+          <Route path="/branch/table/one" exact element={<SingleBranchTable />} />
           
           <Route path="/branch/dashboard" exact element={<Dashboard/>} />
           <Route path="/branch/customer/create" exact element={<CustomerRegistration />} />
