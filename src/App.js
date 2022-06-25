@@ -30,9 +30,7 @@ import EmailScreen from "./screens/Auth/EmailScreen";
 
 function App() {
   return (
-    <div className="App">
-      <EmailScreen />
-      
+    <div className="App">      
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
