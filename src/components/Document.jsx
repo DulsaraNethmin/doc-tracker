@@ -99,7 +99,7 @@ function Document() {
      
       
    }}>
-      <title>Enter Documents</title>
+      
       <center>
         <form onSubmit={handleSubmit}
         style={{
@@ -107,6 +107,10 @@ function Document() {
             
         }}
         >
+          <h2  style={{
+            padding:'20px'
+            
+        }} >Enter Documents</h2>
           <div className='addDocument'>
             <div>
               <p>Enter name of the document</p>
@@ -130,7 +134,7 @@ function Document() {
             </div>
             <p style={{color: "red"}}>{validat.date}</p>
             <div  >
-              <button type='submit'>Add Document</button>
+              <button type='submit' onClick="reload">Add Document</button>
               <Link to='/documents/viewdoc'>
               <Button>Show new addedd ones</Button>
               </Link>

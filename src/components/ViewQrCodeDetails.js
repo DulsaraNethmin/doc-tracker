@@ -26,7 +26,7 @@ function ViewQrCodeDetails() {
  
     const Doc_det = async() => {
 
-    var response = await axios.get(`http://localhost:8080/document/verify?doc_id=${id}`);
+    var response = await axios.get(`http://localhost:8080/document/verifyweb?doc_id=${id}`);
     console.log(response.data);
     setDoc(response.data);
     response.data.map((e)=>{

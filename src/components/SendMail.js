@@ -76,9 +76,16 @@ function SendMail() {
      
 
   return (
-    <div>
+    <div style={{
+        padding : "50px"
+     }}>
          <h2>{sender}</h2>  
+         <p style={{
+            width:"150px",
+            height:"150px"
+         }}>
          <img src={image} width="160" height="145"/>
+         </p>
          <div>
          <h4 >Enter Head</h4>
          <TextArea rows={2}  size="small" placeholder="Head"  value={addmail.head} onChange={(event) => {
