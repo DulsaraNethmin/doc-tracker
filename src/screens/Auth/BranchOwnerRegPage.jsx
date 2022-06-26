@@ -142,7 +142,7 @@ const BranchOwnerRegPage = () => {
               <p>{passwordError}</p>
 
               <Form.Item
-                name="organization_owner_telephone"
+                name="br_owner_telephone"
                 label="Contact Number"
                 //tooltip="What do you want others to call you?"
                 rules={[
@@ -161,7 +161,7 @@ const BranchOwnerRegPage = () => {
               </Form.Item>
 
               <Form.Item
-                name="organization_owner_email"
+                name="br_owner_email"
                 label="Email"
                 //tooltip="What do you want others to call you?"
                 rules={[
@@ -212,16 +212,15 @@ const BranchOwnerRegPage = () => {
                     //   navigate("/register-admin");
                     // }}
                     onClick={async (e) => {
+                      
                       e.preventDefault();
                       setUsernameError();
                       setPasswordError();
 
-                      console.log(owner, Br_owneruser_name, password);
-
-                      console.log(user, username, password);
-                      if(owner == ""||Br_owneruser_name == ""||br_owner_telephone == ""||br_owner_email == ""||password == ""){
+                      if(owner == ""||Br_owneruser_name == ""||password == ""||br_owner_telephone == ""||br_owner_email == ""){
                         window.alert ("Please Fill all the fields before submitting")
                       }else{
+                      
                       let data = {
                         sendEmailStatus: sendEmail,
                         name: owner,
@@ -258,7 +257,7 @@ const BranchOwnerRegPage = () => {
 
                         //window.alert(response.data.password);
                       }
-                    }
+                      }
                     }}
                   >
                     Next

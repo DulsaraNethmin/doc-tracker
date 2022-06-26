@@ -31,6 +31,7 @@ import DelivererRegistration from "./screens/Branch/DelivererRegistration";
 import BranchEdit from "./screens/Organization/BranchEdit";
 import SingleBranchTable from "./screens/Organization/SingleBranchTable";
 import OrganizationEdit from "./screens/Organization/OrganizationEdit";
+import Payments from "./screens/Branch/Payments";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="/branch/table" exact element={<BranchesTable/>} />
           <Route path="/branch/edit" exact element={<BranchEdit/>} />
           <Route path="/branch/table/one" exact element={<SingleBranchTable />} />
+          <Route path="/branch/payments" exact element={<Payments />} />
           
           <Route path="/branch/dashboard" exact element={<Dashboard/>} />
           <Route path="/branch/customer/create" exact element={<CustomerRegistration />} />
