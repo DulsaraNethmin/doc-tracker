@@ -6,10 +6,10 @@ import Password from "antd/lib/input/Password";
 import { useNavigate } from "react-router-dom";
 import Widget from "../../components/Dashboard/Widget";
 import Tbl from "../../components/Dashboard/Table";
-import "../../components/Dashboard.css";
+
 import Head from "../../components/Dashboard/Head";
 import { MoreOutlined } from "@ant-design/icons";
-import "./pages.css";
+
 import {
   Layout,
   Button,
@@ -61,7 +61,7 @@ const OrganizationDashboard = () => {
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{
-            src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+            src: "logo.jpeg",
           }}
           //ghost={false}
           //onBack={() => window.history.back()}
