@@ -184,7 +184,7 @@ const OrganizationEdit = () => {
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{
-            src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+            src: "logo.jpeg",
           }}
           //ghost={false}
           //onBack={() => window.history.back()}
