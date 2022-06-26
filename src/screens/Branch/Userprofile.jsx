@@ -218,7 +218,7 @@ const UserProfile = () => {
   });
 
   return (
-    <div className='Table'>
+  <div style={{backgroundImage:`url('../../images/background.png') no-repeat;`}}>
 
 
       <Form form={form} component={false}>

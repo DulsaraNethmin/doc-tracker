@@ -84,10 +84,10 @@ const JobsInterPending = () => {
     });
 
     return (
-        <div className='Table'>
+        <div className='main-container'>
             <h2>Pending Jobs</h2>
             <Form form={form} component={false}>
-            <table>
+            <table className='table'>
         <th>Job Created by</th>
         <th>Deliverer</th>
         <th>Job ID</th>

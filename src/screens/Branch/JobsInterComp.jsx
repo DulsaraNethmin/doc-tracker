@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 // import "../components/User.css"
 import { useNavigate } from "react-router-dom"
+import "./pages.css";
 const originData = [];
 
 const JobsInterComp = () => {
@@ -88,10 +89,10 @@ const JobsInterComp = () => {
     });
 
     return (
-        <div className='Table'>
+        <div className='main-container'>
             <h2>Completed Jobs</h2>
             <Form form={form} component={false}>
-            <table>
+            <table className='table'>
         <th>UUID</th>
         <th>Branch ID</th>
         <th>Deliverer ID</th>

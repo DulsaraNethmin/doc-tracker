@@ -1,7 +1,7 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react';
-import "../components/User.css"
+import "../screens/Branch/pages.css"
 import {useNavigate} from "react-router-dom"
 const originData = [];
 
@@ -38,6 +38,7 @@ const UserTable = () => {
             <td>{e.username}</td>
             <td>{e.email}</td>
             <td>{e.role}</td>
+           
             
             <td><span onClick={()=>{
                localStorage.setItem('uuid',e.uuid);
@@ -84,6 +85,7 @@ const UserTable = () => {
         width: '25%',
         editable: true,
       },
+  
     {
       title: 'Profile',
       dataIndex: 'Profile',
@@ -108,10 +110,7 @@ const UserTable = () => {
   });
 
   return (
-    <div className='main' style={{
-      backgroundImage:`url('https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
-      
-    }}>
+    <div className='main-container'>
       
         <h2>User details</h2>
         <Form form={form} component={false}>
@@ -126,8 +125,8 @@ const UserTable = () => {
 
 
       </Table> */}
-      <div className='table'>
-      <table>
+      <div >
+      <table className='table'>
         <th>ID</th>
         <th>Name</th>
         <th>Username</th>

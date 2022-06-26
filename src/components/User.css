@@ -19,3 +19,16 @@
     padding-top: 4%;
 }
 
+.main-container {
+    text-align: center;
+    padding: 5%;
+    background-image: url("https://images.pexels.com/photos/891059/pexels-photo-891059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    height: 760px;
+  }
+
+  .table{
+    border-color: #000;
+    border-style: groove;
+    padding-left: 1000px;
+    size: 400%;
+  }

@@ -108,10 +108,10 @@ const JobsInterCreated = () => {
     });
 
     return (
-        <div className='BG'>
+        <div className='main-container' >
             <h2>Newly Created Jobs-I</h2>
             <Form form={form} component={false}>
-            <table className='tables'>
+            <table className='table'>
         <th>Customer Name</th>
         <th>Document ID</th>
         <th>Document Name</th>

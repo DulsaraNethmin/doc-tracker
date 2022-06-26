@@ -15,7 +15,14 @@ img{
     text-align: center;
     padding: 5%;
     background-image: url("../../images/background2.jpg");
-    height: 760px;
+    /* height: 760px; */
+  }
+
+  .table{
+    border-color: #000;
+    border-style: groove;
+    padding-left: 1000px;
+    size: 400%;
   }
 
   .Cards{
