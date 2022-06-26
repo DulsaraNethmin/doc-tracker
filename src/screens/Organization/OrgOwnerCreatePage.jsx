@@ -257,6 +257,10 @@ const OrgOwnerCreatePage = () => {
                         "http://localhost:8080/user/add",
                         data
                       );
+                      var user_id = response.data;
+                      console.log(response.data)
+                      localStorage.setItem("user_id", response.data);
+                     
 
                       //console.log(response.data);
                       if (response.status == 200) {

@@ -63,7 +63,7 @@ const OrganizationEdit = () => {
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState("");
   const navigate = useNavigate();
-  const [organization_name, set_org_name] = useState("");
+  const [org_name, set_org_name] = useState("");
   const [email, set_email] = useState("");
   const [telephone, set_telephone] = useState("");
   const [owner_name, set_owner_name] = useState("");
@@ -92,7 +92,6 @@ const OrganizationEdit = () => {
     set_org_name(e.target.value);
   };
 
-
   const isEditing = (record) => record.key === editingKey;
 
   useEffect(() => {
@@ -108,7 +107,7 @@ const OrganizationEdit = () => {
       var response = await axios.get(
         `http://localhost:8080/organization/get/details?organization_id=${data}`
       );
-      
+
       console.log(response.data[0].o_name);
       const obj = response.data.map((e) => {
         return {
@@ -118,18 +117,15 @@ const OrganizationEdit = () => {
           Org_Owner_Password: e.password,
           email: e.email,
           telephone: e.telephone,
-          
         };
-      
       });
-      const o_name=response.data[0].o_name;
+      const o_name = response.data[0].o_name;
       setData(obj);
       setFill_org_name(o_name);
       return response.data;
     } catch (e) {
       console.log(e);
     }
-    
   };
 
   const columns = [
@@ -184,9 +180,7 @@ const OrganizationEdit = () => {
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
-    
     <div>
-      
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{
@@ -266,7 +260,7 @@ const OrganizationEdit = () => {
                 ]}
               >
                 <Input
-                  defaultValue={fill_org_name} 
+                  defaultValue={fill_org_name}
                   onChange={(e) => {
                     handle_org_name(e);
                   }}
@@ -372,34 +366,33 @@ const OrganizationEdit = () => {
                   htmlType="submit"
                   onClick={async (e) => {
                     e.preventDefault();
-                    if (organization_name == "") {
-                      window.alert("Incomplete. Please fill Organization Name.");
-                    } else {
-                      console.log(organization_name);
-                      let data = {
-                        name: organization_name,
-                        email: email,
-                        telephone: telephone,
-                        owner_name: owner_name,
-                        username: username,
-                        password: password,
-                        organization_id: localStorage.getItem("organization_id"),
-                      };
-                      let response = await axios.post(
-                        "http://localhost:8080/organization/update",
-                        data
-                      );
 
-                      console.log(response.data);
-                      localStorage.setItem("branch_id", response.data.uuid);
+                    console.log(org_name);
+                    let data = {
+                      name: org_name,
+                      email: email,
+                      telephone: telephone,
+                      owner_name: owner_name,
+                      username: username,
+                      password: password,
+                      organization_id: localStorage.getItem("organization_id"),
+                      user_id: localStorage.getItem("user_id"),
+                    };
+                    console.log(localStorage.getItem("user_id"));
+                    let response = await axios.post(
+                      "http://localhost:8080/organization/update",
+                      data
+                    );
 
-                      if (response.status == 200) {
-                        //window.alert("Branch Created");
-                        navigate("/organization/dashboard");
-                      }
-                      if (response.status != 200) {
-                        window.alert("UnSuccessfull. Try again.");
-                      }
+                    console.log(response.data);
+                    localStorage.setItem("branch_id", response.data.uuid);
+
+                    if (response.status == 200) {
+                      //window.alert("Branch Created");
+                      navigate("/organization/dashboard");
+                    }
+                    if (response.status != 200) {
+                      window.alert("UnSuccessfull. Try again.");
                     }
                   }}
                 >

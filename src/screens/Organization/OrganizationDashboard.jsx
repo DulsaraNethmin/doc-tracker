@@ -15,12 +15,17 @@ import {
   Dropdown,
   Menu,
   PageHeader,
-  Row, Col, Card, Form, Input,
+  Row,
+  Col,
+  Card,
+  Form,
+  Input,
   Tag,
   Typography,
 } from "antd";
 
 import BranchesTable from "./BranchesTable";
+import OrganizationTable from "./OrganizationTable";
 
 const logo = new URL("../../images/logo.jpeg", import.meta.url);
 const { Paragraph } = Typography;
@@ -110,104 +115,108 @@ const OrganizationDashboard = () => {
         </header>
       </Layout>
 
+      <OrganizationTable />
       <BranchesTable />
 
-     <div>
-     <Row style={{ padding: "4% 0" }}>
-        <Col span={3}></Col>
-        <Col span={18}>
-          <Card title="Enter Username and Password of a branch to edit" alignment="center">
-            <Form
-              name="normal_login"
-              className="login-form"
-              initialValues={{ remember: true }}
-              onFinish={onFinish}
+      <div>
+        <Row style={{ padding: "4% 0" }}>
+          <Col span={3}></Col>
+          <Col span={18}>
+            <Card
+              title="Enter Username and Password of a branch to edit"
+              alignment="center"
             >
-              <Form.Item
-                name="username"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your Username!",
-                  },
-                ]}
+              <Form
+                name="normal_login"
+                className="login-form"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
               >
-                Username
-                <Input
-                  onChange={(e) => {
-                    handleUsername(e);
-                  }}
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Username"
-                />
-              </Form.Item>
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your Password!",
-                  },
-                ]}
-              >
-                Password
-                <Input
-                  onChange={(e) => {
-                    handlePassword(e);
-                  }}
-                  prefix={<LockOutlined className="site-form-item-icon" />}
-                  type="password"
-                  placeholder="Password"
-                />
-              </Form.Item>
-              <Form.Item>{loginError}</Form.Item>
-
-              <Row>
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    className="login-form-button"
-                    onClick={async (e) => {
-                      e.preventDefault();
-                      setLoginError();
-                      //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
-                      try {
-                        console.log(username, password);
-                        let data = { username: username, password: password };
-                        let response = await axios.post(
-                          "http://localhost:8080/user/get/oneBrOwner",
-                          data
-                        );
-                        console.log(response.data[0]["branch"]);
-                        var branch_id = response.data[0]["branchId"];
-                        localStorage.setItem("branch_id", branch_id);
-                        if (response.status == 200) {
-                          window.alert("Loaded Branch Details");
-                          navigate("/branch/edit");
-                        }
-                        if (response.status != 200) {
-                          //window.alert("Login UNSuccessfull");
-                          //console.log("Login Unsuccess 201");
-                          setLoginError(
-                            "Wrong Username-Password Combination for Branch Login"
-                          );
-                        }
-                      } catch (e) {
-                        window.alert("Login Unsucces");
-                      }
+                <Form.Item
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your Username!",
+                    },
+                  ]}
+                >
+                  Username
+                  <Input
+                    onChange={(e) => {
+                      handleUsername(e);
                     }}
-                  >
-                    Edit Branch
-                  </Button>
+                    prefix={<UserOutlined className="site-form-item-icon" />}
+                    placeholder="Username"
+                  />
                 </Form.Item>
-              </Row>
-            </Form>
-          </Card>
-        </Col>
-        <Col span={3}></Col>
-      </Row>
-     </div>
+                <Form.Item
+                  name="password"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your Password!",
+                    },
+                  ]}
+                >
+                  Password
+                  <Input
+                    onChange={(e) => {
+                      handlePassword(e);
+                    }}
+                    prefix={<LockOutlined className="site-form-item-icon" />}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </Form.Item>
+                <Form.Item>{loginError}</Form.Item>
+
+                <Row>
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      className="login-form-button"
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        setLoginError();
+                        //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
+                        try {
+                          console.log(username, password);
+                          let data = { username: username, password: password };
+                          let response = await axios.post(
+                            "http://localhost:8080/user/get/oneBrOwner",
+                            data
+                          );
+                          console.log(response.data[0]["branch"]);
+                          var branch_id = response.data[0]["branchId"];
+                          localStorage.setItem("branch_id", branch_id);
+                          if (response.status == 200) {
+                            window.alert("Loaded Branch Details");
+                            navigate("/branch/edit");
+                          }
+                          if (response.status != 200) {
+                            //window.alert("Login UNSuccessfull");
+                            //console.log("Login Unsuccess 201");
+                            setLoginError(
+                              "Wrong Username-Password Combination for Branch Login"
+                            );
+                          }
+                        } catch (e) {
+                          window.alert("Login Unsucces");
+                        }
+                      }}
+                    >
+                      Edit Branch
+                    </Button>
+                  </Form.Item>
+                </Row>
+              </Form>
+            </Card>
+          </Col>
+          <Col span={3}></Col>
+        </Row>
+      </div>
     </div>
   );
 };

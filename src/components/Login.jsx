@@ -110,6 +110,9 @@ const Login = () => {
                         
                         var organization_id = response.data[0]["organizationId"];
                         localStorage.setItem("organization_id", organization_id);
+
+                        var user_id = response.data[0]["uuid"];
+                        localStorage.setItem("user_id", user_id);
                         
                         if (response.status == 200) {
                           setLoginError("You will be directed to Organization Dashboard");
