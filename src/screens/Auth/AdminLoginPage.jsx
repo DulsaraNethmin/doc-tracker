@@ -8,8 +8,6 @@ const logo = new URL("../../images/logo.jpeg", import.meta.url);
 const AdminLoginPage = () => {
   return (
     <div className="main-container">
-      <h1>DOC-TRACKER</h1>
-      <img src={logo} className="image-container" />
       <Login />
     </div>
   );

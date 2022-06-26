@@ -29,9 +29,17 @@ const Login = () => {
 
   return (
     <div>
+       <h1>DocTracker</h1>
+          <img
+            src="images/logo.jpeg"
+            height="100%"
+            width="100%"
+            className="image-container"
+          />
       <Row style={{ padding: "4% 0" }}>
         <Col span={8}></Col>
         <Col span={8}>
+         
           <Card title="Admin Login" alignment="center">
             <Form
               name="normal_login"
@@ -105,27 +113,38 @@ const Login = () => {
                           data
                         );
 
-                        var organization_name =response.data[0]["organization"];
-                        localStorage.setItem("organization_name", organization_name);
-                        
-                        var organization_id = response.data[0]["organizationId"];
-                        localStorage.setItem("organization_id", organization_id);
+                        var organization_name =
+                          response.data[0]["organization"];
+                        localStorage.setItem(
+                          "organization_name",
+                          organization_name
+                        );
+
+                        var organization_id =
+                          response.data[0]["organizationId"];
+                        localStorage.setItem(
+                          "organization_id",
+                          organization_id
+                        );
 
                         var user_id = response.data[0]["uuid"];
                         localStorage.setItem("user_id", user_id);
-                        
+
                         if (response.status == 200) {
-                          setLoginError("You will be directed to Organization Dashboard");
+                          setLoginError(
+                            "You will be directed to Organization Dashboard"
+                          );
                           navigate("/organization/dashboard");
                         }
                         if (response.status != 200) {
                           //window.alert("Login UNSuccessfull");
                           //console.log("Login Unsuccess 201");
-                          setLoginError("Wrong Username-Password Combination for Organization Login");
+                          setLoginError(
+                            "Wrong Username-Password Combination for Organization Login"
+                          );
                         }
                       } catch (e) {
                         window.alert("Login Unsucces");
-                        
                       }
                     }}
                   >
@@ -158,7 +177,9 @@ const Login = () => {
                         if (response.status != 200) {
                           //window.alert("Login UNSuccessfull");
                           //console.log("Login Unsuccess 201");
-                          setLoginError("Wrong Username-Password Combination for Branch Login");
+                          setLoginError(
+                            "Wrong Username-Password Combination for Branch Login"
+                          );
                         }
                       } catch (e) {
                         window.alert("Login Unsucces");

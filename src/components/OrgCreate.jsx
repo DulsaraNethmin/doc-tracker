@@ -47,6 +47,13 @@ const OrgCreate = () => {
   const navigate = useNavigate();
   return (
     <div>
+      <h1>DocTracker</h1>
+      <img
+        src="images/logo.jpeg"
+        height="100%"
+        width="100%"
+        className="image-container"
+      />
       <Row style={{ padding: "4% 0" }}>
         <Col span={8}></Col>
         <Col span={8}>

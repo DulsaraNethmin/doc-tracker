@@ -9,6 +9,7 @@ import Tbl from "../../components/Dashboard/Table";
 import "../../components/Dashboard.css";
 import Head from "../../components/Dashboard/Head";
 import { MoreOutlined } from "@ant-design/icons";
+import "./pages.css";
 import {
   Layout,
   Button,
