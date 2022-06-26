@@ -70,7 +70,7 @@ export default function WidgetSm() {
     return (
         
         <div className="WidgetLg">
-        <h3 className="widgetLgTitle">Job Status</h3>
+        <h2 className="widgetLgTitle">Job Status</h2>
         <table className="widgetLgTable">
             <tr className="widgetLgTr">
                 <th className="widgetLgTh">Employee</th>
