@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Background from '../images/Chat.jpg'
+import Nightmode from '../images/NightMode.jpg'
 const io = require("socket.io-client");
 
 
@@ -28,7 +29,10 @@ function SendMail() {
     const id={receiver_id}.receiver_id;
     const branch_id=localStorage.getItem('branch_id');
     const bid={branch_id}.branch_id;
-
+    const M=localStorage.getItem('mode');
+    const m={M}.M;
+    const [Mo,setmo]=useState(m);
+    console.log(Mo);
     const [addmail, setAddmail] = useState({
         head: "",
         body: "",
@@ -129,6 +133,8 @@ function SendMail() {
      
 
   return (
+    <div>
+         {Mo === "day" && 
     <div style={{
         padding : "50px",
         backgroundImage: `url(${Background})`
@@ -175,6 +181,64 @@ function SendMail() {
               }} > Sent Mails</Button>
               </Link>
          
+    </div>
+}
+{Mo === "night" && 
+    <div style={{
+        padding : "50px",
+        backgroundImage: `url(${Nightmode})`
+     }}>
+         <h2 style={{
+            color:'White'
+         }} >{sender}</h2>  
+         <p style={{
+            width:"150px",
+            height:"150px"
+         }}>
+         <img src={image} width="160" height="145"/>
+         </p>
+         <div >
+         <h4 style={{
+            color:'White'
+         }}>Enter Head</h4>
+         <form>
+         <TextArea rows={2}  size="small" placeholder="Head"  value={addmail.head} onChange={(event) => {
+                setAddmail({ ...addmail, head: event.target.value });
+               
+              }} 
+              style={{
+                opacity:'0.6'
+              }} />
+
+            <h4  style={{
+            color:'White'
+         }}>Enter Mail</h4>
+         <TextArea rows={4}  size="small" placeholder="Mail" defaultValue={addmail.body} onChange={(event) => {
+                setAddmail({ ...addmail, body: event.target.value });
+                
+              }}
+              style={{
+                opacity:'0.6'
+              }} />
+              <Button  style={{
+                opacity:'0.6',
+                position:'relative',
+                top:'20px'
+              }}  onClick={handleMassage} >Send</Button> 
+              </form>
+             
+          </div> 
+          <Link to='/Mail/GetsentMail'>
+              <Button  style={{
+                opacity:'0.6',
+                position:'relative',
+                top:'40px'
+              }} > Sent Mails</Button>
+              </Link>
+         
+    </div>
+}
+   
     </div>
   )
 }

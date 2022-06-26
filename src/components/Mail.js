@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 import io from "socket.io-client"
 import 'antd/dist/antd.css'
 import Background from '../images/Chat.jpg'
-
+import NightMode from '../images/NightMode.jpg'
 
 function Mail() {
+  const M=localStorage.getItem('mode');
+  const m={M}.M;
+
+  const [mode,setMode]=useState(m);
   const branch_id=localStorage.getItem('branch_id');
   const id={branch_id}.branch_id;
   console.log(id);
@@ -62,14 +66,29 @@ catch(e){
       
     },
    
-   
 
    ]
+   const nightMode=()=>{
+    
+    setMode('night');
+    localStorage.setItem('mode','night');
+    
+   }
+   const DayMode=()=>{
+   setMode('day');
+   localStorage.setItem('mode','day');
+
+   }
+     
      
   return (
-    <div   style={{
+    <div>
+      {mode === "day" && 
+    <div  style={{
+      
       backgroundImage: `url(${Background})`
     }} > 
+    
       <div
       style={{
         alignItems:"center"
@@ -114,6 +133,19 @@ catch(e){
        </Link>
        
        </div>
+       <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+
+      }} >
+      
+       <Button type="dashed" onClick={nightMode}>Night Mode</Button>
+       
+       
+       </div>
        </div>
       </div>
       <h2 style={{
@@ -132,6 +164,95 @@ catch(e){
             padding:'20px',
             opacity:'0.6'
           }} ></Table>
+    </div>
+}
+{mode==="night" && <div>
+
+  
+  <div  style={{
+      
+      backgroundImage: `url(${NightMode})`
+    }} > 
+    
+      <div
+      style={{
+        alignItems:"center"
+      }}
+      >
+
+         <div>
+          <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left :'50px',
+        top:"20px"
+      }} >
+         <Link to='/Mail/GetsentMail'>
+      <Button type="dashed" >Sent Mails</Button>  
+      </Link> 
+      </div>
+      <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+
+      }} >
+      <Link to='/Mail/Received'>
+       <Button type="dashed">Recieved Mail</Button>
+       </Link>
+       
+       </div>
+       <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+
+      }} >
+      <Link to='/branch/dashboard'>
+       <Button type="dashed">Back</Button>
+       </Link>
+       
+       </div>
+       <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+
+      }} >
+      
+       <Button type="dashed" onClick={DayMode}>Day Mode</Button>
+       
+       
+       </div>
+       </div>
+      </div>
+      <h2 style={{
+            padding : "50px",
+             position:'relative',
+             color:'White',
+        left:"50px",
+      
+        'font-family': 'Lucida Handwriting'
+      }}
+      >To send a Mails</h2>
+      <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
+            onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
+            localStorage.setItem('reciever_id',record.uuid);
+          }
+          })}
+          style={{
+            padding:'20px',
+            opacity:'0.6'
+          }} ></Table>
+    </div>
+    </div>}
     </div>
   )
 }

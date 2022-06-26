@@ -61,11 +61,7 @@ function DocumentList() {
           title:"date",
           dataIndex:"date"
         },
-        {
-          title:"Branch_id",
-          dataIndex:"branch_id"
-          
-        },
+
         {
           title:"Doc_id",
           dataIndex:"doc_id"
@@ -88,7 +84,7 @@ function DocumentList() {
         }
         
           
-        },
+        }
        
        
 

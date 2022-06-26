@@ -30,6 +30,7 @@ import Mail from "./components/Mail";
 import ReceivedMail from "./components/ReceivedMail";
 import SendMail from "./components/SendMail";
 import GetsentMail from "./components/GetsentMail";
+import ConfirmDocDelete from "./components/ConfirmDocDelete";
 
 
 function App() {
@@ -54,7 +55,8 @@ function App() {
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
           <Route path="/documents" exact element={<Document/>} /> 
-          <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />     
+          <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />   
+          <Route path="/documents/confirmDelete" exact element={<ConfirmDocDelete/>} />   
           <Route path="/mail" exact element={<Mail/>} />
           <Route path="/Mail/Received" exact element={<ReceivedMail/>} />
           <Route path="/Mail/Send" exact element={<SendMail/>} />
