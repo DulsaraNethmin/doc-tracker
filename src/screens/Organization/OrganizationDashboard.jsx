@@ -200,7 +200,7 @@ const OrganizationDashboard = () => {
                             //window.alert("Login UNSuccessfull");
                             //console.log("Login Unsuccess 201");
                             setLoginError(
-                              "Wrong Username-Password Combination for Branch Login"
+                              "Wrong Username-Password Combination"
                             );
                           }
                         } catch (e) {

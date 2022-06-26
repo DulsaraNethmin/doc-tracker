@@ -217,6 +217,11 @@ const BranchOwnerRegPage = () => {
                       setPasswordError();
 
                       console.log(owner, Br_owneruser_name, password);
+
+                      console.log(user, username, password);
+                      if(owner == ""||Br_owneruser_name == ""||br_owner_telephone == ""||br_owner_email == ""||password == ""){
+                        window.alert ("Please Fill all the fields before submitting")
+                      }else{
                       let data = {
                         sendEmailStatus: sendEmail,
                         name: owner,
@@ -253,6 +258,7 @@ const BranchOwnerRegPage = () => {
 
                         //window.alert(response.data.password);
                       }
+                    }
                     }}
                   >
                     Next

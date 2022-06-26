@@ -225,8 +225,8 @@ const BranchRegPage = () => {
                   // }}
                   onClick={async (e) => {
                     e.preventDefault();
-                    if (branch_name == "") {
-                      window.alert("Incomplete. Please fill Branch Name.");
+                    if (branch_name == ""||address_1 == ""||address_3 == ""||address_2 == ""||latitude == ""||longitude == "") {
+                      window.alert( "Please fill all the Fields before submitting");
                     } else {
                       console.log(branch_name);
                       let data = {

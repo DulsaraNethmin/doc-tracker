@@ -217,6 +217,11 @@ const DelivererRegistration = () => {
                       setPasswordError();
 
                       console.log(user, username, password);
+
+                      console.log(user, username, password);
+                      if(user == ""||username == ""||password == ""||password == ""||telephone == ""||email == ""){
+                        window.alert ("Please Fill all the fields before submitting")
+                      }else{
                       let data = {
                         sendEmailStatus: sendEmail,
                         name: user,
@@ -247,6 +252,7 @@ const DelivererRegistration = () => {
                           //response.data.password = "";
                         }
                       }
+                    }
                     }}
                   >
                     Register

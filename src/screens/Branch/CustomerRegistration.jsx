@@ -219,34 +219,47 @@ const CustomerRegistration = () => {
                       setPasswordError();
 
                       console.log(user, username, password);
-                      let data = {
-                        sendEmailStatus: sendEmail,
-                        name: user,
-                        username: username,
-                        password: password,
-                        role: "Customer",
-                        telephone: telephone,
-                        email: email,
-                        branch_id: localStorage.getItem("branch_id"),
-                      };
-                      console.log(data);
-                      let response = await axios.post(
-                        "http://localhost:8080/user/add",
-                        data
-                      );
-                      console.log(response.data);
-                      if (response.status == 200) {
-                        //window.alert("New User Created");
-                        navigate("/branch/dashboard");
-                      }
-                      if (response.status == 201) {
-                        if (response.data.username) {
-                          setUsernameError(response.data.username);
-                          //response.data.username = "";
+                      if (
+                        user  == ""||
+                        username  == ""||
+                        password  == ""||
+                        password  == ""||
+                        telephone  == ""||
+                        email == ""
+                      ) {
+                        window.alert(
+                          "Please Fill all the fields before submitting"
+                        );
+                      } else {
+                        let data = {
+                          sendEmailStatus: sendEmail,
+                          name: user,
+                          username: username,
+                          password: password,
+                          role: "Customer",
+                          telephone: telephone,
+                          email: email,
+                          branch_id: localStorage.getItem("branch_id"),
+                        };
+                        console.log(data);
+                        let response = await axios.post(
+                          "http://localhost:8080/user/add",
+                          data
+                        );
+                        console.log(response.data);
+                        if (response.status == 200) {
+                          //window.alert("New User Created");
+                          navigate("/branch/dashboard");
                         }
-                        if (response.data.password) {
-                          setPasswordError(response.data.password);
-                          //response.data.password = "";
+                        if (response.status == 201) {
+                          if (response.data.username) {
+                            setUsernameError(response.data.username);
+                            //response.data.username = "";
+                          }
+                          if (response.data.password) {
+                            setPasswordError(response.data.password);
+                            //response.data.password = "";
+                          }
                         }
                       }
                     }}

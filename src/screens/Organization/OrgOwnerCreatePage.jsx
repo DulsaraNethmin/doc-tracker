@@ -215,31 +215,10 @@ const OrgOwnerCreatePage = () => {
                       e.preventDefault();
                       setUsernameError();
                       setPasswordError();
-                      //console.log(owner, organization_owneruser_name, password);
                       console.log(sendEmail);
-                      // if (sendEmail) {
-                      //   try {
-                      //     let data2 = {
-                      //       sendEmailStatus: sendEmail,
-                      //       name: owner,
-                      //       username: organization_owneruser_name,
-                      //       password: password,
-                      //       role: "Organization Owner",
-                      //       telephone: organization_owner_telephone,
-                      //       email: organization_owner_email,
-                      //       organization_name:
-                      //         localStorage.getItem("organization_name"),
-                      //     };
-                      //     await axios.post(
-                      //       "http://localhost:8080/send/mail",
-                      //       data2
-                      //     );
-                      //     console.log("Email Sent");
-                      //   } catch (e) {
-                      //     console.log("Email Sending Unsuccessful");
-                      //   }
-                      // }
-
+                      if(owner == ""||organization_owneruser_name == ""||password == ""||organization_owner_telephone == ""||organization_owner_email == ""){
+                        window.alert ("Please Fill all the fields before submitting")
+                      }else{
                       let data = {
                         sendEmailStatus: sendEmail,
                         name: owner,
@@ -303,6 +282,7 @@ const OrgOwnerCreatePage = () => {
 
                         //     }
                       }
+                    }
                     }}
                   >
                     Next*

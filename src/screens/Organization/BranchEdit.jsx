@@ -69,7 +69,6 @@ const BranchEdit = () => {
   const [latitude, set_latitude] = useState("");
   const [longitude, set_longitude] = useState("");
 
-
   const handle_latitude = (e) => {
     set_latitude(e.target.value);
   };
@@ -258,42 +257,42 @@ const BranchEdit = () => {
                 </Form.Item>
 
                 <Form.Item
-                name="latitude"
-                label="Latitude"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your name!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_latitude(e);
-                  }}
-                />
-              </Form.Item>
+                  name="latitude"
+                  label="Latitude"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_latitude(e);
+                    }}
+                  />
+                </Form.Item>
 
-              <Form.Item
-                name="longitude"
-                label="Longitude"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your name!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handle_longitude(e);
-                  }}
-                />
-              </Form.Item>
+                <Form.Item
+                  name="longitude"
+                  label="Longitude"
+                  //tooltip="What do you want others to call you?"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your name!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    onChange={(e) => {
+                      handle_longitude(e);
+                    }}
+                  />
+                </Form.Item>
 
                 <Form.Item
                   name="telehone"
@@ -394,8 +393,22 @@ const BranchEdit = () => {
                     htmlType="submit"
                     onClick={async (e) => {
                       e.preventDefault();
-                      if (branch_name == "") {
-                        window.alert("Incomplete. Please fill Branch Name.");
+                      if (
+                        branch_name == "" ||
+                        address_1 == "" ||
+                        address_3 == "" ||
+                        address_2 == "" ||
+                        email == "" ||
+                        telephone == "" ||
+                        owner_name == "" ||
+                        username  == ""||
+                        password  == ""||
+                        latitude  == ""||
+                        longitude == ""
+                      ) {
+                        window.alert(
+                          "Please fill all the fields before submitting."
+                        );
                       } else {
                         console.log(branch_name);
                         let data = {
@@ -456,7 +469,9 @@ const BranchEdit = () => {
                 </Form.Item>
               </Form>
             </Card>
-            <a href="https://www.latlong.net/">Click Here to Check Latitude and Longitude of the branch !</a>
+            <a href="https://www.latlong.net/">
+              Click Here to Check Latitude and Longitude of the branch !
+            </a>
           </Col>
           <Col span={3}></Col>
         </Row>

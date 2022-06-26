@@ -105,7 +105,9 @@ const OrgCreate = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      if (name != "") {
+                      if (name == ""){
+                        window.alert("Please Enter a name for the Organization")
+                      } else {
                         console.log(name);
                         let data = { name: name };
                         let response = await axios.post(

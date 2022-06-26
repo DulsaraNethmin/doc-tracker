@@ -366,33 +366,47 @@ const OrganizationEdit = () => {
                   htmlType="submit"
                   onClick={async (e) => {
                     e.preventDefault();
+                    if (
+                      org_name == "" ||
+                      email  == ""||
+                      telephone  == ""||
+                      owner_name  == ""||
+                      username  == ""||
+                      password == ""
+                      
+                    ) {
+                      window.alert(
+                        "Please fill all the fields before submitting."
+                      );
+                    } else {
+                      console.log(org_name);
+                      let data = {
+                        name: org_name,
+                        email: email,
+                        telephone: telephone,
+                        owner_name: owner_name,
+                        username: username,
+                        password: password,
+                        organization_id:
+                          localStorage.getItem("organization_id"),
+                        user_id: localStorage.getItem("user_id"),
+                      };
+                      console.log(localStorage.getItem("user_id"));
+                      let response = await axios.post(
+                        "http://localhost:8080/organization/update",
+                        data
+                      );
 
-                    console.log(org_name);
-                    let data = {
-                      name: org_name,
-                      email: email,
-                      telephone: telephone,
-                      owner_name: owner_name,
-                      username: username,
-                      password: password,
-                      organization_id: localStorage.getItem("organization_id"),
-                      user_id: localStorage.getItem("user_id"),
-                    };
-                    console.log(localStorage.getItem("user_id"));
-                    let response = await axios.post(
-                      "http://localhost:8080/organization/update",
-                      data
-                    );
+                      console.log(response.data);
+                      localStorage.setItem("branch_id", response.data.uuid);
 
-                    console.log(response.data);
-                    localStorage.setItem("branch_id", response.data.uuid);
-
-                    if (response.status == 200) {
-                      //window.alert("Branch Created");
-                      navigate("/organization/dashboard");
-                    }
-                    if (response.status != 200) {
-                      window.alert("UnSuccessfull. Try again.");
+                      if (response.status == 200) {
+                        //window.alert("Branch Created");
+                        navigate("/organization/dashboard");
+                      }
+                      if (response.status != 200) {
+                        window.alert("UnSuccessfull. Try again.");
+                      }
                     }
                   }}
                 >
