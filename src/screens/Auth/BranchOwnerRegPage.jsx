@@ -1,4 +1,5 @@
 import React from "react";
+import "./pages.css";
 import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";

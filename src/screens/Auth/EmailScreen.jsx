@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
+import "./pages.css";
 
 const EmailScreen = () => {
   const [sent, setSent] = useState(false);

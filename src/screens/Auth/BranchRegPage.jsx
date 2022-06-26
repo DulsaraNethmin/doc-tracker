@@ -1,3 +1,4 @@
+import "./pages.css";
 import {
   AutoComplete,
   Button,

@@ -53,13 +53,10 @@ const SplashScreenPage = () => {
         <h2>Welcome to Doc-Tracker</h2>
         <br />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit
-          distinctio ut doloribus, tenetur dignissimos amet ipsa tempora rerum
-          fuga ab nobis. Cum consequatur, quaerat iste ullam fuga possimus
-          delectus! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Dolorum ullam architecto ipsa vel autem illo commodi ut odit at
-          deleniti nemo eos mollitia quos tempora, molestias veniam nesciunt,
-          eveniet porro.
+          Document delivery and tracking software is the best solution for the
+          real-time tracking of documents while in the delivery process. So, DocTracker
+          provides information on the documents sent and delivered and allows
+          users to get an update about their documents. So get a glace ...​
         </p>
       </div>
       {/* <div>

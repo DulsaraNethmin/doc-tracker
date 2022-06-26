@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import axios from "axios";
+import "../../images/background2.jpg";
 
 const layout = {
   labelCol: {

@@ -38,7 +38,11 @@ const OrgCreate = () => {
   };
 
   const onFinish = (values) => {
-    console.log(values);
+    console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
   const navigate = useNavigate();
   return (
@@ -51,6 +55,7 @@ const OrgCreate = () => {
               {...layout}
               name="nest-messages"
               onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
               validateMessages={validateMessages}
               alignment="left"
             >
@@ -60,6 +65,7 @@ const OrgCreate = () => {
                 rules={[
                   {
                     required: true,
+                    message: "Please input Organization Name!",
                   },
                 ]}
               >
@@ -71,8 +77,6 @@ const OrgCreate = () => {
                   placeholder="Organization Name"
                 />
               </Form.Item>
-
-              
 
               <Row>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
@@ -94,22 +98,24 @@ const OrgCreate = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      if (name == "") {
-                        window.alert(
-                          "Incomplete. Please fill organization Name."
-                        );
-                      } else {
+                      if (name != "") {
                         console.log(name);
-                        let data = { name: name};
+                        let data = { name: name };
                         let response = await axios.post(
                           "http://localhost:8080/organization/add",
                           data
                         );
                         console.log(response.data);
-                        localStorage.setItem("organization_id",response.data.uuid);
+                        localStorage.setItem(
+                          "organization_id",
+                          response.data.uuid
+                        );
 
-                        var organization_name =name;
-                        localStorage.setItem("organization_name", organization_name);
+                        var organization_name = name;
+                        localStorage.setItem(
+                          "organization_name",
+                          organization_name
+                        );
 
                         if (response.status == 200) {
                           //window.alert("Organization Created");
