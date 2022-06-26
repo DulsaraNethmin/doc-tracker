@@ -9,7 +9,7 @@ const initialState={
     status:"idle",
     error:null,
 }
-const GET_URL=`http://localhost:8080/document/get/by/branch?branch_id=${localStorage.getItem("branch_id")}`;
+const GET_URL=`http://localhost:8080/document/getweb/by/branch?branch_id=${localStorage.getItem("branch_id")}`;
 const POST_URL='http://localhost:8080/document/add';
 
 //to get all post
@@ -17,6 +17,7 @@ export const fetchDocuments=createAsyncThunk('documents/getdocuments',async()=>{
     try{
         const response=await axios.get(GET_URL);
         console.log(response.data);
+        
     return response;
     }
     catch(err){
@@ -50,6 +51,7 @@ export const documentSlice=createSlice({
              //this code for adding a document
              state.value.push(action.payload);
         }, 
+        
     },
     extraReducers(builder){
         builder

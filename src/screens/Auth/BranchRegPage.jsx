@@ -1,3 +1,4 @@
+import "./pages.css";
 import {
   AutoComplete,
   Button,
@@ -15,40 +16,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState } from "react";
 const { Option } = Select;
-const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-];
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -85,6 +53,16 @@ const BranchRegPage = () => {
   const [address_1, set_addr1] = useState("");
   const [address_2, set_addr2] = useState("");
   const [address_3, set_addr3] = useState("");
+  const [latitude, set_latitude] = useState("");
+  const [longitude, set_longitude] = useState("");
+
+
+  const handle_latitude = (e) => {
+    set_latitude(e.target.value);
+  };
+  const handle_longitude = (e) => {
+    set_longitude(e.target.value);
+  };
 
   const handle_br_name = (e) => {
     set_br_name(e.target.value);
@@ -200,6 +178,44 @@ const BranchRegPage = () => {
                 />
               </Form.Item>
 
+              <Form.Item
+                name="latitude"
+                label="Latitude"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your name!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handle_latitude(e);
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="longitude"
+                label="Longitude"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your name!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handle_longitude(e);
+                  }}
+                />
+              </Form.Item>
+
               <Form.Item {...tailFormItemLayout}>
                 <Button
                   type="primary"
@@ -209,16 +225,19 @@ const BranchRegPage = () => {
                   // }}
                   onClick={async (e) => {
                     e.preventDefault();
-                    if (branch_name == "") {
-                      window.alert("Incomplete. Please fill Branch Name.");
+                    if (branch_name == ""||address_1 == ""||address_3 == ""||address_2 == ""||latitude == ""||longitude == "") {
+                      window.alert( "Please fill all the Fields before submitting");
                     } else {
                       console.log(branch_name);
                       let data = {
                         name: branch_name,
-                        number:address_1,
-                        town:address_3,
-                        street:address_2,
-                        organization_id:localStorage.getItem("organization_id"),
+                        number: address_1,
+                        town: address_3,
+                        street: address_2,
+                        latitude: latitude,
+                        longitude: longitude,
+                        organization_id:
+                          localStorage.getItem("organization_id"),
                       };
                       let response = await axios.post(
                         "http://localhost:8080/branch/add",
@@ -229,7 +248,7 @@ const BranchRegPage = () => {
                       localStorage.setItem("branch_id", response.data.uuid);
 
                       if (response.status == 200) {
-                        window.alert("Branch Created");
+                        //window.alert("Branch Created");
                         navigate("/branch/owner/create");
                       }
                       if (response.status != 200) {
@@ -243,6 +262,7 @@ const BranchRegPage = () => {
               </Form.Item>
             </Form>
           </Card>
+          <a href="https://www.latlong.net/">Click Here to Check Latitude and Longitude of the branch !</a>
         </Col>
         <Col span={3}></Col>
       </Row>
