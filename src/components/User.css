@@ -1,6 +1,6 @@
 .Table{
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 300px;
+    padding-right: 30px;
     padding-top: 70px;
 
 }
@@ -13,6 +13,8 @@
 .saveButton{
     padding-left: 1090px;
 }
-.Background{
-    
+.Form{
+    padding-left: 20%;
+    padding-top: 4%;
 }
+

@@ -17,7 +17,7 @@ import SplashScreenPage from "./screens/Auth/SplashScreenPage";
 import UserRegPage from "./screens/Branch/UserRegPage";
 
 import UserDetails from "./screens/Branch/UserDetails";
-import Userprofile from "./screens/Branch/Userprofile";
+import UserData from "./screens/Branch/Userprofile";
 
 import OrganizationDashboard from "./screens/Organization/OrganizationDashboard";
 import BranchesTable from "./screens/Organization/BranchesTable";
@@ -39,6 +39,17 @@ import SingleBranchTable from "./screens/Organization/SingleBranchTable";
 import OrganizationEdit from "./screens/Organization/OrganizationEdit";
 import Payments from "./screens/Branch/Payments";
 
+import JobsInterPending from "./screens/Branch/JobsInterPending";
+import JobsInterCreated from "./screens/Branch/JobsInterCreated";
+// import JobsIntPendTable from "./screens/Branch/JobsInterCreated";
+import JobsInterComp from "./screens/Branch/JobsInterComp";
+import ShowJobsInterCreated from "./screens/Branch/ShowJobsInterCreated";
+
+import JobsExtReq from "./screens/Branch/JobsExtReq";
+import JobsExtPending from "./screens/Branch/JobsExtPending";
+import JobsExtComp from "./screens/Branch/JobsExtPending";
+
+import Jobs from "./screens/Branch/Jobs"
 
 function App() {
   return (
@@ -63,6 +74,20 @@ function App() {
           <Route path="/branch/customer/create" exact element={<CustomerRegistration />} />
           <Route path="/branch/deliverer/create" exact element={<DelivererRegistration />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
+          <Route path="/user/profile/:user_id" exact element={<UserData/>} />
+          <Route path="/documents" exact element={<Document/>} />    
+         
+          <Route path="/branch/jobs/int/new" exact element={<JobsInterCreated/>} /> 
+          <Route path="/branch/jobs/int/new/show" exact element={<ShowJobsInterCreated/>} /> 
+          <Route path="/branch/jobs/int/pending" exact element={<JobsInterPending/>} />
+          <Route path="/branch/jobs/int/comp" exact element={<JobsInterComp/>} />  
+          <Route path="/branch/jobs" exact element={<Jobs/>} />
+
+          <Route path="/branch/jobs/ext/req" exact element={<JobsExtReq/>} /> 
+          <Route path="/branch/jobs/ext/pending" exact element={<JobsExtPending/>} /> 
+          <Route path="/branch/jobs/ext/comp" exact element={<JobsExtComp/>} /> 
+          
+         {/* { <Route path="/mail" exact element={<Chat />} />} */}
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
           <Route path="/documents" exact element={<Document/>} /> 
           <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />   

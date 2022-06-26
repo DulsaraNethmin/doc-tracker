@@ -114,12 +114,15 @@ header
 .homeWidgets{
   display: flex;
   margin: 20px;
-  flex: 10;
+  flex: 100;
+  background: url('background_header.jpg') no-repeat;
+
 }
 
 .header .logo {
   font-size: 22px;
   font-weight: 400;
+  color: #e5faf2;
 }
 
 .header .logo .fas {
@@ -246,6 +249,7 @@ hero
 
 .heroBlock .container-fluid {
   display: block !important;
+  /* padding-top: 500px; */
 }
 
 .heroBlock .ant-carousel,
@@ -468,6 +472,7 @@ footer
   justify-content: center;
   padding: 0;
   font-size: 24px;
+  
 }
 
 .footer .socials li {
@@ -526,7 +531,8 @@ responsive
   background: rgba(255, 255, 255, 0.2);
 }
 .site-layout .site-layout-background {
-  background: #fff;
+  /* background: #fff; */
+  background-image: url('background_header.jpg') no-repeat;
 }
 
 /* Features */
@@ -705,3 +711,11 @@ responsive
 .widgetSmIcon{
   font-size: 16px;
 }
+
+.copyright{
+  align-items: left;
+}
+
+/* .placeholder{
+  color: black;
+} */
