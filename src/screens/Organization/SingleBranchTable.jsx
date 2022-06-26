@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const originData = [];
 
-const BranchesTable = () => {
+const SingleBranchTable = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState("");
@@ -22,10 +22,10 @@ const BranchesTable = () => {
   const user_data = async () => {
     try {
 
-      var data = localStorage.getItem("organization_id");
+      var data = localStorage.getItem("branch_id");
 
       var response = await axios.get(
-        `http://localhost:8080/organization/get/branchowners?organization_id=${data}`
+        `http://localhost:8080/organization/get/single/branchowners?branch_id=${data}`
       );
       //console.log(response.data);
       const obj = response.data.map((e) => {
@@ -119,7 +119,7 @@ const BranchesTable = () => {
       },
       
     ];
-  
+
   const mergedColumns = columns.map((col) => {
     return {
       ...col,
@@ -141,5 +141,5 @@ const BranchesTable = () => {
   );
 };
 
-export default BranchesTable;
+export default SingleBranchTable;
 
