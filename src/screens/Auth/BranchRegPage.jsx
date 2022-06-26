@@ -261,6 +261,7 @@ const BranchRegPage = () => {
               </Form.Item>
             </Form>
           </Card>
+          <a href="https://www.latlong.net/">Click Here to Check Latitude and Longitude of the branch !</a>
         </Col>
         <Col span={3}></Col>
       </Row>

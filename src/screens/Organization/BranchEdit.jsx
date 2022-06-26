@@ -408,6 +408,8 @@ const BranchEdit = () => {
                           owner_name: owner_name,
                           username: username,
                           password: password,
+                          latitude: latitude,
+                          longitude: longitude,
                           branch_id: localStorage.getItem("branch_id"),
                         };
                         let response = await axios.post(
@@ -454,6 +456,7 @@ const BranchEdit = () => {
                 </Form.Item>
               </Form>
             </Card>
+            <a href="https://www.latlong.net/">Click Here to Check Latitude and Longitude of the branch !</a>
           </Col>
           <Col span={3}></Col>
         </Row>
