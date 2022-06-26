@@ -260,7 +260,7 @@ const OrganizationEdit = () => {
                 rules={[
                   {
                     required: true,
-                    message: "Please input organization name!",
+                    message: "Please input Organization name!",
                     whitespace: true,
                   },
                 ]}
@@ -275,12 +275,12 @@ const OrganizationEdit = () => {
 
               <Form.Item
                 name="owner_name"
-                label="Branch Owner Name"
+                label="Organization Owner Name"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
-                    message: "Please input Branch Owner Name!",
+                    message: "Please input Organization Owner Name!",
                     whitespace: true,
                   },
                 ]}
@@ -293,12 +293,12 @@ const OrganizationEdit = () => {
               </Form.Item>
               <Form.Item
                 name="username"
-                label="Branch Owner Username"
+                label="Organization Owner Username"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
-                    message: "Please input Branch Owner Username!",
+                    message: "Please input Organization Owner Username!",
                     whitespace: true,
                   },
                 ]}
@@ -311,12 +311,12 @@ const OrganizationEdit = () => {
               </Form.Item>
               <Form.Item
                 name="password"
-                label="Branch Owner Password"
+                label="Organization Owner Password"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
-                    message: "Please input Branch Owner Password!",
+                    message: "Please input Organization Owner Password!",
                     whitespace: true,
                   },
                 ]}
@@ -330,12 +330,12 @@ const OrganizationEdit = () => {
 
               <Form.Item
                 name="email"
-                label="Branch Email"
+                label="Organization Email"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
-                    message: "Please input Branch Email Address!",
+                    message: "Please input Organization Email Address!",
                     whitespace: true,
                   },
                 ]}
@@ -349,12 +349,12 @@ const OrganizationEdit = () => {
 
               <Form.Item
                 name="telehone"
-                label="Branch Telephone Number"
+                label="Organization Telephone Number"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
                     required: true,
-                    message: "Please input Branch Telephone Number!",
+                    message: "Please input Organization Telephone Number!",
                     whitespace: true,
                   },
                 ]}
