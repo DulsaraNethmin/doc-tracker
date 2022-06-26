@@ -49,18 +49,18 @@ function AppHeader() {
         
         <div className="mobileHidden">
           <Anchor targetOffset="65">
-            <Link href="#hero" title="Documents" />
-            <Link href="#about" title="User" />
-            <Link href="#feature" title=" Jobs" />
-            <Link href="#faq" title="Notifications" />
-            <Link href="#pricing" title="Chat" />
+            <Link href="/documents" title="Documents" />
+            <Link href="/user/details" title="User" />
+            <Link href="/branch/jobs/int/new" title=" Jobs" />
+            <Link href="/chat" title="Notifications" />
+            <Link href="/notification" title="Chat" />
           </Anchor>
         </div>
         <div className="mobileVisible">
           <Button type="primary" onClick={showDrawer}>
             <i className="fas fa-bars"></i>
           </Button>
-          <Drawer
+          {/* <Drawer
             placement="right"
             closable={false}
             onClose={onClose}
@@ -76,6 +76,7 @@ function AppHeader() {
               <Link href="#contact" title="Contact" />
             </Anchor>
           </Drawer>
+           */}
         </div>
       </div>
     </div>

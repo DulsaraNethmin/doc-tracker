@@ -97,10 +97,12 @@
 import React from 'react';
 // import './App.css';
 import 'antd/dist/antd.css';
-import AppHero from '../../components/Dashboard/hero'
+
 import AppHeader from '../../components/Dashboard/Head'
+import AppDashboard from '../../components/Dashboard/Dashboard_items'
 // import AppHeader from './components/common/header';
-// import AppFooter from './components/common/footer';
+import AppFooter from '../../components/Dashboard/Footer';
+// import OrganizationDashboard from '../Organization/OrganizationDashboard'
 // import AppHome from './views/home';
 
 import { Layout } from 'antd';
@@ -108,18 +110,22 @@ const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <Layout className="mainLayout">
+
+ <Layout className="mainLayout">
       <Header>
         <AppHeader/>
+
+        
       </Header>
+      <AppDashboard/>
+      {/* <Content>
       
-      <Content>
-      
-        <AppHero/>
-      </Content>
-      {/* <Footer>
+        
+        
+      </Content> */}
+      <Footer>
         <AppFooter/>  
-      </Footer>       */}
+      </Footer>      
     </Layout>
   );
 }

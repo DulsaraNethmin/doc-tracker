@@ -62,78 +62,62 @@
 
 // export default Widget;
 
-
-import "../Dashboard.css"
+import "../../screens/Branch/dashboard.css";
+import { Button } from "antd";
 // import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function WidgetSm() {
     return (
-        <div className="WidgetSm">
-            <span className="widgetSmTitle">Available Deliverers</span>
-            <ul className="widgetSmList">
-                <li className="widgetSmListItem">
-                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
-                    <div className="widgetSmName">
-                        <div className="span widgetSmname">John </div>
-                    </div>
-                    <button className="widgetSmButton">
-                        {/* <VisibilityIcon/> */}
-                        Display
-                    </button>
-                </li>
-
-
-                <li className="widgetSmListItem">
-                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
-                    <div className="widgetSmName">
-                        <div className="span widgetSmname">John </div>
-                    </div>
-                    <button className="widgetSmButton">
-                        {/* <VisibilityIcon className="widgetSmIcon"/> */}
-                        Display
-                    </button>
-                </li>
-
-
-
-                <li className="widgetSmListItem">
-                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
-                    <div className="widgetSmName">
-                        <div className="span widgetSmname">John </div>
-                    </div>
-                    <button className="widgetSmButton">
-                        {/* <VisibilityIcon/> */}
-                        Display
-                    </button>
-                </li>
-
-
-
-                <li className="widgetSmListItem">
-                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
-                    <div className="widgetSmName">
-                        <div className="span widgetSmname">John </div>
-                    </div>
-                    <button className="widgetSmButton">
-                        {/* <VisibilityIcon/> */}
-                        Display
-                    </button>
-                </li>
-
- 
-
-                <li className="widgetSmListItem">
-                    <img src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8.jpg" alt="" className="widgetSmImg" />
-                    <div className="widgetSmName">
-                        <div className="span widgetSmname">John </div>
-                    </div>
-                    <button className="widgetSmButton">
-                        {/* <VisibilityIcon/> */}
-                        Display
-                    </button>
-                </li>
-            </ul>
-        </div>
+        
+        <div className="WidgetLg">
+        <h3 className="widgetLgTitle">Job Status</h3>
+        <table className="widgetLgTable">
+            <tr className="widgetLgTr">
+                <th className="widgetLgTh">Employee</th>
+                <th className="widgetLgTh">Customer</th>
+                <th className="widgetLgTh">Document ID</th>
+                <th className="widgetLgTh">Status</th>
+            </tr>
+            <tr>
+                <td className="widgetLgTr">Anne</td>
+                <td className="widgetCust">John</td>
+                <td className="widgetDocID">001</td>
+                <td className="widgetStatus"></td>
+            </tr>
+            <tr>
+                <td className="widgetLgTr">Anne</td>
+                <td className="widgetCust">John</td>
+                <td className="widgetDocID">019</td>
+                <td className="widgetStatus"></td>
+            </tr>
+            <tr>
+                <td className="widgetLgTr">Anne</td>
+                <td className="widgetCust">John</td>
+                <td className="widgetDocID">009</td>
+                <td className="widgetStatus"></td>
+            </tr>
+            <tr>
+                <td className="widgetLgTr">Anne</td>
+                <td className="widgetCust">John</td>
+                <td className="widgetDocID">005</td>
+                <td className="widgetLgStatus">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td className="widgetLgTr">Anne</td>
+                <td className="widgetCust">John</td>
+                <td className="widgetDocID">001</td>
+                <td className="widgetStatus"></td>
+            </tr>
+            <tr>
+                <td className="widgetLgTr">Anne</td>
+                <td className="widgetCust">John</td>
+                <td className="widgetDocID">001</td>
+                <td className="widgetStatus"></td>
+            </tr>
+        </table>
+    </div>
     )
 }
 

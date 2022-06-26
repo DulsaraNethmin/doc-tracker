@@ -1,4 +1,5 @@
-import "../Dashboard.css";
+import "../../screens/Branch/dashboard.css";
+import "../User.css"
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
@@ -31,11 +32,12 @@ const Tbl =()=> {
                 return (
 
                     <div className="WidgetLg">
-                             <h3 className="widgetLgTitle">{e.name}</h3>
+                           
                              <table >
                                  <tr className="widgetLgTr">
-                                 <td className="widgetLgTh"><img src="{e.image_url}" alt="" /></td>
-                                     
+
+                                 <td className="widgetLgTh"><img src="{e.image_url}" alt=""  className="widgetSmImg"/></td>
+                                     <td>  <h4 className="widgetLgTitle">{e.name}</h4></td>
                                 </tr>
                                 
                              </table>
@@ -53,13 +55,13 @@ const Tbl =()=> {
         {
         //   title: 'id',
           dataIndex: 'id',
-          width: '25%',
+          width: '50%',
           
         },
         {
         //   title: 'Name',
           dataIndex: 'name',
-          width: '25%',
+          width: '50%',
       
         },]
 
