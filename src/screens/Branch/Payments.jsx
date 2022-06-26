@@ -20,29 +20,29 @@ const Payments = () => {
   }, []);
 
   const user_data = async () => {
-    try {
-      var data = localStorage.getItem("branch_id");
+    // try {
+    //   var data = localStorage.getItem("branch_id");
 
-    //   var response = await axios.get(
-    //     `http://localhost:8080/organization/get/single/branchowners?branch_id=${data}`
-    //   );
-      //console.log(response.data);
-      const obj = response.data.map((e) => {
-        return {
-          date: e.b_name,
-          amount: e.b_number,
-          job_id: e.b_street,
-          customer_id: e.b_town,
-          createdAt: e.name,
-          updatedAt: e.username,
-          deliverer_id: e.password,
-        };
-      });
-      setData(obj);
-      return response.data;
-    } catch (e) {
-      console.log(e);
-    }
+    // //   var response = await axios.get(
+    // //     `http://localhost:8080/organization/get/single/branchowners?branch_id=${data}`
+    // //   );
+    //   //console.log(response.data);
+    //   //const obj = response.data.map((e) => {
+    //     return {
+    //       date: e.b_name,
+    //       amount: e.b_number,
+    //       job_id: e.b_street,
+    //       customer_id: e.b_town,
+    //       createdAt: e.name,
+    //       updatedAt: e.username,
+    //       deliverer_id: e.password,
+    //     };
+    //   });
+    //   setData(obj);
+    //   return response.data;
+    // } catch (e) {
+    //   console.log(e);
+    // }
   };
 
   const columns = [
