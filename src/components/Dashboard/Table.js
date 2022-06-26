@@ -1,132 +1,88 @@
-// import React from 'react';
-// import { Table, Tag, Space } from 'antd';
-// const columns = [
-//     {
-//         title: 'Name',
-//         dataIndex: 'name',
-//         key: 'name',
-//         render: (text) => <a>{text}</a>,
-//     },
-//     {
-//         title: 'Age',
-//         dataIndex: 'age',
-//         key: 'age',
-//     },
-//     {
-//         title: 'Address',
-//         dataIndex: 'address',
-//         key: 'address',
-//     },
-//     {
-//         title: 'Tags',
-//         key: 'tags',
-//         dataIndex: 'tags',
-//         render: (_, { tags }) => (
-//             <>
-//                 {tags.map((tag) => {
-//                     let color = tag.length > 5 ? 'geekblue' : 'green';
-
-//                     if (tag === 'loser') {
-//                         color = 'volcano';
-//                     }
-
-//                     return (
-//                         <Tag color={color} key={tag}>
-//                             {tag.toUpperCase()}
-//                         </Tag>
-//                     );
-//                 })}
-//             </>
-//         ),
-//     },
-// ];
-// const data = [
-//     {
-//         key: '1',
-//         name: 'John Brown',
-//         age: 32,
-//         address: 'New York No. 1 Lake Park',
-//         tags: ['nice', 'developer'],
-//     },
-//     {
-//         key: '2',
-//         name: 'Jim Green',
-//         age: 42,
-//         address: 'London No. 1 Lake Park',
-//         tags: ['loser'],
-//     },
-//     {
-//         key: '3',
-//         name: 'Joe Black',
-//         age: 32,
-//         address: 'Sidney No. 1 Lake Park',
-//         tags: ['cool', 'teacher'],
-//     },
-// ];
-
-// const Tbl = () => <Table columns={columns} dataSource={data} />;
-
-// export default Tbl;
-
-// import "./WidgetLg.css"
-import React from "react";
 import "../Dashboard.css";
-export default function Tbl() {
+import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+// import "../components/User.css"
+import { useNavigate } from "react-router-dom"
+const originData = [];
+const Tbl =()=> {
+    const [form] = Form.useForm();
+    const [data, setData] = useState(originData);
+    const [editingKey, setEditingKey] = useState('');
+    const navigate = useNavigate();
+    const [table_body, settable_body] = useState([]);
 
-    const Button = ({ type }) => {
-        return <button className={"widgetLgButton " + type}>{type}</button>;
-    };
+    const isEditing = (record) => record.key === editingKey;
 
-    return (
-        <div className="WidgetLg">
-            <h3 className="widgetLgTitle">Job Status</h3>
-            <table className="widgetLgTable">
-                <tr className="widgetLgTr">
-                    <th className="widgetLgTh">Deliverer</th>
-                    <th className="widgetLgTh">Customer</th>
-                    <th className="widgetLgTh">Document ID</th>
-                    <th className="widgetLgTh">Status</th>
-                </tr>
-                <tr>
-                    <td className="widgetLgTr">Anne</td>
-                    <td className="widgetCust">John</td>
-                    <td className="widgetDocID">001</td>
-                    <td className="widgetStatus"><Button type="Pending" /></td>
-                </tr>
-                <tr>
-                    <td className="widgetLgTr">Anne</td>
-                    <td className="widgetCust">John</td>
-                    <td className="widgetDocID">019</td>
-                    <td className="widgetStatus"><Button type="Declined" /></td>
-                </tr>
-                <tr>
-                    <td className="widgetLgTr">Anne</td>
-                    <td className="widgetCust">John</td>
-                    <td className="widgetDocID">009</td>
-                    <td className="widgetStatus"><Button type="Done" /></td>
-                </tr>
-                <tr>
-                    <td className="widgetLgTr">Anne</td>
-                    <td className="widgetCust">John</td>
-                    <td className="widgetDocID">005</td>
-                    <td className="widgetLgStatus">
-                        <Button type="Pending" />
-                    </td>
-                </tr>
-                <tr>
-                    <td className="widgetLgTr">Anne</td>
-                    <td className="widgetCust">John</td>
-                    <td className="widgetDocID">001</td>
-                    <td className="widgetStatus"><Button type="Pending" /></td>
-                </tr>
-                <tr>
-                    <td className="widgetLgTr">Anne</td>
-                    <td className="widgetCust">John</td>
-                    <td className="widgetDocID">001</td>
-                    <td className="widgetStatus"><Button type="Pending" /></td>
-                </tr>
-            </table>
+    useEffect(() => {
+        var data = job_data();
+        console.log(data);
+        //setData();
+    }, [])
+
+    
+
+    const job_data = async () => {
+        try {
+            var response3 = await axios.get(`http://localhost:8080/user/get/deliverer?branch_id=${localStorage.getItem("branch_id")}`);
+
+            console.log(response3.data);
+            const obj = response3.data.map((e) => {
+                return (
+
+                    <div className="WidgetLg">
+                             <h3 className="widgetLgTitle">{e.name}</h3>
+                             <table >
+                                 <tr className="widgetLgTr">
+                                 <td className="widgetLgTh"><img src="{e.image_url}" alt="" /></td>
+                                     
+                                </tr>
+                                
+                             </table>
+                         </div>
+                );
+            })
+            setData(obj);
+            settable_body(obj);
+            return response3.data;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const columns = [
+        {
+        //   title: 'id',
+          dataIndex: 'id',
+          width: '25%',
+          
+        },
+        {
+        //   title: 'Name',
+          dataIndex: 'name',
+          width: '25%',
+      
+        },]
+
+    const mergedColumns = columns.map((col) => {
+        return {
+          ...col,
+        };
+      });
+    
+      return (
+        <div className='Table'>
+          
+            <h2>Available Deliverers</h2>
+            <Form form={form} component={false}>
+    
+         
+          <table>
+      
+            {table_body}
+          </table>
+        </Form>
         </div>
-    );
+      )
 }
 
+export default Tbl;
