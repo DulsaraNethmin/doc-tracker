@@ -116,13 +116,12 @@ const OrganizationDashboard = () => {
         </header>
       </Layout>
 
-      <OrganizationTable />
-      <BranchesTable />
-
       <div>
         <Row style={{ padding: "4% 0" }}>
           <Col span={3}></Col>
           <Col span={18}>
+          <OrganizationTable />
+      <BranchesTable />
             <Card
               title="Enter Username and Password of a branch to edit"
               alignment="center"
