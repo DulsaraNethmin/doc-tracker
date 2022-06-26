@@ -84,6 +84,24 @@ function DocumentList() {
         }
         
           
+        },
+        {
+          title:"Delete",
+          render:(record)=>{
+            
+
+            return(
+              <Link to='/documents/confirmDelete'>
+           <Button >Delete</Button>
+           </Link>
+          )
+          
+
+        
+          
+        }
+        
+          
         }
        
        
