@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import Password from "antd/lib/input/Password";
 import { useNavigate } from "react-router-dom";
+import io from 'socket.io-client';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -140,6 +141,11 @@ const Login = () => {
                         localStorage.setItem('uuid',uuid);
                         var branch_id = response.data[0]["branchId"];
                         localStorage.setItem("branch_id", branch_id);
+                        // let socket;
+                        // const RealTimeURL="http://localhost:8000";
+                        // socket=io(RealTimeURL);
+                        // socket.emit('signin',{"id":uuid,"branch_id":branch_id});
+                        //   //socket.on('')
                         if (response.status == 200) {
                           window.alert("Login Successfull");
                           navigate("/branch/dashboard");

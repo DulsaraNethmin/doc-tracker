@@ -19,7 +19,7 @@ function ViewQrCodeDetails() {
  }, [])
  useEffect(()=>{
     console.log(id);
-    QRCode.toDataURL(id).then((data)=>{
+    QRCode.toDataURL(`/document/verify?doc_id=${id}`).then((data)=>{
          setSrc(data);
     });
  },[])

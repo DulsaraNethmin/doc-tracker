@@ -5,8 +5,14 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import io from 'socket.io-client';
+import { connect } from 'react-redux';
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
 
+ let socket;
 function SendMail() {
+    //let socket;
     const [Receiver, setReceiver] = useState([]);
   
     const [image,setImage]=useState('');
@@ -19,23 +25,40 @@ function SendMail() {
     const sid={sender_id}.sender_id;;
     const receiver_id=localStorage.getItem('reciever_id');
     const id={receiver_id}.receiver_id;
+    const branch_id=localStorage.getItem('branch_id');
+    const bid={branch_id}.branch_id;
+
     const [addmail, setAddmail] = useState({
         head: "",
         body: "",
+        time:(moment().format("YYYY-MM-DD hh:mm:ss")),
         seen:false,
         to: {receiver_id}.receiver_id,
         from:{sender_id}.sender_id,
     
       });
+
     
     useEffect(() => {
+
+        // socket=io.connect();
+        // //console.log(name ,room);
+        // socket.emit('signin',{"id":sid,"branch_id":bid});
         try{
-          receiverProfile();
-         
-        }catch(e){
-          console.log(e);
-        }
-        console.log(to);
+            receiverProfile();
+           
+          }catch(e){
+            console.log(e);
+          }
+        // return ()=>
+        // {
+        //     socket.emit('disconnect');
+        //     socket.off();
+        // }
+
+        
+        // socket.emit('signin',{ "id": sid, "branch_id":bid });
+        // console.log(to);
       }, []);
      
       const receiverProfile = async() => {
@@ -55,16 +78,34 @@ function SendMail() {
     }
             };
             
-
+            const getDe=()=>{
+                const ti= (moment().format("YYYY-MM-DD hh:mm:ss"))
+              
+                return (moment().format("YYYY-MM-DD hh:mm:ss"));
+             }       
      const handleMassage=()=>{
-        console.log(addmail);
+    
         setSeen(true);
+        
         sendAddMail();
+        // socket.emit('signin',{ id: sid, branch_id:bid });
+        // socket.emit('msg',addmail.body);
+       
+     }  
+   
+     //socket
+     
 
-
-     }    
+   
      const sendAddMail=async()=>{
         try{
+            
+             
+               const t=await getDe(); 
+               setAddmail({ ...addmail,time:t
+        
+               });
+              console.log(addmail);
             const response=await axios.post('http://localhost:8080/mail/add',addmail)
             console.log(response.data);
              return response.data
@@ -88,15 +129,20 @@ function SendMail() {
          </p>
          <div>
          <h4 >Enter Head</h4>
+         <form>
          <TextArea rows={2}  size="small" placeholder="Head"  value={addmail.head} onChange={(event) => {
                 setAddmail({ ...addmail, head: event.target.value });
+               
               }} />
 
             <h4 >Enter Mail</h4>
          <TextArea rows={4}  size="small" placeholder="Mail" value={addmail.body} onChange={(event) => {
                 setAddmail({ ...addmail, body: event.target.value });
-              }} />
+                
+              }}
+               />
               <Button onClick={handleMassage} >Send</Button> 
+              </form>
              
           </div> 
           <Link to='/Mail/GetsentMail'>
