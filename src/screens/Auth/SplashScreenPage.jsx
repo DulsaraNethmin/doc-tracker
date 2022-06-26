@@ -3,10 +3,11 @@ import { Layout } from "antd";
 import "./pages.css";
 import { Button, PageHeader } from "antd";
 import { useNavigate } from "react-router-dom";
+import logo from "../../images/logo.jpeg"
 
 const { Header, Footer, Sider, Content } = Layout;
 const background = new URL("../../images/background.png", import.meta.url);
-const logo = new URL("../../images/logo.jpeg", import.meta.url);
+//const logo = new URL("../../images/logo.jpeg", import.meta.url);
 
 const SplashScreenPage = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const SplashScreenPage = () => {
     <div className="main-container">
       <PageHeader
         avatar={{
-          src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+          src: "images/logo.jpeg",
         }}
         //ghost={false}
         //onBack={() => window.history.back()}
@@ -23,7 +24,7 @@ const SplashScreenPage = () => {
         extra={[
           // <Button key="3">Operation</Button>,
           <Button
-            type="text"
+            //type="text"
             onClick={(e) => {
               navigate("organization/create");
             }}
@@ -44,13 +45,13 @@ const SplashScreenPage = () => {
         ]}
       ></PageHeader>
       <div>
-        <h1>DOC-TRACKER</h1>
+        <h1>DocTracker</h1>
         <br />
         <img src={logo} className="image-container" />
         <br />
         <br />
         <br />
-        <h2>Welcome to Doc-Tracker</h2>
+        <h2>Welcome to DocTracker</h2>
         <br />
         <p>
           Document delivery and tracking software is the best solution for the
