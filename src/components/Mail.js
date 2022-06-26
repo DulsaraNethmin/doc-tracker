@@ -10,7 +10,6 @@ import NightMode from '../images/NightMode.jpg'
 
 function Mail() {
   localStorage.setItem('mode','day');
-
   const M=localStorage.getItem('mode');
   const m={M}.M;
 

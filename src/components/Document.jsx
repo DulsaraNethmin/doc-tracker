@@ -165,6 +165,7 @@ function Document() {
               'font-family': 'Lucida Handwriting'
               }}>{validat.date}</p>
             <div  >
+              
               <button style={{
                 padding:'20px',
                 margin:'20px',
