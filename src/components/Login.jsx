@@ -15,6 +15,8 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loginError, setLoginError] = useState("");
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
@@ -28,9 +30,17 @@ const Login = () => {
 
   return (
     <div>
+       <h1>DocTracker</h1>
+          <img
+            src="images/logo.jpeg"
+            height="100%"
+            width="100%"
+            className="image-container"
+          />
       <Row style={{ padding: "4% 0" }}>
         <Col span={8}></Col>
         <Col span={8}>
+         
           <Card title="Admin Login" alignment="center">
             <Form
               name="normal_login"
@@ -75,6 +85,9 @@ const Login = () => {
                   placeholder="Password"
                 />
               </Form.Item>
+              <Form.Item>
+                <p>{loginError}</p>
+              </Form.Item>
               {/* <Form.Item>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
                   <Checkbox>Remember me</Checkbox>
@@ -91,6 +104,7 @@ const Login = () => {
                     className="login-form-button"
                     onClick={async (e) => {
                       e.preventDefault();
+                      setLoginError();
                       //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
                       try {
                         console.log(username, password);
@@ -99,16 +113,36 @@ const Login = () => {
                           "http://localhost:8080/user/get/oneOrgOwner",
                           data
                         );
-                        console.log(response.data[0]["organization"]);
-                        var organization_id = response.data[0]["organizationId"];
-                        localStorage.setItem("organization_id", organization_id);
+
+                        var organization_name =
+                          response.data[0]["organization"];
+                        localStorage.setItem(
+                          "organization_name",
+                          organization_name
+                        );
+
+                        var organization_id =
+                          response.data[0]["organizationId"];
+                        localStorage.setItem(
+                          "organization_id",
+                          organization_id
+                        );
+
+                        var user_id = response.data[0]["uuid"];
+                        localStorage.setItem("user_id", user_id);
+
                         if (response.status == 200) {
-                          window.alert("Login Successfull");
+                          setLoginError(
+                            "You will be directed to Organization Dashboard"
+                          );
                           navigate("/organization/dashboard");
                         }
-                        if (response.status == 201) {
+                        if (response.status != 200) {
                           //window.alert("Login UNSuccessfull");
-                          console.log("Login Unsuccess 201");
+                          //console.log("Login Unsuccess 201");
+                          setLoginError(
+                            "Wrong Username-Password Combination for Organization Login"
+                          );
                         }
                       } catch (e) {
                         window.alert("Login Unsucces");
@@ -126,6 +160,7 @@ const Login = () => {
                     className="login-form-button"
                     onClick={async (e) => {
                       e.preventDefault();
+                      setLoginError();
                       //axios.post('http://3.110.165.97:8080/',{"username":username,"password":password})
                       try {
                         console.log(username, password);
@@ -147,12 +182,14 @@ const Login = () => {
                         // socket.emit('signin',{"id":uuid,"branch_id":branch_id});
                         //   //socket.on('')
                         if (response.status == 200) {
-                          window.alert("Login Successfull");
                           navigate("/branch/dashboard");
                         }
-                        if (response.status == 201) {
+                        if (response.status != 200) {
                           //window.alert("Login UNSuccessfull");
-                          console.log("Login Unsuccess 201");
+                          //console.log("Login Unsuccess 201");
+                          setLoginError(
+                            "Wrong Username-Password Combination for Branch Login"
+                          );
                         }
                       } catch (e) {
                         window.alert("Login Unsucces");
