@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
        <h1>DocTracker</h1>
           <img
             src="images/logo.jpeg"

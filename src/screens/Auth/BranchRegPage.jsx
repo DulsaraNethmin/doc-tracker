@@ -94,7 +94,7 @@ const BranchRegPage = () => {
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
-    <div>
+    <div className="main-container">
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{
@@ -138,8 +138,8 @@ const BranchRegPage = () => {
         ></PageHeader>
       </div>
       <Row style={{ padding: "4% 0" }}>
-        <Col span={3}></Col>
-        <Col span={18}>
+        <Col span={6}></Col>
+        <Col span={12}>
           <Card title="Create Branch" alignment="center">
             <Form
               {...formItemLayout}
@@ -316,12 +316,13 @@ const BranchRegPage = () => {
                 </Button>
               </Form.Item>
             </Form>
-          </Card>
-          <a href="https://www.latlong.net/">
+            <a href="https://www.latlong.net/">
             Click Here to Check Latitude and Longitude of the branch !
           </a>
+          </Card>
+          
         </Col>
-        <Col span={3}></Col>
+        <Col span={6}></Col>
       </Row>
     </div>
   );
