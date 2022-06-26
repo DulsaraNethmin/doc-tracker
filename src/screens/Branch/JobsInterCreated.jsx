@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import "../components/User.css"
 import { useNavigate } from "react-router-dom";
 import { Space, Tag } from 'antd';
-
+import "./dashboard.css"
 
 const { Column, ColumnGroup } = Table;
 const originData = [];
@@ -108,7 +108,7 @@ const JobsInterCreated = () => {
     });
 
     return (
-        <div className='Table'>
+        <div className='BG'>
             <h2>Newly Created Jobs-I</h2>
             <Form form={form} component={false}>
             <table className='tables'>

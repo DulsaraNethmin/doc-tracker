@@ -42,6 +42,9 @@ const UserProfile = () => {
   const [Form_body, setForm_body] = useState([]);
   const use_id=localStorage.getItem('uuid');
   const id={use_id}.use_id
+  const [uname, setUname] = useState("");
+  const [password, setPassword] = useState("");
+  const [telepone, setTelephone] = useState("");
   console.log(id)
   const [update, setUpdate] = useState({
     user_id:{id},
@@ -112,6 +115,8 @@ const UserProfile = () => {
 
                     <Input defaultValue={e.username} onChange={(event) => {
                       setUpdate({ ...update, Username: event.target.value });
+                      setUname(event.target.value)
+
                     }} />
                   </Form.Item>
                   <Form.Item
@@ -151,7 +156,11 @@ const UserProfile = () => {
                   </Form.Item>
 
                   <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                    <Button type="primary" htmlType="submit" onClick={Updateinfo}>
+                    <Button type="primary" htmlType="submit" onClick={
+                      ()=>{
+                        console.log(uname);
+                      }
+                    }>
                       Submit
                     </Button>
                   </Form.Item>

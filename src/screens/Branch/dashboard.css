@@ -564,3 +564,7 @@ responsive
 .tables{
   border-color: #000;
 }
+
+.BG{
+  background-image: url('https://images.pexels.com/photos/891059/pexels-photo-891059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+}
