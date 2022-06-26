@@ -25,6 +25,12 @@ import BranchRegPage from "./screens/Auth/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
+import ViewQrCodeDetails from "./components/ViewQrCodeDetails";
+import Mail from "./components/Mail";
+import ReceivedMail from "./components/ReceivedMail";
+import SendMail from "./components/SendMail";
+import GetsentMail from "./components/GetsentMail";
+import ConfirmDocDelete from "./components/ConfirmDocDelete";
 import EmailScreen from "./screens/Auth/EmailScreen";
 import CustomerRegistration from "./screens/Branch/CustomerRegistration";
 import DelivererRegistration from "./screens/Branch/DelivererRegistration";
@@ -58,8 +64,14 @@ function App() {
           <Route path="/branch/deliverer/create" exact element={<DelivererRegistration />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
-          <Route path="/documents" exact element={<Document/>} />        
-         {/* { <Route path="/mail" exact element={<Chat />} />} */}
+          <Route path="/documents" exact element={<Document/>} /> 
+          <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />   
+          <Route path="/documents/confirmDelete" exact element={<ConfirmDocDelete/>} />   
+          <Route path="/mail" exact element={<Mail/>} />
+          <Route path="/Mail/Received" exact element={<ReceivedMail/>} />
+          <Route path="/Mail/Send" exact element={<SendMail/>} />
+          <Route path="/Mail/GetsentMail" exact element={<GetsentMail/>} />
+
         </Routes>
       </BrowserRouter>
     </div>

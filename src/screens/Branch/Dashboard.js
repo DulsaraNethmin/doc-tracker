@@ -34,7 +34,7 @@ const items = [
   ]),
 
   getItem( <a class="nav-link" href="">Notifications</a>, '3',<BellOutlined />),
-  getItem( <a class="nav-link" href="#">Chat</a>, '4',<WechatOutlined />),
+  getItem( <a class="nav-link" href="/Mail">Mail</a>, '4',<WechatOutlined />),
 ];
 
 function Dashboard(){

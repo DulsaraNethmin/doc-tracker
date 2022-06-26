@@ -2,11 +2,13 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect ,useState} from 'react'
 import { fetchDocuments } from '../features/doucument';
-import { Link } from 'react-router-dom';
+import { Link, useHref } from 'react-router-dom';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import {Input,Button,Table} from 'antd'
 // import Completedbutton from './Completedbutton';
 import {SearchOutlined} from '@ant-design/icons'
+import axios from 'axios';
+
 
 function DocumentList() {
   const dispatch = useDispatch();
@@ -14,11 +16,17 @@ function DocumentList() {
 
   const getdocument = useSelector(state => state.documents);
   const adddocument = useSelector(state => state.documents);
- 
+  const [Qrbutton, setQrbutton] = useState(false);
  
   useEffect(() => {
     dispatch(fetchDocuments())
+    console.log(getdocument.Documents);
   }, [dispatch]);
+  const getUniqId=(e)=>{
+    
+       setQrbutton(true);
+
+  }
   const columns=[
          {
            title:"doc_name",
@@ -42,7 +50,7 @@ function DocumentList() {
              return<SearchOutlined/>;
            },
            onFilter:(value,record)=>{
-             return record.doc_name.toLowerCase().includes(value.toLowerCase())
+             return record.doc.toLowerCase().includes(value.toLowerCase())
            }
          },
          {
@@ -53,14 +61,32 @@ function DocumentList() {
           title:"date",
           dataIndex:"date"
         },
+
         {
-          title:"Branch_id",
-          dataIndex:"branch_id"
+          title:"Doc_id",
+          dataIndex:"doc_id"
+
         },
-        // {
-        //   title:"issubmit",
-        //   dataIndex:<Completedbutton/>
-        // }
+        {
+          title:"Qr Code Button",
+          render:(record)=>{
+            
+
+            return(
+              <Link to='/documents/viewQrcode'>
+           <Button >Show Qr Code</Button>
+           </Link>
+          )
+          
+
+        
+          
+        }
+        
+          
+        }
+       
+       
 
   ]
   
@@ -68,14 +94,21 @@ function DocumentList() {
   return (
     <div>
       <div>
-        <input type="text" placeholder='search' onChange={event=>{setsearchterm(event.target.value)}}/>  
-        <Link to='/documents'>
-          <Button>adddocument</Button>
-        </Link>
+        
         {getdocument.status === "pending" && <div>ERROR</div>}
         {(getdocument.status === "Success" || adddocument.documentAdd === "Succses") &&
           <div>
-          <Table dataSource={getdocument.Documents} columns={columns}></Table>
+          <Table  style={{
+      opacity:'0.7'
+
+      
+   }}dataSource={getdocument.Documents} columns={columns}  onRow={(record, recordIndex) => ({
+            onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
+            localStorage.setItem('doc_id',record.doc_id);
+          }
+             
+          
+          })}></Table>
           </div>}
       </div>
     </div>
