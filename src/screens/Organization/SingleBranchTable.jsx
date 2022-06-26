@@ -127,7 +127,7 @@ const SingleBranchTable = () => {
   });
 
   return (
-    <div className="main-container">
+    <div>
       <h2>Branch Details</h2>
       <Form form={form} component={false}>
         <Table

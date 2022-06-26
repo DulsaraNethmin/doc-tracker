@@ -72,7 +72,7 @@ const OrgOwnerCreatePage = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="main-container">
       <Row style={{ padding: "4% 0" }}>
         <Col span={8}></Col>
         <Col span={8}>

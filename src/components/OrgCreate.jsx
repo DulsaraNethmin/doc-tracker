@@ -46,7 +46,7 @@ const OrgCreate = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div >
       <h1>DocTracker</h1>
       <img
         src="images/logo.jpeg"
