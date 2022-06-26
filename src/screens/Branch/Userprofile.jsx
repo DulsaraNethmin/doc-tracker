@@ -75,7 +75,12 @@ const UserProfile = () => {
       var response = await axios.get(`http://localhost:8080/user/get/single?user_id=${id}`);
       const obj = response.data.map((e) => {
         return (
-          <div className='Form'>
+          <div className='Form' 
+          // style={{
+          //   backgroundImage:`url('https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
+            
+          // }}
+          >
 
             <Row gutter={[4, 4]}>
               <Col className='col1' span={6}>
@@ -102,10 +107,11 @@ const UserProfile = () => {
                   <Form.Item
                     name={['user', 'name']}
                     label="Name"
-                                  rules={[{ required: true, message: 'Name is required' }]}>
-                                  <Input defaultValue={e.name}  onChange={(event) => {
+                                  ><label>{e.name}</label>
+
+                                  {/* <label defaultValue={e.name}  onChange={(event) => {
                   setUpdate({ ...update, Name: event.target.value });}}
-                  />
+                  /> */}
 
                   </Form.Item>
                   <Form.Item
@@ -121,18 +127,11 @@ const UserProfile = () => {
                   </Form.Item>
                   <Form.Item
                     name={['user', 'email']}
-                    label="Email"
-                    rules={[
-                      {
-                        type: 'email',
-                        required: true, message: 'email is required'
-                      },
-                    ]}
-
-                  >
-                    <Input defaultValue={e.email} onChange={(event) => {
+                    label="Email">
+                      <label>{e.email}</label>
+                    {/* <label defaultValue={e.email} onChange={(event) => {
                       setUpdate({ ...update, Email: event.target.value });
-                    }} />
+                    }} /> */}
                   </Form.Item>
                   <Form.Item
                     name={['user', 'telephone']}
@@ -145,14 +144,15 @@ const UserProfile = () => {
                   </Form.Item>
 
                   <Form.Item label="Role">
-                    <Select defaultValue={e.role}>
+                    {/* <Select defaultValue={e.role}>
                       <Select.Option value="Customer" onChange={(event) => {
                         setUpdate({ ...update, Role: event.target.value });
                       }}>Customer</Select.Option>
                       <Select.Option value="Deliverer" onChange={(event) => {
                         setUpdate({ ...update, Role: event.target.value });
                       }}>Deliverer</Select.Option>
-                    </Select>
+                    </Select> */}
+                    <label htmlFor="">{e.role}</label>
                   </Form.Item>
 
                   <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>

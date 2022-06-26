@@ -108,7 +108,10 @@ const UserTable = () => {
   });
 
   return (
-    <div className='Table'>
+    <div className='main' style={{
+      backgroundImage:`url('https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
+      
+    }}>
       
         <h2>User details</h2>
         <Form form={form} component={false}>
@@ -123,6 +126,7 @@ const UserTable = () => {
 
 
       </Table> */}
+      <div className='table'>
       <table>
         <th>ID</th>
         <th>Name</th>
@@ -133,6 +137,8 @@ const UserTable = () => {
         <th>Operation</th>
         {table_body}
       </table>
+      </div>
+     
     </Form>
     </div>
   )
