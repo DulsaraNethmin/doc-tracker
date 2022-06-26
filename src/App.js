@@ -25,13 +25,18 @@ import BranchRegPage from "./screens/Auth/BranchRegPage";
 import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
+import EmailScreen from "./screens/Auth/EmailScreen";
+import CustomerRegistration from "./screens/Branch/CustomerRegistration";
+import DelivererRegistration from "./screens/Branch/DelivererRegistration";
+import BranchEdit from "./screens/Organization/BranchEdit";
+import SingleBranchTable from "./screens/Organization/SingleBranchTable";
+import OrganizationEdit from "./screens/Organization/OrganizationEdit";
+import Payments from "./screens/Branch/Payments";
 
 
 function App() {
   return (
-    <div className="App">
-      
-      
+    <div className="App">    
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<SplashScreenPage />} />
@@ -40,12 +45,17 @@ function App() {
           <Route exact path="/organization/create" element={<OrgCreatePage/>} />
           <Route exact path="/organization/owner/create" element={<OrgOwnerCreatePage/>} />
           <Route path="/organization/dashboard" exact element={<OrganizationDashboard/>} />
+          <Route path="/organization/edit" exact element={<OrganizationEdit/>} />
           <Route path="/branch/create" exact element={<BranchRegPage/>} />
           <Route path="/branch/owner/create" exact element={<BranchOwnerRegPage/>} />
           <Route path="/branch/table" exact element={<BranchesTable/>} />
+          <Route path="/branch/edit" exact element={<BranchEdit/>} />
+          <Route path="/branch/table/one" exact element={<SingleBranchTable />} />
+          <Route path="/branch/payments" exact element={<Payments />} />
           
           <Route path="/branch/dashboard" exact element={<Dashboard/>} />
-          <Route path="/user/reg" exact element={<UserRegPage/>} />
+          <Route path="/branch/customer/create" exact element={<CustomerRegistration />} />
+          <Route path="/branch/deliverer/create" exact element={<DelivererRegistration />} />
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
           <Route path="/documents" exact element={<Document/>} />        

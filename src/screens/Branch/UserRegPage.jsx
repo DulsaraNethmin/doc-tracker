@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Row, Col, Card } from "antd";
+import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -26,11 +26,20 @@ const validateMessages = {
   },
 };
 
+const onChange = (e) => {
+  console.log(`checked = ${e.target.checked}`);
+};
+
 const UserRegPage = () => {
   //const [name, setBrName] = useState("");
   const [user, setUser] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
+
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   // const handleOrgName = (e) => {
   //   setOrgName(e.target.value);
@@ -45,6 +54,14 @@ const UserRegPage = () => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleTelephone = (e) => {
+    setTelephone(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -100,6 +117,7 @@ const UserRegPage = () => {
                   }}
                 />
               </Form.Item>
+              <p>{usernameError}</p>
 
               <Form.Item
                 name="password"
@@ -117,6 +135,51 @@ const UserRegPage = () => {
                     handlePassword(e);
                   }}
                 />
+              </Form.Item>
+              <p>{passwordError}</p>
+
+              <Form.Item
+                name="telephone"
+                label="Contact Number"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please Input Contact Number",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handleTelephone(e);
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="email"
+                label="Email"
+                //tooltip="What do you want others to call you?"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please Input Email Address",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input
+                  onChange={(e) => {
+                    handleEmail(e);
+                  }}
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Checkbox onChange={onChange}>
+                  Send Username and Password via email
+                </Checkbox>
               </Form.Item>
 
               <Row>
@@ -139,32 +202,40 @@ const UserRegPage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      
-                        console.log(user, username, password);
-                        let data = {
-                          name: user,
-                          username: username,
-                          password: password,
-                          //role: "Branch Owner",
-                          branch_id:localStorage.getItem("branch_id"),
-                        };
-                        console.log(data);
-                        let response = await axios.post(
-                          "http://localhost:8080/user/add",
-                          data
-                        );
-                        console.log(response.data);
-                        if (response.status == 200) {
-                          window.alert("New User Created");
-                          navigate("/test-dashboard");
+                      setUsernameError();
+                      setPasswordError();
+
+                      console.log(user, username, password);
+                      let data = {
+                        name: user,
+                        username: username,
+                        password: password,
+                        //role: "Branch Owner",
+                        telephone: telephone,
+                        email: email,
+                        branch_id: localStorage.getItem("branch_id"),
+                      };
+                      console.log(data);
+                      let response = await axios.post(
+                        "http://localhost:8080/user/add",
+                        data
+                      );
+                      console.log(response.data);
+                      if (response.status == 200) {
+                        window.alert("New User Created");
+                        navigate("/test-dashboard");
+                      }
+                      if (response.status == 201) {
+                        if (response.data.username) {
+                          setUsernameError(response.data.username);
+                          //response.data.username = "";
                         }
-                        if (response.status != 200) {
-                          window.alert(
-                            "Organization Owner Creation UNSuccessfull"
-                          );
+                        if (response.data.password) {
+                          setPasswordError(response.data.password);
+                          //response.data.password = "";
                         }
                       }
-                    }
+                    }}
                   >
                     Register
                   </Button>
@@ -180,7 +251,6 @@ const UserRegPage = () => {
 };
 
 export default UserRegPage;
-
 
 // import React from "react";
 // import { Row, Col } from "antd";

@@ -1,5 +1,4 @@
 import React from "react";
-import "./pages.css";
 import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
@@ -31,13 +30,13 @@ const onChange = (e) => {
   console.log(`checked = ${e.target.checked}`);
 };
 
-const BranchOwnerRegPage = () => {
+const DelivererRegistration = () => {
   //const [name, setBrName] = useState("");
-  const [owner, setOwner] = useState("");
-  const [Br_owneruser_name, setUsername] = useState("");
+  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [br_owner_email, setEmail] = useState("");
-  const [br_owner_telephone, setTelephone] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
 
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -48,8 +47,8 @@ const BranchOwnerRegPage = () => {
     setSendEmail(e.target.checked);
   };
 
-  const handleOwner = (e) => {
-    setOwner(e.target.value);
+  const handleUser = (e) => {
+    setUser(e.target.value);
   };
 
   const handleUsername = (e) => {
@@ -77,7 +76,7 @@ const BranchOwnerRegPage = () => {
       <Row style={{ padding: "4% 0" }}>
         <Col span={3}></Col>
         <Col span={18}>
-          <Card title="Create Branch Owner" alignment="center">
+          <Card title="Create User" alignment="center">
             <Form
               {...layout}
               name="nest-messages"
@@ -86,8 +85,8 @@ const BranchOwnerRegPage = () => {
               alignment="left"
             >
               <Form.Item
-                name="owner"
-                label="Owner"
+                name="user"
+                label="name"
                 // rules={[
                 //   {
                 //     required: true,
@@ -96,16 +95,16 @@ const BranchOwnerRegPage = () => {
               >
                 <Input
                   onChange={(e) => {
-                    handleOwner(e);
+                    handleUser(e);
                   }}
                   prefix={<UserOutlined className="site-form-item-icon" />}
-                  placeholder="Branch Owner Name"
+                  placeholder="User's Name"
                 />
               </Form.Item>
 
               <Form.Item
-                name="Br_owneruser_name"
-                label="Branch Owner User Name"
+                name="username"
+                label="User Name"
                 //tooltip="What do you want others to call you?"
                 rules={[
                   {
@@ -122,9 +121,10 @@ const BranchOwnerRegPage = () => {
                 />
               </Form.Item>
               <p>{usernameError}</p>
+
               <Form.Item
                 name="password"
-                label="Branch Password"
+                label="Password"
                 rules={[
                   {
                     required: true,
@@ -142,7 +142,7 @@ const BranchOwnerRegPage = () => {
               <p>{passwordError}</p>
 
               <Form.Item
-                name="br_owner_telephone"
+                name="telephone"
                 label="Contact Number"
                 //tooltip="What do you want others to call you?"
                 rules={[
@@ -161,7 +161,7 @@ const BranchOwnerRegPage = () => {
               </Form.Item>
 
               <Form.Item
-                name="br_owner_email"
+                name="email"
                 label="Email"
                 //tooltip="What do you want others to call you?"
                 rules={[
@@ -197,7 +197,7 @@ const BranchOwnerRegPage = () => {
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
                   <Button
                     onClick={(e) => {
-                      navigate("/");
+                      navigate("/branch/dashboard");
                     }}
                   >
                     Back
@@ -212,35 +212,35 @@ const BranchOwnerRegPage = () => {
                     //   navigate("/register-admin");
                     // }}
                     onClick={async (e) => {
-                      
                       e.preventDefault();
                       setUsernameError();
                       setPasswordError();
 
-                      if(owner == ""||Br_owneruser_name == ""||password == ""||br_owner_telephone == ""||br_owner_email == ""){
+                      console.log(user, username, password);
+
+                      console.log(user, username, password);
+                      if(user == ""||username == ""||password == ""||password == ""||telephone == ""||email == ""){
                         window.alert ("Please Fill all the fields before submitting")
                       }else{
-                      
                       let data = {
                         sendEmailStatus: sendEmail,
-                        name: owner,
-                        username: Br_owneruser_name,
+                        name: user,
+                        username: username,
                         password: password,
-                        role: "Branch Owner",
-                        telephone: br_owner_telephone,
-                        email: br_owner_email,
+                        role: "Deliverer",
+                        telephone: telephone,
+                        email: email,
                         branch_id: localStorage.getItem("branch_id"),
                       };
-                      //console.log(data);
+                      console.log(data);
                       let response = await axios.post(
                         "http://localhost:8080/user/add",
                         data
                       );
-
-                      //console.log(response.data);
+                      console.log(response.data);
                       if (response.status == 200) {
-                        window.alert("Branch Owner Created");
-                        navigate("/organization/dashboard");
+                        //window.alert("New User Created");
+                        navigate("/branch/dashboard");
                       }
                       if (response.status == 201) {
                         if (response.data.username) {
@@ -251,16 +251,11 @@ const BranchOwnerRegPage = () => {
                           setPasswordError(response.data.password);
                           //response.data.password = "";
                         }
-
-                        console.log(response.data.username);
-                        console.log(response.data.password);
-
-                        //window.alert(response.data.password);
                       }
-                      }
+                    }
                     }}
                   >
-                    Next
+                    Register
                   </Button>
                 </Form.Item>
               </Row>
@@ -273,4 +268,5 @@ const BranchOwnerRegPage = () => {
   );
 };
 
-export default BranchOwnerRegPage;
+export default DelivererRegistration;
+
