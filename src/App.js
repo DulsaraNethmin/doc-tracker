@@ -36,6 +36,8 @@ import JobsExtReq from "./screens/Branch/JobsExtReq";
 import JobsExtPending from "./screens/Branch/JobsExtPending";
 import JobsExtComp from "./screens/Branch/JobsExtPending";
 
+import Jobs from "./screens/Branch/Jobs"
+
 function App() {
   return (
     <div className="App">
@@ -58,11 +60,12 @@ function App() {
           <Route path="/user/details" exact element={<UserDetails/>} />
           <Route path="/user/profile/:user_id" exact element={<UserData/>} />
           <Route path="/documents" exact element={<Document/>} />    
-
+         
           <Route path="/branch/jobs/int/new" exact element={<JobsInterCreated/>} /> 
           <Route path="/branch/jobs/int/new/show" exact element={<ShowJobsInterCreated/>} /> 
           <Route path="/branch/jobs/int/pending" exact element={<JobsInterPending/>} />
           <Route path="/branch/jobs/int/comp" exact element={<JobsInterComp/>} />  
+          <Route path="/branch/jobs" exact element={<Jobs/>} />
 
           <Route path="/branch/jobs/ext/req" exact element={<JobsExtReq/>} /> 
           <Route path="/branch/jobs/ext/pending" exact element={<JobsExtPending/>} /> 

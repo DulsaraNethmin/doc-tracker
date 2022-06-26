@@ -2,7 +2,11 @@ import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 // import "../components/User.css"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { Space, Tag } from 'antd';
+
+
+const { Column, ColumnGroup } = Table;
 const originData = [];
 
 const JobsInterCreated = () => {
@@ -13,6 +17,8 @@ const JobsInterCreated = () => {
     const [table_body, settable_body] = useState([]);
 
     const isEditing = (record) => record.key === editingKey;
+
+    
 
     useEffect(() => {
         var data = job_data();
@@ -25,10 +31,10 @@ const JobsInterCreated = () => {
             // console.log('async');
             var response = await axios.get(`http://localhost:8080/job/get/all/opendeliveries?branch_id=${localStorage.getItem("branch_id")}`);
             // var response2 = await axios.get(`http://localhost:8080/job/get/all/openpending?branch_id=${localStorage.getItem("branch_id")}`);
-            var response3 = await axios.get(`http://localhost:8080/user/get/deliverer?branch_id=${localStorage.getItem("branch_id")}`);
+            //var response3 = await axios.get(`http://localhost:8080/user/get/deliverer?branch_id=${localStorage.getItem("branch_id")}`);
             console.log(response.data);
             // console.log(response2.data);
-            console.log(response3.data);
+            //console.log(response3.data);
             const obj = response.data.map((e) => {
                 return (
                     < tr >
@@ -105,7 +111,7 @@ const JobsInterCreated = () => {
         <div className='Table'>
             <h2>Newly Created Jobs-I</h2>
             <Form form={form} component={false}>
-            <table>
+            <table className='tables'>
         <th>Customer Name</th>
         <th>Document ID</th>
         <th>Document Name</th>

@@ -68,8 +68,9 @@ const ShowJobsInterCreated = () => {
     const user_data = async () => {
         try {
             console.log('ccccc');
-            var id = user_id.split('=')[1];
-            var response = await axios.get(`http://localhost:8080/user/get/single?user_id=${id}`);
+            var id=localStorage.getItem('doc_id')
+            var response = await axios.get(`http://localhost:8080/job/delivery/get/by/doc?doc_id=${id}`);
+            console.log(response.data);
             const obj = response.data.map((e) => {
                 return (
                     <div className='Form'>

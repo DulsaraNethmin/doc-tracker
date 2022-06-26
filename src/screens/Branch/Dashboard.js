@@ -104,7 +104,7 @@ import AppDashboard from '../../components/Dashboard/Dashboard_items'
 import AppFooter from '../../components/Dashboard/Footer';
 // import OrganizationDashboard from '../Organization/OrganizationDashboard'
 // import AppHome from './views/home';
-
+ import Head from "../Organization/OrganizationDashboard"
 import { Layout } from 'antd';
 const { Header, Content, Footer } = Layout;
 
@@ -115,7 +115,7 @@ function App() {
       <Header>
         <AppHeader/>
 
-        
+       
       </Header>
       <AppDashboard/>
       {/* <Content>

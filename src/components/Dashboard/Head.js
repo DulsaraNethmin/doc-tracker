@@ -51,7 +51,7 @@ function AppHeader() {
           <Anchor targetOffset="65">
             <Link href="/documents" title="Documents" />
             <Link href="/user/details" title="User" />
-            <Link href="/branch/jobs/int/new" title=" Jobs" />
+            <Link href="/branch/jobs" title=" Jobs" />
             <Link href="/chat" title="Notifications" />
             <Link href="/notification" title="Chat" />
           </Anchor>
