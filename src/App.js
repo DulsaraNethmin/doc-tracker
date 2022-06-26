@@ -26,9 +26,11 @@ import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
 
-import JobsInterReq from "./screens/Branch/JobsInterPending";
-import JobsIntPendTable from "./screens/Branch/JobsInterCreated";
+import JobsInterPending from "./screens/Branch/JobsInterPending";
+import JobsInterCreated from "./screens/Branch/JobsInterCreated";
+// import JobsIntPendTable from "./screens/Branch/JobsInterCreated";
 import JobsInterComp from "./screens/Branch/JobsInterComp";
+import ShowJobsInterCreated from "./screens/Branch/ShowJobsInterCreated";
 
 import JobsExtReq from "./screens/Branch/JobsExtReq";
 import JobsExtPending from "./screens/Branch/JobsExtPending";
@@ -57,13 +59,15 @@ function App() {
           <Route path="/user/profile/:user_id" exact element={<UserData/>} />
           <Route path="/documents" exact element={<Document/>} />    
 
-          <Route path="/branch/jobs/int/req" exact element={<JobsInterReq/>} /> 
-          <Route path="/branch/jobs/int/pending" exact element={<JobsIntPendTable/>} />
+          <Route path="/branch/jobs/int/new" exact element={<JobsInterCreated/>} /> 
+          <Route path="/branch/jobs/int/new/show" exact element={<ShowJobsInterCreated/>} /> 
+          <Route path="/branch/jobs/int/pending" exact element={<JobsInterPending/>} />
           <Route path="/branch/jobs/int/comp" exact element={<JobsInterComp/>} />  
 
           <Route path="/branch/jobs/ext/req" exact element={<JobsExtReq/>} /> 
           <Route path="/branch/jobs/ext/pending" exact element={<JobsExtPending/>} /> 
           <Route path="/branch/jobs/ext/comp" exact element={<JobsExtComp/>} /> 
+          
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
         </Routes>
       </BrowserRouter>

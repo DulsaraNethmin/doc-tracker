@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
 const originData = [];
 
-const JobsInterReq = () => {
+const JobsInterPending = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);
     const [editingKey, setEditingKey] = useState('');
@@ -28,10 +28,11 @@ const JobsInterReq = () => {
             const obj = response2.data.map((e) => {
                 return (
                     < tr >
-                        <td>{e.uuid}</td>
-                        <td>{e.branch_id}</td>
-                        <td>{e.deliverer_id}</td>
-                        <td>{e.customer_id}</td>
+                        <td>{e.customer_name}</td>
+                        <td>{e.deliverer}</td>
+                        <td>{e.job_id}</td>
+                        <td>Display</td>
+                        {/* <td>{e.customer_id}</td> */}
                         {/* <td><span onClick={() => { navigate(`/user/profile/user_id=${e.uuid}`, { replace: true, state: { uuid: e.uuid, name: e.name, username: e.username, email: e.email, role: e.role, telephone: e.telephone } }) }}>View</span></td> */}
                     </tr >
                 );
@@ -45,29 +46,24 @@ const JobsInterReq = () => {
     }
     const columns = [
         {
-            title: 'UUID',
-            dataIndex: 'uuid',
+            title: 'Job Created by',
+            dataIndex: 'customer_name',
             width: '25%',
             editable: true,
         },
         {
-            title: 'Branch ID',
-            dataIndex: 'branch_id',
+            title: 'Deliverer',
+            dataIndex: 'deliverer',
             width: '15%',
             editable: true,
         },
         {
-            title: 'Deliverer ID',
-            dataIndex: 'deliverer_id',
+            title: 'Job ID',
+            dataIndex: 'job_id',
             width: '20%',
             editable: true,
         },
-        {
-            title: 'Customer ID',
-            dataIndex: 'customer_id',
-            width: '25%',
-            editable: true,
-        },
+ 
         {
             title: 'Profile',
             dataIndex: 'Profile',
@@ -89,13 +85,13 @@ const JobsInterReq = () => {
 
     return (
         <div className='Table'>
-            <h2>New Job Requests-I</h2>
+            <h2>Pending Jobs</h2>
             <Form form={form} component={false}>
             <table>
-        <th>UUID</th>
-        <th>Branch ID</th>
-        <th>Deliverer ID</th>
-        <th>Customer ID</th>
+        <th>Job Created by</th>
+        <th>Deliverer</th>
+        <th>Job ID</th>
+        <th>Tacking</th>
         {/* <th>Operation</th> */}
         {table_body}
       </table>
@@ -104,4 +100,4 @@ const JobsInterReq = () => {
     )
 }
 
-export default JobsInterReq;
+export default JobsInterPending;

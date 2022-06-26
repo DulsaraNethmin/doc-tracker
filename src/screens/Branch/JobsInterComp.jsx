@@ -22,8 +22,8 @@ const JobsInterComp = () => {
 
     const job_data = async () => {
         try {
-            // console.log('async');
-            var response = await axios.get(`http://localhost:8080/job/get/all?branch_id=${localStorage.getItem("branch_id")}`);
+            // console.log('async'); /job/get/all/finisheddeliveries
+            var response = await axios.get(`http://localhost:8080/job/get/all/finisheddeliveries?branch_id=${localStorage.getItem("branch_id")}`);
             console.log(response.data);
             const obj = response.data.map((e) => {
                 return (
@@ -89,7 +89,7 @@ const JobsInterComp = () => {
 
     return (
         <div className='Table'>
-            <h2>Completed Jobs-I</h2>
+            <h2>Completed Jobs</h2>
             <Form form={form} component={false}>
             <table>
         <th>UUID</th>

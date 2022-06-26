@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
 const originData = [];
 
-const JobsIntPendTable = () => {
+const JobsInterCreated = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);
     const [editingKey, setEditingKey] = useState('');
@@ -24,21 +24,24 @@ const JobsIntPendTable = () => {
         try {
             // console.log('async');
             var response = await axios.get(`http://localhost:8080/job/get/all/opendeliveries?branch_id=${localStorage.getItem("branch_id")}`);
-            var response2 = await axios.get(`http://localhost:8080/job/get/all/openpending?branch_id=${localStorage.getItem("branch_id")}`);
+            // var response2 = await axios.get(`http://localhost:8080/job/get/all/openpending?branch_id=${localStorage.getItem("branch_id")}`);
             var response3 = await axios.get(`http://localhost:8080/user/get/deliverer?branch_id=${localStorage.getItem("branch_id")}`);
             console.log(response.data);
-            console.log(response2.data);
+            // console.log(response2.data);
             console.log(response3.data);
             const obj = response.data.map((e) => {
                 return (
                     < tr >
                         <td>{e.customer_name}</td>
+                        <td>{e.doc_id}</td>
                         <td>{e.doc_name}</td>
                         <td>{e.end_customer_name}</td>
                         {/* <td>{e.end_customer_id}</td> */}
-                        <td>View</td>
-                        {/* <td><span onClick={() => { navigate(`/user/profile/user_id=${e.uuid}`, { replace: true, state: { uuid: e.uuid, name: e.name, username: e.username, email: e.email, role: e.role, telephone: e.telephone } }) }}>View</span></td> */}
-                    </tr >
+                        <td><span onClick={()=>{
+               localStorage.setItem('doc_id',e.doc_id);
+               navigate(`/branch/jobs/int/new/show=${e.doc_id}`,{replace:true,state:{doc_id:e.doc_id,customer_id:e.customer_id,customer_name:e.customer_name,delivery_id:e.delivery_id,doc_id:e.doc_id,doc_name:e.doc_name,end_custmer_id:e.end_custmer_id,end_customer_name:e.end_customer_name,job_id:e.job_id}})}}
+            >View</span></td>
+                       </tr >
                 );
             })
             setData(obj);
@@ -50,20 +53,26 @@ const JobsIntPendTable = () => {
     }
     const columns = [
         {
-            title: 'UUID',
-            dataIndex: 'uuid',
+            title: 'Customer Name',
+            dataIndex: 'customer_name',
             width: '25%',
             editable: true,
         },
         {
-            title: 'Branch ID',
-            dataIndex: 'branch_id',
+            title: 'Document ID',
+            dataIndex: 'doc_id',
             width: '15%',
             editable: true,
         },
         {
-            title: 'Deliverer ID',
-            dataIndex: 'deliverer_id',
+            title: 'Document Name',
+            dataIndex: 'doc_name',
+            width: '15%',
+            editable: true,
+        },
+        {
+            title: 'Receiving Customer',
+            dataIndex: 'end_customer_name',
             width: '20%',
             editable: true,
         },
@@ -98,6 +107,7 @@ const JobsIntPendTable = () => {
             <Form form={form} component={false}>
             <table>
         <th>Customer Name</th>
+        <th>Document ID</th>
         <th>Document Name</th>
         <th>Receiving Customer</th>
         <th>More details</th>
@@ -110,4 +120,4 @@ const JobsIntPendTable = () => {
     )
 }
 
-export default JobsIntPendTable;
+export default JobsInterCreated;

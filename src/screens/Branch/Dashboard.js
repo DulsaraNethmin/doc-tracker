@@ -31,7 +31,7 @@ const items = [
   getItem(<a class="nav-link" href="/user/details">User</a>, '2', <UserOutlined />),
 
   getItem('Jobs', 'sub2', <AppstoreOutlined />, [
-    getItem(<a class="nav-link" href="">Internal Jobs</a>, 'sub3', null, [getItem(<a class="nav-link" href="/branch/jobs/int/req">Requests</a>, '6'),getItem(<a class="nav-link" href="/branch/jobs/int/pending">Pending Jobs</a>, '7'),getItem(<a class="nav-link" href="/branch/jobs/int/comp">Completed Jobs</a>, '8')]),
+    getItem(<a class="nav-link" href="">Internal Jobs</a>, 'sub3', null, [getItem(<a class="nav-link" href="/branch/jobs/int/new">Created</a>, '6'),getItem(<a class="nav-link" href="/branch/jobs/int/pending">Pending Jobs</a>, '7'),getItem(<a class="nav-link" href="/branch/jobs/int/comp">Completed Jobs</a>, '8')]),
     getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem(<a class="nav-link" href="/branch/jobs/ext/req">Requests</a>, '9'),getItem(<a class="nav-link" href="/branch/jobs/ext/pending">Pending Jobs</a>, '10'),getItem(<a class="nav-link" href="/branch/jobs/ext/comp">Completed Jobs</a>, '11')]),
   ]),
 
