@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const originData = [];
 
-const BranchesTable = () => {
+const OrganizationTable = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState("");
@@ -21,26 +21,22 @@ const BranchesTable = () => {
 
   const user_data = async () => {
     try {
-
+        
       var data = localStorage.getItem("organization_id");
 
       var response = await axios.get(
-        `http://localhost:8080/organization/get/branchowners?organization_id=${data}`
+        `http://localhost:8080/organization/get/details?organization_id=${data}`
       );
       //console.log(response.data);
       const obj = response.data.map((e) => {
         return {
-          Branch_Name: e.b_name,
-          Address1: e.b_number,
-          Address2: e.b_street,
-          Address3: e.b_town,
-          Br_Owner: e.name,
-          Br_Owner_Username: e.username,
-          Br_Owner_Password: e.password,
+          Organization_Name: e.o_name,
+          Organization_Owner: e.name,
+          Org_Owner_Username: e.username,
+          Org_Owner_Password: e.password,
           email:e.email,
-          telephone:e.telephone,
-          longitude:e.longitude,
-          latitude:e.latitude
+          telephone:e.telephone
+          
         };
       });
       setData(obj);
@@ -52,74 +48,44 @@ const BranchesTable = () => {
 
   const columns = [
       {
-        title: "Branch Name",
-        dataIndex: "Branch_Name",
+        title: "Organization Name",
+        dataIndex: "Organization_Name",
         //width: '25%',
         editable: true,
       },
       {
-        title: "Address1",
-        dataIndex: "Address1",
+        title: "Organization Owner",
+        dataIndex: "Organization_Owner",
         //width: '15%',
         editable: true,
       },
       {
-        title: "Address2",
-        dataIndex: "Address2",
+        title: "Owner_Username",
+        dataIndex: "Org_Owner_Username",
         //width: '20%',
         editable: true,
       },
       {
-        title: "Address3",
-        dataIndex: "Address3",
+        title: "Owner Password",
+        dataIndex: "Org_Owner_Password",
         //width: '25%',
         editable: true,
       },
       {
-        title: "Latitude",
-        dataIndex: "latitude",
-        //width: '25%',
-        editable: true,
-      },
-      {
-        title: "Longitude",
-        dataIndex: "longitude",
-        //width: '25%',
-        editable: true,
-      },
-      {
-        title: "Br. Telephone",
-        dataIndex: "telephone",
-        //width: '25%',
-        editable: true,
-      },
-      {
-        title: "Br. Email",
+        title: "Organization Email",
         dataIndex: "email",
         //width: '25%',
         editable: true,
       },
       {
-        title: "Br. Owner",
-        dataIndex: "Br_Owner",
+        title: "Organization Telephone",
+        dataIndex: "telephone",
         //width: '25%',
         editable: true,
       },
-      {
-        title: "Br. Owner Username",
-        dataIndex: "Br_Owner_Username",
-        //width: '25%',
-        editable: true,
-      },
-      {
-        title: "Br. Owner Password",
-        dataIndex: "Br_Owner_Password",
-        //width: '25%',
-        editable: true,
-      },
-      
     ];
-  
+      
+
   const mergedColumns = columns.map((col) => {
     return {
       ...col,
@@ -128,7 +94,7 @@ const BranchesTable = () => {
 
   return (
     <div className="Table">
-      <h2>Branch Details</h2>
+      <h2>Organization Details</h2>
       <Form form={form} component={false}>
         <Table
           bordered
@@ -141,5 +107,5 @@ const BranchesTable = () => {
   );
 };
 
-export default BranchesTable;
+export default OrganizationTable;
 
