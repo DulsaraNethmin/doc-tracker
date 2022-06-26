@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"
 const originData = [];
 
-const JobsIntPendTable = () => {
+const JobsInterReq = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);
     const [editingKey, setEditingKey] = useState('');
@@ -17,32 +17,28 @@ const JobsIntPendTable = () => {
     useEffect(() => {
         var data = job_data();
         console.log(data);
-        //setData();
+        setData();
     }, [])
 
     const job_data = async () => {
         try {
             // console.log('async');
-            var response = await axios.get(`http://localhost:8080/job/get/all/opendeliveries?branch_id=${localStorage.getItem("branch_id")}`);
             var response2 = await axios.get(`http://localhost:8080/job/get/all/openpending?branch_id=${localStorage.getItem("branch_id")}`);
-            var response3 = await axios.get(`http://localhost:8080/user/get/deliverer?branch_id=${localStorage.getItem("branch_id")}`);
-            console.log(response.data);
             console.log(response2.data);
-            console.log(response3.data);
-            const obj = response.data.map((e) => {
+            const obj = response2.data.map((e) => {
                 return (
                     < tr >
-                        <td>{e.delivery_id}</td>
-                        <td>{e.doc_name}</td>
+                        <td>{e.uuid}</td>
+                        <td>{e.branch_id}</td>
+                        <td>{e.deliverer_id}</td>
                         <td>{e.customer_id}</td>
-                        <td>{e.end_customer_id}</td>
                         {/* <td><span onClick={() => { navigate(`/user/profile/user_id=${e.uuid}`, { replace: true, state: { uuid: e.uuid, name: e.name, username: e.username, email: e.email, role: e.role, telephone: e.telephone } }) }}>View</span></td> */}
                     </tr >
                 );
             })
             setData(obj);
             settable_body(obj);
-            return response.data;
+            return response2.data;
         } catch (e) {
             console.log(e);
         }
@@ -93,7 +89,7 @@ const JobsIntPendTable = () => {
 
     return (
         <div className='Table'>
-            <h2>Newly Created Jobs-I</h2>
+            <h2>New Job Requests-I</h2>
             <Form form={form} component={false}>
             <table>
         <th>UUID</th>
@@ -108,4 +104,4 @@ const JobsIntPendTable = () => {
     )
 }
 
-export default JobsIntPendTable;
+export default JobsInterReq;

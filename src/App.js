@@ -26,8 +26,8 @@ import OrgOwnerCreatePage from "./screens/Organization/OrgOwnerCreatePage";
 import BranchOwnerRegPage from "./screens/Auth/BranchOwnerRegPage";
 import Dashboard from "./screens/Branch/Dashboard";
 
-import JobsInterReq from "./screens/Branch/JobsInterReq";
-import JobsIntPendTable from "./screens/Branch/JobsInterPending";
+import JobsInterReq from "./screens/Branch/JobsInterPending";
+import JobsIntPendTable from "./screens/Branch/JobsInterCreated";
 import JobsInterComp from "./screens/Branch/JobsInterComp";
 
 import JobsExtReq from "./screens/Branch/JobsExtReq";
