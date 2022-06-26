@@ -6,13 +6,14 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import io from 'socket.io-client';
-import { connect } from 'react-redux';
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
+import Background from '../images/Chat.jpg'
+const io = require("socket.io-client");
+
+
 
  let socket;
 function SendMail() {
-    //let socket;
+    
     const [Receiver, setReceiver] = useState([]);
   
     const [image,setImage]=useState('');
@@ -40,11 +41,16 @@ function SendMail() {
 
     
     useEffect(() => {
-
-        // socket=io.connect();
-        // //console.log(name ,room);
-        // socket.emit('signin',{"id":sid,"branch_id":bid});
+     
+      
         try{
+            socket= io("http://localhost:4000");
+            try{
+            socket.emit('signin',{  id: sid, branch_id: bid });
+            }catch(e){
+                console.log(e);
+            }
+
             receiverProfile();
            
           }catch(e){
@@ -88,13 +94,19 @@ function SendMail() {
         setSeen(true);
         
         sendAddMail();
-        // socket.emit('signin',{ id: sid, branch_id:bid });
-        // socket.emit('msg',addmail.body);
+        socket.
+        setAddmail({
+            head: "",
+            body: "",
+            
+            
+          }
+          
+          );  
        
      }  
    
-     //socket
-     
+   
 
    
      const sendAddMail=async()=>{
@@ -118,7 +130,8 @@ function SendMail() {
 
   return (
     <div style={{
-        padding : "50px"
+        padding : "50px",
+        backgroundImage: `url(${Background})`
      }}>
          <h2>{sender}</h2>  
          <p style={{
@@ -133,20 +146,33 @@ function SendMail() {
          <TextArea rows={2}  size="small" placeholder="Head"  value={addmail.head} onChange={(event) => {
                 setAddmail({ ...addmail, head: event.target.value });
                
+              }} 
+              style={{
+                opacity:'0.6'
               }} />
 
             <h4 >Enter Mail</h4>
-         <TextArea rows={4}  size="small" placeholder="Mail" value={addmail.body} onChange={(event) => {
+         <TextArea rows={4}  size="small" placeholder="Mail" defaultValue={addmail.body} onChange={(event) => {
                 setAddmail({ ...addmail, body: event.target.value });
                 
               }}
-               />
-              <Button onClick={handleMassage} >Send</Button> 
+              style={{
+                opacity:'0.6'
+              }} />
+              <Button  style={{
+                opacity:'0.6',
+                position:'relative',
+                top:'20px'
+              }}  onClick={handleMassage} >Send</Button> 
               </form>
              
           </div> 
           <Link to='/Mail/GetsentMail'>
-              <Button> Sent Mails</Button>
+              <Button  style={{
+                opacity:'0.6',
+                position:'relative',
+                top:'40px'
+              }} > Sent Mails</Button>
               </Link>
          
     </div>

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import io from "socket.io-client"
 import 'antd/dist/antd.css'
-
+import Background from '../images/Chat.jpg'
 
 
 function Mail() {
@@ -67,7 +67,9 @@ catch(e){
    ]
      
   return (
-    <div> 
+    <div   style={{
+      backgroundImage: `url(${Background})`
+    }} > 
       <div
       style={{
         alignItems:"center"
@@ -79,11 +81,11 @@ catch(e){
         alignItems:"center",
         padding:'10px',
         position:'relative',
-        left:"50px",
+        left :'50px',
         top:"20px"
       }} >
          <Link to='/Mail/GetsentMail'>
-      <Button  >Sent Mails</Button>  
+      <Button type="dashed" >Sent Mails</Button>  
       </Link> 
       </div>
       <div style={{
@@ -95,8 +97,22 @@ catch(e){
 
       }} >
       <Link to='/Mail/Received'>
-       <Button>Recieved Mail</Button>
+       <Button type="dashed">Recieved Mail</Button>
        </Link>
+       
+       </div>
+       <div style={{
+        alignItems:"center",
+        padding:'10px',
+        position:'relative',
+        left:"50px",
+        top:"20px"
+
+      }} >
+      <Link to='/branch/dashboard'>
+       <Button type="dashed">Back</Button>
+       </Link>
+       
        </div>
        </div>
       </div>
@@ -104,7 +120,8 @@ catch(e){
             padding : "50px",
              position:'relative',
         left:"50px",
-          }}
+        'font-family': 'Lucida Handwriting'
+      }}
       >To send a Mails</h2>
       <Table dataSource={User} columns={columns} onRow={(record, recordIndex) => ({
             onClick: event => { console.log("onRow onClick", event.target, event.target.className, record, recordIndex) 
@@ -112,7 +129,8 @@ catch(e){
           }
           })}
           style={{
-            padding:'20px'
+            padding:'20px',
+            opacity:'0.6'
           }} ></Table>
     </div>
   )
