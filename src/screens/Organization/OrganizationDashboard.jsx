@@ -36,10 +36,7 @@ const date = `${current.getDate()}/${
   current.getMonth() + 1
 }/${current.getFullYear()}`;
 
-// const {Content} = Layout;
-
-
-function Head() {
+const OrganizationDashboard = () => {
   const navigate = useNavigate();
   var data = localStorage.getItem("organization_name");
 
@@ -223,6 +220,6 @@ function Head() {
       </div>
     </div>
   );
-}
+};
 
-export default Head;
+export default OrganizationDashboard;

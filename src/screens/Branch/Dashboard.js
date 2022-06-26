@@ -35,8 +35,8 @@
 //     getItem(<a class="nav-link" href="">External Jobs</a>, 'sub4', null, [getItem(<a class="nav-link" href="/branch/jobs/ext/req">Requests</a>, '9'),getItem(<a class="nav-link" href="/branch/jobs/ext/pending">Pending Jobs</a>, '10'),getItem(<a class="nav-link" href="/branch/jobs/ext/comp">Completed Jobs</a>, '11')]),
 //   ]),
 
-  getItem( <a class="nav-link" href="">Notifications</a>, '3',<BellOutlined />),
-  getItem( <a class="nav-link" href="/Mail">Mail</a>, '4',<WechatOutlined />),
+  // getItem( <a class="nav-link" href="">Notifications</a>, '3',<BellOutlined />),
+  // getItem( <a class="nav-link" href="/Mail">Mail</a>, '4',<WechatOutlined />),
 
 
 // function Dashboard(){
@@ -94,8 +94,8 @@
 // //   </Layout>
 
 
-import React from 'react';
-// import './App.css';
+// import React,{ useState }  from "react";
+
 import 'antd/dist/antd.css';
 
 import AppHeader from '../../components/Dashboard/Head'

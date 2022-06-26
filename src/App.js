@@ -50,6 +50,7 @@ import JobsExtPending from "./screens/Branch/JobsExtPending";
 import JobsExtComp from "./screens/Branch/JobsExtPending";
 
 import Jobs from "./screens/Branch/Jobs"
+import UserProfile from "./screens/Branch/Userprofile";
 
 function App() {
   return (
@@ -88,7 +89,7 @@ function App() {
           <Route path="/branch/jobs/ext/comp" exact element={<JobsExtComp/>} /> 
           
          {/* { <Route path="/mail" exact element={<Chat />} />} */}
-          <Route path="/user/profile/:user_id" exact element={<Userprofile/>} />
+          <Route path="/user/profile/:user_id" exact element={<UserProfile/>} />
           <Route path="/documents" exact element={<Document/>} /> 
           <Route path="/documents/viewQrcode" exact element={<ViewQrCodeDetails/>} />   
           <Route path="/documents/confirmDelete" exact element={<ConfirmDocDelete/>} />   
