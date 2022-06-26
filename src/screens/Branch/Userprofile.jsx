@@ -13,6 +13,7 @@ const onFinish = (values) => {
 
 
 
+
 const layout = {
   labelCol: {
     span: 8,
@@ -39,21 +40,24 @@ const UserProfile = () => {
   const [editingKey, setEditingKey] = useState('');
   const navigate = useNavigate();
   const [Form_body, setForm_body] = useState([]);
-  
+  const use_id=localStorage.getItem('uuid');
+  const id={use_id}.use_id
+  console.log(id)
   const [update, setUpdate] = useState({
+    user_id:{id},
     Name: "",
     Username: "",
     Email: "",
-    Role:"",
-    Telephone:""
+    Role: "",
+    Telephone: ""
   });
   //not
   const isEditing = (record) => record.key === editingKey;
- const Updateinfo=()=>
-{
-     console.log(update);
-}
- 
+  const Updateinfo = () => {
+  
+    console.log(update);
+  }
+
 
   useEffect(() => {
     var data = user_data();
@@ -94,20 +98,21 @@ const UserProfile = () => {
 
                   <Form.Item
                     name={['user', 'name']}
-                    label={e.name}
-    //                 rules={[{ required: true, message: 'Name is required' }]}>
-    //                 <Input placeholder={e.name}  onChange={(event) => {
-    // setUpdate({ ...update, Name: event.target.value });}}
-    >
+                    label="Name"
+                                  rules={[{ required: true, message: 'Name is required' }]}>
+                                  <Input defaultValue={e.name}  onChange={(event) => {
+                  setUpdate({ ...update, Name: event.target.value });}}
+                  />
 
                   </Form.Item>
                   <Form.Item
                     name={['user', 'username']}
                     label="Username"
                     rules={[{ required: true, message: 'Username is required' }]}>
-                    
-                    <Input value={e.username} onChange={(event) => {
-    setUpdate({ ...update,Username: event.target.value });}}/>
+
+                    <Input defaultValue={e.username} onChange={(event) => {
+                      setUpdate({ ...update, Username: event.target.value });
+                    }} />
                   </Form.Item>
                   <Form.Item
                     name={['user', 'email']}
@@ -115,36 +120,40 @@ const UserProfile = () => {
                     rules={[
                       {
                         type: 'email',
-                        required: true, message: 'Username is required'
+                        required: true, message: 'email is required'
                       },
                     ]}
-                  
+
                   >
-                    <Input placeholder={e.email} onChange={(event) => {
-    setUpdate({ ...update, Email: event.target.value });}}/>
+                    <Input defaultValue={e.email} onChange={(event) => {
+                      setUpdate({ ...update, Email: event.target.value });
+                    }} />
                   </Form.Item>
                   <Form.Item
                     name={['user', 'telephone']}
                     label="Telephone"
 
                   >
-                    <Input placeholder={e.telephone} onChange={(event) => {
-    setUpdate({ ...update, Telephone: event.target.value });}}/>
+                    <Input defaultValue={e.telephone} onChange={(event) => {
+                      setUpdate({ ...update, Telephone: event.target.value });
+                    }} />
                   </Form.Item>
 
                   <Form.Item label="Role">
-                    <Select placeholder={e.role}>
+                    <Select defaultValue={e.role}>
                       <Select.Option value="Customer" onChange={(event) => {
-    setUpdate({ ...update,Role: event.target.value });}}>Customer</Select.Option>
+                        setUpdate({ ...update, Role: event.target.value });
+                      }}>Customer</Select.Option>
                       <Select.Option value="Deliverer" onChange={(event) => {
-    setUpdate({ ...update, Role: event.target.value });}}>Deliverer</Select.Option>
+                        setUpdate({ ...update, Role: event.target.value });
+                      }}>Deliverer</Select.Option>
                     </Select>
                   </Form.Item>
 
                   <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                    {/* <Button type="primary" htmlType="submit" onClick={Updateinfo}>
+                    <Button type="primary" htmlType="submit" onClick={Updateinfo}>
                       Submit
-                    </Button> */}
+                    </Button>
                   </Form.Item>
                 </Form>
               </Col>

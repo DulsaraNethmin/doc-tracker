@@ -114,7 +114,9 @@ header
 .homeWidgets{
   display: flex;
   margin: 20px;
-  flex: 10;
+  flex: 100;
+  background: url('background_header.jpg') no-repeat;
+
 }
 
 .header .logo {
@@ -526,7 +528,8 @@ responsive
   background: rgba(255, 255, 255, 0.2);
 }
 .site-layout .site-layout-background {
-  background: #fff;
+  /* background: #fff; */
+  background-image: url('background_header.jpg') no-repeat;
 }
 
 /* Features */
