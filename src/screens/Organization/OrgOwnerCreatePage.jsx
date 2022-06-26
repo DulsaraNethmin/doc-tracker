@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
+import { Form, Input, Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -27,26 +27,14 @@ const validateMessages = {
 };
 
 const OrgOwnerCreatePage = () => {
+  //const [name, setOrgName] = useState("");
   const [owner, setOwner] = useState("");
   const [organization_owneruser_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [organization_owner_email, setEmail] = useState("");
-  const [organization_owner_telephone, setTelephone] = useState("");
 
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  const [sendEmail, setSendEmail] = useState(false);
-
-  // const onChange = (e) => {
-  //   console.log(`checked = ${e.target.checked}`);
-  //   setSendEmail(e.target.value);
+  // const handleOrgName = (e) => {
+  //   setOrgName(e.target.value);
   // };
-
-  const handleSendEmail = (e) => {
-    setSendEmail(e.target.checked);
-  };
-
   const handleOwner = (e) => {
     setOwner(e.target.value);
   };
@@ -57,14 +45,6 @@ const OrgOwnerCreatePage = () => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleTelephone = (e) => {
-    setTelephone(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -120,7 +100,6 @@ const OrgOwnerCreatePage = () => {
                   }}
                 />
               </Form.Item>
-              <p>{usernameError}</p>
 
               <Form.Item
                 name="password"
@@ -138,59 +117,6 @@ const OrgOwnerCreatePage = () => {
                     handlePassword(e);
                   }}
                 />
-              </Form.Item>
-              <p>{passwordError}</p>
-
-              <Form.Item
-                name="organization_owner_telephone"
-                label="Contact Number"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Input Contact Number",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handleTelephone(e);
-                  }}
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="organization_owner_email"
-                label="Email"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Input Email Address",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handleEmail(e);
-                  }}
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="sendEmail"
-                valuePropName="checked"
-                wrapperCol={{
-                  offset: 8,
-                  span: 16,
-                }}
-                onChange={(e) => {
-                  handleSendEmail(e);
-                }}
-              >
-                <Checkbox>Send User Details via Email</Checkbox>
               </Form.Item>
 
               <Row>
@@ -213,91 +139,39 @@ const OrgOwnerCreatePage = () => {
                     // }}
                     onClick={async (e) => {
                       e.preventDefault();
-                      setUsernameError();
-                      setPasswordError();
-                      console.log(sendEmail);
-                      if(owner == ""||organization_owneruser_name == ""||password == ""||organization_owner_telephone == ""||organization_owner_email == ""){
-                        window.alert ("Please Fill all the fields before submitting")
-                      }else{
-                      let data = {
-                        sendEmailStatus: sendEmail,
-                        name: owner,
-                        username: organization_owneruser_name,
-                        password: password,
-                        role: "Organization Owner",
-                        telephone: organization_owner_telephone,
-                        email: organization_owner_email,
-                        organization_id:
-                          localStorage.getItem("organization_id"),
-                      };
-
-                      //console.log(data);
-                      let response = await axios.post(
-                        "http://localhost:8080/user/add",
-                        data
-                      );
-                      var user_id = response.data;
-                      console.log(response.data)
-                      localStorage.setItem("user_id", response.data);
-                     
-
-                      //console.log(response.data);
-                      if (response.status == 200) {
-                        //window.alert("Organization Owner Created");
-                        navigate("/organization/dashboard");
-                      }
-                      if (response.status == 201) {
-                        if (response.data.username) {
-                          setUsernameError(response.data.username);
-                          //response.data.username = "";
+                      
+                        console.log(owner, organization_owneruser_name, password);
+                        let data = {
+                          name: owner,
+                          username: organization_owneruser_name,
+                          password: password,
+                          role: "Organization Owner",
+                          organization_id:localStorage.getItem("organization_id"),
+                        };
+                        console.log(data);
+                        let response = await axios.post(
+                          "http://localhost:8080/user/add",
+                          data
+                        );
+                        console.log(response.data);
+                        if (response.status == 200) {
+                          window.alert("Organization Owner Created");
+                          navigate("/organization/dashboard");
                         }
-                        if (response.data.password) {
-                          setPasswordError(response.data.password);
-                          //response.data.password = "";
+                        if (response.status != 200) {
+                          window.alert(
+                            "Organization Owner Creation UNSuccessfull"
+                          );
                         }
-
-                        console.log(response.data.username);
-                        console.log(response.data.password);
-
-                        //window.alert(response.data.password);
-                        //     console.log(sendEmail);
-                        //     if (sendEmail) {
-                        //       try {
-                        //         let data2 = {
-                        //           name: owner,
-                        //           username: organization_owneruser_name,
-                        //           password: password,
-                        //           role: "Organization Owner",
-                        //           telephone: organization_owner_telephone,
-                        //           email: organization_owner_email,
-                        //           organization_name:
-                        //             localStorage.getItem("organization_name"),
-                        //         };
-                        //         await axios.post("http://localhost:8080/send/mail",
-                        //         data2);
-                        //         console.log("Email Sent");
-                        //     } catch (e) {
-                        //         console.log("Email Sending Unsuccessful")
-                        //     }
-
-                        //     }
                       }
                     }
-                    }}
                   >
                     Next*
                   </Button>
                 </Form.Item>
               </Row>
-              <h6>
-                *After Creating an Organization and the Organization Owner, it
-                is essential to create a Branch. If not the crreated
-                organization will not be validated.
-              </h6>
-              <h6>
-                *So proceed with creating a branch, after going to organization
-                dashboard.
-              </h6>
+              <h6>*After Creating an Organization and the Organization Owner, it is essential to create a Branch. If not the crreated organization will not be validated.</h6>
+              <h6>*So proceed with creating a branch, after going to organization dashboard.</h6>
             </Form>
           </Card>
         </Col>

@@ -1,6 +1,5 @@
 import React from "react";
-import "./pages.css";
-import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
+import { Form, Input, Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -27,27 +26,15 @@ const validateMessages = {
   },
 };
 
-const onChange = (e) => {
-  console.log(`checked = ${e.target.checked}`);
-};
-
 const BranchOwnerRegPage = () => {
   //const [name, setBrName] = useState("");
   const [owner, setOwner] = useState("");
   const [Br_owneruser_name, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [br_owner_email, setEmail] = useState("");
-  const [br_owner_telephone, setTelephone] = useState("");
 
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  const [sendEmail, setSendEmail] = useState(false);
-
-  const handleSendEmail = (e) => {
-    setSendEmail(e.target.checked);
-  };
-
+  // const handleOrgName = (e) => {
+  //   setOrgName(e.target.value);
+  // };
   const handleOwner = (e) => {
     setOwner(e.target.value);
   };
@@ -58,14 +45,6 @@ const BranchOwnerRegPage = () => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleTelephone = (e) => {
-    setTelephone(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -121,7 +100,7 @@ const BranchOwnerRegPage = () => {
                   }}
                 />
               </Form.Item>
-              <p>{usernameError}</p>
+
               <Form.Item
                 name="password"
                 label="Branch Password"
@@ -138,59 +117,6 @@ const BranchOwnerRegPage = () => {
                     handlePassword(e);
                   }}
                 />
-              </Form.Item>
-              <p>{passwordError}</p>
-
-              <Form.Item
-                name="br_owner_telephone"
-                label="Contact Number"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Input Contact Number",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handleTelephone(e);
-                  }}
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="br_owner_email"
-                label="Email"
-                //tooltip="What do you want others to call you?"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Input Email Address",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input
-                  onChange={(e) => {
-                    handleEmail(e);
-                  }}
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="sendEmail"
-                valuePropName="checked"
-                wrapperCol={{
-                  offset: 8,
-                  span: 16,
-                }}
-                onChange={(e) => {
-                  handleSendEmail(e);
-                }}
-              >
-                <Checkbox>Send User Details via Email</Checkbox>
               </Form.Item>
 
               <Row>
@@ -212,53 +138,35 @@ const BranchOwnerRegPage = () => {
                     //   navigate("/register-admin");
                     // }}
                     onClick={async (e) => {
-                      
                       e.preventDefault();
-                      setUsernameError();
-                      setPasswordError();
-
-                      if(owner == ""||Br_owneruser_name == ""||password == ""||br_owner_telephone == ""||br_owner_email == ""){
-                        window.alert ("Please Fill all the fields before submitting")
-                      }else{
                       
-                      let data = {
-                        sendEmailStatus: sendEmail,
-                        name: owner,
-                        username: Br_owneruser_name,
-                        password: password,
-                        role: "Branch Owner",
-                        telephone: br_owner_telephone,
-                        email: br_owner_email,
-                        branch_id: localStorage.getItem("branch_id"),
-                      };
-                      //console.log(data);
-                      let response = await axios.post(
-                        "http://localhost:8080/user/add",
-                        data
-                      );
-
-                      //console.log(response.data);
-                      if (response.status == 200) {
-                        window.alert("Branch Owner Created");
-                        navigate("/organization/dashboard");
-                      }
-                      if (response.status == 201) {
-                        if (response.data.username) {
-                          setUsernameError(response.data.username);
-                          //response.data.username = "";
+                        console.log(owner, Br_owneruser_name, password);
+                        let data = {
+                          name: owner,
+                          username: Br_owneruser_name,
+                          password: password,
+                          role: "Branch Owner",
+                          // org_id:localStorage.getItem("org_id"),
+                          // role: "Organization Owner",
+                          branch_id:localStorage.getItem("branch_id"),
+                        };
+                        console.log(data);
+                        let response = await axios.post(
+                          "http://localhost:8080/user/add",
+                          data
+                        );
+                        console.log(response.data);
+                        if (response.status == 200) {
+                          window.alert("Branch Owner Created");
+                          navigate("/organization/dashboard");
                         }
-                        if (response.data.password) {
-                          setPasswordError(response.data.password);
-                          //response.data.password = "";
+                        if (response.status != 200) {
+                          window.alert(
+                            "Organization Owner Creation UNSuccessfull"
+                          );
                         }
-
-                        console.log(response.data.username);
-                        console.log(response.data.password);
-
-                        //window.alert(response.data.password);
                       }
-                      }
-                    }}
+                    }
                   >
                     Next
                   </Button>

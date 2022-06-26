@@ -1,5 +1,4 @@
 import React from "react";
-import "./pages.css";
 import { Row, Col } from "antd";
 import AdminRegistration from "../components/AdminRegistration";
 import RegistrationForm from "../components/Register";
