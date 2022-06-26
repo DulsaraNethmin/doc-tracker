@@ -71,31 +71,7 @@ function Head() {
       <h1>Welcome to DocTracker</h1>
       <br />
       <h2 className="headerH1">{date}</h2>
-      <button
-        onClick={async (e) => {
-          e.preventDefault();
-          localStorage.clear();
-          navigate("/");
-        }}
-      >
-        Logout
-      </button>
-      <button
-        onClick={async (e) => {
-          e.preventDefault();
-          navigate("/branch/deliverer/create");
-        }}
-      >
-        Create Deliverer
-      </button>
-      <button
-        onClick={async (e) => {
-          e.preventDefault();
-          navigate("/branch/customer/create");
-        }}
-      >
-        Create Customer
-      </button>
+      
     </div>
   );
 }

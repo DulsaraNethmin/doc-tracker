@@ -98,6 +98,8 @@ function App() {
           <Route path="/Mail/Send" exact element={<SendMail/>} />
           <Route path="/Mail/GetsentMail" exact element={<GetsentMail/>} />
 
+          
+
         </Routes>
       </BrowserRouter>
     </div>

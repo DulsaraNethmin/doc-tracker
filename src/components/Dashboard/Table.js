@@ -36,7 +36,7 @@ const Tbl =()=> {
                              <table >
                                  <tr className="widgetLgTr">
 
-                                 <td className="widgetLgTh"><img src="{e.image_url}" alt=""  className="widgetSmImg"/></td>
+                                 <td className="widgetLgTh"><img src={e.image_url} alt=""  className="widgetSmImg"/></td>
                                      <td>  <h4 className="widgetLgTitle">{e.name}</h4></td>
                                 </tr>
                                 
@@ -74,7 +74,7 @@ const Tbl =()=> {
       return (
         <div className='Table'>
           
-            <h2>Available Deliverers</h2>
+            <h2>Deliverers</h2>
             <Form form={form} component={false}>
     
          
