@@ -229,6 +229,7 @@ const OrgOwnerCreatePage = () => {
                         email: organization_owner_email,
                         organization_id:
                           localStorage.getItem("organization_id"),
+                          image_url:"https://nethmin-bucket.s3.ap-south-1.amazonaws.com/profile.png"
                       };
 
                       //console.log(data);

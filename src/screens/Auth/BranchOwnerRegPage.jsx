@@ -289,6 +289,7 @@ const BranchOwnerRegPage = () => {
                         telephone: br_owner_telephone,
                         email: br_owner_email,
                         branch_id: localStorage.getItem("branch_id"),
+                        image_url:"https://nethmin-bucket.s3.ap-south-1.amazonaws.com/profile.png"
                       };
                       //console.log(data);
                       let response = await axios.post(
