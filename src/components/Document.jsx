@@ -19,8 +19,6 @@ import {
 } from "antd";
 
 import { Layout,Menu } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
-
 import { addDocument, documentAdd } from "../features/doucument";
 import { useEffect } from "react";
 
@@ -31,6 +29,9 @@ import { Input, Button } from "antd";
 import Dashboard from "../screens/Branch/Dashboard";
 import Title from "antd/lib/skeleton/Title";
 import Background from "../images/R.jpg";
+const { Header, Footer, Sider, Content } = Layout;
+
+
 
 function Document() {
   const navigate = useNavigate();
