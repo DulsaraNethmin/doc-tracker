@@ -118,7 +118,7 @@ const BranchEdit = () => {
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
-    <div>
+    <div className="main-container">
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{

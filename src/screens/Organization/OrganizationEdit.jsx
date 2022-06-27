@@ -180,7 +180,7 @@ const OrganizationEdit = () => {
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
-    <div>
+    <div className="main-container">
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{
@@ -223,20 +223,21 @@ const OrganizationEdit = () => {
           ]}
         ></PageHeader>
       </div>
-      <div className="Table">
-        <h2>Organization Details</h2>
-        <Form form={form} component={false}>
-          <Table
-            bordered
-            dataSource={data}
-            columns={mergedColumns}
-            rowClassName="editable-row"
-          />
-        </Form>
-      </div>
+
       <Row style={{ padding: "4% 0" }}>
         <Col span={3}></Col>
         <Col span={18}>
+          <div>
+            <h2>Organization Details</h2>
+            <Form form={form} component={false}>
+              <Table
+                bordered
+                dataSource={data}
+                columns={mergedColumns}
+                rowClassName="editable-row"
+              />
+            </Form>
+          </div>
           <Card title="Add New Details*" alignment="center">
             <p>*Should fill all the fiels before pressing Update button.</p>
             <br />
@@ -368,12 +369,11 @@ const OrganizationEdit = () => {
                     e.preventDefault();
                     if (
                       org_name == "" ||
-                      email  == ""||
-                      telephone  == ""||
-                      owner_name  == ""||
-                      username  == ""||
+                      email == "" ||
+                      telephone == "" ||
+                      owner_name == "" ||
+                      username == "" ||
                       password == ""
-                      
                     ) {
                       window.alert(
                         "Please fill all the fields before submitting."

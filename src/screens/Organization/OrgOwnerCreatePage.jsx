@@ -72,7 +72,7 @@ const OrgOwnerCreatePage = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="main-container">
       <Row style={{ padding: "4% 0" }}>
         <Col span={8}></Col>
         <Col span={8}>
@@ -229,6 +229,8 @@ const OrgOwnerCreatePage = () => {
                         email: organization_owner_email,
                         organization_id:
                           localStorage.getItem("organization_id"),
+                          organization_name: localStorage.getItem("organization_name"),
+                          image_url:"https://nethmin-bucket.s3.ap-south-1.amazonaws.com/profile.png"
                       };
 
                       //console.log(data);

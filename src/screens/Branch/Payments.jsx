@@ -1,8 +1,28 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-//import "../components/User.css"
 import { useNavigate } from "react-router-dom";
+//import "../components/User.css"
+import {
+  Button,
+} from "antd";
+import {
+
+
+  Dropdown,
+ 
+  PageHeader,
+  Row,
+  Col,
+  Card,
+
+  
+  Tag,
+
+} from "antd";
+
+import { Layout,Menu } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 const originData = [];
 
 const Payments = () => {
@@ -20,6 +40,7 @@ const Payments = () => {
   }, []);
 
   const user_data = async () => {
+    const navigate = useNavigate();
     // try {
     //   var data = localStorage.getItem("branch_id");
 
@@ -97,7 +118,53 @@ const Payments = () => {
   });
 
   return (
-    <div className="Table">
+    <div>
+      
+      <PageHeader
+        avatar={{
+          src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+        }}
+        //ghost={false}
+        //onBack={() => window.history.back()}
+        title="DocTracker"
+        subTitle="Branch Mode"
+        extra={[
+          <Button
+            key="3"
+            onClick={async (e) => {
+              e.preventDefault();
+              navigate("/branch/customer/create");
+            }}
+
+
+          >
+            Create New Customer
+          </Button>,
+          <Button
+            key="2"
+            onClick={async (e) => {
+              e.preventDefault();
+              navigate("/branch/deliverer/create");
+            }}
+
+          >
+            Create New Deliverer
+          </Button>,
+          <Button
+            key="1"
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+            onClick={async (e) => {
+              e.preventDefault();
+              localStorage.clear();
+              navigate("/");
+            }}
+          >
+            Logout
+          </Button>,
+        ]}
+      ></PageHeader>
       <h2>Payment Details</h2>
       <Form form={form} component={false}>
         <Table
