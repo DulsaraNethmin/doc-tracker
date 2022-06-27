@@ -115,7 +115,7 @@ header
   display: flex;
   margin: 20px;
   flex: 100;
-  background: url('background_header.jpg') no-repeat;
+  /* background: url('background_header.jpg') no-repeat; */
 
 }
 
@@ -719,3 +719,10 @@ responsive
 /* .placeholder{
   color: black;
 } */
+
+
+.BG{
+  background-image: url('https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
