@@ -3,7 +3,26 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import "../../components/User.css"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import {
+
+  Dropdown,
+  PageHeader,
+
+  Card,
+
+} from "antd";
+import {
+  FileTextOutlined,
+  UserOutlined,
+  AppstoreOutlined,
+  BellOutlined,
+  WechatOutlined,
+  CreditCardOutlined
+} from '@ant-design/icons';
+import { Layout,Menu } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
+
 const originData = [];
 const { Option } = Select;
 const onFinish = (values) => {
@@ -75,6 +94,7 @@ const UserProfile = () => {
       var response = await axios.get(`http://localhost:8080/user/get/single?user_id=${id}`);
       const obj = response.data.map((e) => {
         return (
+          
           <div className='Form' 
           // style={{
           //   backgroundImage:`url('https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
@@ -218,13 +238,59 @@ const UserProfile = () => {
   });
 
   return (
+    <div className='main-container'>
+            <PageHeader
+        avatar={{
+          src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+        }}
+        //ghost={false}
+        //onBack={() => window.history.back()}
+        title="DocTracker"
+        subTitle="Branch Mode"
+        extra={[
+        //   <Button
+        //     key="3"
+        //     onClick={async (e) => {
+        //       e.preventDefault();
+        //       navigate("/branch/customer/create");
+        //     }}
+
+
+        //   >
+        //     Create New Customer
+        //   </Button>,
+        <Button
+        key="2"
+        onClick={async (e) => {
+            e.preventDefault();
+            navigate("/branch/dashboard");
+        }}
+
+    >
+        Branch Dashboard
+    </Button>,
+          <Button
+            key="1"
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+            onClick={async (e) => {
+              e.preventDefault();
+              localStorage.clear();
+              navigate("/");
+            }}
+          >
+            Logout
+          </Button>,
+        ]}
+      ></PageHeader>
   <div style={{backgroundImage:`url('../../images/background.png') no-repeat;`}}>
 
 
       <Form form={form} component={false}>
         {Form_body}
       </Form>
-    </div>
+    </div></div>
   )
 }
 

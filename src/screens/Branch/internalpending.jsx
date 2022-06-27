@@ -2,31 +2,10 @@ import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 // import "../components/User.css"
-import { useNavigate } from "react-router-dom";
-import {
-
-    Button,
-    Dropdown,
-    PageHeader,
-    Row,
-    Col,
-    Card,
-
-} from "antd";
-import {
-    FileTextOutlined,
-    UserOutlined,
-    AppstoreOutlined,
-    BellOutlined,
-    WechatOutlined,
-    CreditCardOutlined
-} from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
-
+import { useNavigate } from "react-router-dom"
 const originData = [];
 
-const JobsInterPending = () => {
+const JobsInternalPending = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);
     const [editingKey, setEditingKey] = useState('');
@@ -52,7 +31,7 @@ const JobsInterPending = () => {
                         <td>{e.customer_name}</td>
                         <td>{e.deliverer}</td>
                         <td>{e.job_id}</td>
-
+                       
                         {/* <td>{e.customer_id}</td> */}
                         {/* <td><span onClick={() => { navigate(`/user/profile/user_id=${e.uuid}`, { replace: true, state: { uuid: e.uuid, name: e.name, username: e.username, email: e.email, role: e.role, telephone: e.telephone } }) }}>View</span></td> */}
                     </tr >
@@ -84,7 +63,7 @@ const JobsInterPending = () => {
             width: '20%',
             editable: true,
         },
-
+ 
         {
             title: 'Profile',
             dataIndex: 'Profile',
@@ -98,63 +77,27 @@ const JobsInterPending = () => {
             }
         },
     ];
-    const mergedColumns = columns.map((col) => {
-        return {
+    const mergedColumns = columns.map((col)=>{
+        return{
             ...col,
         };
     });
 
     return (
-        <div className='main-container'>
-            <PageHeader
-                avatar={{
-                    src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
-                }}
-                //ghost={false}
-                //onBack={() => window.history.back()}
-                title="DocTracker"
-                subTitle="Branch Mode"
-                extra={[
-                 
-                    <Button
-                        key="2"
-                        onClick={async (e) => {
-                            e.preventDefault();
-                            navigate("/branch/dashboard");
-                        }}
-
-                    >
-                        Branch Dashboard
-                    </Button>,
-                    <Button
-                        key="1"
-                        type="primary"
-                        htmlType="submit"
-                        className="login-form-button"
-                        onClick={async (e) => {
-                            e.preventDefault();
-                            localStorage.clear();
-                            navigate("/");
-                        }}
-                    >
-                        Logout
-                    </Button>,
-                ]}
-            ></PageHeader>
-            <div>
-                <h2>Pending Jobs</h2>
-                <Form form={form} component={false}>
-                    <table className='table'>
-                        <th>Job Created by</th>
-                        <th>Deliverer</th>
-                        <th>Job ID</th>
-
-                        {/* <th>Operation</th> */}
-                        {table_body}
-                    </table>
-                </Form>
-            </div></div>
+        <div>
+            <h2>Pending Jobs</h2>
+            <Form form={form} component={false}>
+            <table className='table'>
+        <th>Job Created by</th>
+        <th>Deliverer</th>
+        <th>Job ID</th>
+       
+        {/* <th>Operation</th> */}
+        {table_body}
+      </table>
+    </Form>
+        </div>
     )
 }
 
-export default JobsInterPending;
+export default JobsInternalPending;

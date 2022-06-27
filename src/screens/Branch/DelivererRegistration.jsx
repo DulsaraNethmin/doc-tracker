@@ -1,9 +1,31 @@
 import React from "react";
-import { Form, Input, Button, Row, Col, Card, Checkbox } from "antd";
+// import { Form, Input, Button, Row, Col, Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { UserOutlined, HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import axios from "axios";
+import {
+  Checkbox,
+  Button,
+  Dropdown,
+  Row,
+  Col,
+  Card,
+  PageHeader,
+  Form,
+  Input
+
+} from "antd";
+import {
+  FileTextOutlined,
+  // UserOutlined,
+  AppstoreOutlined,
+  BellOutlined,
+  WechatOutlined,
+  CreditCardOutlined
+} from '@ant-design/icons';
+import { Layout,Menu } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 
 const layout = {
   labelCol: {
@@ -72,7 +94,53 @@ const DelivererRegistration = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="main-container">
+     
+            <PageHeader
+        avatar={{
+          src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+        }}
+        //ghost={false}
+        //onBack={() => window.history.back()}
+        title="DocTracker"
+        subTitle="Branch Mode"
+        extra={[
+        //   <Button
+        //     key="3"
+        //     onClick={async (e) => {
+        //       e.preventDefault();
+        //       navigate("/branch/customer/create");
+        //     }}
+
+
+        //   >
+        //     Create New Customer
+        //   </Button>,
+        <Button
+        key="2"
+        onClick={async (e) => {
+            e.preventDefault();
+            navigate("/branch/dashboard");
+        }}
+
+    >
+        Branch Dashboard
+    </Button>,
+          <Button
+            key="1"
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+            onClick={async (e) => {
+              e.preventDefault();
+              localStorage.clear();
+              navigate("/");
+            }}
+          >
+            Logout
+          </Button>,
+        ]}
+      ></PageHeader>
       <Row style={{ padding: "4% 0" }}>
         <Col span={3}></Col>
         <Col span={18}>

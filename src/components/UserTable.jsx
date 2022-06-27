@@ -2,7 +2,28 @@ import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react';
 import "../screens/Branch/pages.css"
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import {
+
+  Button,
+  Dropdown,
+ 
+  PageHeader,
+  Row,
+  Col,
+  Card,
+
+} from "antd";
+import {
+  FileTextOutlined,
+  UserOutlined,
+  AppstoreOutlined,
+  BellOutlined,
+  WechatOutlined,
+  CreditCardOutlined
+} from '@ant-design/icons';
+import { Layout,Menu } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 const originData = [];
 
 
@@ -111,6 +132,52 @@ const UserTable = () => {
 
   return (
     <div className='main-container'>
+    <PageHeader
+avatar={{
+  src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+}}
+//ghost={false}
+//onBack={() => window.history.back()}
+title="DocTracker"
+subTitle="Branch Mode"
+extra={[
+//   <Button
+//     key="3"
+//     onClick={async (e) => {
+//       e.preventDefault();
+//       navigate("/branch/customer/create");
+//     }}
+
+
+//   >
+//     Create New Customer
+//   </Button>,
+<Button
+key="2"
+onClick={async (e) => {
+    e.preventDefault();
+    navigate("/branch/dashboard");
+}}
+
+>
+Branch Dashboard
+</Button>,
+  <Button
+    key="1"
+    type="primary"
+    htmlType="submit"
+    className="login-form-button"
+    onClick={async (e) => {
+      e.preventDefault();
+      localStorage.clear();
+      navigate("/");
+    }}
+  >
+    Logout
+  </Button>,
+]}
+></PageHeader>
+    <div >
       
         <h2>User details</h2>
         <Form form={form} component={false}>
@@ -132,14 +199,14 @@ const UserTable = () => {
         <th>Username</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Telephone</th>
+       
         <th>Operation</th>
         {table_body}
       </table>
       </div>
      
     </Form>
-    </div>
+    </div></div>
   )
 }
 
