@@ -31,5 +31,5 @@ img{
   }
 
 .Background{
-  background-image: url('../../images/background.png') no-repeat;
+  background-image: url('../../images/background.png');
 }

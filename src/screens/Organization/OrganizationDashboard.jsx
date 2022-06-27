@@ -6,10 +6,10 @@ import Password from "antd/lib/input/Password";
 import { useNavigate } from "react-router-dom";
 import Widget from "../../components/Dashboard/Widget";
 import Tbl from "../../components/Dashboard/Table";
-import "../../components/Dashboard.css";
+
 import Head from "../../components/Dashboard/Head";
 import { MoreOutlined } from "@ant-design/icons";
-import "./pages.css";
+
 import {
   Layout,
   Button,
@@ -57,11 +57,11 @@ const OrganizationDashboard = () => {
   };
 
   return (
-    <div>
+    <div className="main-container" >
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           avatar={{
-            src: "https://avatars1.githubusercontent.com/u/8186664?s=460&v=4",
+            src: "logo.jpeg",
           }}
           //ghost={false}
           //onBack={() => window.history.back()}
@@ -116,13 +116,12 @@ const OrganizationDashboard = () => {
         </header>
       </Layout>
 
-      <OrganizationTable />
-      <BranchesTable />
-
       <div>
         <Row style={{ padding: "4% 0" }}>
           <Col span={3}></Col>
           <Col span={18}>
+          <OrganizationTable />
+      <BranchesTable />
             <Card
               title="Enter Username and Password of a branch to edit"
               alignment="center"

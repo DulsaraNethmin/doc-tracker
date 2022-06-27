@@ -93,7 +93,7 @@ const OrganizationTable = () => {
   });
 
   return (
-    <div className="Table">
+    <div>
       <h2>Organization Details</h2>
       <Form form={form} component={false}>
         <Table

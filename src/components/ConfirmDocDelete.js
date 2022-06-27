@@ -40,7 +40,7 @@ function ViewQrCodeDetails() {
         };
         const DeleteItem = async() => {
 
-            var response = await axios.get(`http://localhost:8080/document/DeleteOnedoc?doc_id=${id}`);
+            var response = await axios.delete(`http://localhost:8080/document/DeleteOnedoc?uuid=${id}`);
             console.log(response.data);
             setDoc(response.data);
             response.data.map((e)=>{

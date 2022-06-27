@@ -1,17 +1,22 @@
-import "./pages.css";
+
 import {
-  AutoComplete,
+  Layout,
   Button,
-  Cascader,
-  Checkbox,
+  Dropdown,
+  Menu,
+  PageHeader,
+  Row,
   Col,
+  Card,
   Form,
   Input,
-  InputNumber,
-  Row,
   Select,
-  Card,
+  Tag,
+  Typography,
 } from "antd";
+const { Paragraph } = Typography;
+const { Header, Footer, Sider, Content } = Layout;
+
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useState } from "react";
@@ -56,7 +61,6 @@ const BranchRegPage = () => {
   const [latitude, set_latitude] = useState("");
   const [longitude, set_longitude] = useState("");
 
-
   const handle_latitude = (e) => {
     set_latitude(e.target.value);
   };
@@ -90,10 +94,52 @@ const BranchRegPage = () => {
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   return (
-    <div>
+    <div className="main-container">
+      <div className="site-page-header-ghost-wrapper">
+        <PageHeader
+          avatar={{
+            src: "logo.jpeg",
+          }}
+          //ghost={false}
+          //onBack={() => window.history.back()}
+          title="DocTracker"
+          subTitle="Organization Mode"
+          extra={[
+            <Button
+              key="3"
+              onClick={(e) => {
+                navigate("/organization/dashboard");
+              }}
+            >
+              Organization Dashboard
+            </Button>,
+            <Button
+              key="2"
+              onClick={(e) => {
+                navigate("/branch/create");
+              }}
+            >
+              Create New Branch
+            </Button>,
+            <Button
+              key="1"
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+              onClick={async (e) => {
+                e.preventDefault();
+                localStorage.clear();
+                navigate("/");
+              }}
+            >
+              Logout
+            </Button>,
+          ]}
+        ></PageHeader>
+      </div>
       <Row style={{ padding: "4% 0" }}>
-        <Col span={3}></Col>
-        <Col span={18}>
+        <Col span={6}></Col>
+        <Col span={12}>
           <Card title="Create Branch" alignment="center">
             <Form
               {...formItemLayout}
@@ -225,8 +271,17 @@ const BranchRegPage = () => {
                   // }}
                   onClick={async (e) => {
                     e.preventDefault();
-                    if (branch_name == ""||address_1 == ""||address_3 == ""||address_2 == ""||latitude == ""||longitude == "") {
-                      window.alert( "Please fill all the Fields before submitting");
+                    if (
+                      branch_name == "" ||
+                      address_1 == "" ||
+                      address_3 == "" ||
+                      address_2 == "" ||
+                      latitude == "" ||
+                      longitude == ""
+                    ) {
+                      window.alert(
+                        "Please fill all the Fields before submitting"
+                      );
                     } else {
                       console.log(branch_name);
                       let data = {
@@ -261,10 +316,13 @@ const BranchRegPage = () => {
                 </Button>
               </Form.Item>
             </Form>
+            <a href="https://www.latlong.net/">
+            Click Here to Check Latitude and Longitude of the branch !
+          </a>
           </Card>
-          <a href="https://www.latlong.net/">Click Here to Check Latitude and Longitude of the branch !</a>
+          
         </Col>
-        <Col span={3}></Col>
+        <Col span={6}></Col>
       </Row>
     </div>
   );
