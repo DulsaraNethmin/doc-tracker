@@ -118,7 +118,7 @@ const Payments = () => {
   });
 
   return (
-    <div>
+    <div className="main-container">
       
       <PageHeader
         avatar={{
