@@ -25,3 +25,10 @@ img{
 .Background{
   background-image: url('../../images/background.png') no-repeat;
 }
+
+.table{
+  border-color: #000;
+  border-style:inherit;
+  padding-left: 1000px;
+  size: 400%;
+}

@@ -1,9 +1,10 @@
 import React,{ useState }  from "react";
 import Tbl from "../../components/Dashboard/Table";
 import Widget from "../../components/Dashboard/Widget";
-import "../../components/Dashboard.css";
+import "./dashboard.css";
 import Head from "../../components/Dashboard/Head";
 import { useNavigate } from "react-router-dom";
+import JobsInternalPending from "./internalpending"
 import {
 
   Button,
@@ -115,8 +116,8 @@ function Dashboard(){
       </Sider> 
       
            
-
-      <Layout  className="site-layout"><header className="site-layout-background"
+<div>
+<Layout  className="site-layout"><header className="site-layout-background"
           style={{
             padding: 0,
           }}><Head /></header>
@@ -140,7 +141,14 @@ function Dashboard(){
 
          </Content> */}
 
+<Row style={{ padding: "4% 0" }}>
+          <Col span={6}></Col>
+          <Col span={12}><JobsInternalPending/></Col>
+          <Col span={6}></Col></Row>
+
       </Layout>
+</div>
+      
       
     </Layout>
       </div>

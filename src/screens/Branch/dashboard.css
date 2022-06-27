@@ -15,6 +15,14 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.main-container {
+  text-align: center;
+  /* padding: 5%; */
+  background-image: url("../../images/background2.jpg");
+  /* height: 760px; */
+}
+
+
 .container-fluid {
   margin: 0 auto;
   max-width: 1200px;
@@ -561,10 +569,34 @@ responsive
   
 }
 
-.tables{
+.table{
   border-color: #000;
+  border-style: groove;
+  padding-left: 1000px;
+  size: 400%;
 }
 
-.BG{
+/* .BG{
+  background-position: 0%;
   background-image: url('https://images.pexels.com/photos/891059/pexels-photo-891059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+} */
+
+.main{
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 100%;
+  height: 500%;
+}
+
+/* .Form{
+  background-image: url('https://images.pexels.com/photos/7501536/pexels-photo-7501536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-size:cover;
+} */
+
+.main-container {
+  text-align: center;
+  padding: 5%;
+  background-image: url("../../images/background2.jpg");
+  height: 760px;
 }
